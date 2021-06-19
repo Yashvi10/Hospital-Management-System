@@ -72,3 +72,4 @@ deploy_master:
     - scp -r -o StrictHostKeyChecking=no config.properties "${DEPLOY_PRODUCTION_USER}@${DEPLOY_HOST}:${DEPLOY_DIR}/config.properties"
   only:
     - releaseN
+    
