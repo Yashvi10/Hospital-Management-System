@@ -15,7 +15,7 @@ public class PharmacyPage {
     HashMap<Integer, CartItem> cart = new HashMap<Integer, CartItem>();
 
     public void PharmacyMenu(){
-        System.out.println("Press l to list all medicines, Press b to back");
+        System.out.println("Press l to list all medicines, Press e to back");
 
         Scanner scanner = new Scanner(System.in);
         String inputFromUser = scanner.nextLine();
@@ -52,6 +52,7 @@ public class PharmacyPage {
                 showCartItems();
                 break;
             } else if(userInput.equals("e") || userInput.equals("E")){
+                PharmacyMenu();
                 break;
             } else {
                 NotFound();
@@ -69,7 +70,7 @@ public class PharmacyPage {
         } else {
             if(isItemInList(userInput)) {
                 addItemInCart(userInput);
-                System.out.println("Avaiable");
+                System.out.println("Item Added in cart");
             }else {
                 System.out.println("Invalid Product Id");
             }
@@ -99,6 +100,10 @@ public class PharmacyPage {
                     CartItem cartItem = new CartItem(pharmacy.getProduct_name(),1, pharmacy.getPrice(), total_Price);
 
                     cart.put(pharmacy.getP_id(), cartItem);
+
+
+                    updateStock(pid);
+
                 } else {
                     CartItem cartItem = cart.get(pharmacy.getP_id());
                     cartItem.setQty(cartItem.getQty() + 1);
@@ -106,10 +111,23 @@ public class PharmacyPage {
                     cartItem.setTotalPrice(total_price);
 
                     cart.put(pharmacy.getP_id(), cartItem);
+
+                    updateStock(pid);
                 }
             }
         }
 
+    }
+
+    public Boolean updateStock(String pid){
+        for(Pharmacy medicine: listOfMedicines) {
+            if(medicine.getP_id() == Integer.parseInt(pid)) {
+                Integer updatedStock = medicine.getStock() - 1;
+                medicine.setStock(updatedStock);
+                return true;
+            }
+        }
+        return false;
     }
 
     public void showCartItems(){

@@ -59,5 +59,29 @@ public class PharmacyPageTest {
         assertEquals(false, pharmacyPage.cart.size() > 0);
     }
 
+    @Test
+    public void updateStock_true(){
+        PharmacyPage pharmacyPage = new PharmacyPage();
+        Pharmacy P1 = new Pharmacy(1, "P1", 2.0, 25, "2025-05-02");
+        Pharmacy P2 = new Pharmacy(2, "P2", 4.0, 25, "2024-05-12");
+        pharmacyPage.listOfMedicines.add(P1);
+        pharmacyPage.listOfMedicines.add(P2);
 
+        // return true of medicine with that pid in this case "2" is in the list and update the stock by -1
+        assertEquals(true, pharmacyPage.updateStock("2"));
+
+    }
+
+    @Test
+    public void updateStock_false(){
+        PharmacyPage pharmacyPage = new PharmacyPage();
+        Pharmacy P1 = new Pharmacy(1, "P1", 2.0, 25, "2025-05-02");
+        Pharmacy P2 = new Pharmacy(2, "P2", 4.0, 25, "2024-05-12");
+        pharmacyPage.listOfMedicines.add(P1);
+        pharmacyPage.listOfMedicines.add(P2);
+
+        // return false of medicine with that pid in this case "22" is not in the list
+        assertEquals(false, pharmacyPage.updateStock("22"));
+
+    }
 }
