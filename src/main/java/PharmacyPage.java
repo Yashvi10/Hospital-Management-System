@@ -13,6 +13,7 @@ public class PharmacyPage {
     PharmacyService pharmacyService = new PharmacyService();
     List<Pharmacy> listOfMedicines = pharmacyService.getAllMedicines();
     HashMap<Integer, CartItem> cart = new HashMap<Integer, CartItem>();
+    Double finalPrice = 0.0;
 
     public void PharmacyMenu(){
         System.out.println("Press l to list all medicines, Press e to back");
@@ -100,8 +101,6 @@ public class PharmacyPage {
                     CartItem cartItem = new CartItem(pharmacy.getProduct_name(),1, pharmacy.getPrice(), total_Price);
 
                     cart.put(pharmacy.getP_id(), cartItem);
-
-
                     updateStock(pid);
 
                 } else {
@@ -145,9 +144,12 @@ public class PharmacyPage {
                 String price = String.format("|%10f|", cartItem.getPrice());
                 String qty = String.format("|%10d|", cartItem.getQty());
                 String totalPrice = String.format("|%10f|", cartItem.getTotalPrice());
-                String finalBill = String.format("|%10f|", cartItem.getFinalPrice());
+//                String finalBill = String.format("|%10f|", cartItem.getFinalPrice());
+                finalPrice += cartItem.getTotalPrice();
                 System.out.println(p_id +" " +name +" " +qty +" " +price +" " +totalPrice);
             }
+
+            System.out.println("Your total bill is: $" +finalPrice);
         }
 
         System.out.println("Press c to checkout or press e to exit (it will remove the cart)");
@@ -156,12 +158,18 @@ public class PharmacyPage {
 
         if(userInput.equals("c") || userInput.equals("C")){
             System.out.println("Checkout");
-            PharmacyMenu();
+            checkOut();
         } else {
             PharmacyMenu();
         }
 
 
+    }
+
+    public void checkOut(){
+        cart.clear();
+        PharmacyMenu();
+        System.out.println("You have been successfully checkout");
     }
 
     public void NotFound(){
