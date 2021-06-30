@@ -7,4 +7,6 @@ import java.util.List;
 public interface PharmacyDAO {
 
     List<Pharmacy> getAllMedicines();
+
+    void updateStock(String pId, Integer qty);
 }

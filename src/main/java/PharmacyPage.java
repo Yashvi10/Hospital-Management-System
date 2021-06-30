@@ -12,7 +12,7 @@ public class PharmacyPage {
 
     PharmacyService pharmacyService = new PharmacyService();
     List<Pharmacy> listOfMedicines = pharmacyService.getAllMedicines();
-    HashMap<Integer, CartItem> cart = new HashMap<Integer, CartItem>();
+    public static HashMap<Integer, CartItem> cart = new HashMap<Integer, CartItem>();
     Double finalPrice = 0.0;
 
     public void PharmacyMenu(){
@@ -137,21 +137,30 @@ public class PharmacyPage {
             System.out.println("=========CART ITEM LIST=========");
             System.out.println(String.format("|%10s|", "P_id") +" " +String.format("|%10s|", "Name") +" " +String.format("|%10s|", "Qty") +" " +String.format("|%10s|", "Price") +" " +String.format("|%10s|", "Total Price"));
 
-            for(Map.Entry me: cart.entrySet()) {
-                String p_id = String.format("|%10d|", me.getKey());
-                CartItem cartItem = (CartItem) me.getValue();
-                String name = String.format("|%10s|", cartItem.getName());
-                String price = String.format("|%10f|", cartItem.getPrice());
-                String qty = String.format("|%10d|", cartItem.getQty());
-                String totalPrice = String.format("|%10f|", cartItem.getTotalPrice());
-//                String finalBill = String.format("|%10f|", cartItem.getFinalPrice());
-                finalPrice += cartItem.getTotalPrice();
-                System.out.println(p_id +" " +name +" " +qty +" " +price +" " +totalPrice);
-            }
-
-            System.out.println("Your total bill is: $" +finalPrice);
+            showCart();
         }
 
+        afterCartMenu();
+
+
+    }
+
+    public void showCart(){
+        for(Map.Entry me: cart.entrySet()) {
+            String p_id = String.format("|%10d|", me.getKey());
+            CartItem cartItem = (CartItem) me.getValue();
+            String name = String.format("|%10s|", cartItem.getName());
+            String price = String.format("|%10f|", cartItem.getPrice());
+            String qty = String.format("|%10d|", cartItem.getQty());
+            String totalPrice = String.format("|%10f|", cartItem.getTotalPrice());
+//                String finalBill = String.format("|%10f|", cartItem.getFinalPrice());
+            finalPrice += cartItem.getTotalPrice();
+            System.out.println(p_id +" " +name +" " +qty +" " +price +" " +totalPrice);
+        }
+
+        System.out.println("Your total bill is: $" +finalPrice);
+    }
+    public void afterCartMenu(){
         System.out.println("Press c to checkout or press e to exit (it will remove the cart)");
         Scanner scanner = new Scanner(System.in);
         String userInput = scanner.nextLine();
@@ -159,17 +168,19 @@ public class PharmacyPage {
         if(userInput.equals("c") || userInput.equals("C")){
             System.out.println("Checkout");
             checkOut();
+
         } else {
             PharmacyMenu();
         }
-
-
     }
 
     public void checkOut(){
-        cart.clear();
-        PharmacyMenu();
-        System.out.println("You have been successfully checkout");
+//        cart.clear();
+//        PharmacyMenu();
+//        showCart();
+
+        BillingPage billingPage = new BillingPage();
+        billingPage.CheckOut();
     }
 
     public void NotFound(){

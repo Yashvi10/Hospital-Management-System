@@ -35,13 +35,56 @@ public class PharmacyService implements PharmacyDAO {
                 Pharmacy pharmacy = new Pharmacy(p_id, product_name, price, stock, expiry_date);
                 pharmacyList.add(pharmacy);
 //                System.out.println(p_id +" " +product_name +" " +price +" " +stock +" " +expiry_date);
+
             }
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
+            } finally {
+                try {
+                    conn.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
 
         return pharmacyList;
 
+    }
+
+    @Override
+    public void updateStock(String pId, Integer qty) {
+        CustomConnection connection = new CustomConnection();
+        Connection conn = connection.Connect();
+
+        Integer stock = 0;
+
+        if(conn != null) {
+            String sql = "SELECT * from CSCI5308_8_DEVINT.pharmacy_list where p_id ='" +pId +"'";
+            Statement statement = null;
+
+            try {
+                statement = conn.createStatement();
+                ResultSet result = statement.executeQuery(sql);
+                while(result.next()) {
+                    stock = result.getInt(4);
+                }
+
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+
+            Integer newStock = stock - qty;
+            sql = "UPDATE CSCI5308_8_DEVINT.pharmacy_list set stock = '" +newStock +"' where p_id ='" +pId +"'";
+            try {
+                statement.executeUpdate(sql);
+                System.out.println("Stock Updated");
+
+                conn.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+
+        }
     }
 }
