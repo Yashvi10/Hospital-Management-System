@@ -1,3 +1,4 @@
+import java.awt.print.Book;
 import java.util.Scanner;
 
 public class Appointments {
@@ -24,20 +25,22 @@ public class Appointments {
         int choice;
         System.out.println("Please let us know if you want to book a new appointment, cancel an existing appointment or " +
                 "reschedule an existing appointment");
-        System.out.println("""
-                Please select:\s
-                1: Book an appointment\s
-                2: Cancel an appointment\s
-                3: Reschedule an appointment\s
-                """);
+        System.out.println(" Please select:\n" +
+                " 1: Book an appointment\n" +
+                "2: Cancel an appointment\n" +
+                "3: Reschedule an appointment\n");
         Scanner input = new Scanner(System.in);
         choice = input.nextInt();
 
         switch (choice) {
-            case 1 -> appointments.book_appointment();
-            case 2 -> appointments.cancel_appointment();
-            case 3 -> appointments.reschedule_appointment();
-            default -> System.out.println("Please choose a valid option! Invalid selection");
+            case 1:
+                appointments.book_appointment();
+            case 2:
+                appointments.cancel_appointment();
+            case 3:
+                appointments.reschedule_appointment();
+            default:
+                System.out.println("Please choose a valid option! Invalid selection");
         }
 
     }
