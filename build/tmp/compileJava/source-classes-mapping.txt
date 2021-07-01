@@ -1,16 +1,16 @@
 Model/CartItem.java
  Model.CartItem
-Services/CustomConnection.java
- Services.CustomConnection
-Model/Pharmacy.java
- Model.Pharmacy
-Starter.java
- Starter
-DAO/PharmacyDAO.java
- DAO.PharmacyDAO
 Services/PharmacyService.java
  Services.PharmacyService
+Starter.java
+ Starter
 PharmacyPage.java
  PharmacyPage
+Services/CustomConnection.java
+ Services.CustomConnection
+DAO/PharmacyDAO.java
+ DAO.PharmacyDAO
+Model/Pharmacy.java
+ Model.Pharmacy
 BillingPage.java
  BillingPage

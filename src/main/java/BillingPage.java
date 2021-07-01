@@ -7,10 +7,13 @@ import java.util.Scanner;
 
 public class BillingPage {
 
+    /*
+     * This is the Main checkout function which will call another methods like paidByCash
+     * */
     public void CheckOut(){
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Press (c for card or s for cash): ");
+        System.out.println("Press (s for cash): ");
         String paymentType = scanner.nextLine();
         String paymentMode = "";
 
@@ -27,6 +30,9 @@ public class BillingPage {
         }
     }
 
+    /*
+     * This is the paid by cash function it will update the stock and clear the cart
+     * */
     public void paidByCash(){
         for(Map.Entry me: PharmacyPage.cart.entrySet()) {
             CartItem cartItem = (CartItem) me.getValue();

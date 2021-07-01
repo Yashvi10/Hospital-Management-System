@@ -15,6 +15,9 @@ public class PharmacyPage {
     public static HashMap<Integer, CartItem> cart = new HashMap<Integer, CartItem>();
     Double finalPrice = 0.0;
 
+    /*
+    * This is the Menu for pharmacy module
+    * */
     public void PharmacyMenu(){
         System.out.println("Press l to list all medicines, Press e to back");
 
@@ -28,6 +31,9 @@ public class PharmacyPage {
         }
     }
 
+    /*
+     * This is the Function which will show list of all available medicines
+     * */
     public void getAllMedicines(){
 
         System.out.println("=========PHARMACY LIST=========");
@@ -61,6 +67,9 @@ public class PharmacyPage {
         }
     }
 
+    /*
+     * This is the function from which user can buy specific medicines input will be product id
+     * */
     public void BuyItem(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the P_id you want to buy or Press e to exit");
@@ -79,6 +88,9 @@ public class PharmacyPage {
         }
 
 
+    /*
+     * This is the function which will check if there are any items present in the list
+     * */
     // This method will return true if the item is present in the list otherwise false
     public Boolean isItemInList(String pid){
         if (pid.matches("[0-9]+" )) {
@@ -92,6 +104,9 @@ public class PharmacyPage {
         return false;
     }
 
+    /*
+     * This is the function which will add medicines in the cart using product id
+     * */
     public void addItemInCart(String pid){
 
         for(Pharmacy pharmacy: listOfMedicines) {
@@ -118,6 +133,9 @@ public class PharmacyPage {
 
     }
 
+    /*
+     * This is the Function which will call when user checkout so we can minus the qty in the stock
+     * */
     public Boolean updateStock(String pid){
         for(Pharmacy medicine: listOfMedicines) {
             if(medicine.getP_id() == Integer.parseInt(pid)) {
@@ -145,6 +163,9 @@ public class PharmacyPage {
 
     }
 
+    /*
+     * This is the Function which will show items present in the cart
+     * */
     public void showCart(){
         for(Map.Entry me: cart.entrySet()) {
             String p_id = String.format("|%10d|", me.getKey());
@@ -160,6 +181,9 @@ public class PharmacyPage {
 
         System.out.println("Your total bill is: $" +finalPrice);
     }
+    /*
+     * This is the just simple menu which will be called after showing cart
+     * */
     public void afterCartMenu(){
         System.out.println("Press c to checkout or press e to exit (it will remove the cart)");
         Scanner scanner = new Scanner(System.in);
@@ -174,6 +198,9 @@ public class PharmacyPage {
         }
     }
 
+    /*
+     * This is the checkout function
+     * */
     public void checkOut(){
 //        cart.clear();
 //        PharmacyMenu();
