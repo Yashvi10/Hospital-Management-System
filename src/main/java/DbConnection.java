@@ -10,8 +10,7 @@ public class DbConnection {
             con= DriverManager.getConnection(
                     "jdbc:mysql://db-5308.cs.dal.ca/CSCI5308_8_DEVINT?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","CSCI5308_8_DEVINT_USER","cWhbaAs94FR");
 
-            //con= DriverManager.getConnection("jdbc:mysql://localhost:3306/project5308?useSSL=false","root","root");
-            if(con != null) {
+             if(con != null) {
                 return con;
             }
 

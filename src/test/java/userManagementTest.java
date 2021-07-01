@@ -12,34 +12,9 @@ public class userManagementTest {
     private static final String confirmPswd=  "Summer2021";
     private static final String role="Patient";
 
-    userManagement user=new userManagement(firstName,lastName,address,phone,email,
-            confirmEmail,pswd,confirmPswd,role );
+     userManagement user=new userManagement(email,pswd);
 
-    @Test
-    public void setFirstName_Test(){
 
-        user.setFirstName(firstName);
-        assertEquals(  "Margaret", user.getFirstName( ));
-    }
-
-    @Test
-    public void setLastName_Test(){
-
-        user.setLastName(lastName);
-        assertEquals(  "Parker", user.getLastName( ));
-    }
-    @Test
-    public void setAddress_Test(){
-
-        user.setAddress(address);
-        assertEquals(  "123 South Park", user.getAddress( ));
-    }
-    @Test
-    public void setPhone_Test(){
-
-        user.setPhone(phone);
-        assertEquals(  "9024012987", user.getPhone( ));
-    }
 
     @Test
     public void setEmail_Test(){
@@ -56,33 +31,26 @@ public class userManagementTest {
     }
 
     @Test
-    public void setRole_Test(){
-
-        user.setRole(role);
-        assertEquals(  "Patient", user.getRole( ));
-    }
-
-    @Test
     public void RegisterUserTest(){
-        assertEquals("User added",user.RegisterUser( ));
+        assertEquals("User added",user.RegisterUser(  firstName,  lastName,  address,  phone,   confirmEmail, confirmPswd,  role ));
+
     }
 
     @Test
     public void RegisterUserCredTest(){
-        assertEquals("User password created",user.RegisterUserCred( ));
+        assertEquals("User password created",user.RegisterUserCred( role));
     }
 
     @Test
     public void loginUserTest_True(){
-        assertEquals("User password created",user.RegisterUserCred( ));
+
         assertTrue(user.loginUser(email, pswd), "Login successful");
     }
 
-    @Test
+     @Test
     public void loginUserTest_False(){
         String email="parker@yahoo.com";
-        assertEquals("User password created",user.RegisterUserCred( ));
-        assertFalse (user.loginUser(email, pswd), "Login failed");
+         assertFalse (user.loginUser(email, pswd), "Login failed");
     }
 
 

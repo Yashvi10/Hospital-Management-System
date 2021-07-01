@@ -1,5 +1,3 @@
-
-
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -23,49 +21,12 @@ public class userManagement {
     private String confirmPswd ;
     private String role;
 
-    userManagement(String firstName,String lastName,String address,String phone,String email,String confirmEmail,String pswd, String confirmPswd,String role ){
-        db = new DbConnection();
-        this.firstName=firstName;
-        this.lastName=lastName;
-        this.address=address;
-        this.phone=phone;
+    userManagement(String email, String pswd ){
+
+       db = new DbConnection();
         this.email=email;
-        this.confirmEmail=confirmEmail;
-        this.pswd=pswd;
-        this.confirmPswd=confirmPswd;
-        this.role=role;
-    }
+         this.pswd=pswd;
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     public String getEmail() {
@@ -84,25 +45,18 @@ public class userManagement {
         this.pswd = pswd;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
 
     /*
      * This method saves users details in the database
      */
-    String RegisterUser( ){
+    String RegisterUser( String firstName,String lastName,String address,String phone, String confirmEmail,String confirmPswd , String role){
+
         resultSet = null;
         conn = null;
         response=null;
+        this.role=role;
 
         try {
-            //ResultSet resultSet = null;
-
             if( (email.equals(confirmEmail) )&&(pswd.equals(confirmPswd))){
                 String queryUserTable = " insert into usertable(firstName,LastName,address,phone,email) values( ?,?,?,?,?)";
                 conn = db.Connect();
@@ -126,11 +80,6 @@ public class userManagement {
         }
         finally {
 
-           /* if (resultSet != null) {
-                try { resultSet.close(); } catch (SQLException sqlEx) { }
-                resultSet = null;
-            }*/
-
             if (conn != null) {
                 try { conn.close(); } catch (SQLException sqlEx) { sqlEx.getMessage();}
                 conn = null;
@@ -142,9 +91,11 @@ public class userManagement {
     /*
      * This method inserts into the usercred
      */
-    String RegisterUserCred( ){
+    String RegisterUserCred(String role ){
 
         response="" ;
+
+
         try {
             conn=db.Connect();
             statement = conn.createStatement();
@@ -152,12 +103,14 @@ public class userManagement {
             while (resultSet.next())
                 userid = resultSet.getInt("userid");
 
+            resultSet = null;
+
             String queryUserCred = " insert into usercred values(?,?,?,?)";
 
             PreparedStatement insertUserCred = conn.prepareStatement(queryUserCred);
             insertUserCred.setInt(1, userid);
-            insertUserCred.setString(2, email.trim());
-            insertUserCred.setString(3, pswd.trim());
+            insertUserCred.setString(2, email);
+            insertUserCred.setString(3, pswd);
             insertUserCred.setString(4, role);
             insertUserCred.executeUpdate();
             response="User password created";
@@ -171,16 +124,16 @@ public class userManagement {
         finally {
 
             if (resultSet != null) {
-                try { resultSet.close(); } catch (SQLException sqlEx) { sqlEx.getMessage();}
+                try { resultSet.close(); } catch (SQLException sqlEx) { }
                 resultSet = null;
             }
 
             if (statement != null) {
-                try { statement.close(); } catch (SQLException sqlEx) {sqlEx.getMessage(); }
+                try { statement.close(); } catch (SQLException sqlEx) { } // ignore
                 statement = null;
             }
             if (conn != null) {
-                try { conn.close(); } catch (SQLException sqlEx) {sqlEx.getMessage(); }
+                try { conn.close(); } catch (SQLException sqlEx) { }
                 conn = null;
             }
         }
@@ -232,6 +185,51 @@ public class userManagement {
         return boolResponse;
     }
 
+    boolean updateProfile( String email ){
+        boolean boolResponse=false;
+        String user=null;
+        int count=0;
+        try{
+
+            conn=db.Connect();
+            statement = conn.createStatement();
+            resultSet = statement.executeQuery(" Select * from usertable where email='"+email.trim()+"';" );
+
+            while (resultSet.next())
+                user=resultSet.getString("username");
+
+            if(user!= null)
+                boolResponse=true;
+
+            if(boolResponse)
+                System.out.println("Login Successful" );
+            else  System.out.println("Login Failed" );
+
+        }
+        catch (SQLException e) {
+            System.out.println("SQLException: " + e.getMessage());
+            System.out.println("SQLState: " + e.getSQLState());
+            System.out.println("VendorError: " + e.getErrorCode());
+
+        }
+        finally {
+
+            if (resultSet != null) {
+                try { resultSet.close(); } catch (SQLException sqlEx) {sqlEx.getMessage(); }
+                resultSet = null;
+            }
+
+            if (statement != null) {
+                try { statement.close(); } catch (SQLException sqlEx) {sqlEx.getMessage(); }
+                statement = null;
+            }
+            if (conn != null) {
+                try { conn.close(); } catch (SQLException sqlEx) { sqlEx.getMessage();}
+                conn = null;
+            }
+        }
+        return boolResponse;
+    }
 
 }
 
