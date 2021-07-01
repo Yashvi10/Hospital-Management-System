@@ -1,6 +1,6 @@
-import org.junit.Test;
-
+import org.junit.Test  ;
 import static org.junit.jupiter.api.Assertions.*;
+
 public class userManagementTest {
     private static final String firstName="Margaret";
     private static final String lastName="Parker";
@@ -12,7 +12,8 @@ public class userManagementTest {
     private static final String confirmPswd=  "Summer2021";
     private static final String role="Patient";
 
-    userManagement user=new userManagement(firstName,lastName,address,phone,email,confirmEmail,pswd,confirmPswd,role );
+    userManagement user=new userManagement(firstName,lastName,address,phone,email,
+            confirmEmail,pswd,confirmPswd,role );
 
     @Test
     public void setFirstName_Test(){
@@ -71,5 +72,18 @@ public class userManagementTest {
         assertEquals("User password created",user.RegisterUserCred( ));
     }
 
-   
+    @Test
+    public void loginUserTest_True(){
+        assertEquals("User password created",user.RegisterUserCred( ));
+        assertTrue(user.loginUser(email, pswd), "Login successful");
+    }
+
+    @Test
+    public void loginUserTest_False(){
+        String email="parker@yahoo.com";
+        assertEquals("User password created",user.RegisterUserCred( ));
+        assertFalse (user.loginUser(email, pswd), "Login failed");
+    }
+
+
 }

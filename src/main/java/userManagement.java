@@ -1,3 +1,5 @@
+
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,16 +24,16 @@ public class userManagement {
     private String role;
 
     userManagement(String firstName,String lastName,String address,String phone,String email,String confirmEmail,String pswd, String confirmPswd,String role ){
-          db = new DbConnection();
-          this.firstName=firstName;
-          this.lastName=lastName;
-          this.address=address;
-          this.phone=phone;
-          this.email=email;
-          this.confirmEmail=confirmEmail;
-          this.pswd=pswd;
-          this.confirmPswd=confirmPswd;
-          this.role=role;
+        db = new DbConnection();
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.address=address;
+        this.phone=phone;
+        this.email=email;
+        this.confirmEmail=confirmEmail;
+        this.pswd=pswd;
+        this.confirmPswd=confirmPswd;
+        this.role=role;
     }
 
     public String getFirstName() {
@@ -100,7 +102,6 @@ public class userManagement {
 
         try {
             //ResultSet resultSet = null;
-            Connection conn = null;
 
             if( (email.equals(confirmEmail) )&&(pswd.equals(confirmPswd))){
                 String queryUserTable = " insert into usertable(firstName,LastName,address,phone,email) values( ?,?,?,?,?)";
@@ -131,7 +132,7 @@ public class userManagement {
             }*/
 
             if (conn != null) {
-                try { conn.close(); } catch (SQLException sqlEx) { }
+                try { conn.close(); } catch (SQLException sqlEx) { sqlEx.getMessage();}
                 conn = null;
             }
         }
@@ -170,21 +171,68 @@ public class userManagement {
         finally {
 
             if (resultSet != null) {
-                try { resultSet.close(); } catch (SQLException sqlEx) { }
+                try { resultSet.close(); } catch (SQLException sqlEx) { sqlEx.getMessage();}
                 resultSet = null;
             }
 
             if (statement != null) {
-                try { statement.close(); } catch (SQLException sqlEx) { } // ignore
+                try { statement.close(); } catch (SQLException sqlEx) {sqlEx.getMessage(); }
                 statement = null;
             }
             if (conn != null) {
-                try { conn.close(); } catch (SQLException sqlEx) { }
+                try { conn.close(); } catch (SQLException sqlEx) {sqlEx.getMessage(); }
                 conn = null;
             }
         }
         return response;
     }
 
- 
+    boolean loginUser( String email, String pswd){
+        boolean boolResponse=false;
+        String user=null;
+        int count=0;
+        try{
+
+            conn=db.Connect();
+            statement = conn.createStatement();
+            resultSet = statement.executeQuery("Select username,password from usercred where trim(username) ='"  + email + "'  and trim(password)='"+pswd+"'; ");
+            while (resultSet.next())
+                user=resultSet.getString("username");
+
+            if(user!= null)
+                boolResponse=true;
+
+            if(boolResponse)
+                System.out.println("Login Successful" );
+            else  System.out.println("Login Failed" );
+
+        }
+        catch (SQLException e) {
+            System.out.println("SQLException: " + e.getMessage());
+            System.out.println("SQLState: " + e.getSQLState());
+            System.out.println("VendorError: " + e.getErrorCode());
+
+        }
+        finally {
+
+            if (resultSet != null) {
+                try { resultSet.close(); } catch (SQLException sqlEx) {sqlEx.getMessage(); }
+                resultSet = null;
+            }
+
+            if (statement != null) {
+                try { statement.close(); } catch (SQLException sqlEx) {sqlEx.getMessage(); }
+                statement = null;
+            }
+            if (conn != null) {
+                try { conn.close(); } catch (SQLException sqlEx) { sqlEx.getMessage();}
+                conn = null;
+            }
+        }
+        return boolResponse;
+    }
+
+
 }
+
+
