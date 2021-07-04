@@ -1,5 +1,6 @@
 import Model.CartItem;
 import Model.Pharmacy;
+import Services.OfferService;
 import Services.PharmacyService;
 
 import java.text.DecimalFormat;
@@ -14,6 +15,7 @@ public class PharmacyPage {
     List<Pharmacy> listOfMedicines = pharmacyService.getAllMedicines();
     public static HashMap<Integer, CartItem> cart = new HashMap<Integer, CartItem>();
     public static Double finalPrice = 0.0;
+    public static Boolean isFinalPriceVisited = false;
 
     /*
     * This is the Menu for pharmacy module
@@ -175,11 +177,14 @@ public class PharmacyPage {
             String qty = String.format("|%10d|", cartItem.getQty());
             String totalPrice = String.format("|%10f|", cartItem.getTotalPrice());
 //                String finalBill = String.format("|%10f|", cartItem.getFinalPrice());
-            finalPrice += cartItem.getTotalPrice();
+            if(isFinalPriceVisited == false) {
+                finalPrice += cartItem.getTotalPrice();
+            }
             System.out.println(p_id +" " +name +" " +qty +" " +price +" " +totalPrice);
+            cartItem.setFinalPrice(finalPrice);
         }
 
-
+        isFinalPriceVisited = true;
         System.out.println("Your total bill is: $" +finalPrice);
     }
     /*
@@ -203,9 +208,6 @@ public class PharmacyPage {
      * This is the checkout function
      * */
     public void checkOut(){
-//        cart.clear();
-//        PharmacyMenu();
-//        showCart();
 
         BillingPage billingPage = new BillingPage();
         billingPage.CheckOut();

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="BillingPageTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-07-04T09:49:14" hostname="DESKTOP-IC8LASV" time="4.419">
+  <properties/>
+  <testcase name="calculateDiscount_right()" classname="BillingPageTest" time="1.8"/>
+  <testcase name="calculateDiscount_notfound()" classname="BillingPageTest" time="2.619"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
+]]></system-err>
+</testsuite>

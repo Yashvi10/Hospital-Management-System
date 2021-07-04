@@ -2,3 +2,5 @@ StarterTest.java
  StarterTest
 PharmacyPageTest.java
  PharmacyPageTest
+BillingPageTest.java
+ BillingPageTest
