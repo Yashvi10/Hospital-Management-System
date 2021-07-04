@@ -1,5 +1,8 @@
 import Model.CartItem;
+import Model.Order;
+import Model.OrderItem;
 import Model.Pharmacy;
+import Services.OrderService;
 import Services.PharmacyService;
 
 import java.util.Map;
@@ -34,14 +37,21 @@ public class BillingPage {
      * This is the paid by cash function it will update the stock and clear the cart
      * */
     public void paidByCash(){
+        OrderService orderService = new OrderService();
+        orderService.addOrder(new Order(123));
+        Integer order_id = orderService.getLastOrderId();
+
         for(Map.Entry me: PharmacyPage.cart.entrySet()) {
             CartItem cartItem = (CartItem) me.getValue();
 
             PharmacyService pharmacyService = new PharmacyService();
             pharmacyService.updateStock(me.getKey().toString(), cartItem.getQty());
 
-
+            OrderItem orderItem = new OrderItem(Integer.parseInt(me.getKey().toString()),cartItem.getName(),cartItem.getQty(),cartItem.getPrice(),cartItem.getTotalPrice(),order_id);
+            orderService.addOrderItems(orderItem);
         }
+
+
 
         PharmacyPage.cart.clear();
         System.out.println("You have been successfully checkout");
