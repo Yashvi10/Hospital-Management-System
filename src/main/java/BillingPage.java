@@ -47,13 +47,14 @@ public class BillingPage {
             PharmacyService pharmacyService = new PharmacyService();
             pharmacyService.updateStock(me.getKey().toString(), cartItem.getQty());
 
-            OrderItem orderItem = new OrderItem(Integer.parseInt(me.getKey().toString()),cartItem.getName(),cartItem.getQty(),cartItem.getPrice(),cartItem.getTotalPrice(),order_id);
+            OrderItem orderItem = new OrderItem(Integer.parseInt(me.getKey().toString()),cartItem.getName(),cartItem.getQty(),cartItem.getPrice(),cartItem.getTotalPrice(),PharmacyPage.finalPrice,order_id);
             orderService.addOrderItems(orderItem);
         }
 
 
 
         PharmacyPage.cart.clear();
+        PharmacyPage.finalPrice = 0.0;
         System.out.println("You have been successfully checkout");
         PharmacyPage pharmacyPage = new PharmacyPage();
         pharmacyPage.PharmacyMenu();

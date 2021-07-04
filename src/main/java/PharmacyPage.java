@@ -13,7 +13,7 @@ public class PharmacyPage {
     PharmacyService pharmacyService = new PharmacyService();
     List<Pharmacy> listOfMedicines = pharmacyService.getAllMedicines();
     public static HashMap<Integer, CartItem> cart = new HashMap<Integer, CartItem>();
-    Double finalPrice = 0.0;
+    public static Double finalPrice = 0.0;
 
     /*
     * This is the Menu for pharmacy module
@@ -178,6 +178,7 @@ public class PharmacyPage {
             finalPrice += cartItem.getTotalPrice();
             System.out.println(p_id +" " +name +" " +qty +" " +price +" " +totalPrice);
         }
+
 
         System.out.println("Your total bill is: $" +finalPrice);
     }

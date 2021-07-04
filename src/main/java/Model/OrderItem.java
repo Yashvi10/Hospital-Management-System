@@ -7,14 +7,16 @@ public class OrderItem {
     private Integer qty;
     private Double price;
     private Double total_bill;
+    private Double final_bill;
     private Integer order_id;
 
-    public OrderItem(Integer pid, String name, Integer qty, Double price, Double total_bill, Integer order_id) {
+    public OrderItem(Integer pid, String name, Integer qty, Double price, Double total_bill,Double final_bill, Integer order_id) {
         this.pid = pid;
         this.name = name;
         this.qty = qty;
         this.price = price;
         this.total_bill = total_bill;
+        this.final_bill = final_bill;
         this.order_id = order_id;
     }
 
@@ -72,5 +74,13 @@ public class OrderItem {
 
     public void setOrder_id(Integer order_id) {
         this.order_id = order_id;
+    }
+
+    public Double getFinal_bill() {
+        return final_bill;
+    }
+
+    public void setFinal_bill(Double final_bill) {
+        this.final_bill = final_bill;
     }
 }

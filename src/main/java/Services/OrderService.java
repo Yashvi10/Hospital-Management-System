@@ -8,7 +8,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+/*
+*  This class is responsible for adding order in the database
+* */
 public class OrderService implements OrderDAO {
     @Override
     public void addOrder(Order order) {
@@ -36,12 +38,13 @@ public class OrderService implements OrderDAO {
         if(conn != null) {
             try {
                 Statement st = conn.createStatement();
-                String SQL = "INSERT INTO CSCI5308_8_DEVINT.order_items (pid,name,qty,price,total_bill, order_id) VALUES ('"
+                String SQL = "INSERT INTO CSCI5308_8_DEVINT.order_items (pid,name,qty,price,total_bill,final_bill, order_id) VALUES ('"
                         +orderItem.getPid() +"','"
                         +orderItem.getName() +"','"
                         +orderItem.getQty() +"','"
                         +orderItem.getPrice() +"','"
                         +orderItem.getTotal_bill() +"','"
+                        +orderItem.getFinal_bill() +"','"
                         +orderItem.getOrder_id()
                         +"')";
                 st.executeUpdate(SQL);

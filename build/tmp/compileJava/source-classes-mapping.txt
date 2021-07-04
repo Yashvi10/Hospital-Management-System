@@ -1,24 +1,24 @@
-Services/OrderService.java
- Services.OrderService
+Model/Pharmacy.java
+ Model.Pharmacy
 Model/CartItem.java
  Model.CartItem
 Services/PharmacyService.java
  Services.PharmacyService
-Starter.java
- Starter
-PharmacyPage.java
- PharmacyPage
+Model/Order.java
+ Model.Order
+DAO/PharmacyDAO.java
+ DAO.PharmacyDAO
 Services/CustomConnection.java
  Services.CustomConnection
 DAO/OrderDAO.java
  DAO.OrderDAO
-DAO/PharmacyDAO.java
- DAO.PharmacyDAO
-Model/Pharmacy.java
- Model.Pharmacy
 Model/OrderItem.java
  Model.OrderItem
-Model/Order.java
- Model.Order
+Services/OrderService.java
+ Services.OrderService
+Starter.java
+ Starter
+PharmacyPage.java
+ PharmacyPage
 BillingPage.java
  BillingPage
