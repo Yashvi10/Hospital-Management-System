@@ -35,7 +35,9 @@ public class PharmacyPage {
 
         if  (inputFromUser.equals("l") || inputFromUser.equals("L"))  {
             getAllMedicines();
-        } else {
+        }  else if  (inputFromUser.equals("e") || inputFromUser.equals("E"))  {
+            return;
+        }  else  {
             NotFound();
         }
     }
@@ -75,6 +77,7 @@ public class PharmacyPage {
                 break;
             }  else  {
                 NotFound();
+                break;
             }
         }
     }
@@ -208,8 +211,11 @@ public class PharmacyPage {
         if  (userInput.equals("c") || userInput.equals("C"))  {
             System.out.println("Checkout");
             checkOut();
+        }  else if  (userInput.equals("e") || userInput.equals("E"))  {
+           return;
         }  else  {
-            PharmacyMenu();
+            NotFound();
+            afterCartMenu();
         }
     }
 
@@ -217,12 +223,19 @@ public class PharmacyPage {
      * This is the checkout function
      * */
     public void checkOut()  {
-        BillingPage billingPage = new BillingPage();
-        billingPage.CheckOut();
+
+        if  (cart.size() > 0) {
+            BillingPage billingPage = new BillingPage();
+            billingPage.CheckOut();
+        }  else  {
+            System.out.println(Colors.C_RED  +  "You can't checkout, your cart is empty"  +  Colors.C_RESET);
+            PharmacyMenu();
+        }
+
     }
 
     public void NotFound(){
-        System.out.println("Please select the correct option");
+        System.out.println(Colors.C_RED  +  "Please select the correct option"  +  Colors.C_RESET);
     }
 
 }

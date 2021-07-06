@@ -1,11 +1,11 @@
-Model/CartItem.java
- Model.CartItem
+Services/OrderService.java
+ Services.OrderService
+Services/PharmacyService.java
+ Services.PharmacyService
+Services/OfferService.java
+ Services.OfferService
 Model/Order.java
  Model.Order
-Starter.java
- Starter
-DAO/OrderDAO.java
- DAO.OrderDAO
 Services/CustomConnection.java
  Services.CustomConnection
 DAO/PharmacyDAO.java
@@ -16,15 +16,17 @@ Model/Offers.java
  Model.Offers
 Model/OrderItem.java
  Model.OrderItem
+DAO/OrderDAO.java
+ DAO.OrderDAO
 DAO/OfferDAO.java
  DAO.OfferDAO
-Services/OrderService.java
- Services.OrderService
-Services/PharmacyService.java
- Services.PharmacyService
+Colors.java
+ Colors
+Model/CartItem.java
+ Model.CartItem
+Starter.java
+ Starter
 PharmacyPage.java
  PharmacyPage
-Services/OfferService.java
- Services.OfferService
 BillingPage.java
  BillingPage
