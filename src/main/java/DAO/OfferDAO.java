@@ -1,6 +1,6 @@
 package DAO;
 
-public interface OfferDAO {
+public interface OfferDAO  {
 
     Integer isOfferValid(Integer offerId);
 

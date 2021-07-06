@@ -5,28 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25dc8d5c-3388-4476-b672-e8ce691ac71e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Colors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/BillingPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/BillingPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Model/CartItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Model/CartItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Model/Offers.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Model/Offers.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Model/Order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Model/OrderItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Model/OrderItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Model/Pharmacy.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Model/Pharmacy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/PharmacyPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/PharmacyPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Services/OfferService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Services/OfferService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Services/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Services/OrderService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Services/PharmacyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Services/PharmacyService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Starter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Starter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PharmacyPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PharmacyPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/OfferDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/OfferDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/OrderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/OrderDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/PharmacyDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/PharmacyDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/OrderItem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +188,7 @@
       <workItem from="1625382716866" duration="510000" />
       <workItem from="1625383775075" duration="9320000" />
       <workItem from="1625506667509" duration="2081000" />
-      <workItem from="1625553848979" duration="3617000" />
+      <workItem from="1625553848979" duration="8358000" />
     </task>
     <servers />
   </component>

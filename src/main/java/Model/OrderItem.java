@@ -18,6 +18,7 @@ public class OrderItem  {
 
     private Integer order_id;
 
+    public OrderItem(){}
     public OrderItem(Integer pid, String name, Integer qty, Double price,
                      Double total_bill,Double final_bill, Integer order_id)  {
         this.pid = pid;
