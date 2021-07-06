@@ -48,17 +48,17 @@ public class PharmacyPage {
     public void getAllMedicines(){
 
         System.out.println("=========PHARMACY LIST=========");
-        System.out.println(String.format("|%10s|", "P_id") +" "
-                +String.format("|%10s|", "Name") +" "
-                +String.format("|%10s|", "Price")+" "
-                +String.format("|%10s|", "Stock"));
+        System.out.println(String.format(Constant.STRING_FORMAT, "P_id") +" "
+                +String.format(Constant.STRING_FORMAT, "Name") +" "
+                +String.format(Constant.STRING_FORMAT, "Price")+" "
+                +String.format(Constant.STRING_FORMAT, "Stock"));
 
         for(Pharmacy pharmacy: listOfMedicines)  {
-            String p_id = String.format("|%10d|", pharmacy.getP_id());
-            String name = String.format("|%10s|", pharmacy.getProduct_name());
+            String p_id = String.format(Constant.INTERGER_FORMAT, pharmacy.getP_id());
+            String name = String.format(Constant.STRING_FORMAT, pharmacy.getProduct_name());
             DecimalFormat df = new DecimalFormat("#.##");
-            String price = String.format("|%10s|", String.valueOf(pharmacy.getPrice()));
-            String stock = String.format("|%10d|", pharmacy.getStock());
+            String price = String.format(Constant.STRING_FORMAT, String.valueOf(pharmacy.getPrice()));
+            String stock = String.format(Constant.INTERGER_FORMAT, pharmacy.getStock());
             System.out.println(p_id +" " +name +" " +price +" " +stock);
         }
 
@@ -166,11 +166,11 @@ public class PharmacyPage {
             System.out.println("Cart is empty");
         }  else  {
             System.out.println("=========CART ITEM LIST=========");
-            System.out.println(String.format("|%10s|", "P_id") +" "
-                    +String.format("|%10s|", "Name") +" "
-                    +String.format("|%10s|", "Qty") +" "
-                    +String.format("|%10s|", "Price") +" "
-                    +String.format("|%10s|", "Total Price"));
+            System.out.println(String.format(Constant.STRING_FORMAT, "P_id") +" "
+                    +String.format(Constant.STRING_FORMAT, "Name") +" "
+                    +String.format(Constant.STRING_FORMAT, "Qty") +" "
+                    +String.format(Constant.STRING_FORMAT, "Price") +" "
+                    +String.format(Constant.STRING_FORMAT, "Total Price"));
             showCart();
         }
         afterCartMenu();
@@ -182,12 +182,12 @@ public class PharmacyPage {
     public void showCart()  {
 
         for  (Map.Entry me: cart.entrySet())  {
-            String p_id = String.format("|%10d|", me.getKey());
+            String p_id = String.format(Constant.INTERGER_FORMAT, me.getKey());
             CartItem cartItem = (CartItem) me.getValue();
-            String name = String.format("|%10s|", cartItem.getName());
-            String price = String.format("|%10f|", cartItem.getPrice());
-            String qty = String.format("|%10d|", cartItem.getQty());
-            String totalPrice = String.format("|%10f|", cartItem.getTotalPrice());
+            String name = String.format(Constant.STRING_FORMAT, cartItem.getName());
+            String price = String.format(Constant.DOUBLE_FORMAT_WITHOUT_DOT, cartItem.getPrice());
+            String qty = String.format(Constant.INTERGER_FORMAT, cartItem.getQty());
+            String totalPrice = String.format(Constant.DOUBLE_FORMAT_WITHOUT_DOT, cartItem.getTotalPrice());
 //                String finalBill = String.format("|%10f|", cartItem.getFinalPrice());
             if  (isFinalPriceVisited == false)  {
                 finalPrice += cartItem.getTotalPrice();
