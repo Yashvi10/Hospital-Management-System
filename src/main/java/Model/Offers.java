@@ -1,18 +1,22 @@
 package Model;
 
-public class Offers {
+public class Offers  {
 
     private Integer offer_id;
+
     private String name;
+
     private Double discount;
+
     private Boolean isActive;
 
-    public Offers(String name, Double discount) {
+
+    public Offers(String name, Double discount)  {
         this.name = name;
         this.discount = discount;
     }
 
-    public Offers(String name, Double discount, Boolean isActive) {
+    public Offers(String name, Double discount, Boolean isActive)  {
         this.name = name;
         this.discount = discount;
         this.isActive = isActive;

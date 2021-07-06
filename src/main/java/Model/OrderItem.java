@@ -1,16 +1,25 @@
 package Model;
 
-public class OrderItem {
+public class OrderItem  {
+
     private Integer id;
+
     private Integer pid;
+
     private String name;
+
     private Integer qty;
+
     private Double price;
+
     private Double total_bill;
+
     private Double final_bill;
+
     private Integer order_id;
 
-    public OrderItem(Integer pid, String name, Integer qty, Double price, Double total_bill,Double final_bill, Integer order_id) {
+    public OrderItem(Integer pid, String name, Integer qty, Double price,
+                     Double total_bill,Double final_bill, Integer order_id)  {
         this.pid = pid;
         this.name = name;
         this.qty = qty;

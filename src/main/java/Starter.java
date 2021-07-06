@@ -6,8 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Starter {
-    public static void main(String[] args) {
-        System.out.println("Working");
+    public static void main(String[] args)  {
 
         PharmacyPage pharmacyPage = new PharmacyPage();
         pharmacyPage.PharmacyMenu();

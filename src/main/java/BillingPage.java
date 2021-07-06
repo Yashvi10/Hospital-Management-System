@@ -8,13 +8,16 @@ import Services.PharmacyService;
 
 import java.util.Map;
 import java.util.Scanner;
-
+/*
+ * This class will hold everything which user see on their console related to billing
+ * */
 public class BillingPage {
 
+    String user_id = "";
     /*
      * This is the Main checkout function which will call another methods like paidByCash
      * */
-    public void CheckOut(){
+    public void CheckOut()  {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Press (s for cash): ");
@@ -22,14 +25,14 @@ public class BillingPage {
         String paymentMode = "";
 
         System.out.println("Enter user Id: ");
-        String user_id = scanner.nextLine();
+        user_id = scanner.nextLine();
 
-        if(paymentType.equals("c") || paymentType.equals("C")) {
+        if  (paymentType.equals("c") || paymentType.equals("C"))  {
             paymentMode = "Card";
-        } else if (paymentType.equals("s") || paymentType.equals("S")) {
+        }  else if  (paymentType.equals("s") || paymentType.equals("S"))  {
             paymentMode = "Cash";
             paidByCash();
-        } else {
+        }  else  {
             System.out.println("Please select correct payment mode");
         }
     }
@@ -37,7 +40,7 @@ public class BillingPage {
     /*
      * This is the paid by cash function it will update the stock and clear the cart
      * */
-    public void paidByCash(){
+    public void paidByCash()  {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Offer id:");
@@ -45,17 +48,17 @@ public class BillingPage {
 
         Integer o_id = 0;
 
-        if(!offer_id.equals("")) {
+        if  (!offer_id.equals(""))  {
             o_id = Integer.parseInt(offer_id);
         }
 
         calculateDiscount(o_id);
 
         OrderService orderService = new OrderService();
-        orderService.addOrder(new Order(123));
+        orderService.addOrder(new Order(123)); //replace this with user_id
         Integer order_id = orderService.getLastOrderId();
 
-        for(Map.Entry me: PharmacyPage.cart.entrySet()) {
+        for  (Map.Entry me: PharmacyPage.cart.entrySet())  {
             CartItem cartItem = (CartItem) me.getValue();
 
             PharmacyService pharmacyService = new PharmacyService();
@@ -64,9 +67,6 @@ public class BillingPage {
             OrderItem orderItem = new OrderItem(Integer.parseInt(me.getKey().toString()),cartItem.getName(),cartItem.getQty(),cartItem.getPrice(),cartItem.getTotalPrice(),PharmacyPage.finalPrice,order_id);
             orderService.addOrderItems(orderItem);
         }
-
-
-
         PharmacyPage.cart.clear();
         PharmacyPage.finalPrice = 0.0;
         System.out.println("You have been successfully checkout");
@@ -74,12 +74,11 @@ public class BillingPage {
         pharmacyPage.PharmacyMenu();
     }
 
-    public void calculateDiscount(Integer oid) {
+    public void calculateDiscount(Integer oid)  {
         OfferService offerService = new OfferService();
         Integer rate = offerService.isOfferValid(oid);
 
-        if(rate != 0){
-
+        if  (rate != 0)  {
             Double newPrice = (PharmacyPage.finalPrice * rate ) / 100;
             PharmacyPage.finalPrice = PharmacyPage.finalPrice - newPrice;
             System.out.println("Your discount bill is: " +PharmacyPage.finalPrice +" after giving " +rate +"% discount");

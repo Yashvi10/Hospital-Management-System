@@ -1,15 +1,21 @@
 package Model;
 
-public class Pharmacy {
+public class Pharmacy  {
 
     private Integer p_id;
+
     private String product_name;
+
     private Double price;
+
     private Integer stock;
+
     private String expiry_date;
 
     public Pharmacy(){}
-    public Pharmacy(Integer p_id, String product_name, Double price, Integer stock, String expiry_date) {
+
+    public Pharmacy(Integer p_id, String product_name, Double price, Integer stock,
+                    String expiry_date)  {
         this.p_id = p_id;
         this.product_name = product_name;
         this.price = price;

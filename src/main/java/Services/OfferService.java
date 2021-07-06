@@ -7,23 +7,26 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class OfferService implements OfferDAO {
+/*
+* This class is responsible for performing all operation related to offers
+* */
+public class OfferService implements OfferDAO  {
 
     @Override
-    public Integer isOfferValid(Integer offerId) {
+    public Integer isOfferValid(Integer offerId)  {
         CustomConnection con = new CustomConnection();
         Connection conn = con.Connect();
 
         Integer resultToReturn = 0;
 
-        if(conn != null) {
-            String sql = "SELECT * FROM CSCI5308_8_DEVINT.offers where offer_id = " + offerId +" AND isActive = '1';";
+        if  (conn != null)  {
+            String sql = "SELECT * FROM CSCI5308_8_DEVINT.offers where offer_id = "
+                    + offerId +" AND isActive = '1';";
             Statement statement = null;
-
-            try {
+            try  {
                 statement = conn.createStatement();
                 ResultSet rs = statement.executeQuery(sql);
-                if(rs != null){
+                if  (rs != null)  {
                     while(rs.next())
                     {
                         Integer o_id=rs.getInt(1);
@@ -33,11 +36,11 @@ public class OfferService implements OfferDAO {
                         }
                     }
                 }
-            } catch (SQLException throwables) {
+            }  catch  (SQLException throwables)  {
                 throwables.printStackTrace();
             }
         }
         return resultToReturn;
-
     }
+
 }

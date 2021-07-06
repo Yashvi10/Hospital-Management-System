@@ -1,15 +1,19 @@
 package Model;
 
-public class CartItem {
+public class CartItem  {
 
     private String name;
+
     private Integer qty;
+
     private Double price;
+
     private Double totalPrice;
+
     private Double finalPrice;
 
     public CartItem(){}
-    public CartItem(String name, Integer qty, Double price, Double totalPrice) {
+    public CartItem(String name, Integer qty, Double price, Double totalPrice)  {
         this.name = name;
         this.qty = qty;
         this.price = price;

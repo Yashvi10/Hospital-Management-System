@@ -1,10 +1,12 @@
 package Model;
 
-public class Order {
+public class Order  {
+
     private Integer order_id;
+
     private Integer user_id;
 
-    public Order(Integer user_id) {
+    public Order(Integer user_id)  {
         this.user_id = user_id;
     }
 
