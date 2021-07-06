@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BillingPageTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-06T19:13:27" hostname="DESKTOP-IC8LASV" time="4.867">
+<testsuite name="BillingPageTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-06T19:40:56" hostname="DESKTOP-IC8LASV" time="1.973">
   <properties/>
-  <testcase name="getAllOffer()" classname="BillingPageTest" time="4.867"/>
+  <testcase name="addOrder()" classname="BillingPageTest" time="1.973"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
 ]]></system-err>

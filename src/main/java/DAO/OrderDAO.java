@@ -5,9 +5,9 @@ import Model.OrderItem;
 
 public interface OrderDAO  {
 
-    void addOrder(Order order);
+    Boolean addOrder(Order order);
 
-    void addOrderItems(OrderItem orderItem);
+    Boolean addOrderItems(OrderItem orderItem);
 
     Integer getLastOrderId();
 }

@@ -13,7 +13,7 @@ import java.sql.Statement;
 * */
 public class OrderService implements OrderDAO  {
     @Override
-    public void addOrder(Order order)  {
+    public Boolean addOrder(Order order)  {
 
         CustomConnection connection = new CustomConnection();
         Connection conn = connection.Connect();
@@ -24,14 +24,17 @@ public class OrderService implements OrderDAO  {
                         +order.getUser_id() +"')";
                 st.executeUpdate(SQL);
                 conn.close();
+                return true;
             }  catch  (SQLException throwables)  {
                 throwables.printStackTrace();
             }
         }
+
+        return false;
     }
 
     @Override
-    public void addOrderItems(OrderItem orderItem)  {
+    public Boolean addOrderItems(OrderItem orderItem)  {
 
         CustomConnection connection = new CustomConnection();
         Connection conn = connection.Connect();
@@ -51,10 +54,12 @@ public class OrderService implements OrderDAO  {
                 st.executeUpdate(SQL);
 
                 conn.close();
+                return true;
             }  catch (SQLException throwables)  {
                 throwables.printStackTrace();
             }
         }
+        return false;
     }
 
     @Override
