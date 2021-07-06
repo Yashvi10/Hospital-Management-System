@@ -1,12 +1,10 @@
 import Model.CartItem;
+import Model.Offers;
 import Model.Pharmacy;
 import Services.OfferService;
 import Services.PharmacyService;
 import java.text.DecimalFormat;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 /*
  * This class will hold everything which user see on their console related to Pharmacy Module
@@ -204,13 +202,15 @@ public class PharmacyPage {
      * This is the just simple menu which will be called after showing cart
      * */
     public void afterCartMenu()  {
-        System.out.println("Press c to checkout or press e to exit (it will remove the cart)");
+        System.out.println("Press c to checkout, Press o to see offers or press e to exit (it will remove the cart)");
         Scanner scanner = new Scanner(System.in);
         String userInput = scanner.nextLine();
 
         if  (userInput.equals("c") || userInput.equals("C"))  {
             System.out.println("Checkout");
             checkOut();
+        }  else if  (userInput.equals("o") || userInput.equals("O")) {
+            ViewOffers();
         }  else if  (userInput.equals("e") || userInput.equals("E"))  {
            return;
         }  else  {
@@ -236,6 +236,26 @@ public class PharmacyPage {
 
     public void NotFound(){
         System.out.println(Colors.C_RED  +  "Please select the correct option"  +  Colors.C_RESET);
+    }
+
+    public void ViewOffers(){
+        System.out.println("==========Offer List==========");
+
+        OfferService offerService = new OfferService();
+        List<Offers> offersList = offerService.getAllOffer();
+
+        System.out.println(String.format(Constant.STRING_FORMAT, "Offer_Id") +" "
+                +String.format(Constant.STRING_FORMAT, "Name") +" "
+                +String.format(Constant.STRING_FORMAT, "Discount"));
+
+        for(int i = 0;i<offersList.size();i++) {
+            String o_id = String.format(Constant.INTERGER_FORMAT, offersList.get(i).getOffer_id());
+            String name = String.format(Constant.STRING_FORMAT, offersList.get(i).getName());
+            String discount = String.format(Constant.DOUBLE_FORMAT_WITHOUT_DOT, offersList.get(i).getDiscount());
+
+            System.out.println(o_id +" " +name +" " +discount);
+        }
+        afterCartMenu();
     }
 
 }

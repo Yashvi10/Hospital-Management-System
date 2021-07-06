@@ -10,6 +10,7 @@ public class Offers  {
 
     private Boolean isActive;
 
+    public Offers(){}
 
     public Offers(String name, Double discount)  {
         this.name = name;

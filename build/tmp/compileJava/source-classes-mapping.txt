@@ -1,7 +1,7 @@
-Model/Offers.java
- Model.Offers
-Starter.java
- Starter
+Constant.java
+ Constant
+Model/OrderItem.java
+ Model.OrderItem
 Colors.java
  Colors
 Model/Order.java
@@ -14,19 +14,21 @@ Model/Pharmacy.java
  Model.Pharmacy
 Services/OrderService.java
  Services.OrderService
-DAO/OfferDAO.java
- DAO.OfferDAO
-Services/PharmacyService.java
- Services.PharmacyService
-PharmacyPage.java
- PharmacyPage
 DAO/OrderDAO.java
  DAO.OrderDAO
+Services/PharmacyService.java
+ Services.PharmacyService
 DAO/PharmacyDAO.java
  DAO.PharmacyDAO
-Model/OrderItem.java
- Model.OrderItem
+DAO/OfferDAO.java
+ DAO.OfferDAO
+Model/Offers.java
+ Model.Offers
 Services/OfferService.java
  Services.OfferService
+Starter.java
+ Starter
+PharmacyPage.java
+ PharmacyPage
 BillingPage.java
  BillingPage
