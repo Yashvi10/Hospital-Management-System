@@ -9,7 +9,7 @@ public class DbConnection {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con= DriverManager.getConnection(
-                    "jdbc:mysql://db-5308.cs.dal.ca/CSCI5308_8_DEVINT","CSCI5308_8_DEVINT_USER","cWhbaAs94FR");
+                    Constant.DB_STR,Constant.DB_DEV_USERNAME, Constant.DB_DEV_PASSWORD);
 
             if(con != null) {
                 return con;

@@ -11,20 +11,20 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BillingService implements BillingDAO {
+public class BillingService implements BillingDAO  {
     @Override
-    public List<OrderItem> getUserOrderItems(Integer order_id) {
+    public List<OrderItem> getUserOrderItems(Integer order_id)  {
+
         CustomConnection conn = new CustomConnection();
         Connection con = conn.Connect();
-
         List<OrderItem> orderItems = new ArrayList<OrderItem>();
 
-        if(con != null) {
+        if  (con != null)  {
+
             String sql = "SELECT * FROM CSCI5308_8_DEVINT.order_items where order_id = "
                     + order_id +";";
             Statement statement = null;
-
-            try {
+            try  {
                 statement = con.createStatement();
                 ResultSet result = statement.executeQuery(sql);
                 while(result.next()) {
@@ -45,7 +45,7 @@ public class BillingService implements BillingDAO {
 
                     orderItems.add(orderItemsFromDb);
                 }
-            } catch (SQLException throwables) {
+            }  catch  (SQLException throwables)  {
                 throwables.printStackTrace();
             }
         }
@@ -54,18 +54,19 @@ public class BillingService implements BillingDAO {
     }
 
     @Override
-    public List<Order> getUserOrder(Integer user_id) {
+    public List<Order> getUserOrder(Integer user_id)  {
+
         CustomConnection conn = new CustomConnection();
         Connection con = conn.Connect();
-
         List<Order> orders = new ArrayList<Order>();
 
-        if(con != null) {
+        if  (con != null)  {
+
             String sql = "SELECT * FROM CSCI5308_8_DEVINT.order where user_id = "
                     + user_id +" order by order_id desc;";
             Statement statement = null;
 
-            try {
+            try  {
                 statement = con.createStatement();
                 ResultSet result = statement.executeQuery(sql);
                 while(result.next()) {
@@ -75,12 +76,10 @@ public class BillingService implements BillingDAO {
                     orderFromDb.setOrder_id(order_id_db);
                     orders.add(orderFromDb);
                 }
-            } catch (SQLException throwables) {
+            }  catch  (SQLException throwables)  {
                 throwables.printStackTrace();
             }
-
         }
-
         return orders;
     }
 }
