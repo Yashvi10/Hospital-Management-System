@@ -1,16 +1,12 @@
 package DAO;
 
-import Model.Offers;
-
-import java.util.List;
-
 /*
- *  Name of file: OfferDAO.java
+ *  Name of file: OfferValidDAO.java
  *  Author:  Nadish Maredia
  *  Purpose: Separate the methods which interact with DB
  *  Description: This interface is responsible for handling DB operation related to Offer model
  * */
-public interface OfferDAO  {
+public interface OfferValidDAO {
 
-    List<Offers> getAllOffer();
+    Integer isOfferValid(Integer offerId);
 }

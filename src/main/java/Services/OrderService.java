@@ -1,6 +1,7 @@
 package Services;
 
 import DAO.OrderDAO;
+import DAO.OrderLastIdDAO;
 import Model.Order;
 import Model.OrderItem;
 
@@ -12,11 +13,11 @@ import java.sql.Statement;
 /*
  *  Name of file: OrderService.java
  *  Author:  Nadish Maredia
- *  Purpose: This class is like service which will implement the OrderDAO
+ *  Purpose: This class is like service which will implement the OrderDAO,OrderLastIdDAO
  *  Description: This class will implement the actual logic how to process or query
  *               the DB and return the result
  * */
-public class OrderService implements OrderDAO  {
+public class OrderService implements OrderDAO, OrderLastIdDAO {
     @Override
     public Boolean addOrder(Order order)  {
 

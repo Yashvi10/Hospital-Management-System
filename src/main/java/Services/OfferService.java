@@ -1,6 +1,7 @@
 package Services;
 
 import DAO.OfferDAO;
+import DAO.OfferValidDAO;
 import Model.Offers;
 
 import java.sql.Connection;
@@ -13,11 +14,11 @@ import java.util.List;
 /*
  *  Name of file: OfferService.java
  *  Author:  Nadish Maredia
- *  Purpose: This class is like service which will implement the OfferDAO
+ *  Purpose: This class is like service which will implement the OfferDAO,OfferValidDAO
  *  Description: This class will implement the actual logic how to process or query
  *               the DB and return the result
  * */
-public class OfferService implements OfferDAO  {
+public class OfferService implements OfferDAO, OfferValidDAO {
 
     @Override
     public Integer isOfferValid(Integer offerId)  {

@@ -1,6 +1,7 @@
 package Services;
 
 import DAO.PharmacyDAO;
+import DAO.PharmacyUpdateStockDAO;
 import Model.Pharmacy;
 
 import java.sql.Connection;
@@ -14,10 +15,10 @@ import java.util.List;
  *  Name of file: PharmacyService.java
  *  Author:  Nadish Maredia
  *  Purpose: This class is like service which will implement the PharmacyDAO
- *  Description: This class will implement all the actual logic define in PharamcyDAO
+ *  Description: This class will implement all the actual logic define in PharamcyDAO,PharmacyUpdateStockDAO
  *               how to process or query the DB and return the result
  * */
-public class PharmacyService implements PharmacyDAO  {
+public class PharmacyService implements PharmacyDAO, PharmacyUpdateStockDAO {
 
     @Override
     public List<Pharmacy> getAllMedicines()  {

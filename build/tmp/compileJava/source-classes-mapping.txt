@@ -1,15 +1,17 @@
-Services/OrderService.java
- Services.OrderService
-Services/PharmacyService.java
- Services.PharmacyService
+Model/CartItem.java
+ Model.CartItem
+Model/Order.java
+ Model.Order
 Starter.java
  Starter
-PharmacyPage.java
- PharmacyPage
+DAO/OrderDAO.java
+ DAO.OrderDAO
 Services/CustomConnection.java
  Services.CustomConnection
-DAO/PharmacyDAO.java
- DAO.PharmacyDAO
+DAO/OfferValidDAO.java
+ DAO.OfferValidDAO
+DAO/OrderLastIdDAO.java
+ DAO.OrderLastIdDAO
 Model/Pharmacy.java
  Model.Pharmacy
 Model/OrderItem.java
@@ -18,17 +20,21 @@ Model/Offers.java
  Model.Offers
 Constant.java
  Constant
-BillingPage.java
- BillingPage
-DAO/OfferDAO.java
- DAO.OfferDAO
 Colors.java
  Colors
-Model/CartItem.java
- Model.CartItem
-DAO/OrderDAO.java
- DAO.OrderDAO
-Model/Order.java
- Model.Order
+DAO/OfferDAO.java
+ DAO.OfferDAO
+Services/OrderService.java
+ Services.OrderService
+Services/PharmacyService.java
+ Services.PharmacyService
+PharmacyPage.java
+ PharmacyPage
+DAO/PharmacyDAO.java
+ DAO.PharmacyDAO
+DAO/PharmacyUpdateStockDAO.java
+ DAO.PharmacyUpdateStockDAO
 Services/OfferService.java
  Services.OfferService
+BillingPage.java
+ BillingPage

@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25dc8d5c-3388-4476-b672-e8ce691ac71e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/DAO/OfferValidDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DAO/OrderLastIdDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DAO/PharmacyUpdateStockDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BillingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BillingPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Colors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Colors.java" afterDir="false" />
@@ -47,8 +50,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -72,7 +75,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Gradle.BillingPageTest.addOrder">
+  <component name="RunManager" selected="Application.Starter">
     <configuration name="Starter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Starter" />
       <module name="Project.main" />
@@ -201,7 +204,7 @@
       <workItem from="1625382716866" duration="510000" />
       <workItem from="1625383775075" duration="9320000" />
       <workItem from="1625506667509" duration="2081000" />
-      <workItem from="1625553848979" duration="19654000" />
+      <workItem from="1625553848979" duration="21784000" />
     </task>
     <servers />
   </component>
