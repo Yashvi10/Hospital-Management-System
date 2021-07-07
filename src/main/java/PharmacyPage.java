@@ -30,7 +30,9 @@ public class PharmacyPage {
     * */
     public void PharmacyMenu()  {
 
-        System.out.println("Press l to list all medicines, Press e to back");
+        System.out.println("*************************************");
+        System.out.println("Press l to list all medicines\nPress e to back");
+        System.out.println("*************************************");
 
         Scanner scanner = new Scanner(System.in);
         String inputFromUser = scanner.nextLine();
@@ -64,7 +66,9 @@ public class PharmacyPage {
             System.out.println(p_id +" " +name +" " +price +" " +stock);
         }
 
-        System.out.println("Press b to buy, Press c to show cart, Press e to exit");
+        System.out.println("*************************************");
+        System.out.println("Press b to buy\nPress c to show cart\nPress e to exit");
+        System.out.println("*************************************");
         Scanner scanner = new Scanner(System.in);
         String userInput = scanner.nextLine();
 
@@ -90,7 +94,9 @@ public class PharmacyPage {
     public void BuyItem()  {
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter the P_id you want to buy or Press e to exit");
+        System.out.println("*************************************");
+        System.out.println("Please enter the P_id you want to buy\nPress e to exit");
+        System.out.println("*************************************");
         String userInput = scanner.nextLine();
 
         if  (userInput.equals("e"))  {
@@ -165,7 +171,8 @@ public class PharmacyPage {
     public void showCartItems()  {
 
         if  (cart.size() == 0)  {
-            System.out.println("Cart is empty");
+            System.out.println(Colors.C_RED +"Cart is empty" +Colors.C_RESET);
+            getAllMedicines();
         }  else  {
             System.out.println("=========CART ITEM LIST=========");
             System.out.println(String.format(Constant.STRING_FORMAT, "P_id") +" "
@@ -206,7 +213,9 @@ public class PharmacyPage {
      * This is the just simple menu which will be called after showing cart
      * */
     public void afterCartMenu()  {
-        System.out.println("Press c to checkout, Press o to see offers or press e to exit (it will remove the cart)");
+        System.out.println("*************************************");
+        System.out.println("Press c to checkout\nPress o to see offers\npress e to exit (it will remove the cart)");
+        System.out.println("*************************************");
         Scanner scanner = new Scanner(System.in);
         String userInput = scanner.nextLine();
 
