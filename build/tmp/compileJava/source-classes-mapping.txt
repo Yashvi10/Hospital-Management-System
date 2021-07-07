@@ -2,21 +2,21 @@ Colors.java
  Colors
 DbConnection.java
  DbConnection
-Services/BillingService.java
- Services.BillingService
 CustomPDF.java
  CustomPDF
-Starter.java
- Starter
 Services/CustomConnection.java
  Services.CustomConnection
-Model/OrderItem.java
- Model.OrderItem
 Constant.java
  Constant
+BillingMenuPage.java
+ BillingMenuPage
+Services/BillingService.java
+ Services.BillingService
+Starter.java
+ Starter
+Model/OrderItem.java
+ Model.OrderItem
 Model/Order.java
  Model.Order
 DAO/BillingDAO.java
  DAO.BillingDAO
-BillingPage.java
- BillingPage

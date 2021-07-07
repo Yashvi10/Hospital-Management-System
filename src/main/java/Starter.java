@@ -8,7 +8,7 @@ public class Starter {
     public static void main(String[] args) {
         System.out.println("Working");
 
-        BillingPage billingPage = new BillingPage();
+        BillingMenuPage billingPage = new BillingMenuPage();
         billingPage.showUserOrder();
 
 

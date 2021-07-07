@@ -11,6 +11,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ *  Name of file: BillingService.java
+ *  Author:  Nadish Maredia
+ *  Purpose: This class is like service which will implement the BillingDAO
+ *  Description: This class will implement the actual logic how to process or query
+ *               the DB and return the result related to Billing function only
+ * */
 public class BillingService implements BillingDAO  {
     @Override
     public List<OrderItem> getUserOrderItems(Integer order_id)  {

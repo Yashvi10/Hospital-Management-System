@@ -1,6 +1,14 @@
 package Model;
 
-public class OrderItem {
+/*
+ *  Name of file: OrderItem.java
+ *  Author:  Nadish Maredia
+ *  Purpose: This class is like mapper help us in interacting with DB models
+ *  Description: This class will behaves like a mapper so it will be easy when
+ *               we are working with DB by using getter and setter methods
+ * */
+public class OrderItem  {
+
     private Integer id;
 
     private Integer pid;

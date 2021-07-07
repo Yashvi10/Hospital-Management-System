@@ -8,7 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class BillingPage  {
+/*
+ *  Name of file: BillingMenuPage.java
+ *  Author:  Nadish Maredia
+ *  Purpose: This class contains different menus like showUserOrder(), viewOrderDetails()
+ *  Description: This class basically take input from user and validate them and
+ *               call different Services which we created
+ * */
+public class BillingMenuPage  {
 
     List<Order> orderlist = new ArrayList<Order>();
 

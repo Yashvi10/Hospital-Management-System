@@ -7,9 +7,15 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.Random;
 
+/*
+ *  Name of file: CustomPDF.java
+ *  Author:  Nadish Maredia
+ *  Purpose: This class create the pdf file in folder
+ *  Description: This class is responsible for saving or download the bill
+ * */
 public class CustomPDF  {
 
-    public void generateBill(String data)  {
+    public Boolean generateBill(String data)  {
 
         Document document = new Document();
         try  {
@@ -21,10 +27,13 @@ public class CustomPDF  {
                 document.add(new Paragraph(data));
                 document.close();
                 writer.close();
+                return true;
             }  catch  (DocumentException e)  {
                     e.printStackTrace();
             }  catch  (FileNotFoundException e)  {
                     e.printStackTrace();
             }
+
+        return false;
     }
 }
