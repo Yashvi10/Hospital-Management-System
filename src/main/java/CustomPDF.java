@@ -27,6 +27,7 @@ public class CustomPDF  {
                 document.add(new Paragraph(data));
                 document.close();
                 writer.close();
+                System.out.println("PDF SAVED");
                 return true;
             }  catch  (DocumentException e)  {
                     e.printStackTrace();

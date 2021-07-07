@@ -10,8 +10,6 @@ public class Starter {
 
         BillingMenuPage billingPage = new BillingMenuPage();
         billingPage.showUserOrder();
-
-
     }
 
 }

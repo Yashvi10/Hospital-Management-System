@@ -1,9 +1,9 @@
 package Services;
 
-import DAO.BillingDAO;
+import DAO.BillingOrderDAO;
+import DAO.BillingOrderItemDAO;
 import Model.Order;
 import Model.OrderItem;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,7 +18,7 @@ import java.util.List;
  *  Description: This class will implement the actual logic how to process or query
  *               the DB and return the result related to Billing function only
  * */
-public class BillingService implements BillingDAO  {
+public class BillingService implements BillingOrderItemDAO, BillingOrderDAO {
     @Override
     public List<OrderItem> getUserOrderItems(Integer order_id)  {
 
