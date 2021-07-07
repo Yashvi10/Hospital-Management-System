@@ -5,7 +5,13 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PharmacyPageTest {
+/*
+ *  Name of file: PharmacyPageTest.java
+ *  Author:  Nadish Maredia
+ *  Purpose: This class is used for testing the logic related to pharmacy
+ *  Description: class is used for testing the logic related to pharmacy like addItemInCart(), updateStock()
+ * */
+public class PharmacyPageTest  {
 
     @Test
     void isItemInList_true()  {

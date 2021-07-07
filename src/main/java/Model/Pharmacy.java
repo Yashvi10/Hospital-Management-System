@@ -1,5 +1,12 @@
 package Model;
 
+/*
+ *  Name of file: Pharmacy.java
+ *  Author:  Nadish Maredia
+ *  Purpose: This class is like mapper help us in interacting with DB models
+ *  Description: This class will behaves like a mapper so it will be easy when
+ *               we are working with DB by using getter and setter methods
+ * */
 public class Pharmacy  {
 
     private Integer p_id;

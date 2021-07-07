@@ -8,9 +8,14 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 /*
-*  This class is responsible for all operations related to Orders which are define in OrderDAO
-* */
+ *  Name of file: OrderService.java
+ *  Author:  Nadish Maredia
+ *  Purpose: This class is like service which will implement the OrderDAO
+ *  Description: This class will implement the actual logic how to process or query
+ *               the DB and return the result
+ * */
 public class OrderService implements OrderDAO  {
     @Override
     public Boolean addOrder(Order order)  {

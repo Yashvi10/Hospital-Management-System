@@ -1,4 +1,11 @@
-public class Constant {
+/*
+ *  Name of file: Constant.java
+ *  Author:  Nadish Maredia
+ *  Purpose: This class hold all the constants used in the project
+ *  Description: This class is responsible for storing all the constants
+ * */
+
+public class Constant  {
 
     public static final String STRING_FORMAT = "|%10s|";
     public static final String DOUBLE_FORMAT_WITHOUT_DOT = "|%10f|";

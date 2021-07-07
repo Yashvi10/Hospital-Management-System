@@ -9,11 +9,17 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/*
+ *  Name of file: BillingPageTest.java
+ *  Author:  Nadish Maredia
+ *  Purpose: This class is used for testing the logic related to billing
+ *  Description: class is used for testing the logic related to billing like calculateDiscount(), getAllOffer()
+ * */
 public class BillingPageTest {
 
     @Test
     void calculateDiscount_right()  {
-        
+
         // I have pass 2 as paramter which is offer id we have offer avaiable in the db with this id so it
         // will return the amount of discount rate
         assertEquals(20, new OfferService().isOfferValid(2), "Offer Id is invalid");

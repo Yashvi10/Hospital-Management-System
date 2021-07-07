@@ -8,8 +8,13 @@ import Services.PharmacyService;
 
 import java.util.Map;
 import java.util.Scanner;
+
 /*
- * This class will hold everything which user see on their console related to billing
+ *  Name of file: BillingPage.java
+ *  Author:  Nadish Maredia
+ *  Purpose: This class contains different menus like checkout(), paidByCash()
+ *  Description: This class basically take input from user and validate them and
+ *               call different Services which we created
  * */
 public class BillingPage {
 

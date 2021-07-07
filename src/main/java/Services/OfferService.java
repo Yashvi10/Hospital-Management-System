@@ -11,8 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
-* This class is responsible for performing all operation related to offers
-* */
+ *  Name of file: OfferService.java
+ *  Author:  Nadish Maredia
+ *  Purpose: This class is like service which will implement the OfferDAO
+ *  Description: This class will implement the actual logic how to process or query
+ *               the DB and return the result
+ * */
 public class OfferService implements OfferDAO  {
 
     @Override

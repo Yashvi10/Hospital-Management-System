@@ -7,7 +7,11 @@ import java.text.DecimalFormat;
 import java.util.*;
 
 /*
- * This class will hold everything which user see on their console related to Pharmacy Module
+ *  Name of file: PharmacyPage.java
+ *  Author:  Nadish Maredia
+ *  Purpose: This class contains different menus and it will redirect based on their input
+ *  Description: This class basically take input from user and validate them and
+ *               call different Services which we created
  * */
 public class PharmacyPage {
 

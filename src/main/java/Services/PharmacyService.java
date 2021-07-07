@@ -11,8 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
-* PharmacyService class is responsible for all operation related to Pharmacy and has implemented PharmacyDAO
-* */
+ *  Name of file: PharmacyService.java
+ *  Author:  Nadish Maredia
+ *  Purpose: This class is like service which will implement the PharmacyDAO
+ *  Description: This class will implement all the actual logic define in PharamcyDAO
+ *               how to process or query the DB and return the result
+ * */
 public class PharmacyService implements PharmacyDAO  {
 
     @Override
