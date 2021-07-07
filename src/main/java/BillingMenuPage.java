@@ -32,16 +32,21 @@ public class BillingMenuPage  {
             System.out.println(order_id);
         }
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Press v to view order details or e to exit");
-        String userInput = scanner.nextLine();
+        if(orderlist.size() > 0) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Press v to view order details or e to exit");
+            String userInput = scanner.nextLine();
 
-        if  (userInput.equals("v") || userInput.equals("V"))  {
-            viewOrderDetails();
-        }  else  {
-            NotFound();
-            showUserOrder();
+            if  (userInput.equals("v") || userInput.equals("V"))  {
+                viewOrderDetails();
+            }  else  {
+                NotFound();
+                showUserOrder();
+            }
+        } else {
+            System.out.println(Colors.C_RED +" You don't have order anything yet.");
         }
+
     }
 
     public void viewOrderDetails()  {
