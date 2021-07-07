@@ -1,3 +1,5 @@
+import DAO.BillingOrderDAO;
+import DAO.BillingOrderItemDAO;
 import Model.Order;
 import Model.OrderItem;
 import Services.BillingService;
@@ -22,8 +24,10 @@ public class BillingMenuPage  {
 
     public void showUserOrder()  {
 
-        BillingService billingService = new BillingService();
-        orderlist = billingService.getUserOrder(123);
+        // use billing to reduce coupling
+        BillingOrderDAO billingOrderDAO = new BillingService();
+        Billing billing = new Billing(billingOrderDAO);
+        orderlist = billing.getUserOrder(123);
 
         System.out.println("=========Your Latest Orders=========");
         System.out.println(String.format(Constant.STRING_FORMAT, "Order Id"));
@@ -66,9 +70,12 @@ public class BillingMenuPage  {
         }
 
         if  (isFound)  {
-            BillingService billingService = new BillingService();
             List<OrderItem> orderItemsList = new ArrayList<OrderItem>();
-            orderItemsList = billingService.getUserOrderItems(orderlist.get(index).getOrder_id());
+            // use billing to reduce coupling
+            BillingOrderItemDAO billingOrderItemDAO = new BillingService();
+            Billing billing = new Billing(billingOrderItemDAO);
+            orderItemsList = billing.getUserOrderItems(orderlist.get(index).getOrder_id());
+
             showOrderItems(orderItemsList);
         }  else  {
             System.out.println(Colors.C_RED +" Order not found with that Id" +Colors.C_RESET);
