@@ -1,3 +1,5 @@
+import DAO.OfferDAO;
+import DAO.PharmacyDAO;
 import Model.CartItem;
 import Model.Offers;
 import Model.Pharmacy;
@@ -15,15 +17,31 @@ import java.util.*;
  * */
 public class PharmacyPage {
 
-    PharmacyService pharmacyService = new PharmacyService();
-
-    List<Pharmacy> listOfMedicines = pharmacyService.getAllMedicines();
+    List<Pharmacy> listOfMedicines;
 
     public static HashMap<Integer, CartItem> cart = new HashMap<Integer, CartItem>();
 
     public static Double finalPrice = 0.0;
 
     public static Boolean isFinalPriceVisited = false;
+
+    private PharmacyDAO pharmacyDAO;
+
+    private OfferDAO offerDAO;
+
+    public PharmacyPage(){}
+    public PharmacyPage(PharmacyDAO pharmacyDAO, OfferDAO offerDAO){
+
+        this.pharmacyDAO = pharmacyDAO;
+        this.offerDAO = offerDAO;
+
+        loadMedicines();
+    }
+
+    public void loadMedicines() {
+
+        listOfMedicines = pharmacyDAO.getAllMedicines();
+    }
 
     /*
     * This is the Menu for pharmacy module
@@ -56,6 +74,8 @@ public class PharmacyPage {
                 +String.format(Constant.STRING_FORMAT, "Name") +" "
                 +String.format(Constant.STRING_FORMAT, "Price")+" "
                 +String.format(Constant.STRING_FORMAT, "Stock"));
+
+
 
         for(Pharmacy pharmacy: listOfMedicines)  {
             String p_id = String.format(Constant.INTERGER_FORMAT, pharmacy.getP_id());
@@ -254,8 +274,7 @@ public class PharmacyPage {
     public void ViewOffers(){
         System.out.println("==========Offer List==========");
 
-        OfferService offerService = new OfferService();
-        List<Offers> offersList = offerService.getAllOffer();
+        List<Offers> offersList = offerDAO.getAllOffer();
 
         System.out.println(String.format(Constant.STRING_FORMAT, "Offer_Id") +" "
                 +String.format(Constant.STRING_FORMAT, "Name") +" "
