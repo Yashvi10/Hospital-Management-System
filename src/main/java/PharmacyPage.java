@@ -37,9 +37,9 @@ public class PharmacyPage {
         Scanner scanner = new Scanner(System.in);
         String inputFromUser = scanner.nextLine();
 
-        if  (inputFromUser.equals("l") || inputFromUser.equals("L"))  {
+        if  (inputFromUser.equals(Constant.SMALL_l) || inputFromUser.equals(Constant.CAPITAL_L))  {
             getAllMedicines();
-        }  else if  (inputFromUser.equals("e") || inputFromUser.equals("E"))  {
+        }  else if  (inputFromUser.equals(Constant.SMALL_e) || inputFromUser.equals(Constant.CAPITAL_E))  {
             return;
         }  else  {
             NotFound();
@@ -73,12 +73,12 @@ public class PharmacyPage {
         String userInput = scanner.nextLine();
 
         while(true)  {
-            if  (userInput.equals("b") || userInput.equals("B"))  {
+            if  (userInput.equals(Constant.SMALL_b) || userInput.equals(Constant.CAPITAL_B))  {
                 BuyItem();
-            }  else if(userInput.equals("c") || userInput.equals("C"))  {
+            }  else if(userInput.equals(Constant.SMALL_c) || userInput.equals(Constant.CAPITAL_C))  {
                 showCartItems();
                 break;
-            }  else if(userInput.equals("e") || userInput.equals("E"))  {
+            }  else if(userInput.equals(Constant.SMALL_e) || userInput.equals(Constant.CAPITAL_E))  {
                 PharmacyMenu();
                 break;
             }  else  {
@@ -99,7 +99,7 @@ public class PharmacyPage {
         System.out.println("*************************************");
         String userInput = scanner.nextLine();
 
-        if  (userInput.equals("e"))  {
+        if  (userInput.equals(Constant.CAPITAL_E) || userInput.equals(Constant.SMALL_e))  {
             getAllMedicines();
         }  else  {
             if  (isItemInList(userInput))  {
@@ -219,12 +219,12 @@ public class PharmacyPage {
         Scanner scanner = new Scanner(System.in);
         String userInput = scanner.nextLine();
 
-        if  (userInput.equals("c") || userInput.equals("C"))  {
+        if  (userInput.equals(Constant.SMALL_c) || userInput.equals(Constant.CAPITAL_C))  {
             System.out.println("Checkout");
             checkOut();
-        }  else if  (userInput.equals("o") || userInput.equals("O")) {
+        }  else if  (userInput.equals(Constant.SMALL_o) || userInput.equals(Constant.CAPITAL_O)) {
             ViewOffers();
-        }  else if  (userInput.equals("e") || userInput.equals("E"))  {
+        }  else if  (userInput.equals(Constant.SMALL_e) || userInput.equals(Constant.CAPITAL_E))  {
            return;
         }  else  {
             NotFound();

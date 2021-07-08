@@ -32,9 +32,7 @@ public class BillingPage {
         System.out.println("Enter user Id: ");
         user_id = scanner.nextLine();
 
-        if  (paymentType.equals("c") || paymentType.equals("C"))  {
-            paymentMode = "Card";
-        }  else if  (paymentType.equals("s") || paymentType.equals("S"))  {
+        if  (paymentType.equals(Constant.SMALL_s) || paymentType.equals(Constant.CAPITAL_S))  {
             paymentMode = "Cash";
             paidByCash();
         }  else  {
