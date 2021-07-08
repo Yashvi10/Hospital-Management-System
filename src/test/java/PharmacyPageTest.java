@@ -1,4 +1,6 @@
 import Model.Pharmacy;
+import Services.OfferService;
+import Services.PharmacyService;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -13,10 +15,11 @@ import static org.junit.jupiter.api.Assertions.*;
  * */
 public class PharmacyPageTest  {
 
+    PharmacyPage pharmacyPage = new PharmacyPage(new PharmacyService(), new OfferService());
     @Test
     void isItemInList_true()  {
 
-        PharmacyPage pharmacyPage = new PharmacyPage();
+
         Pharmacy P1 = new Pharmacy(1, "P1", 2.0, 25, "2025-05-02");
         Pharmacy P2 = new Pharmacy(2, "P2", 4.0, 25, "2024-05-12");
         pharmacyPage.listOfMedicines.add(P1);
@@ -30,7 +33,6 @@ public class PharmacyPageTest  {
     @Test
     void isItemInList_false()  {
 
-        PharmacyPage pharmacyPage = new PharmacyPage();
         Pharmacy P1 = new Pharmacy(1,
                 "P1",
                 2.0,
@@ -52,7 +54,6 @@ public class PharmacyPageTest  {
     @Test
     void addItemInCart_true()  {
 
-        PharmacyPage pharmacyPage = new PharmacyPage();
         Pharmacy P1 = new Pharmacy(1,
                 "P1",
                 2.0,
@@ -75,7 +76,6 @@ public class PharmacyPageTest  {
     @Test
     void addItemInCart_false()  {
 
-        PharmacyPage pharmacyPage = new PharmacyPage();
         Pharmacy P1 = new Pharmacy(1,
                 "P1",
                 2.0,
@@ -98,7 +98,6 @@ public class PharmacyPageTest  {
     @Test
     public void updateStock_true()  {
 
-        PharmacyPage pharmacyPage = new PharmacyPage();
         Pharmacy P1 = new Pharmacy(1,
                 "P1",
                 2.0,
@@ -120,7 +119,6 @@ public class PharmacyPageTest  {
     @Test
     public void updateStock_false()  {
 
-        PharmacyPage pharmacyPage = new PharmacyPage();
         Pharmacy P1 = new Pharmacy(1,
                 "P1",
                 2.0,

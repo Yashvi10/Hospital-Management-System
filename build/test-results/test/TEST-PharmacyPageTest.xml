@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="PharmacyPageTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-07-08T18:41:34" hostname="DESKTOP-IC8LASV" time="23.825">
+  <properties/>
+  <testcase name="updateStock_false()" classname="PharmacyPageTest" time="0.018"/>
+  <testcase name="updateStock_true()" classname="PharmacyPageTest" time="0.0"/>
+  <testcase name="addItemInCart_false()" classname="PharmacyPageTest" time="0.001"/>
+  <testcase name="isItemInList_false()" classname="PharmacyPageTest" time="0.0"/>
+  <testcase name="isItemInList_true()" classname="PharmacyPageTest" time="0.0"/>
+  <testcase name="addItemInCart_true()" classname="PharmacyPageTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
+]]></system-err>
+</testsuite>
