@@ -96,4 +96,19 @@ class BloodBankTest {
 
         assertEquals(expected, bloodbank.blood_group(),"Not a valid input!");
     }
+
+    @Test
+    void donationTests() {
+        BloodBank bloodbank = new BloodBank();
+        String ip = String.format("24.0");
+        ByteArrayInputStream b = new ByteArrayInputStream(ip.getBytes());
+        System.setIn(b);
+
+        String expected = "24.0";
+        ByteArrayOutputStream b1 = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(b1);
+        System.setOut(ps);
+
+        assertEquals(expected, bloodbank.donationTest_age(),"Not a valid input!");
+    }
 }
