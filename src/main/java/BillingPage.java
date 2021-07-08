@@ -1,3 +1,7 @@
+import DAO.OfferDAO;
+import DAO.OfferValidDAO;
+import DAO.OrderDAO;
+import DAO.OrderLastIdDAO;
 import Model.CartItem;
 import Model.Order;
 import Model.OrderItem;
@@ -19,6 +23,16 @@ import java.util.Scanner;
 public class BillingPage {
 
     String user_id = "";
+
+    private OrderDAO orderDAO;
+    private OrderLastIdDAO orderLastIdDAO;
+    private OfferValidDAO offerValidDAO;
+
+    public BillingPage(OrderDAO orderDAO, OrderLastIdDAO orderLastIdDAO, OfferValidDAO offerValidDAO) {
+        this.orderDAO = orderDAO;
+        this.orderLastIdDAO = orderLastIdDAO;
+        this.offerValidDAO = offerValidDAO;
+    }
     /*
      * This is the Main checkout function which will call another methods like paidByCash
      * */
@@ -58,8 +72,10 @@ public class BillingPage {
         calculateDiscount(o_id);
 
         OrderService orderService = new OrderService();
-        orderService.addOrder(new Order(123)); //replace this with user_id
-        Integer order_id = orderService.getLastOrderId();
+        orderDAO.addOrder(new Order(123));
+//        orderService.addOrder(new Order(123)); //replace this with user_id
+//        Integer order_id = orderService.getLastOrderId();
+        Integer order_id = orderLastIdDAO.getLastOrderId();
 
         for  (Map.Entry me: PharmacyPage.cart.entrySet())  {
             CartItem cartItem = (CartItem) me.getValue();
@@ -73,18 +89,20 @@ public class BillingPage {
                     cartItem.getPrice(),
                     cartItem.getTotalPrice(),
                     PharmacyPage.finalPrice,order_id);
-            orderService.addOrderItems(orderItem);
+//            orderService.addOrderItems(orderItem);
+            orderDAO.addOrderItems(orderItem);
         }
         PharmacyPage.cart.clear();
         PharmacyPage.finalPrice = 0.0;
         System.out.println("You have been successfully checkout");
-        PharmacyPage pharmacyPage = new PharmacyPage();
+        PharmacyPage pharmacyPage = new PharmacyPage(new PharmacyService(), new OfferService());
         pharmacyPage.PharmacyMenu();
     }
 
     public void calculateDiscount(Integer oid)  {
-        OfferService offerService = new OfferService();
-        Integer rate = offerService.isOfferValid(oid);
+//        OfferService offerService = new OfferService();
+//        Integer rate = offerService.isOfferValid(oid);
+        Integer rate = offerValidDAO.isOfferValid(oid);
 
         if  (rate != 0)  {
             Double newPrice = (PharmacyPage.finalPrice * rate ) / 100;

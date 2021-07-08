@@ -4,6 +4,7 @@ import Model.CartItem;
 import Model.Offers;
 import Model.Pharmacy;
 import Services.OfferService;
+import Services.OrderService;
 import Services.PharmacyService;
 import java.text.DecimalFormat;
 import java.util.*;
@@ -258,7 +259,7 @@ public class PharmacyPage {
     public void checkOut()  {
 
         if  (cart.size() > 0) {
-            BillingPage billingPage = new BillingPage();
+            BillingPage billingPage = new BillingPage(new OrderService(), new OrderService(), new OfferService());
             billingPage.CheckOut();
         }  else  {
             System.out.println(Colors.C_RED  +  "You can't checkout, your cart is empty"  +  Colors.C_RESET);

@@ -19,6 +19,8 @@
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-BillingPageTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-BillingPageTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BillingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BillingPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PharmacyPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PharmacyPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/PharmacyPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PharmacyPageTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +71,14 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Gradle.PharmacyPageTest">
+  <component name="RunManager" selected="Gradle.Tests in 'Project.test'">
+    <configuration name="Starter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Starter" />
+      <module name="Project.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -146,27 +155,6 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="PharmacyPageTest.isItemInList_true" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;PharmacyPageTest.isItemInList_true&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <configuration name="Tests in 'Project.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -190,11 +178,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Tests in 'Project.test'" />
+        <item itemvalue="Gradle.BillingPageTest" />
+        <item itemvalue="Application.Starter" />
         <item itemvalue="Gradle.PharmacyPageTest" />
         <item itemvalue="Gradle.PharmacyPageTest.isItemInList_false" />
-        <item itemvalue="Gradle.PharmacyPageTest.isItemInList_true" />
-        <item itemvalue="Gradle.BillingPageTest" />
-        <item itemvalue="Gradle.Tests in 'Project.test'" />
       </list>
     </recent_temporary>
   </component>
@@ -215,7 +203,7 @@
       <workItem from="1625383775075" duration="9320000" />
       <workItem from="1625506667509" duration="2081000" />
       <workItem from="1625553848979" duration="40760000" />
-      <workItem from="1625769510870" duration="176000" />
+      <workItem from="1625769510870" duration="2404000" />
     </task>
     <servers />
   </component>
