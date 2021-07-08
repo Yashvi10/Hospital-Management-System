@@ -41,7 +41,7 @@ public class BillingMenuPage  {
             System.out.println("Press v to view order details or e to exit");
             String userInput = scanner.nextLine();
 
-            if  (userInput.equals("v") || userInput.equals("V"))  {
+            if  (userInput.equals(Constant.SMALL_v) || userInput.equals(Constant.CAPITAL_V))  {
                 viewOrderDetails();
             }  else  {
                 NotFound();
@@ -122,7 +122,7 @@ public class BillingMenuPage  {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Press s to save invoice or e to exit");
         String userInput = scanner.nextLine();
-        if  (userInput.equals("s") || userInput.equals("S"))  {
+        if  (userInput.equals(Constant.SMALL_s) || userInput.equals(Constant.CAPITAL_S))  {
                 createPDF(data, orderId, tt_bill, ff_bill, (tt_bill - ff_bill));
         }  else  {
             return;
