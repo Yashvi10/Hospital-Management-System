@@ -15,6 +15,7 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.0/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.0/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/manageProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manageProfile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/manageProfileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/manageProfileTest.java" afterDir="false" />
     </list>
@@ -27,6 +28,16 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -49,33 +60,32 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
-  <component name="RunManager" selected="JUnit.manageProfileTest.updateProfileTest">
-    <configuration name="manageProfileTest.returnRecord_Test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;manageProfileTest.returnRecord_Test&quot; --stacktrace" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="JUnit.manageProfileTest.updatePasswordDiff_Test">
     <configuration name="manageProfileTest.returnRecord_Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Project.test" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="manageProfileTest" />
       <option name="METHOD_NAME" value="returnRecord_Test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="manageProfileTest.updatePasswordDiff_Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project.test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="manageProfileTest" />
+      <option name="METHOD_NAME" value="updatePasswordDiff_Test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="manageProfileTest.updatePasswordSame_Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project.test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="manageProfileTest" />
+      <option name="METHOD_NAME" value="updatePasswordSame_Test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -103,10 +113,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.manageProfileTest.updatePasswordDiff_Test" />
+        <item itemvalue="JUnit.manageProfileTest.updatePasswordSame_Test" />
         <item itemvalue="JUnit.manageProfileTest.updateProfileTest" />
         <item itemvalue="JUnit.manageProfileTest.updateProfileFirstName_Test" />
         <item itemvalue="JUnit.manageProfileTest.returnRecord_Test" />
-        <item itemvalue="Gradle.manageProfileTest.returnRecord_Test" />
       </list>
     </recent_temporary>
   </component>
@@ -133,12 +144,20 @@
       <option name="project" value="LOCAL" />
       <updated>1625799693133</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="updateProfileTest and updateProfile method created and tested">
+      <created>1625801744570</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1625801744600</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="create class to manage user account" />
     <MESSAGE value="returnRecord_Test and method returnRecord committed" />
-    <option name="LAST_COMMIT_MESSAGE" value="returnRecord_Test and method returnRecord committed" />
+    <MESSAGE value="updateProfileTest and updateProfile method created and tested" />
+    <option name="LAST_COMMIT_MESSAGE" value="updateProfileTest and updateProfile method created and tested" />
   </component>
 </project>

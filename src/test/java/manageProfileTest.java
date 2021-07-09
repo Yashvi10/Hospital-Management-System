@@ -15,8 +15,10 @@ public class manageProfileTest {
     private static final String lastName="Parker";
     private static final String address="123 South Park";
     private static final String phone="9024012987";
-
     private static final String email="abimbola@gmail.com";
+    private static final String pswd="Summer"  ;
+
+
     @Test
     public void returnRecord_Test(){
         Map<Integer, List<String>> expectedMap=new HashMap<>();
@@ -31,5 +33,15 @@ public class manageProfileTest {
     @Test
     public void updateProfileTest() {
         assertEquals(profileObj.updateProfile(1, "Rebecca", "Lane", "65 Avenue Park" ,"9023468976"  ), "Record Updated");
+    }
+
+    @Test
+    public void updatePasswordSame_Test () {
+        assertEquals(profileObj.resetPassword(1,  email, pswd,pswd  ), "Password Updated");
+    }
+
+    @Test
+    public void updatePasswordDiff_Test () {
+        assertEquals(profileObj.resetPassword(1,  email, pswd, "Winter" ),  "Error: Passwords do not match");
     }
 }
