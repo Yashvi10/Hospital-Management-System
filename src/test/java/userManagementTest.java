@@ -6,14 +6,16 @@ import java.util.List;
 import java.util.Map;
 
 public class userManagementTest {
-    private static final String firstName="Rebecca";
-    private static final String lastName="Lane";
-    private static final String address="65 Avenue Park";
-    private static final String phone="9023468976";
-    private static final String email="abimbola@gmail.com";
-    private static final String confirmEmail="abimbola@gmail.com";
-    private static final String pswd="Summer2021";
-    private static final String confirmPswd=  "Summer2021";
+    //private static final String firstName="Rebecca";
+   // private static final String lastName="Lane";
+    private static final String firstName="Elaine";
+    private static final String lastName="MacDonald";
+    private static final String address="50 Hamshore Street";
+    private static final String phone="903458712";
+    private static final String email="elaine@gmail.com";
+    private static final String confirmEmail="elaine@gmail.com";
+    private static final String pswd="macdonald";
+    private static final String confirmPswd=  "macdonald";
     private static final String role="Patient";
     private static final int userid=1;
 
@@ -41,8 +43,20 @@ public class userManagementTest {
     }*/
 
     @Test
+    public void registerNewPatientTest(){
+        assertEquals("Patient record added" ,user.registerPatient(myUser ));
+
+    }
+
+    @Test
+    public void registerExistingPatientTest(){
+        assertEquals("Confirm Email/Password" ,user.registerPatient(myUser ));
+
+    }
+
+    @Test
     public void RegisterUserCredTest(){
-        assertEquals("User password created",user.RegisterUserCred( role));
+        assertEquals("User password created",user.RegisterUserCred( role,myUser ));
     }
 
     @Test

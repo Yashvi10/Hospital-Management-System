@@ -10,9 +10,7 @@ public class User {
     private String confirmEmail;
     private String pswd;
     private String confirmPswd;
-    private Map<Integer, List<String>> checkUser;
-    private String responseDoc;
-    private String responseStaff;
+    private   List<String>  checkUser;
     private User user;
 
     User(String firstName, String lastName, String address, String phone, String email, String confirmEmail,
@@ -92,6 +90,14 @@ public class User {
 
     public void setconfirmPswd(String confirmPswd) {
         this.confirmPswd = confirmPswd;
+    }
+
+    public   List<String>  getcheckUser() {
+        return checkUser;
+    }
+
+    public void setcheckUser( List<String>  checkUser) {
+        this.checkUser = checkUser;
     }
 
 

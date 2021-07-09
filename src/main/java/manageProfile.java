@@ -17,8 +17,6 @@ public class manageProfile {
     }
 
 
-
-
     //This method updates user record
     String updateProfile( int userid, String firstName,String lastName,String address,String phone ){
 

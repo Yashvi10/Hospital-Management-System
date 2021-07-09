@@ -1,6 +1,10 @@
-DbConnection.java
- DbConnection
-userManagement.java
- userManagement
+User.java
+ User
 manageProfile.java
  manageProfile
+userManagement.java
+ userManagement
+DbConnection.java
+ DbConnection
+IRegistration.java
+ IRegistration
