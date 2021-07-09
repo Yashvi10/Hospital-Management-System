@@ -1,6 +1,26 @@
-Starter.java
- Starter
+Model/BloodDonor.java
+ Model.BloodDonor
+DAO/BloodDAO.java
+ DAO.BloodDAO
+Service/CustomConnection.java
+ Service.CustomConnection
+Service/BloodService.java
+ Service.BloodService
 DbConnection.java
  DbConnection
+Model/BloodRequester.java
+ Model.BloodRequester
+DAO/BloodRequesterDAO.java
+ DAO.BloodRequesterDAO
+Starter.java
+ Starter
+Model/BloodInventory.java
+ Model.BloodInventory
+DAO/BloodDonorDAO.java
+ DAO.BloodDonorDAO
+Service/BloodDonorService.java
+ Service.BloodDonorService
+Service/BloodRequesterService.java
+ Service.BloodRequesterService
 BloodBank.java
  BloodBank

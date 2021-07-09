@@ -130,7 +130,7 @@ class BloodBankTest {
         PrintStream ps = new PrintStream(b1);
         System.setOut(ps);
 
-        assertEquals(expected, bloodbank.requiredBloodbottles().toString(),"Not a valid input!");
+        assertEquals(expected, bloodbank.Bloodbottles().toString(),"Not a valid input!");
     }
 
     @Test

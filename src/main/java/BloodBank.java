@@ -1,3 +1,16 @@
+/*
+ *  Name of file: BloodBank.java
+ *  Author:  Yashvi Lad
+ *  Purpose: This is the driver class of feature BloodBank
+ *  Description: This class will call methods from other files and runs functions based on requests.
+ * */
+
+import Model.BloodDonor;
+import Model.BloodInventory;
+import Model.BloodRequester;
+import Service.BloodDonorService;
+import Service.BloodRequesterService;
+import Service.BloodService;
 import java.sql.*;
 import java.text.ParseException;
 import java.util.*;
@@ -10,14 +23,12 @@ public class BloodBank {
     static String middlename = null;
     static String blood_group = null;
     static int pid;
-    static int bottlesrequired = 0;
+    static int blood_bottles = 0;
     static float haemoglobin = 0;
     static float weight = 0;
     static int age = 0;
     static String date = null;
     static Scanner input;
-    static PreparedStatement ps = null;
-    static Connection connection = null;
 
     public Integer pid(){
         input = new Scanner(System.in);
@@ -129,33 +140,26 @@ public class BloodBank {
         return date;
     }
 
-    public Integer requiredBloodbottles(){
+    public Integer Bloodbottles(){
         input = new Scanner(System.in);
         System.out.println("Enter required bottles of blood: ");
-        bottlesrequired = input.nextInt();
+        blood_bottles = input.nextInt();
 
-        if(bottlesrequired == 0){
+        if(blood_bottles == 0){
             System.out.println("Input cannot be empty!");
             return 0;
         }
-        return bottlesrequired;
+        return blood_bottles;
     }
-    public void listOfItems() throws SQLException {
+    public void listOfItems() {
 
-        ps = connection.prepareStatement("select * from blood_inventory");
-        ResultSet rs = ps.executeQuery();
+        BloodService bloodService = new BloodService();
+        List<BloodInventory> bloodInventoryList = bloodService.getAllBloodGroup();
 
-        while (rs.next()){
-            ArrayList<String>  Inventory_list = new ArrayList<>();
-            Inventory_list.add(rs.getString("blood_group"));
-            Inventory_list.add(rs.getString("No_of_bottles"));
-            System.out.println(Inventory_list);
+        for(int i =0;i<bloodInventoryList.size();i++) {
+            System.out.println(bloodInventoryList.get(i).getBlood_group() + " " + bloodInventoryList.get(i).getNumber_of_bottles());
         }
     }
-
-//    public void place_bloodRequest(){
-//
-//    }
 
     public Integer donationTest_age(){
         input = new Scanner(System.in);
@@ -195,18 +199,18 @@ public class BloodBank {
 
     public void addToinventory() throws SQLException {
 
-        ps = connection.prepareStatement("insert into blood_donation(PIN, First_Name, Middle_Name, Last_Name,Blood_Group,Contact,Date) values(?,?,?,?,?,?,?)");
-        ps.setInt(1,pid);
-        ps.setString(2, firstname);
-        ps.setString(3,middlename);
-        ps.setString(4,lastname);
-        ps.setString(5,blood_group);
-        ps.setString(6,contact);
-        ps.setString(7,date);
-        ps.executeUpdate();
+        BloodDonor bloodDonor = new BloodDonor(pid,firstname,middlename,lastname,blood_group,contact,date);
+        BloodDonorService bloodDonorService = new BloodDonorService();
+        Boolean insert = bloodDonorService.addDonor(bloodDonor);
+        if(insert){
+            System.out.println("Data inserted successfully");
+        }
 
-        ps = connection.prepareStatement("update blood_inventory SET No_of_bottles=No_of_bottles+1 where blood_group = \"" + blood_group + "\";");
-        ps.executeUpdate();
+        Boolean insert1 = bloodDonorService.updateDonor(blood_group);
+        if(insert1){
+            System.out.println("Bottle Update successfully");
+        }
+
     }
 
     public int donationTest() throws SQLException {
@@ -235,44 +239,24 @@ public class BloodBank {
         return 1;
     }
 
-    public static void OnRequestUpdateInventory() throws SQLException {
-        ps = connection.prepareStatement("insert into blood_request(PIN, First_Name, Middle_Name, Last_Name,Blood_Group,Contact,Date) values(?,?,?,?,?,?,?)");
-        ps.setInt(1,pid);
-        ps.setString(2, firstname);
-        ps.setString(3,middlename);
-        ps.setString(4,lastname);
-        ps.setString(5,blood_group);
-        ps.setString(6,contact);
-        ps.setString(7,date);
-        ps.executeUpdate();
+    public void OnRequestUpdateInventory(){
 
-        ps = connection.prepareStatement("update blood_inventory SET No_of_bottles=No_of_bottles-1 where blood_group = \"" + blood_group + "\";");
-        ps.executeUpdate();
+       BloodRequester bloodRequester = new BloodRequester(pid,firstname,middlename,lastname,blood_group,contact,date);
+       BloodRequesterService bloodRequesterService = new BloodRequesterService();
+       Boolean insert = bloodRequesterService.addRequester(bloodRequester);
+       if(insert){
+           System.out.println("Data inserted successfully");
+       }
+
+       Boolean insert1 = bloodRequesterService.updateRequester(blood_bottles,blood_group);
+        if(insert1){
+            System.out.println("Bottle Update successfully");
+        }
     }
 
     public static void main(String args[]) throws SQLException, ParseException {
 
         BloodBank b = new BloodBank();
-        try
-        {
-            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
-            System.out.println("JDBC Driver connection successfull.");
-        }
-
-        //handles jdbc connection errors
-        catch (Exception ex) {
-
-            System.out.println("Error in jdbc Driver");
-        }
-        // Establish a connection
-        try {
-            String LocalURL = "jdbc:mysql://db-5308.cs.dal.ca:3306/CSCI5308_8_DEVINT";
-
-            connection = DriverManager.getConnection(LocalURL, "CSCI5308_8_DEVINT_USER", "cWhbaAs94FR");
-            Statement stmt = connection.createStatement();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
 
         System.out.println("1 = Blood Request\n2 = Blood Donate\n3 = List all available items");
         System.out.println("Select one: 1,2 or 3");
@@ -288,9 +272,9 @@ public class BloodBank {
                 b.middlename();
                 b.lastname();
                 b.blood_group();
-                b.requiredBloodbottles();
                 b.contact();
                 b.Date();
+                b.Bloodbottles();
                 b.OnRequestUpdateInventory();
 
                 break;
