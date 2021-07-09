@@ -110,7 +110,7 @@ public class userManagement {
 
             resultSet = null;
 
-            String queryUserCred = " insert into usercred values(?,?,?,?)";
+            String queryUserCred = " insert into loginTable values(?,?,?,?)";
 
             PreparedStatement insertUserCred = conn.prepareStatement(queryUserCred);
             insertUserCred.setInt(1, userid);
@@ -153,7 +153,7 @@ public class userManagement {
 
             conn=db.Connect();
             statement = conn.createStatement();
-            resultSet = statement.executeQuery("Select username,password from usercred where trim(username) ='"  + email + "'  and trim(password)='"+pswd+"'; ");
+            resultSet = statement.executeQuery("Select username,password from loginTable where trim(username) ='"  + email + "'  and trim(password)='"+pswd+"'; ");
             while (resultSet.next())
                 user=resultSet.getString("username");
 

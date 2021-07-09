@@ -2,6 +2,11 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 
 public class manageProfile {
     Statement statement ;
@@ -12,32 +17,40 @@ public class manageProfile {
         this.conn=conn;
     }
 
-    boolean updateProfile( String email ){
-        boolean boolResponse=false;
-        String user=null;
-        int count=0;
-        try{
+
+    //This method returns an existing user's record from database
+    Map<Integer, List<String>> returnRecord( String email ){
+        List<String> userArray=new ArrayList<>();
+        Map<Integer, List<String>> userInfo=new HashMap<>();
+        int userid=0;
+
+        try {
 
             statement = this.conn.createStatement();
-            resultSet = statement.executeQuery(" Select * from usertable where email='"+email.trim()+"';" );
+            resultSet = statement.executeQuery(" Select * from usertable where email='" + email.trim() + "';");
 
-            while (resultSet.next())
-                user=resultSet.getString("username");
+            userArray.clear();
+            userInfo.clear();
+            while (resultSet.next()) {
 
-            if(user!= null)
-                boolResponse=true;
+                userid = resultSet.getInt("userid");
+                userArray.add( resultSet.getString("firstName"));
+                userArray.add(  resultSet.getString("LastName"));
+                userArray.add(  resultSet.getString("address"));
+                userArray.add( resultSet.getString("phone"));
+            }
 
-            if(boolResponse)
-                System.out.println("Login Successful" );
-            else  System.out.println("Login Failed" );
+            if (userArray != null) {
+                for (String user : userArray)
+                    System.out.println(user);
+
+                userInfo.put(userid, userArray);
+            }
 
         }
         catch (SQLException e) {
-            System.out.println("SQLException: " + e.getMessage());
-            System.out.println("SQLState: " + e.getSQLState());
-            System.out.println("VendorError: " + e.getErrorCode());
+            System.out.println("Record does not exist");}
 
-        }
         finally {
 
             if (resultSet != null) {
@@ -54,6 +67,11 @@ public class manageProfile {
                 this.conn = null;
             }
         }
-        return boolResponse;
+        return userInfo;
+
+    }
+
+    void updateProfile( String email ){
+
     }
 }
