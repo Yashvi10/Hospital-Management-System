@@ -28,4 +28,8 @@ public class manageProfileTest {
         expectedMap.put(userid,userArray);
         assertEquals(  expectedMap,  profileObj.returnRecord( email));
     }
+    @Test
+    public void updateProfileTest() {
+        assertEquals(profileObj.updateProfile(1, "Rebecca", "Lane", "65 Avenue Park" ,"9023468976"  ), "Record Updated");
+    }
 }
