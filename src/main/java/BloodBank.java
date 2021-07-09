@@ -1,42 +1,72 @@
 import java.sql.*;
+import java.text.ParseException;
 import java.util.*;
 
 public class BloodBank {
 
-    public static double contact = 0;
-    public static String firstname = null;
-    public static String lastname = null;
-    public static String middlename = null;
-    public static String blood_group = null;
-    public static String pid;
-    public static int unitsrequired = 0;
-    public static float haemoglobin = 0;
-    public static float weight = 0;
-    public static double age = 0.0;
-    public static String date = null;
-    public static Scanner input;
-    public static PreparedStatement ps = null;
-    public static Connection connection = null;
-    static Map<String, Integer> inventory = new HashMap<>();
+    static String contact;
+    static String firstname = null;
+    static String lastname = null;
+    static String middlename = null;
+    static String blood_group = null;
+    static int pid;
+    static int bottlesrequired = 0;
+    static float haemoglobin = 0;
+    static float weight = 0;
+    static int age = 0;
+    static String date = null;
+    static Scanner input;
+    static PreparedStatement ps = null;
+    static Connection connection = null;
 
-    public static String pid(){
+    public Integer pid(){
         input = new Scanner(System.in);
         System.out.println("Enter your personal identification number: ");
-        pid = input.next();
+        pid = input.nextInt();
+
+        if(pid%1 != 0){
+            System.out.println("Your input can only be a number");
+            return 0;
+        }
+
+        if(pid == 0){
+            System.out.println("Not a valid input");
+            return 0;
+        }
         return pid;
     }
 
-    public static String firstname(){
+    public String firstname(){
         input = new Scanner(System.in);
         System.out.println("Enter your firstname: ");
         firstname = input.next();
+
+        if(firstname.matches("^[0-9]")){
+            System.out.println("Your input is not valid");
+            return null;
+        }
+
+        if(firstname == null || firstname.isEmpty()){
+            System.out.println("Input cannot be empty!");
+            return null;
+        }
         return firstname;
     }
 
-    public static String middlename(){
+    public String middlename(){
         input = new Scanner(System.in);
         System.out.println("Enter your middlename: ");
         middlename = input.next();
+
+        if(middlename.matches("^[0-9]")){
+            System.out.println("Your input is not valid");
+            return null;
+        }
+
+        if(middlename == null || middlename.isEmpty()){
+            System.out.println("Input cannot be empty!");
+            return null;
+        }
         return middlename;
     }
 
@@ -44,86 +74,142 @@ public class BloodBank {
         input = new Scanner(System.in);
         System.out.println("Enter your lastname: ");
         lastname = input.next();
+
+        if(lastname.matches("^[0-9]")){
+            System.out.println("Your input is not valid");
+            return null;
+        }
+
+        if(lastname == null || lastname.isEmpty()){
+            System.out.println("Input cannot be empty!");
+            return null;
+        }
         return lastname;
     }
 
-    public static String blood_group(){
+    public String blood_group(){
         input = new Scanner(System.in);
         System.out.println("Enter blood group: ");
         blood_group = input.next();
+
+        if(blood_group.matches("^[0-9]")){
+            System.out.println("Your input is not valid");
+            return null;
+        }
+
+        if(blood_group == null || blood_group.isEmpty()){
+            System.out.println("Input cannot be empty!");
+            return null;
+        }
         return blood_group;
     }
 
-    public static Double contact(){
+    public String contact(){
         input = new Scanner(System.in);
         System.out.println("Enter your contact details: ");
-        contact = input.nextDouble();
+        contact = input.next();
+
+        if(contact == null || contact.isEmpty()){
+            System.out.println("Input cannot be empty!");
+            return null;
+        }
+
+        if(contact.length() > 10){
+            System.out.println("Contact number cannot be more than 10 digits!");
+            return null;
+        }
         return contact;
     }
 
-    public static String Date(){
+    public String Date() throws ParseException {
         input = new Scanner(System.in);
         System.out.println("Enter date in format YYYY-MM-DD: ");
         date = input.next();
+//        DateTimeFormatter f = new DateTimeFormatter.ofPattern("yyyy/mm/dd");
         return date;
     }
 
-    public static Integer requiredBloodbottles(){
+    public Integer requiredBloodbottles(){
         input = new Scanner(System.in);
-        System.out.println("Enter required units of blood: ");
-        unitsrequired = input.nextInt();
-        return unitsrequired;
-    }
-    public static void listOfItems(){
-        System.out.println(inventory);
-        for(Map.Entry<String, Integer> map : inventory.entrySet()){
-            if(map.getValue() < 20 ){
-                System.out.println("Needs blood of group - " + map.getKey());
-            }
-        }
+        System.out.println("Enter required bottles of blood: ");
+        bottlesrequired = input.nextInt();
 
+        if(bottlesrequired == 0){
+            System.out.println("Input cannot be empty!");
+            return 0;
+        }
+        return bottlesrequired;
+    }
+    public void listOfItems() throws SQLException {
+
+        ps = connection.prepareStatement("select * from blood_inventory");
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()){
+            ArrayList<String>  Inventory_list = new ArrayList<>();
+            Inventory_list.add(rs.getString("blood_group"));
+            Inventory_list.add(rs.getString("No_of_bottles"));
+            System.out.println(Inventory_list);
+        }
     }
 
 //    public void place_bloodRequest(){
 //
 //    }
 
-    public static Double donationTest_age(){
+    public Integer donationTest_age(){
         input = new Scanner(System.in);
         System.out.println("Enter your age: ");
-        age = input.nextDouble();
-//        System.out.println(age);
+        age = input.nextInt();
+
+        if(age == 0){
+            System.out.println("Input cannot be empty!");
+            return 0;
+        }
         return age;
     }
 
-    public static Float donationTest_Weight(){
+    public Float donationTest_Weight(){
         input = new Scanner(System.in);
         System.out.println("Enter your weight: ");
         weight = input.nextFloat();
-        System.out.println(weight);
+
+        if(weight == 0){
+            System.out.println("Input cannot be empty!");
+            return 0.0f;
+        }
         return weight;
     }
 
-    public static Float donationTest_Haemoglobin(){
+    public Float donationTest_Haemoglobin(){
         input = new Scanner(System.in);
         System.out.println("Enter your haemoglobin: ");
         haemoglobin = input.nextFloat();
+
+        if(haemoglobin == 0){
+            System.out.println("Input cannot be empty!");
+            return 0.0f;
+        }
         return haemoglobin;
     }
 
-    public static void addToinventory() throws SQLException {
+    public void addToinventory() throws SQLException {
+
         ps = connection.prepareStatement("insert into blood_donation(PIN, First_Name, Middle_Name, Last_Name,Blood_Group,Contact,Date) values(?,?,?,?,?,?,?)");
-        ps.setString(1,pid);
+        ps.setInt(1,pid);
         ps.setString(2, firstname);
         ps.setString(3,middlename);
         ps.setString(4,lastname);
         ps.setString(5,blood_group);
-        ps.setDouble(6,contact);
+        ps.setString(6,contact);
         ps.setString(7,date);
+        ps.executeUpdate();
+
+        ps = connection.prepareStatement("update blood_inventory SET No_of_bottles=No_of_bottles+1 where blood_group = \"" + blood_group + "\";");
         ps.executeUpdate();
     }
 
-    public static int donationTest() throws SQLException {
+    public int donationTest() throws SQLException {
         String d = null;
         if(age<18 || age>65){
             System.out.println("You are not allowed to donate blood");
@@ -149,27 +235,24 @@ public class BloodBank {
         return 1;
     }
 
-    public static void updateInventory() throws SQLException {
-        for(Map.Entry<String, Integer> map : inventory.entrySet()){
-            if(map.getKey() == blood_group() && map.getValue() == requiredBloodbottles()){
-                map.setValue(map.getValue() - 1);
-                ps = connection.prepareStatement("update into blood_inventory SET No_of_bottles=No_of_bottles-1 where map.getKey() == blood_group()");
-            }
-        }
+    public static void OnRequestUpdateInventory() throws SQLException {
+        ps = connection.prepareStatement("insert into blood_request(PIN, First_Name, Middle_Name, Last_Name,Blood_Group,Contact,Date) values(?,?,?,?,?,?,?)");
+        ps.setInt(1,pid);
+        ps.setString(2, firstname);
+        ps.setString(3,middlename);
+        ps.setString(4,lastname);
+        ps.setString(5,blood_group);
+        ps.setString(6,contact);
+        ps.setString(7,date);
+        ps.executeUpdate();
+
+        ps = connection.prepareStatement("update blood_inventory SET No_of_bottles=No_of_bottles-1 where blood_group = \"" + blood_group + "\";");
+        ps.executeUpdate();
     }
 
-    public static void main(String args[]) throws SQLException {
+    public static void main(String args[]) throws SQLException, ParseException {
 
         BloodBank b = new BloodBank();
-        inventory.put("A+", 10);
-        inventory.put("A-", 50);
-        inventory.put("B+", 150);
-        inventory.put("B-", 200);
-        inventory.put("AB+", 100);
-        inventory.put("AB-", 250);
-        inventory.put("O+", 10);
-        inventory.put("O-", 250);
-
         try
         {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
@@ -208,17 +291,8 @@ public class BloodBank {
                 b.requiredBloodbottles();
                 b.contact();
                 b.Date();
-                b.updateInventory();
+                b.OnRequestUpdateInventory();
 
-//                ps = connection.prepareStatement("insert into blood_request(PIN, First_Name, Middle_Name, Last_Name,Blood_Group,Contact,Date) values(?,?,?,?,?,?,?)");
-//                ps.setString(1,pid);
-//                ps.setString(2, firstname);
-//                ps.setString(3,middlename);
-//                ps.setString(4,lastname);
-//                ps.setString(5,blood_group);
-//                ps.setDouble(6,contact);
-//                ps.setString(7,date);
-//                ps.executeUpdate();
                 break;
 
             case 2 :
@@ -236,15 +310,6 @@ public class BloodBank {
                 b.donationTest_Haemoglobin();
                 b.donationTest();
 
-//                ps = connection.prepareStatement("insert into blood_donation(PIN, First_Name, Middle_Name, Last_Name,Blood_Group,Contact,Date) values(?,?,?,?,?,?,?)");
-//                ps.setString(1,pid);
-//                ps.setString(2, firstname);
-//                ps.setString(3,middlename);
-//                ps.setString(4,lastname);
-//                ps.setString(5,blood_group);
-//                ps.setDoublel(6,contact);
-//                ps.setString(7,date);
-//                ps.executeUpdate();
                 break;
 
             case 3 :

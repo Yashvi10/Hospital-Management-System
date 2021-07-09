@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BloodBankTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2021-07-08T12:54:47" hostname="DESKTOP-5JRRU0H" time="0.05">
+<testsuite name="BloodBankTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2021-07-09T10:38:48" hostname="DESKTOP-5JRRU0H" time="0.448">
   <properties/>
-  <testcase name="donationTests()" classname="BloodBankTest" time="0.05">
-    <failure message="org.opentest4j.AssertionFailedError: Not a valid input! ==&gt; expected: java.lang.String@2190883d&lt;24.0&gt; but was: java.lang.Double@579f9987&lt;24.0&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: Not a valid input! ==&gt; expected: java.lang.String@2190883d&lt;24.0&gt; but was: java.lang.Double@579f9987&lt;24.0&gt;
-	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
-	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
-	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1135)
-	at BloodBankTest.donationTests(BloodBankTest.java:112)
+  <testcase name="ItemsList()" classname="BloodBankTest" time="0.448">
+    <failure message="java.lang.NullPointerException" type="java.lang.NullPointerException">java.lang.NullPointerException
+	at BloodBank.listOfItems(BloodBank.java:143)
+	at BloodBankTest.ItemsList(BloodBankTest.java:193)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
