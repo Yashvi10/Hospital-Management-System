@@ -73,8 +73,6 @@ public class BillingPage {
 
         OrderService orderService = new OrderService();
         orderDAO.addOrder(new Order(123));
-//        orderService.addOrder(new Order(123)); //replace this with user_id
-//        Integer order_id = orderService.getLastOrderId();
         Integer order_id = orderLastIdDAO.getLastOrderId();
 
         for  (Map.Entry me: PharmacyPage.cart.entrySet())  {
@@ -89,7 +87,6 @@ public class BillingPage {
                     cartItem.getPrice(),
                     cartItem.getTotalPrice(),
                     PharmacyPage.finalPrice,order_id);
-//            orderService.addOrderItems(orderItem);
             orderDAO.addOrderItems(orderItem);
         }
         PharmacyPage.cart.clear();
@@ -100,8 +97,7 @@ public class BillingPage {
     }
 
     public void calculateDiscount(Integer oid)  {
-//        OfferService offerService = new OfferService();
-//        Integer rate = offerService.isOfferValid(oid);
+
         Integer rate = offerValidDAO.isOfferValid(oid);
 
         if  (rate != 0)  {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="PharmacyPageTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-07-08T19:14:42" hostname="DESKTOP-IC8LASV" time="24.931">
+<testsuite name="PharmacyPageTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-07-09T13:26:02" hostname="DESKTOP-IC8LASV" time="8.107">
   <properties/>
   <testcase name="updateStock_false()" classname="PharmacyPageTest" time="0.001"/>
   <testcase name="updateStock_true()" classname="PharmacyPageTest" time="0.0"/>

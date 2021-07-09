@@ -20,6 +20,7 @@ public class CartItem  {
     private Double finalPrice;
 
     public CartItem(){}
+
     public CartItem(String name, Integer qty, Double price, Double totalPrice)  {
         this.name = name;
         this.qty = qty;

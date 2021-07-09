@@ -31,8 +31,10 @@ public class PharmacyPage {
     private OfferDAO offerDAO;
 
     public PharmacyPage(){}
+
     public PharmacyPage(PharmacyDAO pharmacyDAO, OfferDAO offerDAO){
 
+        //dependency injection
         this.pharmacyDAO = pharmacyDAO;
         this.offerDAO = offerDAO;
 
@@ -76,8 +78,7 @@ public class PharmacyPage {
                 +String.format(Constant.STRING_FORMAT, "Price")+" "
                 +String.format(Constant.STRING_FORMAT, "Stock"));
 
-
-
+        
         for(Pharmacy pharmacy: listOfMedicines)  {
             String p_id = String.format(Constant.INTERGER_FORMAT, pharmacy.getP_id());
             String name = String.format(Constant.STRING_FORMAT, pharmacy.getProduct_name());
