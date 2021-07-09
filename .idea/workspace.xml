@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e3c82bd-9117-47ce-9b08-89223c6bf983" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/IDoctor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/IPatient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/IStaff.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/IRegistration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/IDoctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IDoctor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/IPatient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IPatient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/IStaff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IStaff.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/manageProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manageProfile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/userManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/userManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/manageProfileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/manageProfileTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/userManagementTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/userManagementTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +39,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -54,17 +58,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
-  <component name="RunManager" selected="JUnit.manageProfileTest.updatePasswordDiff_Test">
-    <configuration name="manageProfileTest.returnRecord_Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Project.test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="manageProfileTest" />
-      <option name="METHOD_NAME" value="returnRecord_Test" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.userManagementTest.loadRecord_Test">
     <configuration name="manageProfileTest.updatePasswordDiff_Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Project.test" />
       <option name="PACKAGE_NAME" value="" />
@@ -85,16 +79,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="manageProfileTest.updateProfileFirstName_Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Project.test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="manageProfileTest" />
-      <option name="METHOD_NAME" value="updateProfileFirstName_Test" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="manageProfileTest.updateProfileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Project.test" />
       <option name="PACKAGE_NAME" value="" />
@@ -105,13 +89,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="userManagementTest.checkRecord_Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project.test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="userManagementTest" />
+      <option name="METHOD_NAME" value="checkRecord_Test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="userManagementTest.loadRecord_Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project.test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="userManagementTest" />
+      <option name="METHOD_NAME" value="loadRecord_Test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.userManagementTest.loadRecord_Test" />
+        <item itemvalue="JUnit.userManagementTest.checkRecord_Test" />
         <item itemvalue="JUnit.manageProfileTest.updatePasswordDiff_Test" />
         <item itemvalue="JUnit.manageProfileTest.updatePasswordSame_Test" />
         <item itemvalue="JUnit.manageProfileTest.updateProfileTest" />
-        <item itemvalue="JUnit.manageProfileTest.updateProfileFirstName_Test" />
-        <item itemvalue="JUnit.manageProfileTest.returnRecord_Test" />
       </list>
     </recent_temporary>
   </component>
@@ -152,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625803616649</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Create interfaces IPatient, IDoctor and IStaff">
+      <created>1625805617134</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1625805617134</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -160,6 +171,7 @@
     <MESSAGE value="returnRecord_Test and method returnRecord committed" />
     <MESSAGE value="updateProfileTest and updateProfile method created and tested" />
     <MESSAGE value="Tests (updatePasswordSame_Test and updatePasswordDiff_Test) and updatePassword method created" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tests (updatePasswordSame_Test and updatePasswordDiff_Test) and updatePassword method created" />
+    <MESSAGE value="Create interfaces IPatient, IDoctor and IStaff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create interfaces IPatient, IDoctor and IStaff" />
   </component>
 </project>

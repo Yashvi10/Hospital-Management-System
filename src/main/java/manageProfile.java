@@ -10,62 +10,14 @@ public class manageProfile {
     ResultSet resultSet=null;
     Connection conn;
 
+    manageProfile(){}
+
     manageProfile(Connection conn){
         this.conn=conn;
     }
 
 
-    //This method returns an existing user's record from database
-    Map<Integer, List<String>> returnRecord( String email ){
-        List<String> userArray=new ArrayList<>();
-        Map<Integer, List<String>> userInfo=new HashMap<>();
-        int userid=0;
 
-        try {
-
-            statement = this.conn.createStatement();
-            resultSet = statement.executeQuery(" Select * from patientTable where email='" + email.trim() + "';");
-
-             while (resultSet.next()) {
-
-                userid = resultSet.getInt("userid");
-                userArray.add( resultSet.getString("firstName"));
-                userArray.add(  resultSet.getString("LastName"));
-                userArray.add(  resultSet.getString("address"));
-                userArray.add( resultSet.getString("phone"));
-            }
-
-            if (userArray == null) {
-            } else {
-                for (String user : userArray)
-                    System.out.println(user);
-
-                userInfo.put(userid, userArray);
-            }
-
-        }
-        catch (SQLException e) {
-            System.out.println("Record does not exist");}
-
-        finally {
-
-            if (resultSet != null) {
-                try { resultSet.close(); } catch (SQLException sqlEx) {sqlEx.getMessage(); }
-                resultSet = null;
-            }
-
-            if (statement != null) {
-                try { statement.close(); } catch (SQLException sqlEx) {sqlEx.getMessage(); }
-                statement = null;
-            }
-            if (this.conn != null) {
-                try { this.conn.close(); } catch (SQLException sqlEx) { sqlEx.getMessage();}
-                this.conn = null;
-            }
-        }
-        return userInfo;
-
-    }
 
     //This method updates user record
     String updateProfile( int userid, String firstName,String lastName,String address,String phone ){

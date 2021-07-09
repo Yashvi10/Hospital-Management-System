@@ -1,4 +1,4 @@
 public interface IPatient {
 
-    String registerPatient();
+    String registerPatient( );
 }

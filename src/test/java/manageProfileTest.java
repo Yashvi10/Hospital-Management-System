@@ -20,17 +20,6 @@ public class manageProfileTest {
 
 
     @Test
-    public void returnRecord_Test(){
-        Map<Integer, List<String>> expectedMap=new HashMap<>();
-        List<String> userArray=new ArrayList<>();
-        userArray.add(firstName);
-        userArray.add(lastName);
-        userArray.add(address);
-        userArray.add(phone);
-        expectedMap.put(userid,userArray);
-        assertEquals(  expectedMap,  profileObj.returnRecord( email));
-    }
-    @Test
     public void updateProfileTest() {
         assertEquals(profileObj.updateProfile(1, "Rebecca", "Lane", "65 Avenue Park" ,"9023468976"  ), "Record Updated");
     }

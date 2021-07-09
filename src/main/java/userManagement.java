@@ -3,63 +3,108 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-public class userManagement implements  IPatient, IDoctor,IStaff{
+public class userManagement extends manageProfile implements  IRegistration {
     Statement statement ;
     ResultSet resultSet ;
     Connection conn ;
     int userid=0;
     DbConnection db;
     String response; String boolResponse;
-    private String firstName;
-    private String lastName;
-    private String address;
-    private String phone;
+    private  String firstName ;
+    private  String lastName ;
+    private  String address ;
+    private  String phone ;
     private String email;
     private String confirmEmail;
     private String pswd;
     private String confirmPswd ;
     private String role;
+    Map<Integer, String> user=new HashMap<>();
 
-    userManagement(String email, String pswd ){
+    userManagement(){}
 
-       db = new DbConnection();
-        this.email=email;
-         this.pswd=pswd;
-
+    userManagement(Connection conn){
+        this.conn=conn;
     }
+
     /*User management:
     a. Registration
     b. Login
     c. Reset Password
     d. Profile Management*/
 
-    public String getEmail() {
-        return email;
-    }
+    //This method checks and returns an existing user's record from database
+    @Override
+    public Map<Integer, List<String>> loadRecord(User users  ){
+        List<String> userArray=new ArrayList<>();
+        Map<Integer, List<String>> userInfo=new HashMap<>();
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+        int userid=0;
 
-    public String getPswd() {
-        return pswd;
-    }
+        try {
 
-    public void setPswd(String pswd) {
-        this.pswd = pswd;
-    }
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery(" Select * from patientTable where email='" + users.getEmail().trim() + "';");
 
+            while (resultSet.next()) {
+
+                userid = resultSet.getInt("userid");
+                userArray.add( resultSet.getString("firstName"));
+                userArray.add(  resultSet.getString("LastName"));
+                userArray.add(  resultSet.getString("address"));
+                userArray.add( resultSet.getString("phone"));
+            }
+
+            if (userArray == null) {
+            } else {
+                for (String user : userArray)
+                    System.out.println(user);
+
+                userInfo.put(userid, userArray);
+            }
+
+        }
+        catch (SQLException e) {
+            System.out.println("Record does not exist");}
+
+        finally {
+
+            if (resultSet != null) {
+                try { resultSet.close(); } catch (SQLException sqlEx) {sqlEx.getMessage(); }
+                resultSet = null;
+            }
+
+            if (statement != null) {
+                try { statement.close(); } catch (SQLException sqlEx) {sqlEx.getMessage(); }
+                statement = null;
+            }
+            if (this.conn != null) {
+                try { this.conn.close(); } catch (SQLException sqlEx) { sqlEx.getMessage();}
+                this.conn = null;
+            }
+        }
+        return userInfo;
+
+    }
 
     @Override
-    public String registerPatient() {
+    public String registerPatient(User user ) {
         resultSet = null;
         conn = null;
         response=null;
 
         try {
-            if( (email.equals(confirmEmail) )&&(pswd.equals(confirmPswd))){
-                String queryUserTable = " insert into usertable(firstName,LastName,address,phone,email) values( ?,?,?,?,?)";
+           // user.setEmail( email);
+           // user.setconfirmEmail(confirmEmail);
+           // user.setPswd( pswd);
+           // user.setconfirmPswd(confirmPswd);
+            if( (user.getEmail().equals(user.getconfirmEmail( ) )) &&(user.getPswd().equals(user.getconfirmPswd( ) ))){
+                String queryUserTable = " insert into patientTable(firstName,LastName,address,phone,email) values( ?,?,?,?,?)";
                 conn = db.Connect();
 
                 PreparedStatement insertUserTable = conn.prepareStatement(queryUserTable);
@@ -89,7 +134,7 @@ public class userManagement implements  IPatient, IDoctor,IStaff{
         return response;
     }
     @Override
-    public String registerDoctor() {
+    public String registerDoctor(User user ) {
         resultSet = null;
         conn = null;
         response=null;
@@ -127,7 +172,7 @@ public class userManagement implements  IPatient, IDoctor,IStaff{
         return response;
     }
     @Override
-    public String registerStaff() {
+    public String registerStaff(User user) {
 
         resultSet = null;
         conn = null;
@@ -166,47 +211,7 @@ public class userManagement implements  IPatient, IDoctor,IStaff{
         return response;
     }
 
-    /*
-     * This method saves users details in the database
-     */
-    String RegisterUser( String firstName,String lastName,String address,String phone, String confirmEmail,String confirmPswd , String role){
 
-        resultSet = null;
-        conn = null;
-        response=null;
-        this.role=role;
-
-        try {
-            if( (email.equals(confirmEmail) )&&(pswd.equals(confirmPswd))){
-                String queryUserTable = " insert into usertable(firstName,LastName,address,phone,email) values( ?,?,?,?,?)";
-                conn = db.Connect();
-
-                PreparedStatement insertUserTable = conn.prepareStatement(queryUserTable);
-                insertUserTable.setString(1, firstName);
-                insertUserTable.setString(2, lastName);
-                insertUserTable.setString(3, address);
-                insertUserTable.setString(4, phone);
-                insertUserTable.setString(5, email.trim());
-                insertUserTable.executeUpdate();
-                response="User added";
-            }
-            else System.out.println("Confirm Email/Password");
-
-        }
-        catch (SQLException e) {
-            System.out.println("SQLException: " + e.getMessage());
-            System.out.println("SQLState: " + e.getSQLState());
-            System.out.println("VendorError: " + e.getErrorCode());
-        }
-        finally {
-
-            if (conn != null) {
-                try { conn.close(); } catch (SQLException sqlEx) { sqlEx.getMessage();}
-                conn = null;
-            }
-        }
-        return response;
-    }
 
     /*
      * This method inserts into the usercred
