@@ -24,7 +24,7 @@ public class manageProfile {
         try {
 
             statement = this.conn.createStatement();
-            resultSet = statement.executeQuery(" Select * from usertable where email='" + email.trim() + "';");
+            resultSet = statement.executeQuery(" Select * from patientTable where email='" + email.trim() + "';");
 
              while (resultSet.next()) {
 
@@ -72,7 +72,7 @@ public class manageProfile {
 
         String response="";
         try {
-            String queryUserTable = "update usertable set firstName=?,LastName=?,address=?,phone=? where userid=? ";
+            String queryUserTable = "update patientTable set firstName=?,LastName=?,address=?,phone=? where userid=? ";
             PreparedStatement updateStmt = conn.prepareStatement(queryUserTable);
             updateStmt.setString(1, firstName);
             updateStmt.setString(2, lastName);

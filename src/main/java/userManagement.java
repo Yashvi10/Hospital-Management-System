@@ -4,7 +4,7 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 
-public class userManagement {
+public class userManagement implements  IPatient, IDoctor,IStaff{
     Statement statement ;
     ResultSet resultSet ;
     Connection conn ;
@@ -50,6 +50,121 @@ public class userManagement {
         this.pswd = pswd;
     }
 
+
+    @Override
+    public String registerPatient() {
+        resultSet = null;
+        conn = null;
+        response=null;
+
+        try {
+            if( (email.equals(confirmEmail) )&&(pswd.equals(confirmPswd))){
+                String queryUserTable = " insert into usertable(firstName,LastName,address,phone,email) values( ?,?,?,?,?)";
+                conn = db.Connect();
+
+                PreparedStatement insertUserTable = conn.prepareStatement(queryUserTable);
+                insertUserTable.setString(1, firstName);
+                insertUserTable.setString(2, lastName);
+                insertUserTable.setString(3, address);
+                insertUserTable.setString(4, phone);
+                insertUserTable.setString(5, email.trim());
+                insertUserTable.executeUpdate();
+                response="User added";
+            }
+            else System.out.println("Confirm Email/Password");
+
+        }
+        catch (SQLException e) {
+            System.out.println("SQLException: " + e.getMessage());
+            System.out.println("SQLState: " + e.getSQLState());
+            System.out.println("VendorError: " + e.getErrorCode());
+        }
+        finally {
+
+            if (conn != null) {
+                try { conn.close(); } catch (SQLException sqlEx) { sqlEx.getMessage();}
+                conn = null;
+            }
+        }
+        return response;
+    }
+    @Override
+    public String registerDoctor() {
+        resultSet = null;
+        conn = null;
+        response=null;
+        this.role=role;
+
+        try {
+            if( (email.equals(confirmEmail) )&&(pswd.equals(confirmPswd))){
+                String queryUserTable = " insert into usertable(firstName,LastName,address,phone,email) values( ?,?,?,?,?)";
+                conn = db.Connect();
+
+                PreparedStatement insertUserTable = conn.prepareStatement(queryUserTable);
+                insertUserTable.setString(1, firstName);
+                insertUserTable.setString(2, lastName);
+                insertUserTable.setString(3, address);
+                insertUserTable.setString(4, phone);
+                insertUserTable.setString(5, email.trim());
+                insertUserTable.executeUpdate();
+                response="User added";
+            }
+            else System.out.println("Confirm Email/Password");
+
+        }
+        catch (SQLException e) {
+            System.out.println("SQLException: " + e.getMessage());
+            System.out.println("SQLState: " + e.getSQLState());
+            System.out.println("VendorError: " + e.getErrorCode());
+        }
+        finally {
+
+            if (conn != null) {
+                try { conn.close(); } catch (SQLException sqlEx) { sqlEx.getMessage();}
+                conn = null;
+            }
+        }
+        return response;
+    }
+    @Override
+    public String registerStaff() {
+
+        resultSet = null;
+        conn = null;
+        response=null;
+        this.role=role;
+
+        try {
+            if( (email.equals(confirmEmail) )&&(pswd.equals(confirmPswd))){
+                String queryUserTable = " insert into usertable(firstName,LastName,address,phone,email) values( ?,?,?,?,?)";
+                conn = db.Connect();
+
+                PreparedStatement insertUserTable = conn.prepareStatement(queryUserTable);
+                insertUserTable.setString(1, firstName);
+                insertUserTable.setString(2, lastName);
+                insertUserTable.setString(3, address);
+                insertUserTable.setString(4, phone);
+                insertUserTable.setString(5, email.trim());
+                insertUserTable.executeUpdate();
+                response="User added";
+            }
+            else System.out.println("Confirm Email/Password");
+
+        }
+        catch (SQLException e) {
+            System.out.println("SQLException: " + e.getMessage());
+            System.out.println("SQLState: " + e.getSQLState());
+            System.out.println("VendorError: " + e.getErrorCode());
+        }
+        finally {
+
+            if (conn != null) {
+                try { conn.close(); } catch (SQLException sqlEx) { sqlEx.getMessage();}
+                conn = null;
+            }
+        }
+        return response;
+    }
 
     /*
      * This method saves users details in the database
