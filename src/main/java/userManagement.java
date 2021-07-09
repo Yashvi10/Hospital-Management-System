@@ -28,6 +28,11 @@ public class userManagement {
          this.pswd=pswd;
 
     }
+    /*User management:
+    a. Registration
+    b. Login
+    c. Reset Password
+    d. Profile Management*/
 
     public String getEmail() {
         return email;
@@ -185,51 +190,7 @@ public class userManagement {
         return boolResponse;
     }
 
-    boolean updateProfile( String email ){
-        boolean boolResponse=false;
-        String user=null;
-        int count=0;
-        try{
 
-            conn=db.Connect();
-            statement = conn.createStatement();
-            resultSet = statement.executeQuery(" Select * from usertable where email='"+email.trim()+"';" );
-
-            while (resultSet.next())
-                user=resultSet.getString("username");
-
-            if(user!= null)
-                boolResponse=true;
-
-            if(boolResponse)
-                System.out.println("Login Successful" );
-            else  System.out.println("Login Failed" );
-
-        }
-        catch (SQLException e) {
-            System.out.println("SQLException: " + e.getMessage());
-            System.out.println("SQLState: " + e.getSQLState());
-            System.out.println("VendorError: " + e.getErrorCode());
-
-        }
-        finally {
-
-            if (resultSet != null) {
-                try { resultSet.close(); } catch (SQLException sqlEx) {sqlEx.getMessage(); }
-                resultSet = null;
-            }
-
-            if (statement != null) {
-                try { statement.close(); } catch (SQLException sqlEx) {sqlEx.getMessage(); }
-                statement = null;
-            }
-            if (conn != null) {
-                try { conn.close(); } catch (SQLException sqlEx) { sqlEx.getMessage();}
-                conn = null;
-            }
-        }
-        return boolResponse;
-    }
 
 }
 
