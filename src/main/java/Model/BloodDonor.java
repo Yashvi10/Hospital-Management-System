@@ -12,8 +12,6 @@ public class BloodDonor {
 
     private Integer donation_id;
 
-    private Integer pin;
-
     private String firstname;
 
     private String middlename;
@@ -34,23 +32,14 @@ public class BloodDonor {
         this.donation_id = donation_id;
     }
 
-    public BloodDonor(Integer pin, String firstname, String middlename, String lastname,
+    public BloodDonor(String firstname, String middlename, String lastname,
                       String blood_group, String contact, String date) {
-        this.pin = pin;
         this.firstname = firstname;
         this.middlename = middlename;
         this.lastname = lastname;
         this.blood_group = blood_group;
         this.contact = contact;
         this.date = date;
-    }
-
-    public Integer getPin() {
-        return pin;
-    }
-
-    public void setPin(Integer pin) {
-        this.pin = pin;
     }
 
     public String getFirstname() {

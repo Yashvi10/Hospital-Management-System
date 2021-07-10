@@ -21,7 +21,6 @@ public class BloodBank {
     static String lastname = null;
     static String middlename = null;
     static String blood_group = null;
-    static int pid;
     static int blood_bottles = 0;
     static float haemoglobin = 0;
     static float weight = 0;
@@ -29,23 +28,10 @@ public class BloodBank {
     static String date = null;
     static Scanner input;
 
-    /* This method takes input of pid from user
-    * */
-    public Integer pid(){
-        input = new Scanner(System.in);
-        System.out.println("Enter your personal identification number: ");
-        pid = input.nextInt();
-
-        if(pid == 0){
-            System.out.println("Not a valid input");
-            return 0;
-        }
-        return pid;
-    }
-
     /* This method takes input of firstname from user
      * */
     public String firstname(){
+        String firstname = null;
         input = new Scanner(System.in);
         System.out.println("Enter your firstname: ");
         firstname = input.next();
@@ -147,7 +133,7 @@ public class BloodBank {
         return date;
     }
 
-    /* This method takes required blood bottles of pid from user
+    /* This method takes required blood bottles of blood from user
      * */
     public Integer Bloodbottles(){
         input = new Scanner(System.in);
@@ -170,6 +156,34 @@ public class BloodBank {
 
         for(int i =0;i<bloodInventoryList.size();i++) {
             System.out.println(bloodInventoryList.get(i).getBlood_group() + " " + bloodInventoryList.get(i).getNumber_of_bottles());
+        }
+    }
+
+    /* This method returns list of all blood requesters
+     * */
+    public void listOfRequesters() {
+
+        BloodRequesterService bloodRequesterService = new BloodRequesterService();
+        List<BloodRequester> bloodRequesterList = bloodRequesterService.getAllRequesters();
+
+        for(int i =0;i<bloodRequesterList.size();i++) {
+            System.out.println(bloodRequesterList.get(i).getFirstname() + " " + bloodRequesterList.get(i).getMiddlename()
+                    + " " + bloodRequesterList.get(i).getLastname() + " " + bloodRequesterList.get(i).getBlood_group()
+                        + " " + bloodRequesterList.get(i).getContact() + " " + bloodRequesterList.get(i).getDate());
+        }
+    }
+
+    /* This method returns list of all blood requesters
+     * */
+    public void listOfDonors() {
+
+        BloodDonorService bloodDonorService = new BloodDonorService();
+        List<BloodDonor> bloodDonorList = bloodDonorService.getAllDonors();
+
+        for(int i =0;i<bloodDonorList.size();i++) {
+            System.out.println(bloodDonorList.get(i).getFirstname() + " " + bloodDonorList.get(i).getMiddlename()
+                    + " " + bloodDonorList.get(i).getLastname() + " " + bloodDonorList.get(i).getBlood_group()
+                    + " " + bloodDonorList.get(i).getContact() + " " + bloodDonorList.get(i).getDate());
         }
     }
 
@@ -219,7 +233,7 @@ public class BloodBank {
      * */
     public void addToinventory(){
 
-        BloodDonor bloodDonor = new BloodDonor(pid,firstname,middlename,lastname,blood_group,contact,date);
+        BloodDonor bloodDonor = new BloodDonor(firstname,middlename,lastname,blood_group,contact,date);
         BloodDonorService bloodDonorService = new BloodDonorService();
         Boolean insert = bloodDonorService.addDonor(bloodDonor);
         if(insert){
@@ -265,16 +279,25 @@ public class BloodBank {
      * */
     public void OnRequestUpdateInventory(){
 
-       BloodRequester bloodRequester = new BloodRequester(pid,firstname,middlename,lastname,blood_group,contact,date);
-       BloodRequesterService bloodRequesterService = new BloodRequesterService();
-       Boolean insert = bloodRequesterService.addRequester(bloodRequester);
-       if(insert){
-           System.out.println("Data inserted successfully");
-       }
+        BloodRequesterService bloodRequesterService = new BloodRequesterService();
+        System.out.println(bloodRequesterService.isBloodAvaiable(blood_group));
 
-       Boolean insert1 = bloodRequesterService.updateRequester(blood_bottles,blood_group);
-        if(insert1){
-            System.out.println("Bottle Update successfully");
+        Integer counter = bloodRequesterService.isBloodAvaiable(blood_group);
+        if(counter == 0){
+            System.out.println("Requested blood group is not available at present.");
+        }
+        else{
+
+            BloodRequester bloodRequester = new BloodRequester(firstname,middlename,lastname,blood_group,contact,date);
+            Boolean insert = bloodRequesterService.addRequester(bloodRequester);
+            if(insert){
+                System.out.println("Data inserted successfully");
+            }
+
+            Boolean insert1 = bloodRequesterService.updateRequester(blood_bottles,blood_group);
+            if(insert1){
+                System.out.println("Bottle Update successfully");
+            }
         }
     }
 
@@ -284,8 +307,9 @@ public class BloodBank {
 
         BloodBank b = new BloodBank();
 
-        System.out.println("1 = Blood Request\n2 = Blood Donate\n3 = List all available items");
-        System.out.println("Select one: 1,2 or 3");
+        System.out.println("1 = Blood Request\n2 = Blood Donate\n3 = List all available items\n" +
+                "4 = List of requesters\n5 = List of donors");
+        System.out.println("Select one: 1,2,3,4 or 5");
 
         input = new Scanner(System.in);
         int choice = input.nextInt();
@@ -293,7 +317,6 @@ public class BloodBank {
         switch(choice){
             case 1 :
                 System.out.println("You selected request for blood option!");
-                b.pid();
                 b.firstname();
                 b.middlename();
                 b.lastname();
@@ -301,7 +324,6 @@ public class BloodBank {
                 b.contact();
                 b.Date();
                 b.Bloodbottles();
-//                b.CheckAvailability();
                 b.OnRequestUpdateInventory();
 
                 break;
@@ -309,7 +331,6 @@ public class BloodBank {
             case 2 :
                 System.out.println("You selected blood donation");
                 System.out.println("Provide your details and you will need to give some tests done to donate blood.");
-                b.pid();
                 b.firstname();
                 b.middlename();
                 b.lastname();
@@ -325,10 +346,27 @@ public class BloodBank {
 
             case 3 :
                 System.out.println("You selected listing all items in inventory!");
+                System.out.println("============List of Inventory============");
                 b.listOfItems();
+
+                break;
+
+            case 4 :
+                System.out.println("You selected list of details of blood requesters!");
+                System.out.println("============List of Requesters============");
+                b.listOfRequesters();
+
+                break;
+
+            case 5 :
+                System.out.println("You selected list of details of blood donors!");
+                System.out.println("============List of Donors============");
+                b.listOfDonors();
+
                 break;
             default :
                 System.out.println("Your input is not valid. Check for valid input!");
+
                 break;
 
         }

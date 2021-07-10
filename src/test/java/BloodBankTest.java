@@ -10,24 +10,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BloodBankTest {
 
-    Map<String, Integer> inventory = new HashMap<>();
-
-    @Test
-    void pid() {
-        BloodBank bloodbank = new BloodBank();
-        String ip = String.format("1");
-        ByteArrayInputStream b = new ByteArrayInputStream(ip.getBytes());
-        System.setIn(b);
-
-        String expected = "1";
-        ByteArrayOutputStream b1 = new ByteArrayOutputStream();
-        PrintStream ps = new PrintStream(b1);
-        System.setOut(ps);
-
-        assertEquals(expected, bloodbank.pid().toString(),"Not a valid input!");
-
-    }
-
     @Test
     void firstname() {
         BloodBank bloodbank = new BloodBank();

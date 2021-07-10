@@ -8,11 +8,16 @@ package DAO;
  * */
 
 import Model.BloodDonor;
+import Model.BloodRequester;
+
+import java.util.List;
 
 public interface BloodDonorDAO {
 
     Boolean addDonor(BloodDonor bloodDonor);
 
     Boolean updateDonor(String blood_group);
+
+    List<BloodDonor> getAllDonors();
 }
 

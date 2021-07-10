@@ -12,8 +12,6 @@ public class BloodRequester {
 
     private Integer request_id;
 
-    private Integer pin;
-
     private String firstname;
 
     private String middlename;
@@ -26,8 +24,7 @@ public class BloodRequester {
 
     private String date;
 
-    public BloodRequester(Integer pin, String firstname, String middlename, String lastname, String blood_group, String contact, String date) {
-        this.pin = pin;
+    public BloodRequester(String firstname, String middlename, String lastname, String blood_group, String contact, String date) {
         this.firstname = firstname;
         this.middlename = middlename;
         this.lastname = lastname;
@@ -50,14 +47,6 @@ public class BloodRequester {
 
     public void setRequest_id(Integer request_id) {
         this.request_id = request_id;
-    }
-
-    public Integer getPin() {
-        return pin;
-    }
-
-    public void setPin(Integer pin) {
-        this.pin = pin;
     }
 
     public String getFirstname() {

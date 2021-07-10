@@ -8,7 +8,10 @@ package DAO;
  * */
 
 
+import Model.BloodInventory;
 import Model.BloodRequester;
+
+import java.util.List;
 
 public interface BloodRequesterDAO {
 
@@ -16,4 +19,7 @@ public interface BloodRequesterDAO {
 
     Boolean updateRequester(Integer bottleQuantity, String blood_group);
 
+    Integer isBloodAvaiable(String blood_group);
+
+    List<BloodRequester> getAllRequesters();
 }
