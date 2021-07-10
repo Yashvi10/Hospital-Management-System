@@ -1,9 +1,5 @@
 import org.junit.Test  ;
 import static org.junit.jupiter.api.Assertions.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class userManagementTest {
      //  Sample Patient data 1
@@ -29,18 +25,18 @@ public class userManagementTest {
 
 
      // Sample Doctor data
-     private static final String firstName="Ronnie";
+     /* private static final String firstName="Ronnie";
     private static final String lastName="George";
     private static final String address="32 Robbie Street";
     private static final String phone="9020082786";
     private static final String email="ronnie@iwk.com";
     private static final String confirmEmail="ronnie@iwk.com";
     private static final String pswd="winter";
-    private static final String confirmPswd= "winter";
+    private static final String confirmPswd= "winter";*/
 
 
     // Sample Nurse data
-   /* private static final String firstName="Kathy";
+    private static final String firstName="Kathy";
     private static final String lastName="Raine";
     private static final String address="5672 Spring Garden road";
     private static final String phone="9029886545";
@@ -49,7 +45,7 @@ public class userManagementTest {
     private static final String pswd="kathy";
     private static final String confirmPswd=  "kathy";
     private static final String role="Nurse";
-    private static final int userid=2; */
+    private static final int userid=2;
 
     DbConnection db=new DbConnection();
     IRegistration register=new userManagement(db.Connect());
@@ -58,15 +54,7 @@ public class userManagementTest {
 
     @Test
     public void loadRecord_Test(){
-       /* Map<Integer, List<String>> expectedMap=new HashMap<>();
-        List<String> userArray=new ArrayList<>();
-        userArray.add(firstName);
-        userArray.add(lastName);
-        userArray.add(address);
-        userArray.add(phone);
-        expectedMap.put(userid,userArray);
-        assertEquals(  expectedMap,  user.loadRecord( myUser ));*/
-        assertEquals(1 ,user.loadRecord(myUser ));
+         assertEquals(1 ,user.loadRecord(myUser ));
     }
 
 
@@ -95,17 +83,16 @@ public class userManagementTest {
 
     }
 
-   /*  @Test
+     @Test
     public void loginUserTest_True(){
 
-        assertTrue(user.loginUser(email, pswd), "Login successful");
+        assertTrue(user.loginUser(myUser), "Login successful");
     }
 
      @Test
     public void loginUserTest_False(){
-        String email="parker@yahoo.com";
-         assertFalse (user.loginUser(email, pswd), "Login failed");
-    }*/
+          assertFalse (user.loginUser(myUser), "Login failed");
+    }
 
 
 }

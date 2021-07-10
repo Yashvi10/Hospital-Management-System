@@ -2,9 +2,9 @@ DbConnection.java
  DbConnection
 User.java
  User
-manageProfile.java
- manageProfile
 IRegistration.java
  IRegistration
+manageProfile.java
+ manageProfile
 userManagement.java
  userManagement

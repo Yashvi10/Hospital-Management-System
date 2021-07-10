@@ -1,5 +1,3 @@
-import java.util.List;
-import java.util.Map;
 
 public class User {
     private String firstName;
@@ -10,8 +8,6 @@ public class User {
     private String confirmEmail;
     private String pswd;
     private String confirmPswd;
-    //private   List<String>  checkUser;
-    private User user;
     private int checkrecord;
 
     User(String firstName, String lastName, String address, String phone, String email, String confirmEmail,

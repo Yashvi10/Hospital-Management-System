@@ -163,7 +163,7 @@ public class userManagement extends manageProfile implements  IRegistration {
         response=null;
 
         try {
-            checkRecord=user.getcheckUser(); // userid firstName  LastName address phone designation
+            checkRecord=user.getcheckUser();
 
             if(( checkRecord>=0)&&
                     ( (user.getEmail().equals(user.getconfirmEmail( ) )) &&(user.getPswd().equals(user.getconfirmPswd( ) )))){
@@ -195,32 +195,22 @@ public class userManagement extends manageProfile implements  IRegistration {
         return response;
     }
 
-
     boolean loginUser( User user){
         boolean boolResponse=false;
         String qUser="";
-        int count=0;
-        try{
-
-            conn=db.Connect();
+         try{
             statement = conn.createStatement();
             resultSet = statement.executeQuery("Select username,password from loginTable where trim(username) ='"
                     + user.getEmail().trim() + "'  and trim(password)='"+user.getPswd()+"'; ");
             while (resultSet.next())
                 qUser=resultSet.getString("username");
 
-            if(user!= null)
+            if(!qUser.equals( "")  )
                 boolResponse=true;
-
-            if(boolResponse)
-                System.out.println("Login Successful" );
-            else  System.out.println("Login Failed" );
 
         }
         catch (SQLException e) {
             System.out.println("SQLException: " + e.getMessage());
-            System.out.println("SQLState: " + e.getSQLState());
-            System.out.println("VendorError: " + e.getErrorCode());
 
         }
         finally {
