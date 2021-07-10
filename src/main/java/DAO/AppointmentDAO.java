@@ -9,6 +9,11 @@ package DAO;
 
 import Model.AppointmentModel;
 
+import java.sql.SQLException;
+
 public interface AppointmentDAO {
-    Boolean book_appointment(AppointmentModel appointment);
+
+    Boolean book_appointment(AppointmentModel appointmentModel);
+
+    Boolean cancel_appointment() throws SQLException;
 }
