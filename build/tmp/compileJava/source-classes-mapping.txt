@@ -1,7 +1,7 @@
 Service/CustomConnection.java
  Service.CustomConnection
-Starter.java
- Starter
+Service/ManageProfile.java
+ Service.ManageProfile
 Model/User.java
  Model.User
 Interface/IRegistration.java
@@ -10,7 +10,47 @@ DbConnection.java
  DbConnection
 Service/UserManagement.java
  Service.UserManagement
+Interface/OrderLastIdDAO.java
+ Interface.OrderLastIdDAO
+Interface/PharmacyDAO.java
+ Interface.PharmacyDAO
+Interface/PharmacyUpdateStockDAO.java
+ Interface.PharmacyUpdateStockDAO
+Interface/OrderDAO.java
+ Interface.OrderDAO
+Starter.java
+ Starter
+Dashboard.java
+ Dashboard
+Model/Order.java
+ Model.Order
+Model/Pharmacy.java
+ Model.Pharmacy
+Interface/OfferValidDAO.java
+ Interface.OfferValidDAO
+Model/Offers.java
+ Model.Offers
+Model/OrderItem.java
+ Model.OrderItem
+Interface/OfferDAO.java
+ Interface.OfferDAO
+Constant.java
+ Constant
+Service/PharmacyService.java
+ Service.PharmacyService
 UserManagementPage.java
  UserManagementPage
-Service/ManageProfile.java
- Service.ManageProfile
+Colors.java
+ Colors
+Model/CartItem.java
+ Model.CartItem
+Service/OfferService.java
+ Service.OfferService
+Interface/UserIdVerifiedDAO.java
+ Interface.UserIdVerifiedDAO
+Service/OrderService.java
+ Service.OrderService
+PharmacyPage.java
+ PharmacyPage
+BillingPage.java
+ BillingPage

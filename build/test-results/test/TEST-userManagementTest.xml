@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="userManagementTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2021-07-10T05:29:19" hostname="DESKTOP-IC8LASV" time="22.86">
+<testsuite name="userManagementTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2021-07-10T06:27:38" hostname="DESKTOP-IC8LASV" time="40.96">
   <properties/>
-  <testcase name="registerPatient()" classname="userManagementTest" time="1.959"/>
-  <testcase name="registerNewLogin_Test()" classname="userManagementTest" time="0.227"/>
-  <testcase name="loadRecord_Test()" classname="userManagementTest" time="0.217"/>
-  <testcase name="loginUserTest_True()" classname="userManagementTest" time="0.216"/>
+  <testcase name="registerPatient()" classname="userManagementTest" time="2.242"/>
+  <testcase name="registerNewLogin_Test()" classname="userManagementTest" time="0.22"/>
+  <testcase name="loadRecord_Test()" classname="userManagementTest" time="0.22"/>
+  <testcase name="loginUserTest_True()" classname="userManagementTest" time="0.226"/>
   <testcase name="loginUserTest_False()" classname="userManagementTest" time="0.216"/>
   <testcase name="ExistingLogin_Test()" classname="userManagementTest" time="0.0"/>
-  <testcase name="registerStaff_Test()" classname="userManagementTest" time="0.49"/>
+  <testcase name="registerStaff_Test()" classname="userManagementTest" time="0.575"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
+  <system-err><![CDATA[Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
+]]></system-err>
 </testsuite>
