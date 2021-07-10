@@ -20,6 +20,9 @@ public class Dashboard {
         } else if (userInput.equals("2")) {
             BillingMenuPage billingPage = new BillingMenuPage();
             billingPage.showUserOrder();
+        } else if (userInput.equals("3")) {
+            BloodBank bloodBank = new BloodBank();
+            bloodBank.BloodBankMainMenu();
         } else {
             System.out.println("Please select correct option");
         }

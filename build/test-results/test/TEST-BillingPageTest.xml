@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BillingPageTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-07-10T06:57:45" hostname="DESKTOP-IC8LASV" time="7.211">
+<testsuite name="BillingPageTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-07-10T13:35:43" hostname="DESKTOP-IC8LASV" time="7.272">
   <properties/>
-  <testcase name="calculateDiscount_right()" classname="BillingPageTest" time="1.921"/>
-  <testcase name="addOrder()" classname="BillingPageTest" time="1.814"/>
-  <testcase name="calculateDiscount_notfound()" classname="BillingPageTest" time="1.742"/>
-  <testcase name="getAllOffer()" classname="BillingPageTest" time="1.732"/>
+  <testcase name="calculateDiscount_right()" classname="BillingPageTest" time="1.927"/>
+  <testcase name="addOrder()" classname="BillingPageTest" time="1.841"/>
+  <testcase name="calculateDiscount_notfound()" classname="BillingPageTest" time="1.745"/>
+  <testcase name="getAllOffer()" classname="BillingPageTest" time="1.757"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

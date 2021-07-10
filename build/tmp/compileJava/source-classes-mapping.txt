@@ -48,8 +48,8 @@ Starter.java
  Starter
 PharmacyPage.java
  PharmacyPage
-UserManagementPage.java
- UserManagementPage
+BillingMenuPage.java
+ BillingMenuPage
 Service/CustomConnection.java
  Service.CustomConnection
 Model/Offers.java
@@ -62,7 +62,27 @@ Model/CartItem.java
  Model.CartItem
 Interface/IRegistration.java
  Interface.IRegistration
-BillingMenuPage.java
- BillingMenuPage
+Model/BloodDonor.java
+ Model.BloodDonor
+Service/BloodRequesterService.java
+ Service.BloodRequesterService
+Service/BloodService.java
+ Service.BloodService
+Model/BloodRequester.java
+ Model.BloodRequester
+Interface/BloodDonorDAO.java
+ Interface.BloodDonorDAO
+Interface/BloodDAO.java
+ Interface.BloodDAO
+Interface/BloodRequesterDAO.java
+ Interface.BloodRequesterDAO
+Model/BloodInventory.java
+ Model.BloodInventory
+UserManagementPage.java
+ UserManagementPage
+Service/BloodDonorService.java
+ Service.BloodDonorService
+BloodBank.java
+ BloodBank
 Dashboard.java
  Dashboard
