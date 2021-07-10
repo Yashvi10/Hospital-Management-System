@@ -11,16 +11,12 @@ import Service.AppointmentService;
 
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalTime;
-import java.sql.Date;
 import java.util.Scanner;
-import java.util.SimpleTimeZone;
-import java.util.Timer;
+
 
 public class Appointments {
 
-    public void Menu() throws ParseException, SQLException {
+    public void Menu() throws ParseException {
 
         System.out.println("*************************************");
         System.out.println("Press b to Book an appointment\n" +
@@ -75,7 +71,6 @@ public class Appointments {
         }else {
             System.out.println("Cancellation failed!");
         }
-
     }
 
     public void reschedule_appointment(){
