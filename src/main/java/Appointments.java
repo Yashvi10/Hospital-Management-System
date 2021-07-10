@@ -9,6 +9,7 @@
 import Model.AppointmentModel;
 import Service.AppointmentService;
 
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
@@ -19,7 +20,7 @@ import java.util.Timer;
 
 public class Appointments {
 
-    public void Menu() throws ParseException {
+    public void Menu() throws ParseException, SQLException {
 
         System.out.println("*************************************");
         System.out.println("""
@@ -58,15 +59,11 @@ public class Appointments {
         System.out.println("*************************************");
         Scanner scanner = new Scanner(System.in);
         String appointment_date = scanner.nextLine();
-//        long date1 = new SimpleDateFormat("yyyy-MM-dd").parse(date).getTime();
-//        Date appointment_date = (Date) new SimpleDateFormat("yyyy-MM-dd").parse(date);
-//        java.sql.Date appointment_date = new java.sql.Date(date1);
         System.out.println("*************************************");
         System.out.println("Please enter Appointment Time(hh:mm:ss): \n");
         System.out.println("*************************************");
         Scanner scanner1 = new Scanner(System.in);
         String appointment_time = scanner1.nextLine();
-//        LocalTime appointment_time = LocalTime.parse(time);
         AppointmentService appointmentService = new AppointmentService();
         AppointmentModel appointment = new AppointmentModel(123,appointment_date,appointment_time,"confirmed");
         if (appointmentService.book_appointment(appointment)){
@@ -77,9 +74,14 @@ public class Appointments {
 
     }
 
-    public void cancel_appointment(){
+    public void cancel_appointment() throws SQLException {
 
-        System.out.println("Cancel method called!");
+        AppointmentService appointmentService = new AppointmentService();
+        if (appointmentService.cancel_appointment()){
+            System.out.println("Appointment cancelled successfully!");
+        }else {
+            System.out.println("Cancellation failed!");
+        }
 
     }
 
