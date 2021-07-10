@@ -23,32 +23,25 @@ public class Appointments {
     public void Menu() throws ParseException, SQLException {
 
         System.out.println("*************************************");
-        System.out.println("""
-                Press b to Book an appointment
-                Press c to Cancel an existing appointment
-                Press r to Reschedule an existing appointment
-                Press v to View your appointments """);
+        System.out.println("Press b to Book an appointment\s" +
+                "Press c to Cancel an existing appointment\s" +
+                "Press r to Reschedule an existing appointment\s" +
+                "Press v to View your appointments");
         System.out.println("*************************************");
 
         Scanner scanner = new Scanner(System.in);
         String inputFromUser = scanner.nextLine();
 
-        switch (inputFromUser) {
-            case "b", "B":
-                book_appointment();
-                break;
-            case "c", "C":
-                cancel_appointment();
-                break;
-            case "r", "R":
-                reschedule_appointment();
-                break;
-            case "v", "V":
-                view_appointments();
-                break;
-            default:
-                invalid();
-                break;
+        if (inputFromUser.equals("b") || inputFromUser.equals("B")){
+            book_appointment();
+        }else if (inputFromUser.equals("c") || inputFromUser.equals("C")){
+            book_appointment();
+        }else if (inputFromUser.equals("r") || inputFromUser.equals("R")){
+            book_appointment();
+        }else if (inputFromUser.equals("v") || inputFromUser.equals("V")){
+            book_appointment();
+        }else {
+            invalid();
         }
     }
 
