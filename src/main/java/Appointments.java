@@ -23,9 +23,9 @@ public class Appointments {
     public void Menu() throws ParseException, SQLException {
 
         System.out.println("*************************************");
-        System.out.println("Press b to Book an appointment\s" +
-                "Press c to Cancel an existing appointment\s" +
-                "Press r to Reschedule an existing appointment\s" +
+        System.out.println("Press b to Book an appointment\n" +
+                "Press c to Cancel an existing appointment\n" +
+                "Press r to Reschedule an existing appointment\n" +
                 "Press v to View your appointments");
         System.out.println("*************************************");
 
