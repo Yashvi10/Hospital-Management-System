@@ -1,15 +1,10 @@
 import java.sql.*;
-import java.util.HashMap;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Map;
-import java.sql.PreparedStatement;
-//List<String>  userExist=new ArrayList<>();
 
 public class manageProfile {
     Statement statement =null;
     ResultSet resultSet=null;
     Connection conn;
+   int checkRecord=0;
 
     manageProfile(){}
 
@@ -17,26 +12,28 @@ public class manageProfile {
         this.conn=conn;
     }
 
-     //This method updates user record
-    String updateProfile( int userid, String firstName,String lastName,String address,String phone ){
+     //This method updates patient's record
+    String updateProfile( User user ){
 
         String response="";
         try {
-            String queryUserTable = "update patientTable set firstName=?,LastName=?,address=?,phone=? where userid=? ";
-            PreparedStatement updateStmt = conn.prepareStatement(queryUserTable);
-            updateStmt.setString(1, firstName);
-            updateStmt.setString(2, lastName);
-            updateStmt.setString(3, address);
-            updateStmt.setString(4, phone);
-            updateStmt.setInt(5, userid);
-            updateStmt.executeUpdate();
-            response = "Record Updated";
+            checkRecord=user.getcheckUser();
+
+            if( checkRecord>0) {
+                String queryUserTable = "update patientTable set firstName=?,LastName=?,address=?,phone=? where userid=? ";
+                PreparedStatement updateStmt = conn.prepareStatement(queryUserTable);
+                updateStmt.setString(1, user.getfirstName());
+                updateStmt.setString(2, user.getlastName());
+                updateStmt.setString(3, user.getaddress());
+                updateStmt.setString(4, user.getphone());
+                updateStmt.setInt(5, checkRecord);
+                updateStmt.executeUpdate();
+                response = "Record Updated";
+            }
 
         }
         catch (SQLException e) {
             System.out.println("SQLException: " + e.getMessage());
-            System.out.println("SQLState: " + e.getSQLState());
-            System.out.println("VendorError: " + e.getErrorCode());
         }
         finally {
 
@@ -51,28 +48,28 @@ public class manageProfile {
     }
 
     //This method updates user password
-    String resetPassword( int userid, String username,String pswd, String confirmPswd  ){
+    String resetPassword( User user){
 
         String response="";
         try {
-            if(pswd.equals(confirmPswd)) {
+            checkRecord = user.getcheckUser();
 
-                String queryUserTable = "update loginTable set username=?,password=?  where userid=? ";
-                PreparedStatement updateStmt = conn.prepareStatement(queryUserTable);
-                updateStmt.setString(1, username);
-                updateStmt.setString(2, pswd);
-                updateStmt.setInt(3, userid);
+            if (checkRecord > 0) {
+                if (user.getPswd().equals(user.getconfirmPswd())) {
 
-                updateStmt.executeUpdate();
-                response = "Password Updated";
+                    String queryUserTable = "update loginTable set  password=?  where userid=? ";
+                    PreparedStatement updateStmt = conn.prepareStatement(queryUserTable);
+                     updateStmt.setString(1, user.getPswd());
+                    updateStmt.setInt(2, checkRecord);
+
+                    updateStmt.executeUpdate();
+                    response = "Password Updated";
+                } else response = "Error: Passwords do not match";
+
             }
-            else  response="Error: Passwords do not match";
-
         }
         catch (SQLException e) {
             System.out.println("SQLException: " + e.getMessage());
-            System.out.println("SQLState: " + e.getSQLState());
-            System.out.println("VendorError: " + e.getErrorCode());
         }
         finally {
 

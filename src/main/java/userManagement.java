@@ -3,21 +3,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
-import java.util.ArrayList;
-import java.util.List;
 
 public class userManagement extends manageProfile implements  IRegistration {
     Statement statement ;
     ResultSet resultSet ;
     Connection conn ;
     PreparedStatement insertUserTable;
-    int userid=0;
-    DbConnection db;
     String response;
-    private String role;
-    //List<String>  userExist=new ArrayList<>();
     int chkUser=1;
     int checkRecord=0 ;
+    int userid ;
 
      userManagement(Connection conn){
         this.conn= conn;
@@ -32,26 +27,16 @@ public class userManagement extends manageProfile implements  IRegistration {
     //This method checks and returns an existing user's record from database
     @Override
      public   int loadRecord(User users  ){
-        List<String> userArray=new ArrayList<>();
-
-        int userid=0;
+           userid=0;
 
         try {
 
             statement =  conn.createStatement();
-           // resultSet = statement.executeQuery(" Select * from patientTable where email='" + users.getEmail().trim() + "';");
-
             resultSet = statement.executeQuery(" Select * from loginTable where username='" + users.getEmail().trim() + "';");
 
             while (resultSet.next()) {
 
                 userid = resultSet.getInt("userid");
-               /* userArray.add(String.valueOf(userid) );
-                userArray.add( resultSet.getString("firstName"));
-                userArray.add(  resultSet.getString("LastName"));
-                userArray.add(  resultSet.getString("address"));
-                userArray.add( resultSet.getString("phone"));
-                userArray.add( resultSet.getString("email"));*/
             }
 
         }
