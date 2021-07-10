@@ -12,7 +12,6 @@ import Service.BloodDonorService;
 import Service.BloodRequesterService;
 import Service.BloodService;
 import java.sql.*;
-import java.text.ParseException;
 import java.util.*;
 
 public class BloodBank {
@@ -30,15 +29,12 @@ public class BloodBank {
     static String date = null;
     static Scanner input;
 
+    /* This method takes input of pid from user
+    * */
     public Integer pid(){
         input = new Scanner(System.in);
         System.out.println("Enter your personal identification number: ");
         pid = input.nextInt();
-
-        if(pid%1 != 0){
-            System.out.println("Your input can only be a number");
-            return 0;
-        }
 
         if(pid == 0){
             System.out.println("Not a valid input");
@@ -47,6 +43,8 @@ public class BloodBank {
         return pid;
     }
 
+    /* This method takes input of firstname from user
+     * */
     public String firstname(){
         input = new Scanner(System.in);
         System.out.println("Enter your firstname: ");
@@ -64,6 +62,8 @@ public class BloodBank {
         return firstname;
     }
 
+    /* This method takes input of middlename from user
+     * */
     public String middlename(){
         input = new Scanner(System.in);
         System.out.println("Enter your middlename: ");
@@ -81,6 +81,8 @@ public class BloodBank {
         return middlename;
     }
 
+    /* This method takes input of lastname from user
+     * */
     public static String lastname(){
         input = new Scanner(System.in);
         System.out.println("Enter your lastname: ");
@@ -98,6 +100,8 @@ public class BloodBank {
         return lastname;
     }
 
+    /* This method takes input of blood_group from user
+     * */
     public String blood_group(){
         input = new Scanner(System.in);
         System.out.println("Enter blood group: ");
@@ -115,6 +119,8 @@ public class BloodBank {
         return blood_group;
     }
 
+    /* This method takes input of contact from user
+     * */
     public String contact(){
         input = new Scanner(System.in);
         System.out.println("Enter your contact details: ");
@@ -132,14 +138,17 @@ public class BloodBank {
         return contact;
     }
 
-    public String Date() throws ParseException {
+    /* This method takes input of date from user
+     * */
+    public String Date(){
         input = new Scanner(System.in);
         System.out.println("Enter date in format YYYY-MM-DD: ");
         date = input.next();
-//        DateTimeFormatter f = new DateTimeFormatter.ofPattern("yyyy/mm/dd");
         return date;
     }
 
+    /* This method takes required blood bottles of pid from user
+     * */
     public Integer Bloodbottles(){
         input = new Scanner(System.in);
         System.out.println("Enter required bottles of blood: ");
@@ -151,6 +160,9 @@ public class BloodBank {
         }
         return blood_bottles;
     }
+
+    /* This method returns list of all available items from inventory
+     * */
     public void listOfItems() {
 
         BloodService bloodService = new BloodService();
@@ -161,6 +173,8 @@ public class BloodBank {
         }
     }
 
+    /* This method takes input of age from user
+     * */
     public Integer donationTest_age(){
         input = new Scanner(System.in);
         System.out.println("Enter your age: ");
@@ -173,6 +187,8 @@ public class BloodBank {
         return age;
     }
 
+    /* This method takes input of weight from user
+     * */
     public Float donationTest_Weight(){
         input = new Scanner(System.in);
         System.out.println("Enter your weight: ");
@@ -185,6 +201,8 @@ public class BloodBank {
         return weight;
     }
 
+    /* This method takes input of haemoglobin from user
+     * */
     public Float donationTest_Haemoglobin(){
         input = new Scanner(System.in);
         System.out.println("Enter your haemoglobin: ");
@@ -197,7 +215,9 @@ public class BloodBank {
         return haemoglobin;
     }
 
-    public void addToinventory() throws SQLException {
+    /* This method inserts all details of blood donor into db and updates number of blood bottles in inventory
+     * */
+    public void addToinventory(){
 
         BloodDonor bloodDonor = new BloodDonor(pid,firstname,middlename,lastname,blood_group,contact,date);
         BloodDonorService bloodDonorService = new BloodDonorService();
@@ -213,6 +233,8 @@ public class BloodBank {
 
     }
 
+    /* This method checks if the donor can donate blood or not based on certain requiremnents
+     * */
     public int donationTest() throws SQLException {
         String d = null;
         if(age<18 || age>65){
@@ -239,6 +261,8 @@ public class BloodBank {
         return 1;
     }
 
+    /* This method inserts details of blood requester into db and updates inventory on request of blood
+     * */
     public void OnRequestUpdateInventory(){
 
        BloodRequester bloodRequester = new BloodRequester(pid,firstname,middlename,lastname,blood_group,contact,date);
@@ -254,7 +278,9 @@ public class BloodBank {
         }
     }
 
-    public static void main(String args[]) throws SQLException, ParseException {
+    /* Main method provides menu to user.
+     * */
+    public static void main(String args[]) throws SQLException {
 
         BloodBank b = new BloodBank();
 
@@ -275,6 +301,7 @@ public class BloodBank {
                 b.contact();
                 b.Date();
                 b.Bloodbottles();
+//                b.CheckAvailability();
                 b.OnRequestUpdateInventory();
 
                 break;

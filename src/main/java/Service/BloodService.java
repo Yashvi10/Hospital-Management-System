@@ -35,7 +35,7 @@ public class BloodService implements BloodDAO {
                     String blood_group = rs.getString(2);
                     Integer bottles = rs.getInt(3);
 
-                    BloodInventory bloodInventory = new BloodInventory(blood_id, blood_group, bottles);
+                    BloodInventory bloodInventory = new BloodInventory(blood_group, bottles);
                     bloodInventoryList.add(bloodInventory);
                 }
             } catch (SQLException throwables) {

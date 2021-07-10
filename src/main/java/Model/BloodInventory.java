@@ -10,11 +10,13 @@ package Model;
 public class BloodInventory {
 
     private Integer blood_id;
+
     private String blood_group;
+
     private Integer Number_of_bottles;
 
-    public BloodInventory(Integer blood_id,String blood_group, Integer number_of_bottles) {
-        this.blood_id = blood_id;
+    public BloodInventory(String blood_group, Integer number_of_bottles) {
+//        this.blood_id = blood_id;
         this.blood_group = blood_group;
         Number_of_bottles = number_of_bottles;
     }

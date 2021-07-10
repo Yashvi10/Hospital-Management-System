@@ -15,4 +15,5 @@ public interface BloodRequesterDAO {
     Boolean addRequester(BloodRequester bloodRequester);
 
     Boolean updateRequester(Integer bottleQuantity, String blood_group);
+
 }

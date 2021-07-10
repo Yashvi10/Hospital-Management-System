@@ -11,12 +11,19 @@ package Model;
 public class BloodDonor {
 
     private Integer donation_id;
+
     private Integer pin;
+
     private String firstname;
+
     private String middlename;
+
     private String lastname;
+
     private String blood_group;
+
     private String contact;
+
     private String date;
 
     public Integer getDonation_id() {

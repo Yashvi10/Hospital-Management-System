@@ -11,12 +11,19 @@ package Model;
 public class BloodRequester {
 
     private Integer request_id;
+
     private Integer pin;
+
     private String firstname;
+
     private String middlename;
+
     private String lastname;
+
     private String blood_group;
+
     private String contact;
+
     private String date;
 
     public BloodRequester(Integer pin, String firstname, String middlename, String lastname, String blood_group, String contact, String date) {

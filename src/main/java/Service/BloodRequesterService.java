@@ -10,8 +10,10 @@ package Service;
 
 
 import DAO.BloodRequesterDAO;
+import Model.BloodInventory;
 import Model.BloodRequester;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
