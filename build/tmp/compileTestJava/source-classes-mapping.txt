@@ -1,8 +1,10 @@
-userManagementTest.java
- userManagementTest
-ManageProfileTest.java
- ManageProfileTest
 PharmacyPageTest.java
  PharmacyPageTest
+ManageProfileTest.java
+ ManageProfileTest
 BillingPageTest.java
  BillingPageTest
+BillingTest.java
+ BillingTest
+userManagementTest.java
+ userManagementTest

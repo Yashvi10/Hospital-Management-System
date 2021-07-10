@@ -34,11 +34,13 @@ public class userManagementTest {
 
     @Test
     public void registerNewLogin_Test(){
+        user = new UserManagement(db.Connect());
         assertEquals("Login added" ,user.registerLogin(myUser ));
 
     }
     @Test
     public void ExistingLogin_Test(){
+        user = new UserManagement(db.Connect());
         assertEquals("Username already exists" ,user.registerLogin(myUser ));
 
     }

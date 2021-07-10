@@ -17,6 +17,9 @@ public class Dashboard {
         if(userInput.equals("1")) {
             PharmacyPage pharmacyPage = new PharmacyPage(new PharmacyService(), new OfferService());
             pharmacyPage.PharmacyMenu();
+        } else if (userInput.equals("2")) {
+            BillingMenuPage billingPage = new BillingMenuPage();
+            billingPage.showUserOrder();
         } else {
             System.out.println("Please select correct option");
         }
