@@ -1,4 +1,16 @@
-DbConnection.java
- DbConnection
+Service/CustomConnection.java
+ Service.CustomConnection
 Starter.java
  Starter
+Model/User.java
+ Model.User
+Interface/IRegistration.java
+ Interface.IRegistration
+DbConnection.java
+ DbConnection
+Service/UserManagement.java
+ Service.UserManagement
+UserManagementPage.java
+ UserManagementPage
+Service/ManageProfile.java
+ Service.ManageProfile
