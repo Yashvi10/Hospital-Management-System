@@ -17,10 +17,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/IDoctor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/IPatient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/IRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IRegistration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/IStaff.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/manageProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manageProfile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/userManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/userManagement.java" afterDir="false" />
@@ -68,12 +66,12 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
-  <component name="RunManager" selected="JUnit.userManagementTest.registerExistingPatientTest">
-    <configuration name="userManagementTest.checkRecord_Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.userManagementTest.registerStaff_Test">
+    <configuration name="userManagementTest.ExistingLogin_Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Project.test" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="userManagementTest" />
-      <option name="METHOD_NAME" value="checkRecord_Test" />
+      <option name="METHOD_NAME" value="ExistingLogin_Test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -89,31 +87,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="userManagementTest.registerExistingPatientTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="userManagementTest.registerNewLogin_Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Project.test" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="userManagementTest" />
-      <option name="METHOD_NAME" value="registerExistingPatientTest" />
+      <option name="METHOD_NAME" value="registerNewLogin_Test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="userManagementTest.registerNewPatientTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="userManagementTest.registerPatient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Project.test" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="userManagementTest" />
-      <option name="METHOD_NAME" value="registerNewPatientTest" />
+      <option name="METHOD_NAME" value="registerPatient" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="userManagementTest.registerPatientTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="userManagementTest.registerStaff_Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Project.test" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="userManagementTest" />
-      <option name="METHOD_NAME" value="registerPatientTest" />
+      <option name="METHOD_NAME" value="registerStaff_Test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -121,11 +119,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.userManagementTest.registerExistingPatientTest" />
-        <item itemvalue="JUnit.userManagementTest.registerNewPatientTest" />
-        <item itemvalue="JUnit.userManagementTest.registerPatientTest" />
+        <item itemvalue="JUnit.userManagementTest.registerStaff_Test" />
+        <item itemvalue="JUnit.userManagementTest.registerNewLogin_Test" />
+        <item itemvalue="JUnit.userManagementTest.registerPatient" />
+        <item itemvalue="JUnit.userManagementTest.ExistingLogin_Test" />
         <item itemvalue="JUnit.userManagementTest.loadRecord_Test" />
-        <item itemvalue="JUnit.userManagementTest.checkRecord_Test" />
       </list>
     </recent_temporary>
   </component>
@@ -180,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625850101758</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="method registerPatient is created">
+      <created>1625860216390</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1625860216390</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -190,6 +195,18 @@
     <MESSAGE value="Tests (updatePasswordSame_Test and updatePasswordDiff_Test) and updatePassword method created" />
     <MESSAGE value="Create interfaces IPatient, IDoctor and IStaff" />
     <MESSAGE value="Replaced interfaces IPatient, IDoctor and IStaff with IRegistration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Replaced interfaces IPatient, IDoctor and IStaff with IRegistration" />
+    <MESSAGE value="method registerPatient is created" />
+    <option name="LAST_COMMIT_MESSAGE" value="method registerPatient is created" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/userManagement.java</url>
+          <line>178</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

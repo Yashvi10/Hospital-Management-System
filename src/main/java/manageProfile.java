@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 import java.sql.PreparedStatement;
+//List<String>  userExist=new ArrayList<>();
 
 public class manageProfile {
     Statement statement =null;
@@ -16,8 +17,7 @@ public class manageProfile {
         this.conn=conn;
     }
 
-
-    //This method updates user record
+     //This method updates user record
     String updateProfile( int userid, String firstName,String lastName,String address,String phone ){
 
         String response="";

@@ -10,8 +10,9 @@ public class User {
     private String confirmEmail;
     private String pswd;
     private String confirmPswd;
-    private   List<String>  checkUser;
+    //private   List<String>  checkUser;
     private User user;
+    private int checkrecord;
 
     User(String firstName, String lastName, String address, String phone, String email, String confirmEmail,
          String pswd,String confirmPswd, IRegistration register ) {
@@ -24,7 +25,7 @@ public class User {
         this.pswd = pswd;
         this.confirmEmail = confirmEmail;
         this.confirmPswd = confirmPswd;
-        checkUser=register.loadRecord(this);
+        checkrecord=register.loadRecord(this);
 
     }
 
@@ -92,12 +93,12 @@ public class User {
         this.confirmPswd = confirmPswd;
     }
 
-    public   List<String>  getcheckUser() {
-        return checkUser;
+    public   int  getcheckUser() {
+        return checkrecord;
     }
 
-    public void setcheckUser( List<String>  checkUser) {
-        this.checkUser = checkUser;
+    public void setcheckUser( int  checkrecord) {
+        this.checkrecord = checkrecord;
     }
 
 
