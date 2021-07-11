@@ -10,7 +10,7 @@ class AppointmentsTest {
     //test to validate and invalid input of date for booking appointment
     void validateDateWIthInvalidDate() {
         Appointments appointments = new Appointments();
-        assertFalse(appointments.validateDate("12-12-12"),"date is not validated");
+        assertEquals(false,appointments.validateDate("12-12-12"),"date is not validated");
     }
 
     @Test
@@ -22,7 +22,7 @@ class AppointmentsTest {
         long nextDayMilliSeconds = date.getTime() + ONE_DAY_MILLI_SECONDS;
         Date nextDate = new Date(nextDayMilliSeconds);
         String nextDateStr = new SimpleDateFormat("dd-MM-yyyy").format(nextDate);
-        assertTrue(appointments.validateDate(nextDateStr),"date is not validated");
+        assertEquals(true,appointments.validateDate(nextDateStr),"date is not validated");
     }
 
     @Test
@@ -34,7 +34,7 @@ class AppointmentsTest {
         long previousDayMilliSeconds = date.getTime() - ONE_DAY_MILLI_SECONDS;
         Date previousDate = new Date(previousDayMilliSeconds);
         String previousDateStr = new SimpleDateFormat("dd-MM-yyyy").format(previousDate);
-        assertFalse(appointments.validateDate(previousDateStr),"date is not validated");
+        assertEquals(false, appointments.validateDate(previousDateStr),"date is not validated");
     }
 
     @Test
@@ -51,11 +51,11 @@ class AppointmentsTest {
         String time3 = "01:60";
         //string to validate a proper time
         String time4 = "12:23";
-        assertFalse(appointments.validateTime(time),"time is not validated");
-        assertFalse(appointments.validateTime(time1),"time is not validated");
-        assertFalse(appointments.validateTime(time2),"time is not validated");
-        assertFalse(appointments.validateTime(time3),"time is not validated");
-        assertTrue(appointments.validateTime(time4),"time is not validated");
+        assertEquals(false, appointments.validateTime(time),"time is not validated");
+        assertEquals(false, appointments.validateTime(time1),"time is not validated");
+        assertEquals(false, appointments.validateTime(time2),"time is not validated");
+        assertEquals(false, appointments.validateTime(time3),"time is not validated");
+        assertEquals(true, appointments.validateTime(time4),"time is not validated");
 
     }
 

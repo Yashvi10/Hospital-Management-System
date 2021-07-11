@@ -16,4 +16,8 @@ public interface AppointmentDAO {
     Boolean book_appointment(AppointmentModel appointmentModel);
 
     Boolean cancel_appointment() throws SQLException;
+
+    void view_appointment();
+
+    Boolean reschedule_appointment();
 }

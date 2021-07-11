@@ -11,12 +11,18 @@ import Service.AppointmentService;
 
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
+import java.util.Date;
 import java.util.Scanner;
 
 
 public class Appointments {
 
-    public void Menu() throws ParseException {
+    public void Menu() throws SQLException {
 
         System.out.println("*************************************");
         System.out.println("Press b to Book an appointment\n" +
@@ -31,36 +37,38 @@ public class Appointments {
         if (inputFromUser.equals("b") || inputFromUser.equals("B")){
             book_appointment();
         }else if (inputFromUser.equals("c") || inputFromUser.equals("C")){
-            book_appointment();
+            cancel_appointment();
         }else if (inputFromUser.equals("r") || inputFromUser.equals("R")){
-            book_appointment();
+            reschedule_appointment();
         }else if (inputFromUser.equals("v") || inputFromUser.equals("V")){
-            book_appointment();
+            view_appointments();
         }else {
             invalid();
         }
     }
 
-    public void book_appointment() throws ParseException {
+    public void book_appointment() {
 
         System.out.println("*************************************");
         System.out.println("Please enter Appointment Date(dd-mm-yyyy): \n");
         System.out.println("*************************************");
         Scanner scanner = new Scanner(System.in);
         String appointment_date = scanner.nextLine();
-        System.out.println("*************************************");
-        System.out.println("Please enter Appointment Time(hh:mm:ss): \n");
-        System.out.println("*************************************");
-        Scanner scanner1 = new Scanner(System.in);
-        String appointment_time = scanner1.nextLine();
-        AppointmentService appointmentService = new AppointmentService();
-        AppointmentModel appointment = new AppointmentModel(123,appointment_date,appointment_time,"confirmed");
-        if (appointmentService.book_appointment(appointment)){
-            System.out.println("Appointment booked successfully!");
-        }else {
-            System.out.println("Booking failed!");
+        if (validateDate(appointment_date)){
+            System.out.println("*************************************");
+            System.out.println("Please enter Appointment Time(hh:mm): \n");
+            System.out.println("*************************************");
+            String appointment_time = scanner.nextLine();
+            if (validateTime(appointment_time)) {
+                AppointmentService appointmentService = new AppointmentService();
+                AppointmentModel appointment = new AppointmentModel(123, appointment_date, appointment_time, "confirmed");
+                if (appointmentService.book_appointment(appointment)) {
+                    System.out.println("Appointment booked successfully!");
+                } else {
+                    System.out.println("Booking failed!");
+                }
+            }
         }
-
     }
 
     public void cancel_appointment() throws SQLException {
@@ -74,19 +82,50 @@ public class Appointments {
     }
 
     public void reschedule_appointment(){
-
-        System.out.println("Reschedule method called!");
-
+        AppointmentService appointmentService = new AppointmentService();
+        if (appointmentService.reschedule_appointment()){
+            System.out.println("Appointment rescheduled successfully!");
+        }else {
+            System.out.println("Cancellation failed!");
+        }
     }
 
     public void view_appointments(){
 
-        System.out.println("View method called!");
-
+        AppointmentService appointmentService = new AppointmentService();
+        appointmentService.view_appointment();
     }
 
     public void invalid(){
         System.out.println("Invalid input!");
     }
 
+    public Boolean validateDate(String date) {
+        Date date1 = new Date();
+        try {
+            Date date2 = new SimpleDateFormat("dd-MM-yyyy").parse(date);
+            if (date2.after(date1)) {
+                return true;
+            } else {
+                System.out.println("Please select a valid date!");
+                return false;
+            }
+        }catch (ParseException pe){
+            System.out.println("Please enter a valid date in the given format!");
+            return false;
+        }
+    }
+
+    public boolean validateTime(String appointment_time) {
+        DateTimeFormatter strictTimeFormatter = DateTimeFormatter.ofPattern("HH:mm")
+                .withResolverStyle(ResolverStyle.STRICT);
+        try {
+            LocalTime.parse(appointment_time,strictTimeFormatter);
+            System.out.println("Please imput a valid time!");
+            return true;
+        } catch (DateTimeParseException | NullPointerException e) {
+            System.out.println("Please enter a valid time in the given format!");
+            return false;
+        }
+    }
 }
