@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="PharmacyPageTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-07-10T13:36:06" hostname="DESKTOP-IC8LASV" time="11.702">
+<testsuite name="PharmacyPageTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-07-11T12:00:58" hostname="DESKTOP-5JRRU0H" time="14.664">
   <properties/>
-  <testcase name="updateStock_false()" classname="PharmacyPageTest" time="0.0"/>
-  <testcase name="updateStock_true()" classname="PharmacyPageTest" time="0.0"/>
-  <testcase name="addItemInCart_false()" classname="PharmacyPageTest" time="0.0"/>
-  <testcase name="isItemInList_false()" classname="PharmacyPageTest" time="0.0"/>
-  <testcase name="isItemInList_true()" classname="PharmacyPageTest" time="0.0"/>
-  <testcase name="addItemInCart_true()" classname="PharmacyPageTest" time="0.002"/>
+  <testcase name="updateStock_false()" classname="PharmacyPageTest" time="0.003"/>
+  <testcase name="updateStock_true()" classname="PharmacyPageTest" time="0.002"/>
+  <testcase name="addItemInCart_false()" classname="PharmacyPageTest" time="0.002"/>
+  <testcase name="isItemInList_false()" classname="PharmacyPageTest" time="0.003"/>
+  <testcase name="isItemInList_true()" classname="PharmacyPageTest" time="0.002"/>
+  <testcase name="addItemInCart_true()" classname="PharmacyPageTest" time="0.019"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

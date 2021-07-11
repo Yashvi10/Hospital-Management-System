@@ -1,5 +1,5 @@
-Interface/BillingOrderDAO.java
- Interface.BillingOrderDAO
+BillingMenuPage.java
+ BillingMenuPage
 Service/OrderService.java
  Service.OrderService
 Interface/PharmacyDAO.java
@@ -28,10 +28,22 @@ BillingPage.java
  BillingPage
 Interface/BillingOrderItemDAO.java
  Interface.BillingOrderItemDAO
+Model/BloodDonor.java
+ Model.BloodDonor
+BloodBank.java
+ BloodBank
+Service/BloodService.java
+ Service.BloodService
+Interface/BloodDAO.java
+ Interface.BloodDAO
+Interface/BloodRequesterDAO.java
+ Interface.BloodRequesterDAO
 Interface/OrderLastIdDAO.java
  Interface.OrderLastIdDAO
-Service/OfferService.java
- Service.OfferService
+Model/BloodInventory.java
+ Model.BloodInventory
+Dashboard.java
+ Dashboard
 Service/ManageProfile.java
  Service.ManageProfile
 Service/BillingService.java
@@ -42,14 +54,18 @@ Service/UserManagement.java
  Service.UserManagement
 Model/User.java
  Model.User
+Model/BloodRequester.java
+ Model.BloodRequester
+Interface/BloodDonorDAO.java
+ Interface.BloodDonorDAO
 Interface/OrderDAO.java
  Interface.OrderDAO
 Starter.java
  Starter
 PharmacyPage.java
  PharmacyPage
-BillingMenuPage.java
- BillingMenuPage
+UserManagementPage.java
+ UserManagementPage
 Service/CustomConnection.java
  Service.CustomConnection
 Model/Offers.java
@@ -62,27 +78,11 @@ Model/CartItem.java
  Model.CartItem
 Interface/IRegistration.java
  Interface.IRegistration
-Model/BloodDonor.java
- Model.BloodDonor
-Service/BloodRequesterService.java
- Service.BloodRequesterService
-Service/BloodService.java
- Service.BloodService
-Model/BloodRequester.java
- Model.BloodRequester
-Interface/BloodDonorDAO.java
- Interface.BloodDonorDAO
-Interface/BloodDAO.java
- Interface.BloodDAO
-Interface/BloodRequesterDAO.java
- Interface.BloodRequesterDAO
-Model/BloodInventory.java
- Model.BloodInventory
-UserManagementPage.java
- UserManagementPage
+Service/OfferService.java
+ Service.OfferService
+Interface/BillingOrderDAO.java
+ Interface.BillingOrderDAO
 Service/BloodDonorService.java
  Service.BloodDonorService
-BloodBank.java
- BloodBank
-Dashboard.java
- Dashboard
+Service/BloodRequesterService.java
+ Service.BloodRequesterService

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BloodBankTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2021-07-10T13:35:54" hostname="DESKTOP-IC8LASV" time="0.02">
+<testsuite name="BloodBankTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2021-07-11T12:00:37" hostname="DESKTOP-5JRRU0H" time="0.297">
   <properties/>
-  <testcase name="Weight()" classname="BloodBankTest" time="0.007"/>
-  <testcase name="lastname()" classname="BloodBankTest" time="0.001"/>
-  <testcase name="blood_group()" classname="BloodBankTest" time="0.0"/>
-  <testcase name="middlename()" classname="BloodBankTest" time="0.001"/>
-  <testcase name="Haemoglobin()" classname="BloodBankTest" time="0.003"/>
-  <testcase name="Age()" classname="BloodBankTest" time="0.001"/>
-  <testcase name="Date()" classname="BloodBankTest" time="0.001"/>
-  <testcase name="firstname()" classname="BloodBankTest" time="0.0"/>
-  <testcase name="contact()" classname="BloodBankTest" time="0.001"/>
-  <testcase name="requiredBlood()" classname="BloodBankTest" time="0.001"/>
+  <testcase name="Weight()" classname="BloodBankTest" time="0.104"/>
+  <testcase name="lastname()" classname="BloodBankTest" time="0.025"/>
+  <testcase name="blood_group()" classname="BloodBankTest" time="0.008"/>
+  <testcase name="middlename()" classname="BloodBankTest" time="0.012"/>
+  <testcase name="Haemoglobin()" classname="BloodBankTest" time="0.06"/>
+  <testcase name="Age()" classname="BloodBankTest" time="0.007"/>
+  <testcase name="Date()" classname="BloodBankTest" time="0.007"/>
+  <testcase name="firstname()" classname="BloodBankTest" time="0.008"/>
+  <testcase name="contact()" classname="BloodBankTest" time="0.003"/>
+  <testcase name="requiredBlood()" classname="BloodBankTest" time="0.008"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
