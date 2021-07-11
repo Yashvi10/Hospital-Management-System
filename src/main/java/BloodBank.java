@@ -18,15 +18,25 @@ import java.util.Scanner;
 public class BloodBank {
 
     static String contact;
+
     static String firstname = null;
+
     static String lastname = null;
+
     static String middlename = null;
+
     static String blood_group = null;
+
     static int blood_bottles = 0;
+
     static float haemoglobin = 0;
+
     static float weight = 0;
+
     static int age = 0;
+
     static String date = null;
+
     static Scanner input;
 
     /* This method takes input of firstname from user
@@ -316,9 +326,8 @@ public class BloodBank {
 
         BloodBank b = new BloodBank();
 
-        System.out.println("1 = Blood Request\n2 = Blood Donate\n3 = List all available items\n" +
-                "4 = List of requesters\n5 = List of donors");
-        System.out.println("Select one: 1,2,3,4 or 5");
+        System.out.println("Press 1 for Blood Request\nPress 2 for Blood Donate\nPress 3 for List all available items in inventory\n" +
+                "Press 4 for List of requesters\nPress 5 for List of donors");
 
         input = new Scanner(System.in);
         int choice = input.nextInt();

@@ -12,6 +12,7 @@ public class Dashboard {
         System.out.println("Press 1 for Pharmacy");
         System.out.println("Press 2 for billing");
         System.out.println("Press 3 for blood bank");
+        System.out.println("Press 5 for Laboratory");
         String userInput = scanner.nextLine();
 
         if(userInput.equals("1")) {
@@ -23,6 +24,9 @@ public class Dashboard {
         } else if (userInput.equals("3")) {
             BloodBank bloodBank = new BloodBank();
             bloodBank.BloodBankMainMenu();
+        } else if (userInput.equals("5")) {
+            Laboratory laboratory = new Laboratory();
+            laboratory.LaboratoryMenu();
         } else {
             System.out.println("Please select correct option");
         }
