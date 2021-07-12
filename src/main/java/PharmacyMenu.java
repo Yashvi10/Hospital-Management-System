@@ -1,3 +1,4 @@
+import Interface.FeatureMenu;
 import Interface.OfferDAO;
 import Interface.PharmacyDAO;
 import Model.CartItem;
@@ -13,14 +14,12 @@ import java.util.Map;
 import java.util.Scanner;
 
 /*
- *  Name of file: PharmacyPage.java
+ *  Name of file: PharmacyMenu.java
  *  Author:  Nadish Maredia
- *  Purpose: This class contains different menus and it will redirect based on their input
- *  Description: This class basically take input from user and validate them and
- *               call different Services which we created
+ *  Purpose & Description: This class implement the FeatureMenu and is responsible for showing
+ *                          different menus related to Pharmcy module
  * */
-public class PharmacyPage {
-
+public class PharmacyMenu implements FeatureMenu {
 
     List<Pharmacy> listOfMedicines;
 
@@ -34,9 +33,9 @@ public class PharmacyPage {
 
     private OfferDAO offerDAO;
 
-    public PharmacyPage(){}
+    public PharmacyMenu(){}
 
-    public PharmacyPage(PharmacyDAO pharmacyDAO, OfferDAO offerDAO){
+    public PharmacyMenu(PharmacyDAO pharmacyDAO, OfferDAO offerDAO){
 
         //dependency injection
         this.pharmacyDAO = pharmacyDAO;
@@ -53,8 +52,8 @@ public class PharmacyPage {
     /*
      * This is the Menu for pharmacy module
      * */
-    public void PharmacyMenu()  {
-
+    @Override
+    public void menu() {
         System.out.println("*************************************");
         System.out.println("Press l to list all medicines\nPress e to back");
         System.out.println("*************************************");
@@ -65,11 +64,13 @@ public class PharmacyPage {
         if  (inputFromUser.equals(Constant.SMALL_l) || inputFromUser.equals(Constant.CAPITAL_L))  {
             getAllMedicines();
         }  else if  (inputFromUser.equals(Constant.SMALL_e) || inputFromUser.equals(Constant.CAPITAL_E))  {
-            return;
+            Dashboard dashboard = new Dashboard();
+            dashboard.HomeMenu();
         }  else  {
             NotFound();
         }
     }
+
 
     /*
      * This is the Function which will show list of all available medicines
@@ -105,7 +106,7 @@ public class PharmacyPage {
                 showCartItems();
                 break;
             }  else if(userInput.equals(Constant.SMALL_e) || userInput.equals(Constant.CAPITAL_E))  {
-                PharmacyMenu();
+                menu();
                 break;
             }  else  {
                 NotFound();
@@ -268,7 +269,7 @@ public class PharmacyPage {
             billingPage.CheckOut();
         }  else  {
             System.out.println(Colors.C_RED  +  "You can't checkout, your cart is empty"  +  Colors.C_RESET);
-            PharmacyMenu();
+            menu();
         }
 
     }
@@ -295,5 +296,4 @@ public class PharmacyPage {
         }
         afterCartMenu();
     }
-
 }

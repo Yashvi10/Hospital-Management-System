@@ -1,8 +1,16 @@
+import Interface.FeatureMenu;
 import Service.OfferService;
 import Service.PharmacyService;
 
 import java.util.Scanner;
 
+/*
+ *  Name of file: Dashboard.java
+ *  Author:  Nadish Maredia
+ *  Purpose: This class is used for showing different feature menus
+ *  Description: This class is using Factory Pattern so passing name of object
+ *               and it will create object and show menu for that feature
+ * */
 public class Dashboard {
 
     Scanner scanner = new Scanner(System.in);
@@ -14,15 +22,17 @@ public class Dashboard {
         System.out.println("Press 3 for blood bank");
         String userInput = scanner.nextLine();
 
+        FeatureFactory featureFactory = new FeatureFactory();
+
         if(userInput.equals("1")) {
-            PharmacyPage pharmacyPage = new PharmacyPage(new PharmacyService(), new OfferService());
-            pharmacyPage.PharmacyMenu();
+            FeatureMenu featureMenu = featureFactory.getMenu("PHARMACY");
+            featureMenu.menu();
         } else if (userInput.equals("2")) {
-            BillingMenuPage billingPage = new BillingMenuPage();
-            billingPage.showUserOrder();
+            FeatureMenu featureMenu = featureFactory.getMenu("BILLING");
+            featureMenu.menu();
         } else if (userInput.equals("3")) {
-            BloodBank bloodBank = new BloodBank();
-            bloodBank.BloodBankMainMenu();
+            FeatureMenu featureMenu = featureFactory.getMenu("BLOODBANK");
+            featureMenu.menu();
         } else {
             System.out.println("Please select correct option");
         }

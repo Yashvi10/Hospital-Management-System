@@ -1,3 +1,4 @@
+import Interface.FeatureMenu;
 import Model.Pharmacy;
 import Service.OfferService;
 import Service.PharmacyService;
@@ -13,7 +14,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * */
 public class PharmacyPageTest {
 
-    PharmacyPage pharmacyPage = new PharmacyPage(new PharmacyService(), new OfferService());
+    PharmacyMenu pharmacyPage = new PharmacyMenu(new PharmacyService(), new OfferService());
+
     @Test
     void isItemInList_true()  {
 

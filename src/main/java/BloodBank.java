@@ -1,3 +1,4 @@
+import Interface.FeatureMenu;
 import Model.BloodDonor;
 import Model.BloodInventory;
 import Model.BloodRequester;
@@ -15,7 +16,7 @@ import java.util.Scanner;
  *  Purpose: This is the driver class of feature BloodBank
  *  Description: This class will call methods from other files and runs functions based on requests.
  * */
-public class BloodBank {
+public class BloodBank implements FeatureMenu {
 
     static String contact;
     static String firstname = null;
@@ -159,7 +160,7 @@ public class BloodBank {
             System.out.println(bloodInventoryList.get(i).getBlood_group() + " " + bloodInventoryList.get(i).getNumber_of_bottles());
         }
 
-        BloodBankMainMenu();
+        menu();
     }
 
     /* This method returns list of all blood requesters
@@ -175,7 +176,7 @@ public class BloodBank {
                     + " " + bloodRequesterList.get(i).getContact() + " " + bloodRequesterList.get(i).getDate());
         }
 
-        BloodBankMainMenu();
+        menu();
     }
 
     /* This method returns list of all blood requesters
@@ -191,7 +192,7 @@ public class BloodBank {
                     + " " + bloodDonorList.get(i).getContact() + " " + bloodDonorList.get(i).getDate());
         }
 
-        BloodBankMainMenu();
+        menu();
     }
 
     /* This method takes input of age from user
@@ -252,7 +253,7 @@ public class BloodBank {
             System.out.println("Bottle Update successfully");
         }
 
-        BloodBankMainMenu();
+        menu();
 
     }
 
@@ -309,10 +310,11 @@ public class BloodBank {
             }
 
         }
-        BloodBankMainMenu();
+        menu();
     }
 
-    public void BloodBankMainMenu() {
+    @Override
+    public void menu() {
 
         BloodBank b = new BloodBank();
 

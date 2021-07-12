@@ -1,3 +1,4 @@
+import Interface.FeatureMenu;
 import Interface.OfferValidDAO;
 import Interface.OrderDAO;
 import Interface.OrderLastIdDAO;
@@ -76,7 +77,7 @@ public class BillingPage {
             orderDAO.addOrder(new Order(Integer.parseInt(user_id)));
             Integer order_id = orderLastIdDAO.getLastOrderId();
 
-            for  (Map.Entry me: PharmacyPage.cart.entrySet())  {
+            for  (Map.Entry me: PharmacyMenu.cart.entrySet())  {
                 CartItem cartItem = (CartItem) me.getValue();
 
                 PharmacyService pharmacyService = new PharmacyService();
@@ -87,14 +88,17 @@ public class BillingPage {
                         cartItem.getQty(),
                         cartItem.getPrice(),
                         cartItem.getTotalPrice(),
-                        PharmacyPage.finalPrice,order_id);
+                        PharmacyMenu.finalPrice,order_id);
                 orderDAO.addOrderItems(orderItem);
             }
-            PharmacyPage.cart.clear();
-            PharmacyPage.finalPrice = 0.0;
+            PharmacyMenu.cart.clear();
+            PharmacyMenu.finalPrice = 0.0;
             System.out.println("You have been successfully checkout");
-            PharmacyPage pharmacyPage = new PharmacyPage(new PharmacyService(), new OfferService());
-            pharmacyPage.PharmacyMenu();
+//            PharmacyMenu pharmacyPage = new PharmacyMenu(new PharmacyService(), new OfferService());
+//            pharmacyPage.menu();
+            FeatureFactory featureFactory = new FeatureFactory();
+            FeatureMenu featureMenu = featureFactory.getMenu("PHARMACY");
+            featureMenu.menu();
         } else {
             System.out.println(Colors.C_RED +"User with this id not found" +Colors.C_RESET);
             paidByCash();
@@ -106,9 +110,9 @@ public class BillingPage {
         Integer rate = offerValidDAO.isOfferValid(oid);
 
         if  (rate != 0)  {
-            Double newPrice = (PharmacyPage.finalPrice * rate ) / 100;
-            PharmacyPage.finalPrice = PharmacyPage.finalPrice - newPrice;
-            System.out.println("Your discount bill is: " +PharmacyPage.finalPrice +" after giving " +rate +"% discount");
+            Double newPrice = (PharmacyMenu.finalPrice * rate ) / 100;
+            PharmacyMenu.finalPrice = PharmacyMenu.finalPrice - newPrice;
+            System.out.println("Your discount bill is: " +PharmacyMenu.finalPrice +" after giving " +rate +"% discount");
         }
     }
 }
