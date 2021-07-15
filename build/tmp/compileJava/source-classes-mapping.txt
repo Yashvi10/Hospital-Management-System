@@ -8,8 +8,8 @@ Interface/UserIdVerifiedDAO.java
  Interface.UserIdVerifiedDAO
 Interface/PharmacyUpdateStockDAO.java
  Interface.PharmacyUpdateStockDAO
-Service/BloodRequesterService.java
- Service.BloodRequesterService
+PharmacyMenu.java
+ PharmacyMenu
 DbConnection.java
  DbConnection
 CustomPDF.java
@@ -18,6 +18,8 @@ Model/Pharmacy.java
  Model.Pharmacy
 Interface/OfferValidDAO.java
  Interface.OfferValidDAO
+RatingMenu.java
+ RatingMenu
 Model/OrderItem.java
  Model.OrderItem
 Interface/OfferDAO.java
@@ -26,8 +28,8 @@ Constant.java
  Constant
 Service/PharmacyService.java
  Service.PharmacyService
-Interface/IRegistration.java
- Interface.IRegistration
+BillingPage.java
+ BillingPage
 Interface/BillingOrderItemDAO.java
  Interface.BillingOrderItemDAO
 Model/BloodDonor.java
@@ -44,8 +46,8 @@ Interface/OrderLastIdDAO.java
  Interface.OrderLastIdDAO
 Model/BloodInventory.java
  Model.BloodInventory
-Service/OfferService.java
- Service.OfferService
+Dashboard.java
+ Dashboard
 Interface/FeatureMenu.java
  Interface.FeatureMenu
 Service/ManageProfile.java
@@ -62,14 +64,16 @@ Model/BloodRequester.java
  Model.BloodRequester
 Interface/BloodDonorDAO.java
  Interface.BloodDonorDAO
-Service/BloodDonorService.java
- Service.BloodDonorService
+FeatureFactory.java
+ FeatureFactory
 Interface/OrderDAO.java
  Interface.OrderDAO
 Starter.java
  Starter
-Interface/BillingOrderDAO.java
- Interface.BillingOrderDAO
+Service/UserIdVerifiedService.java
+ Service.UserIdVerifiedService
+UserManagementPage.java
+ UserManagementPage
 Service/CustomConnection.java
  Service.CustomConnection
 Model/Offers.java
@@ -82,15 +86,13 @@ Colors.java
  Colors
 Model/CartItem.java
  Model.CartItem
-PharmacyMenu.java
- PharmacyMenu
-FeatureFactory.java
- FeatureFactory
-UserManagementPage.java
- UserManagementPage
-Dashboard.java
- Dashboard
-RatingMenu.java
- RatingMenu
-BillingPage.java
- BillingPage
+Interface/IRegistration.java
+ Interface.IRegistration
+Service/OfferService.java
+ Service.OfferService
+Interface/BillingOrderDAO.java
+ Interface.BillingOrderDAO
+Service/BloodDonorService.java
+ Service.BloodDonorService
+Service/BloodRequesterService.java
+ Service.BloodRequesterService
