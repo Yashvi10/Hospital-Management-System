@@ -8,8 +8,8 @@ Interface/UserIdVerifiedDAO.java
  Interface.UserIdVerifiedDAO
 Interface/PharmacyUpdateStockDAO.java
  Interface.PharmacyUpdateStockDAO
-Service/BloodDonorService.java
- Service.BloodDonorService
+Service/BloodRequesterService.java
+ Service.BloodRequesterService
 DbConnection.java
  DbConnection
 CustomPDF.java
@@ -26,14 +26,14 @@ Constant.java
  Constant
 Service/PharmacyService.java
  Service.PharmacyService
-Billing.java
- Billing
+Interface/IRegistration.java
+ Interface.IRegistration
 Interface/BillingOrderItemDAO.java
  Interface.BillingOrderItemDAO
 Model/BloodDonor.java
  Model.BloodDonor
-Service/BloodRequesterService.java
- Service.BloodRequesterService
+BloodBank.java
+ BloodBank
 Service/BloodService.java
  Service.BloodService
 Interface/BloodDAO.java
@@ -44,10 +44,10 @@ Interface/OrderLastIdDAO.java
  Interface.OrderLastIdDAO
 Model/BloodInventory.java
  Model.BloodInventory
-Interface/IRegistration.java
- Interface.IRegistration
-Model/CartItem.java
- Model.CartItem
+Service/OfferService.java
+ Service.OfferService
+Interface/FeatureMenu.java
+ Interface.FeatureMenu
 Service/ManageProfile.java
  Service.ManageProfile
 Service/BillingService.java
@@ -62,22 +62,26 @@ Model/BloodRequester.java
  Model.BloodRequester
 Interface/BloodDonorDAO.java
  Interface.BloodDonorDAO
-Interface/BillingOrderDAO.java
- Interface.BillingOrderDAO
+Service/BloodDonorService.java
+ Service.BloodDonorService
 Interface/OrderDAO.java
  Interface.OrderDAO
 Starter.java
  Starter
-Service/OfferService.java
- Service.OfferService
+Interface/BillingOrderDAO.java
+ Interface.BillingOrderDAO
 Service/CustomConnection.java
  Service.CustomConnection
 Model/Offers.java
  Model.Offers
+BillingMenu.java
+ BillingMenu
+Billing.java
+ Billing
 Colors.java
  Colors
-BloodBank.java
- BloodBank
+Model/CartItem.java
+ Model.CartItem
 PharmacyMenu.java
  PharmacyMenu
 FeatureFactory.java
@@ -86,9 +90,7 @@ UserManagementPage.java
  UserManagementPage
 Dashboard.java
  Dashboard
-Interface/FeatureMenu.java
- Interface.FeatureMenu
-BillingMenu.java
- BillingMenu
+RatingMenu.java
+ RatingMenu
 BillingPage.java
  BillingPage
