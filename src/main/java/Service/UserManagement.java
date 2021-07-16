@@ -2,8 +2,11 @@ package Service;
 
 import Interface.IRegistration;
 import Model.User;
-
-import java.sql.*;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /*
  *  Name of file: UserManagement.java

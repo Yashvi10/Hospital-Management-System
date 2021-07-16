@@ -1,11 +1,12 @@
 package Service;
 
 import Model.User;
-
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /*
- *  Name of file: UserManagement.java
+ *  Name of file: ManageProfile.java
  *  Author:  Abimbola Babalola
  *  Purpose: This class manages a user's profile
  *  Description: This class updates a saved profile
@@ -14,8 +15,6 @@ import java.sql.*;
 
 public class ManageProfile {
 
-  Statement statement =null;
-  ResultSet resultSet=null;
   Connection conn;
   int checkRecord=0;
 

@@ -1,25 +1,27 @@
 package Model;
 
 /*
- *  Name of file: OrderItem.java
+ *  Name of file: Accounts.java
  *  Author:  Abimbola Babalola
- *  Purpose: This class maps the Account with DB models
+ *  Purpose: This class maps the Accounts with DB models
  *  Description: This class will set and get the variables for managing the expenses
  * */
 
 import java.sql.Date;
 
-public class Account {
+public class Accounts {
 
   private Integer id;
   private String accountType;
+  private String category;
   private String payName;
   private Double amount;
   private Date date;
 
-  Account(Integer id, String accountType, String payName, Double amount, Date date){
+  Accounts(Integer id, String accountType, String category, String payName, Double amount, Date date){
     this.id=id;
     this.accountType=accountType;
+    this.category=category;
     this.payName=payName;
     this.date=date;
   }
@@ -38,6 +40,14 @@ public class Account {
 
   public void setAccountType(String accountType) {
     this.accountType = accountType;
+  }
+
+  public String getCategory() {
+    return category;
+  }
+
+  public void setCategory(String category) {
+    this.category = category;
   }
 
   public String getPayName() {
