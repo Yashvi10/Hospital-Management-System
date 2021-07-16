@@ -20,7 +20,6 @@ public class UserManagement extends ManageProfile implements IRegistration {
   Connection conn ;
   PreparedStatement insertUserTable;
   String response;
-  int chkUser=1;
   int checkRecord=0 ;
   int userid ;
 
