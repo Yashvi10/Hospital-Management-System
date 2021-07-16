@@ -21,6 +21,8 @@ public class FeatureFactory {
             return new BillingMenu();
         } else if (menuType.equalsIgnoreCase("BLOODBANK")) {
             return new BloodBank();
+        } else if (menuType.equalsIgnoreCase("VACCINE")) {
+            return new VaccinePage();
         }
 
         return null;
