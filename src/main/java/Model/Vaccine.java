@@ -15,7 +15,8 @@ public class Vaccine {
 
     private Integer availableDoses;
 
-    public Vaccine(String vaccineName, Integer availableDoses) {
+    public Vaccine(Integer vaccineId, String vaccineName, Integer availableDoses) {
+        this.vaccineId = vaccineId;
         this.vaccineName = vaccineName;
         this.availableDoses = availableDoses;
     }
