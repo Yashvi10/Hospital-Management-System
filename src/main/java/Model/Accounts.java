@@ -7,6 +7,7 @@ package Model;
  *  Description: This class will set and get the variables for managing the expenses
  * */
 
+import Interface.ExpenseType;
 import java.sql.Date;
 
 public class Accounts {
@@ -17,13 +18,16 @@ public class Accounts {
   private String payName;
   private Double amount;
   private Date date;
+  private ExpenseType expenseType;
 
-  Accounts(Integer id, String accountType, String category, String payName, Double amount, Date date){
+  Accounts(Integer id, String accountType, String category, String payName, Double amount,
+           Date date, ExpenseType expenseType){
     this.id=id;
     this.accountType=accountType;
     this.category=category;
     this.payName=payName;
     this.date=date;
+    this.expenseType=expenseType;
   }
 
   public Integer getId() {
@@ -72,5 +76,13 @@ public class Accounts {
 
   public void setDate(Date date) {
     this.date = date;
+  }
+
+  public ExpenseType getExpenseType() {
+    return expenseType;
+  }
+
+  public void setExpenseType(ExpenseType expenseType) {
+    this.expenseType = expenseType;
   }
 }
