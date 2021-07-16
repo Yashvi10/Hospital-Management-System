@@ -20,6 +20,7 @@ public class Dashboard {
         System.out.println("Press 1 for Pharmacy");
         System.out.println("Press 2 for billing");
         System.out.println("Press 3 for blood bank");
+        System.out.println("Press 6 for Vaccination");
         String userInput = scanner.nextLine();
 
         FeatureFactory featureFactory = new FeatureFactory();
@@ -32,6 +33,9 @@ public class Dashboard {
             featureMenu.menu();
         } else if (userInput.equals("3")) {
             FeatureMenu featureMenu = featureFactory.getMenu("BLOODBANK");
+            featureMenu.menu();
+        } else if (userInput.equals("6")) {
+            FeatureMenu featureMenu = featureFactory.getMenu("VACCINE");
             featureMenu.menu();
         } else {
             System.out.println("Please select correct option");
