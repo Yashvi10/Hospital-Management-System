@@ -10,24 +10,29 @@ public class RegisterTest {
 
   private String lastname;
 
+  private String test_name;
+
   private String contact;
 
   private String email;
 
   private String gender;
 
-  private String test_date;
+  private String date_of_test;
 
-  public RegisterTest(int test_id, int user_id, String firstname, String lastname, String contact,
-                      String email, String gender, String test_date) {
+  public RegisterTest() {}
+
+  public RegisterTest(int test_id, int user_id, String firstname, String lastname, String test_name, String contact,
+                      String email, String gender, String date_of_test) {
     this.test_id = test_id;
     this.user_id = user_id;
     this.firstname = firstname;
     this.lastname = lastname;
+    this.test_name = test_name;
     this.contact = contact;
     this.email = email;
     this.gender = gender;
-    this.test_date = test_date;
+    this.date_of_test = date_of_test;
   }
 
   public int getTest_id() {
@@ -52,6 +57,14 @@ public class RegisterTest {
 
   public void setFirstname(String firstname) {
     this.firstname = firstname;
+  }
+
+  public String getTest_name() {
+    return test_name;
+  }
+
+  public void setTest_name(String test_name) {
+    this.test_name = test_name;
   }
 
   public String getLastname() {
@@ -86,12 +99,12 @@ public class RegisterTest {
     this.gender = gender;
   }
 
-  public String getTest_date() {
-    return test_date;
+  public String getDate_of_test() {
+    return date_of_test;
   }
 
-  public void setTest_date(String test_date) {
-    this.test_date = test_date;
+  public void setDate_of_test(String date_of_test) {
+    this.date_of_test = date_of_test;
   }
 
 }
