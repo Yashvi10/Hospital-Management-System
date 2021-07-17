@@ -1,5 +1,7 @@
+import Service.ListOfTestsService;
 import Service.OfferService;
 import Service.PharmacyService;
+import Service.RegisterTestService;
 
 import java.util.Scanner;
 
@@ -25,8 +27,10 @@ public class Dashboard {
             BloodBank bloodBank = new BloodBank();
             bloodBank.BloodBankMainMenu();
         } else if (userInput.equals("5")) {
-            Laboratory laboratory = new Laboratory();
+            Laboratory laboratory = new Laboratory(new ListOfTestsService());
             laboratory.LaboratoryMenu();
+            Laboratory laboratory1 = new Laboratory(new RegisterTestService());
+            laboratory1.LaboratoryMenu();
         } else {
             System.out.println("Please select correct option");
         }

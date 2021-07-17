@@ -28,6 +28,8 @@ BillingPage.java
  BillingPage
 Interface/BillingOrderItemDAO.java
  Interface.BillingOrderItemDAO
+Service/BloodRequesterService.java
+ Service.BloodRequesterService
 Model/BloodDonor.java
  Model.BloodDonor
 BloodBank.java
@@ -42,8 +44,8 @@ Interface/OrderLastIdDAO.java
  Interface.OrderLastIdDAO
 Model/BloodInventory.java
  Model.BloodInventory
-Dashboard.java
- Dashboard
+Service/BloodDonorService.java
+ Service.BloodDonorService
 Service/ManageProfile.java
  Service.ManageProfile
 Service/BillingService.java
@@ -64,8 +66,8 @@ Starter.java
  Starter
 PharmacyPage.java
  PharmacyPage
-UserManagementPage.java
- UserManagementPage
+Interface/GenerateLabReportsDAO.java
+ Interface.GenerateLabReportsDAO
 Service/CustomConnection.java
  Service.CustomConnection
 Model/Offers.java
@@ -82,7 +84,25 @@ Service/OfferService.java
  Service.OfferService
 Interface/BillingOrderDAO.java
  Interface.BillingOrderDAO
-Service/BloodDonorService.java
- Service.BloodDonorService
-Service/BloodRequesterService.java
- Service.BloodRequesterService
+Model/GenerateLabReports.java
+ Model.GenerateLabReports
+Model/ListOfTests.java
+ Model.ListOfTests
+Interface/ListOfTestsDAO.java
+ Interface.ListOfTestsDAO
+Service/GenerateLabReportsService.java
+ Service.GenerateLabReportsService
+Service/RegisterTestService.java
+ Service.RegisterTestService
+Service/ListOfTestsService.java
+ Service.ListOfTestsService
+Model/RegisterTest.java
+ Model.RegisterTest
+Interface/RegisterTestDAO.java
+ Interface.RegisterTestDAO
+UserManagementPage.java
+ UserManagementPage
+Dashboard.java
+ Dashboard
+Laboratory.java
+ Laboratory

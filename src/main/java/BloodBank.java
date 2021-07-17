@@ -182,7 +182,7 @@ public class BloodBank {
         for(int i =0;i<bloodRequesterList.size();i++) {
             System.out.println(bloodRequesterList.get(i).getFirstname() + " " + bloodRequesterList.get(i).getMiddlename()
                     + " " + bloodRequesterList.get(i).getLastname() + " " + bloodRequesterList.get(i).getBlood_group()
-                    + " " + bloodRequesterList.get(i).getContact() + " " + bloodRequesterList.get(i).getDate());
+                    + " " + bloodRequesterList.get(i).getContact() + " " + bloodRequesterList.get(i).getDate().toString());
         }
 
         BloodBankMainMenu();
@@ -198,7 +198,7 @@ public class BloodBank {
         for(int i =0;i<bloodDonorList.size();i++) {
             System.out.println(bloodDonorList.get(i).getFirstname() + " " + bloodDonorList.get(i).getMiddlename()
                     + " " + bloodDonorList.get(i).getLastname() + " " + bloodDonorList.get(i).getBlood_group()
-                    + " " + bloodDonorList.get(i).getContact() + " " + bloodDonorList.get(i).getDate());
+                    + " " + bloodDonorList.get(i).getContact() + " " + bloodDonorList.get(i).getDate().toString());
         }
 
         BloodBankMainMenu();
