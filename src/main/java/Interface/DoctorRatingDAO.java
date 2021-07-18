@@ -6,6 +6,12 @@ import Model.Doctors;
 import javax.print.Doc;
 import java.util.List;
 
+/*
+ *  Name of file: DoctorRatingDAO.java
+ *  Author:  Nadish Maredia
+ *  Purpose: Separate the methods which interact with DB
+ *  Description: This interface is responsible for handling DB operation related to Rate doctors
+ * */
 public interface DoctorRatingDAO {
 
     List<Doctors> getAllDoctors();

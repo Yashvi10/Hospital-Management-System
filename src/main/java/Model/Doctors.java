@@ -1,7 +1,13 @@
 package Model;
 
 import javax.print.Doc;
-
+/*
+ *  Name of file: Doctors.java
+ *  Author:  Nadish Maredia
+ *  Purpose: This class is like mapper help us in interacting with DB models
+ *  Description: This class will behaves like a mapper so it will be easy when
+ *               we are working with DB by using getter and setter methods
+ * */
 public class Doctors {
 
     private Integer doctor_id;
@@ -9,6 +15,8 @@ public class Doctors {
     private String name;
 
     private String specialization;
+
+    private Double rating;
 
     public Doctors(){}
 
@@ -40,5 +48,13 @@ public class Doctors {
 
     public void setSpecialization(String specialization) {
         this.specialization = specialization;
+    }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
     }
 }

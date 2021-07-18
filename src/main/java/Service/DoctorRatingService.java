@@ -20,7 +20,7 @@ public class DoctorRatingService implements DoctorRatingDAO {
         List<Doctors> doctorsList = new ArrayList<Doctors>();
 
         if  (conn != null)  {
-            String sql = "Select * from doctors";
+            String sql = "SELECT * FROM doctors d left join doctorRating dr on d.doctor_id = dr.doctor_id;";
             Statement statement = null;
             try  {
                 statement = conn.createStatement();
@@ -29,8 +29,10 @@ public class DoctorRatingService implements DoctorRatingDAO {
                     Integer d_id = result.getInt(1);
                     String name = result.getString(2);
                     String specialization = result.getString(3);
+                    Double rating = result.getDouble(6);
 
                     Doctors doctors = new Doctors(d_id, name, specialization);
+                    doctors.setRating(rating);
                     doctorsList.add(doctors);
                 }
             }  catch  (SQLException throwables)  {

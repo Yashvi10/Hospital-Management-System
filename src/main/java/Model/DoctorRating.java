@@ -1,5 +1,12 @@
 package Model;
 
+/*
+ *  Name of file: DoctorRating.java
+ *  Author:  Nadish Maredia
+ *  Purpose: This class is like mapper help us in interacting with DB models
+ *  Description: This class will behaves like a mapper so it will be easy when
+ *               we are working to rate doctors
+ * */
 public class DoctorRating {
 
     private Integer id;

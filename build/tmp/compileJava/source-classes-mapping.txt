@@ -26,8 +26,8 @@ Interface/OrderLastIdDAO.java
  Interface.OrderLastIdDAO
 Service/UserSession.java
  Service.UserSession
-Model/Doctors.java
- Model.Doctors
+Billing.java
+ Billing
 Dashboard.java
  Dashboard
 Service/ManageProfile.java
@@ -102,15 +102,15 @@ BillingMenu.java
  BillingMenu
 Interface/IRegistration.java
  Interface.IRegistration
-Billing.java
- Billing
 Model/DoctorRating.java
  Model.DoctorRating
-FeatureFactory.java
- FeatureFactory
-RatingMenu.java
- RatingMenu
 Interface/DoctorRatingDAO.java
  Interface.DoctorRatingDAO
+Model/Doctors.java
+ Model.Doctors
+RatingMenu.java
+ RatingMenu
+FeatureFactory.java
+ FeatureFactory
 Service/DoctorRatingService.java
  Service.DoctorRatingService

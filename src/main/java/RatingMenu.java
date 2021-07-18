@@ -87,7 +87,8 @@ public class RatingMenu implements FeatureMenu {
         for(int i = 0;i<doctorsList.size();i++) {
             System.out.println(String.format(Constant.INTERGER_FORMAT, doctorsList.get(i).getDoctor_id()) +" "
                         +String.format(Constant.STRING_FORMAT, doctorsList.get(i).getName()) +" "
-                        +String.format(Constant.STRING_FORMAT, doctorsList.get(i).getSpecialization()));
+                        +String.format(Constant.STRING_FORMAT, doctorsList.get(i).getSpecialization()) +" "
+                        +String.format(Constant.DOUBLE_WITHOUT_SPACE_FORMAT, doctorsList.get(i).getRating()));
         }
 
         System.out.println("Enter the doctor id to rate:");
