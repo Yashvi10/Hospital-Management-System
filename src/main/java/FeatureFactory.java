@@ -1,6 +1,7 @@
 import Interface.FeatureMenu;
 import Service.OfferService;
 import Service.PharmacyService;
+import Service.RatingService;
 import Service.UserIdVerifiedService;
 
 /*
@@ -23,7 +24,7 @@ public class FeatureFactory {
         } else if (menuType.equalsIgnoreCase("BLOODBANK")) {
             return new BloodBank();
         } else if (menuType.equalsIgnoreCase("FEEDBACK")) {
-            return new RatingMenu(new UserIdVerifiedService());
+            return new RatingMenu(new UserIdVerifiedService(), new RatingService());
         }
 
         return null;

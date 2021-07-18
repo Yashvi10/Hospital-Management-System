@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BillingTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-07-12T11:26:48" hostname="DESKTOP-IC8LASV" time="3.355">
+<testsuite name="BillingTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-07-18T13:29:59" hostname="DESKTOP-IC8LASV" time="0.116">
   <properties/>
-  <testcase name="getUserItemsOrder()" classname="BillingTest" time="1.694"/>
-  <testcase name="getUserOrder()" classname="BillingTest" time="1.661"/>
+  <testcase name="getUserItemsOrder()" classname="BillingTest" time="0.07"/>
+  <testcase name="getUserOrder()" classname="BillingTest" time="0.045"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
