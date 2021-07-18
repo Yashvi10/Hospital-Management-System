@@ -85,7 +85,7 @@ public class RatingService implements RatingDAO {
 
     @Override
     public Boolean feedbackExists(Integer user_id, Integer appointment_id) {
-        
+
         CustomConnection connection = new CustomConnection();
         Connection conn = connection.Connect();
         Boolean result = false;

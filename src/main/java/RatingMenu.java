@@ -1,7 +1,10 @@
+import Interface.DoctorRatingDAO;
 import Interface.FeatureMenu;
 import Interface.RatingDAO;
 import Interface.UserIdVerifiedDAO;
 import Model.AppointmentModel;
+import Model.DoctorRating;
+import Model.Doctors;
 import Model.Feedback;
 import Service.UserSession;
 
@@ -21,7 +24,11 @@ public class RatingMenu implements FeatureMenu {
 
     RatingDAO ratingDAO;
 
+    DoctorRatingDAO doctorRatingDAO;
+
     List<AppointmentModel> userAppointments;
+
+    List<Doctors> doctorsList;
 
     String feedbackVar = "";
 
@@ -29,9 +36,12 @@ public class RatingMenu implements FeatureMenu {
 
     public RatingMenu(){}
     //dependency injection to reduce coupling
-    public RatingMenu(UserIdVerifiedDAO userIdVerifiedDAO, RatingDAO ratingDAO) {
+    public RatingMenu(UserIdVerifiedDAO userIdVerifiedDAO,
+                      RatingDAO ratingDAO,
+                      DoctorRatingDAO doctorRatingDAO) {
         this.userIdVerifiedDAO = userIdVerifiedDAO;
         this.ratingDAO = ratingDAO;
+        this.doctorRatingDAO = doctorRatingDAO;
     }
 
     /*
@@ -39,21 +49,94 @@ public class RatingMenu implements FeatureMenu {
     * */
     @Override
     public void menu() {
-        System.out.println("Submit Feedback and Rating: ");
+        System.out.println("Press 1 for feedback");
+        System.out.println("Press 2 to rate doctors");
+        String userInput = scanner.nextLine();
 
-        System.out.println("Do you want to provide a feedback?");
-        System.out.println("Press (Y) for yes or (N) for no");
-        String inputFromUser = scanner.nextLine();
+        if(userInput.equals("1")) {
+            System.out.println("Submit Feedback and Rating: ");
 
-        if(inputFromUser.equals(Constant.SMALL_y) || inputFromUser.equals(Constant.CAPITAL_Y)) {
-            verifyUserMenu();
-        } else if (inputFromUser.equals(Constant.SMALL_n) || inputFromUser.equals(Constant.CAPITAL_N)) {
-            Dashboard dashboard = new Dashboard();
-            dashboard.HomeMenu();
-        }  else {
-            System.out.println(Colors.C_RED +" Please select correct option " +Colors.C_RESET);
+            System.out.println("Do you want to provide a feedback?");
+            System.out.println("Press (Y) for yes or (N) for no");
+            String inputFromUser = scanner.nextLine();
+
+            if(inputFromUser.equals(Constant.SMALL_y) || inputFromUser.equals(Constant.CAPITAL_Y)) {
+                verifyUserMenu();
+            } else if (inputFromUser.equals(Constant.SMALL_n) || inputFromUser.equals(Constant.CAPITAL_N)) {
+                Dashboard dashboard = new Dashboard();
+                dashboard.HomeMenu();
+            }  else {
+                System.out.println(Colors.C_RED +" Please select correct option " +Colors.C_RESET);
+                menu();
+            }
+        } else if(userInput.equals("2")) {
+            doctorRatingMenu();
+        } else {
+            System.out.println(Colors.C_RED +" Please select correct option" +Colors.C_RESET);
             menu();
         }
+    }
+
+    public void doctorRatingMenu() {
+        System.out.println("==============================");
+        System.out.println("\t\tLIST OF DOCTORS");
+        System.out.println("==============================");
+
+        doctorsList = doctorRatingDAO.getAllDoctors();
+
+        for(int i = 0;i<doctorsList.size();i++) {
+            System.out.println(String.format(Constant.INTERGER_FORMAT, doctorsList.get(i).getDoctor_id()) +" "
+                        +String.format(Constant.STRING_FORMAT, doctorsList.get(i).getName()) +" "
+                        +String.format(Constant.STRING_FORMAT, doctorsList.get(i).getSpecialization()));
+        }
+
+        System.out.println("Enter the doctor id to rate:");
+        String d_id = scanner.nextLine();
+
+        System.out.println("Please give the rating from 1 to 5:");
+        String rate = scanner.nextLine();
+
+        if (isValidDoctorId(Integer.parseInt(d_id))) {
+            DoctorRating doctorRating = doctorRatingDAO.isDoctorAlreadyInDB(Integer.parseInt(d_id));
+            if(doctorRating != null) {
+                // already added
+                Double newRating = (doctorRating.getTotal() + Double.parseDouble(rate)) / (doctorRating.getCount() + 1);
+                Double total = doctorRating.getTotal() + Double.parseDouble(rate);
+
+                Boolean result = doctorRatingDAO.updateRating(Integer.parseInt(d_id),newRating, doctorRating.getCount()+1,total);
+                if(result) {
+                    System.out.println("Thank you for rating the doctor");
+                    menu();
+                }
+            } else {
+                if(isValidRating(rate)) {
+                    //First time adding
+                    DoctorRating doctorRating1 = new DoctorRating(Integer.parseInt(d_id),
+                            Double.parseDouble(rate),1,Double.parseDouble(rate));
+
+                    doctorRatingDAO.AddFirstRating(doctorRating1);
+
+                    System.out.println("Thank you for rating the doctor");
+                    menu();
+                } else {
+                    System.out.println(Colors.C_RED +" Please give the rating from 1 to 5.");
+                    menu();
+                }
+
+            }
+        } else {
+            System.out.println(Colors.C_RED +" Doctor not found with this ID" +Colors.C_RESET);
+            menu();
+        }
+    }
+
+    public Boolean isValidDoctorId(Integer d_id){
+        for(int i = 0;i<doctorsList.size();i++) {
+            if(doctorsList.get(i).getDoctor_id().toString().equals(d_id.toString())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /*
