@@ -7,12 +7,19 @@ import Service.UserSession;
 import java.util.List;
 import java.util.Scanner;
 
+/*
+ *  Name of file: RatingMenu.java
+ *  Author:  Nadish Maredia
+ *  Purpose & Description: This class implement the RatingMenu and is responsible for showing
+ *                          different menus related to RatingAndFeedback module
+ * */
 public class RatingMenu implements FeatureMenu {
     Scanner scanner = new Scanner(System.in);
 
     UserIdVerifiedDAO userIdVerifiedDAO;
     RatingDAO ratingDAO;
 
+    public RatingMenu(){}
     //dependency injection
     public RatingMenu(UserIdVerifiedDAO userIdVerifiedDAO, RatingDAO ratingDAO) {
         this.userIdVerifiedDAO = userIdVerifiedDAO;
@@ -45,15 +52,24 @@ public class RatingMenu implements FeatureMenu {
         System.out.println("Enter your userId");
         String userId = scanner.nextLine();
 
-        Boolean isValid = userIdVerifiedDAO.isUserFound(Integer.parseInt(userId));
-        if(isValid) {
-            System.out.println("Verification successful!");
-            List<AppointmentModel> userAppointments = ratingDAO.userAppointments(UserSession.userId.toString());
-            for(int i = 0;i<userAppointments.size();i++) {
-                System.out.println(userAppointments.get(i).getAppointment_date());
+        if(isNumber(userId)) {
+            Boolean isValid = userIdVerifiedDAO.isUserFound(Integer.parseInt(userId));
+            if(isValid) {
+                System.out.println("Verification successful!");
+                List<AppointmentModel> userAppointments = ratingDAO.userAppointments(UserSession.userId.toString());
+                for(int i = 0;i<userAppointments.size();i++) {
+                    System.out.println(userAppointments.get(i).getAppointment_date());
+                }
+            } else {
+                System.out.println("User is invalid");
             }
         } else {
-            System.out.println("User is invalid");
+            System.out.println(Colors.C_RED +" User Id is wrong" +Colors.C_RESET);
+            menu();
         }
+    }
+
+    public Boolean isNumber(String data){
+        return data.matches("[0-9]+");
     }
 }

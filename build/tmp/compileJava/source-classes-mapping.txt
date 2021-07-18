@@ -54,8 +54,8 @@ Interface/PharmacyDAO.java
  Interface.PharmacyDAO
 Interface/PharmacyUpdateStockDAO.java
  Interface.PharmacyUpdateStockDAO
-Interface/RatingDAO.java
- Interface.RatingDAO
+Colors.java
+ Colors
 DbConnection.java
  DbConnection
 CustomPDF.java
@@ -96,11 +96,11 @@ BillingMenu.java
  BillingMenu
 Billing.java
  Billing
-Colors.java
- Colors
-RatingMenu.java
- RatingMenu
 Service/RatingService.java
  Service.RatingService
+Interface/RatingDAO.java
+ Interface.RatingDAO
 FeatureFactory.java
  FeatureFactory
+RatingMenu.java
+ RatingMenu
