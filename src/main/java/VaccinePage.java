@@ -19,8 +19,6 @@ public class VaccinePage implements FeatureMenu {
             System.out.format("\t%-4d%-29s%5d\n", vaccineList.get(i).getVaccineId(),
                     vaccineList.get(i).getVaccineName(), vaccineList.get(i).getAvailableDoses());
         }
-
-        menu();
     }
 
     @Override
