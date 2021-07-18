@@ -2,6 +2,7 @@ import Interface.FeatureMenu;
 import Model.Vaccine;
 import Service.VaccineService;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -33,6 +34,7 @@ public class VaccinePage implements FeatureMenu {
             System.out.format("\t%-4d%-29s%5d\n", vaccineList.get(i).getVaccineId(),
                     vaccineList.get(i).getVaccineName(), vaccineList.get(i).getAvailableDoses());
         }
+        System.out.println("------------------------------------------------");
     }
 
     // Method which is responsible to call Vaccine Menu (Sub-menu of the system)
@@ -40,19 +42,28 @@ public class VaccinePage implements FeatureMenu {
     public void menu() {
         VaccinePage vaccinePage = new VaccinePage();
 
-        System.out.println("\n\n==========================");
+        System.out.println("\n==========================");
         System.out.println("Select options from below");
         System.out.println("==========================");
 
         System.out.println("1 = View Available Vaccines");
+        System.out.println("\nPress 0 (Zero) to stop");
         System.out.println("\nEnter your choice: ");
 
         // Takes input from the user about their preference
         Scanner scanner = new Scanner(System.in);
-        int userChoice = scanner.nextInt();
+        int userChoice = 0;
 
-        // Loop iterates until user enters number which is greater the 'Case' list
-        while (userChoice<2) {
+        try {
+            userChoice = scanner.nextInt();
+        }
+        catch (InputMismatchException e) {
+            System.out.println("WARNING: Please select from the given numbers only");
+            menu();
+        }
+
+        // Loop iterates until user enters number 0 (Zero)
+        while (userChoice != 0) {
             switch (userChoice) {
                 case 1 :
                     System.out.println("\nAll vaccines are as follows");
@@ -60,7 +71,7 @@ public class VaccinePage implements FeatureMenu {
                     break;
 
                 default:
-                    System.out.println("Invalid Input, exiting ...");
+                    System.out.println("Invalid Input, Please select right option");
                     break;
             }
             System.out.println("\n\n==========================");
@@ -68,9 +79,16 @@ public class VaccinePage implements FeatureMenu {
             System.out.println("==========================");
 
             System.out.println("1 = View Available Vaccines");
-            System.out.println("\nAny number greater than 1 to stop");
+            System.out.println("\nPress 0 (Zero) to stop");
             System.out.println("\nEnter your choice: ");
-            userChoice = scanner.nextInt();
+
+            try {
+                userChoice = scanner.nextInt();
+            }
+            catch (InputMismatchException e) {
+                System.out.println("WARNING: Please select from the given numbers only");
+                menu();
+            }
         }
     }
 }
