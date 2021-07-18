@@ -3,8 +3,6 @@ package Service;
 import Interface.RatingDAO;
 import Model.AppointmentModel;
 import Model.Feedback;
-import Model.Pharmacy;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,12 +10,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ *  Name of file: RatingService.java
+ *  Author:  Nadish Maredia
+ *  Purpose: This class is like service class which will implement the RatingDAO
+ *  Description: This class will implement all the actual logic define in RatingDAO
+ * */
 public class RatingService implements RatingDAO {
     @Override
     public List<AppointmentModel> userAppointments(String user_Id) {
+
         CustomConnection connection = new CustomConnection();
         Connection conn = connection.Connect();
-
         List<AppointmentModel> appointmentList = new ArrayList<AppointmentModel>();
 
         if(conn != null) {
@@ -55,6 +59,7 @@ public class RatingService implements RatingDAO {
 
     @Override
     public Boolean addFeedback(Feedback feedback) {
+
         CustomConnection connection = new CustomConnection();
         Connection conn = connection.Connect();
         if  (conn != null)  {
@@ -80,6 +85,7 @@ public class RatingService implements RatingDAO {
 
     @Override
     public Boolean feedbackExists(Integer user_id, Integer appointment_id) {
+        
         CustomConnection connection = new CustomConnection();
         Connection conn = connection.Connect();
         Boolean result = false;

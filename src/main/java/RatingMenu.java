@@ -28,12 +28,15 @@ public class RatingMenu implements FeatureMenu {
     Integer selectedAppointmentId = 0;
 
     public RatingMenu(){}
-    //dependency injection
+    //dependency injection to reduce coupling
     public RatingMenu(UserIdVerifiedDAO userIdVerifiedDAO, RatingDAO ratingDAO) {
         this.userIdVerifiedDAO = userIdVerifiedDAO;
         this.ratingDAO = ratingDAO;
     }
 
+    /*
+    * This method is the main menu of Rating module
+    * */
     @Override
     public void menu() {
         System.out.println("Submit Feedback and Rating: ");
@@ -53,10 +56,14 @@ public class RatingMenu implements FeatureMenu {
         }
     }
 
+    /*
+    * This method basically ask user for their information and verify if the user is in the db or not
+    * If it is then go ahead otherwise show menu again
+    * */
     public void verifyUserMenu() {
+
         System.out.println("Enter your name: ");
         String name = scanner.nextLine();
-
         System.out.println("Enter your userId");
         String userId = scanner.nextLine();
 
@@ -87,36 +94,52 @@ public class RatingMenu implements FeatureMenu {
         }
     }
 
+    /*
+    * Simple method to check if its a number or not
+    * */
     public Boolean isNumber(String data){
         return data.matches("[0-9]+");
     }
 
+    /*
+     * Simple method to check if string is more than 500 characters
+     * */
     public Boolean lengthBelow500(String data) {
+
         if(data.length()>500){
             return false;
         }
         return true;
     }
 
+    /*
+     * Simple method to validate the rating should be from 1 to 5
+     * */
     public Boolean isValidRating(String rate) {
         return rate.matches("[1-5]");
     }
 
+    /*
+     * This method will show rating menu to the user and get rating from user
+     * */
     public void getFeedbackFromUser(){
+
         System.out.println("Please enter the appointment id for which you want to provide feedback: ");
         String ap_id = scanner.nextLine();
 
         if(validAppointment(ap_id)) {
-            if(isNumber(ap_id)) {
-                selectedAppointmentId = Integer.parseInt(ap_id);
 
+            if(isNumber(ap_id)) {
+
+                selectedAppointmentId = Integer.parseInt(ap_id);
                 System.out.println("Enter your feedback");
                 String feedback = scanner.nextLine();
+
                 if(isRequired(feedback)) {
+
                     if(lengthBelow500(feedback)) {
 
                         feedbackVar = feedback;
-
                         System.out.println("Press (S) to submit feeback or (C) to cancel it");
                         String userInput = scanner.nextLine();
 
@@ -149,6 +172,9 @@ public class RatingMenu implements FeatureMenu {
         }
     }
 
+    /*
+    * This method will validate if the appointmentID is valid or not
+    * */
     public Boolean validAppointment(String appoint_id) {
         for(int i = 0;i<userAppointments.size();i++) {
             if(userAppointments.get(i).getAppointment_id().toString().equals(appoint_id)) {
@@ -158,6 +184,9 @@ public class RatingMenu implements FeatureMenu {
         return false;
     }
 
+    /*
+     * Simple method to check if str is required or not
+     * */
     public Boolean isRequired(String data) {
         if(data.length() == 0) {
             return false;
@@ -165,6 +194,9 @@ public class RatingMenu implements FeatureMenu {
         return true;
     }
 
+    /*
+     * This method will add rating and feedback to the db
+     * */
     public void addRating(){
         System.out.println("Please provide a rating for your appointment");
         System.out.println("How good was your experience on the scale from 1 to 5");
@@ -191,9 +223,6 @@ public class RatingMenu implements FeatureMenu {
                 System.out.println(Colors.C_RED +" You have already send feedback for this appointment " +Colors.C_RESET);
                 menu();
             }
-
-
-
         } else {
             System.out.println(Colors.C_RED +" Rating should be between 1 to 5"+ Colors.C_RESET);
             addRating();
