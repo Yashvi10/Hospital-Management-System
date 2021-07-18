@@ -11,18 +11,13 @@ public class VaccinePage implements FeatureMenu {
         VaccineService vaccineService = new VaccineService();
         List<Vaccine> vaccineList = vaccineService.getVaccines();
 
-        System.out.println("Number");
-        System.out.printf("%15s", "Vaccine Name");
-        System.out.printf("%40s", "Quantity");
+        System.out.println("------------------------------------------------");
+        System.out.format("%-4s%2s%-29s%5s\n", "Number", "", "Vaccine Name", "Quantity");
+        System.out.println("------------------------------------------------");
 
         for (int i = 0; i < vaccineList.size(); i++) {
-            System.out.println("\n"+vaccineList.get(i).getVaccineId());
-            System.out.printf("%15s", vaccineList.get(i).getVaccineName());
-            System.out.printf("%40s", vaccineList.get(i).getAvailableDoses());
-
-            /*System.out.println(vaccineList.get(i).getVaccineId()+"\t"+
-                    vaccineList.get(i).getVaccineName()+"\t\t\t\t"+
-                    vaccineList.get(i).getAvailableDoses());*/
+            System.out.format("\t%-4d%-29s%5d\n", vaccineList.get(i).getVaccineId(),
+                    vaccineList.get(i).getVaccineName(), vaccineList.get(i).getAvailableDoses());
         }
 
         menu();
@@ -32,7 +27,7 @@ public class VaccinePage implements FeatureMenu {
     public void menu() {
         VaccinePage vaccinePage = new VaccinePage();
 
-        System.out.println("\n==========================");
+        System.out.println("\n\n==========================");
         System.out.println("Select options from below");
         System.out.println("==========================");
 
@@ -41,8 +36,6 @@ public class VaccinePage implements FeatureMenu {
 
         Scanner scanner = new Scanner(System.in);
         int userChoice = scanner.nextInt();
-
-
 
         while (userChoice<2) {
             switch (userChoice) {
@@ -55,7 +48,7 @@ public class VaccinePage implements FeatureMenu {
                     System.out.println("Invalid Input, exiting ...");
                     break;
             }
-            System.out.println("\n==========================");
+            System.out.println("\n\n==========================");
             System.out.println("Select options from below");
             System.out.println("==========================");
 
