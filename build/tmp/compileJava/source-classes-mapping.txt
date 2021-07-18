@@ -26,8 +26,8 @@ Service/BloodRequesterService.java
  Service.BloodRequesterService
 Service/ManageProfile.java
  Service.ManageProfile
-Service/RegisterTestService.java
- Service.RegisterTestService
+Dashboard.java
+ Dashboard
 Service/UserManagement.java
  Service.UserManagement
 Interface/OrderDAO.java
@@ -102,7 +102,7 @@ Service/ListOfTestsService.java
  Service.ListOfTestsService
 Model/RegisterTest.java
  Model.RegisterTest
-Dashboard.java
- Dashboard
 Laboratory.java
  Laboratory
+Service/RegisterTestService.java
+ Service.RegisterTestService

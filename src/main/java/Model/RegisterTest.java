@@ -20,8 +20,10 @@ public class RegisterTest {
 
   private String date_of_test;
 
+  private String report_generation_date;
+
   public RegisterTest(int test_id, int user_id, String firstname, String lastname, String test_name, String contact,
-                      String email, String gender, String date_of_test) {
+                      String email, String gender, String date_of_test, String report_generation_date) {
     this.test_id = test_id;
     this.user_id = user_id;
     this.firstname = firstname;
@@ -31,6 +33,7 @@ public class RegisterTest {
     this.email = email;
     this.gender = gender;
     this.date_of_test = date_of_test;
+    this.report_generation_date = report_generation_date;
   }
 
   public int getTest_id() {
@@ -102,7 +105,14 @@ public class RegisterTest {
   }
 
   public void setDate_of_test(String date_of_test) {
-    this.date_of_test = date_of_test;
+    this.date_of_test = date_of_test; }
+
+  public String getReport_generation_date() {
+    return report_generation_date;
+  }
+
+  public void setReport_generation_date(String report_generation_date) {
+    this.report_generation_date = report_generation_date;
   }
 
 }
