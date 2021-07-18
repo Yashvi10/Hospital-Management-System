@@ -26,11 +26,13 @@ public class RatingService implements RatingDAO {
                 statement = conn.createStatement();
                 ResultSet result = statement.executeQuery(SQL);
                 while(result.next()) {
+                    Integer appointment_id = result.getInt(1);
                     String appointment_Date = result.getString(3);
                     String appointment_Time = result.getString(4);
                     String status = result.getString(5);
 
                     AppointmentModel appointmentModel = new AppointmentModel();
+                    appointmentModel.setAppointment_id(appointment_id);
                     appointmentModel.setAppointment_date(appointment_Date);
                     appointmentModel.setAppointment_time(appointment_Time);
                     appointmentModel.setAppointment_status(status);

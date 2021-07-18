@@ -96,10 +96,10 @@ BillingMenu.java
  BillingMenu
 Billing.java
  Billing
-Service/RatingService.java
- Service.RatingService
 Interface/RatingDAO.java
  Interface.RatingDAO
+Service/RatingService.java
+ Service.RatingService
 FeatureFactory.java
  FeatureFactory
 RatingMenu.java

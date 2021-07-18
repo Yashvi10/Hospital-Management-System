@@ -39,7 +39,7 @@ public class RatingMenu implements FeatureMenu {
         } else if (inputFromUser.equals(Constant.SMALL_n) || inputFromUser.equals(Constant.CAPITAL_N)) {
             Dashboard dashboard = new Dashboard();
             dashboard.HomeMenu();
-        } else {
+        }  else {
             System.out.println(Colors.C_RED +" Please select correct option " +Colors.C_RESET);
             menu();
         }
@@ -57,11 +57,19 @@ public class RatingMenu implements FeatureMenu {
             if(isValid) {
                 System.out.println("Verification successful!");
                 List<AppointmentModel> userAppointments = ratingDAO.userAppointments(UserSession.userId.toString());
+                System.out.println(String.format(Constant.STRING_FORMAT, "Appointment_Id") +" "
+                                    +String.format(Constant.STRING_FORMAT, "Appointment_Date") +" "
+                                    +String.format(Constant.STRING_FORMAT,"Appoinment_Time") +" "
+                                    +String.format(Constant.STRING_FORMAT, "Status"));
                 for(int i = 0;i<userAppointments.size();i++) {
-                    System.out.println(userAppointments.get(i).getAppointment_date());
+                    System.out.println(String.format(Constant.INTERGER_FORMAT,userAppointments.get(i).getAppointment_id()) +" \t\t"
+                                    +String.format(Constant.STRING_FORMAT,userAppointments.get(i).getAppointment_date()) +" \t\t"
+                                    +String.format(Constant.STRING_FORMAT, userAppointments.get(i).getAppointment_time()) +" \t\t"
+                                    +String.format(Constant.STRING_FORMAT, userAppointments.get(i).getAppointment_status()));
                 }
             } else {
-                System.out.println("User is invalid");
+                System.out.println(Colors.C_RED +"User is invalid" +Colors.C_RESET);
+                menu();
             }
         } else {
             System.out.println(Colors.C_RED +" User Id is wrong" +Colors.C_RESET);
