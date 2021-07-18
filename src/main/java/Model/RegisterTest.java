@@ -20,8 +20,6 @@ public class RegisterTest {
 
   private String date_of_test;
 
-  public RegisterTest() {}
-
   public RegisterTest(int test_id, int user_id, String firstname, String lastname, String test_name, String contact,
                       String email, String gender, String date_of_test) {
     this.test_id = test_id;

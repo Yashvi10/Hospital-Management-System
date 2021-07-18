@@ -2,6 +2,8 @@ package Interface;
 
 public interface RegisterTestDAO {
 
-  Boolean registerTest();
+  void registerTest();
+
+  Boolean addUserDetails();
 
 }

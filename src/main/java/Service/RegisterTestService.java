@@ -2,7 +2,6 @@ package Service;
 
 import Interface.RegisterTestDAO;
 import Model.RegisterTest;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -10,64 +9,60 @@ import java.util.Scanner;
 
 public class RegisterTestService implements RegisterTestDAO {
 
-  Scanner input;
-  RegisterTest registerTest = new RegisterTest();
+  Scanner input = new Scanner(System.in);
 
-  public RegisterTestService() {}
-
-//  public RegisterTestService(RegisterTest registerTest) {
-//    this.registerTest = registerTest;
-//  }
+  RegisterTest registerTest;
 
   @Override
-  public Boolean registerTest() {
+  public void registerTest() {
 
-    CustomConnection customConnection = new CustomConnection();
-    Connection conn = customConnection.Connect();
-
-    input = new Scanner(System.in);
     System.out.println("Enter test_id: ");
-    String test_id = input.next();
+    Integer test_id = input.nextInt();
 
-    input = new Scanner(System.in);
     System.out.println("Enter user_id: ");
-    String user_id = input.next();
+    Integer user_id = input.nextInt();
 
     input = new Scanner(System.in);
     System.out.println("Enter firstname: ");
-    String firstname = input.next();
+    String firstname = input.nextLine();
 
-    input = new Scanner(System.in);
     System.out.println("Enter lastname: ");
-    String lastname = input.next();
+    String lastname = input.nextLine();
 
-    input = new Scanner(System.in);
     System.out.println("Enter test-name: ");
-    String test_name = input.next();
+    String test_name = input.nextLine();
 
-    input = new Scanner(System.in);
     System.out.println("Enter contact: ");
-    String contact = input.next();
+    String contact = input.nextLine();
 
-    input = new Scanner(System.in);
     System.out.println("Enter email: ");
-    String email = input.next();
+    String email = input.nextLine();
 
-    input = new Scanner(System.in);
     System.out.println("Enter gender: ");
-    String gender = input.next();
+    String gender = input.nextLine();
 
-    input = new Scanner(System.in);
     System.out.println("Enter date_of_test: ");
-    String date_of_test = input.next();
+    String date_of_test = input.nextLine();
+
+    registerTest = new RegisterTest(test_id,user_id,firstname,lastname,test_name,contact,email,gender,date_of_test);
+
+    addUserDetails();
+  }
+
+  @Override
+  public Boolean addUserDetails() {
+    CustomConnection customConnection = new CustomConnection();
+    Connection conn = customConnection.Connect();
 
     Boolean result = false;
 
     if(conn != null) {
       String SQL = "insert into registered_tests(test_id, user_id, firstname, lastname, test_name, contact, email, gender, date_of_test) " +
-              "values('" +registerTest.getTest_id() +"','" +registerTest.getUser_id()
-              +"','" +registerTest.getFirstname() +"','" +registerTest.getLastname()+ "','" +registerTest.getTest_name() +"','"
-              + registerTest.getContact() + "','" + registerTest.getEmail()+ "','"+registerTest.getGender()+"','"+registerTest.getDate_of_test()+"')";
+              "values('" + registerTest.getTest_id() + "','" + registerTest.getUser_id() + "','"
+              + registerTest.getFirstname() + "','" + registerTest.getLastname() + "','"
+              + registerTest.getTest_name() + "','" + registerTest.getContact() + "','"
+              + registerTest.getEmail() + "','" + registerTest.getGender() + "','"
+              + registerTest.getDate_of_test() + "')";
 
       Statement statement = null;
       try {

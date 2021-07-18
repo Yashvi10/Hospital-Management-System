@@ -10,7 +10,7 @@ public class Laboratory {
 
     private ListOfTestsDAO listOfTestsDAO;
 
-    private RegisterTestService registerTestService;
+    private RegisterTestService registerTestService=new RegisterTestService();
 
     public Laboratory(){};
 
@@ -18,9 +18,9 @@ public class Laboratory {
         this.listOfTestsDAO = listOfTestsDAO;
     }
 
-    public Laboratory(RegisterTestService registerTestService) {
-        this.registerTestService = registerTestService;
-    }
+//    public Laboratory(RegisterTestService registerTestService) {
+//        this.registerTestService = registerTestService;
+//    }
 
     public void LaboratoryMenu(){
 
@@ -36,7 +36,7 @@ public class Laboratory {
                 System.out.println("============Test Registration============");
                 System.out.println("**List of available tests**");
                 listOfTests();
-                System.out.println("Press 1 for sugar test\nPress 2 for blood test\nPress 3 for uric-acid test\n" +
+                System.out.println("\n"+"Press 1 for sugar test\nPress 2 for blood test\nPress 3 for uric-acid test\n" +
                         "Press 4 for urine test\nPress 5 to exit");
 
                 Scanner test_input = new Scanner(System.in);
@@ -45,24 +45,31 @@ public class Laboratory {
                 switch (test_choice){
                     case 1 :
                         System.out.println("You selected test for sugar checkup.");
-                        RegisterTestService registerTestService = new RegisterTestService();
                         registerTestService.registerTest();
+                        LaboratoryMenu();
                         break;
 
                     case 2 :
                         System.out.println("Blood");
+                        registerTestService.registerTest();
+                        LaboratoryMenu();
                         break;
 
                     case 3 :
                         System.out.println("uric acid");
+                        registerTestService.registerTest();
+                        LaboratoryMenu();
                         break;
 
                     case 4 :
                         System.out.println("urine");
+                        registerTestService.registerTest();
+                        LaboratoryMenu();
                         break;
 
                     case 5 :
                         System.out.println("Exited");
+                        registerTestService.registerTest();
                         break;
                 }
 
@@ -71,6 +78,7 @@ public class Laboratory {
             case 2 :
                 System.out.println("============List of all tests============");
                 listOfTests();
+                LaboratoryMenu();
                 break;
 
             case 3 :
@@ -103,7 +111,4 @@ public class Laboratory {
 //        LaboratoryMenu();
     }
 
-    public void registerTest() {
-        registerTestService.registerTest();
-    }
 }
