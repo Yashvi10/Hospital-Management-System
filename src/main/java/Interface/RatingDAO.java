@@ -1,6 +1,7 @@
 package Interface;
 
 import Model.AppointmentModel;
+import Model.Feedback;
 
 import java.util.List;
 
@@ -13,4 +14,8 @@ import java.util.List;
 public interface RatingDAO {
 
     List<AppointmentModel> userAppointments(String user_Id);
+
+    Boolean addFeedback(Feedback feedback);
+
+    Boolean feedbackExists(Integer user_id, Integer appointment_id);
 }

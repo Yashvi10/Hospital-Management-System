@@ -2,6 +2,7 @@ import Interface.FeatureMenu;
 import Interface.RatingDAO;
 import Interface.UserIdVerifiedDAO;
 import Model.AppointmentModel;
+import Model.Feedback;
 import Service.UserSession;
 
 import java.util.List;
@@ -17,7 +18,14 @@ public class RatingMenu implements FeatureMenu {
     Scanner scanner = new Scanner(System.in);
 
     UserIdVerifiedDAO userIdVerifiedDAO;
+
     RatingDAO ratingDAO;
+
+    List<AppointmentModel> userAppointments;
+
+    String feedbackVar = "";
+
+    Integer selectedAppointmentId = 0;
 
     public RatingMenu(){}
     //dependency injection
@@ -56,7 +64,7 @@ public class RatingMenu implements FeatureMenu {
             Boolean isValid = userIdVerifiedDAO.isUserFound(Integer.parseInt(userId));
             if(isValid) {
                 System.out.println("Verification successful!");
-                List<AppointmentModel> userAppointments = ratingDAO.userAppointments(UserSession.userId.toString());
+                userAppointments = ratingDAO.userAppointments(UserSession.userId.toString());
                 System.out.println(String.format(Constant.STRING_FORMAT, "Appointment_Id") +" "
                                     +String.format(Constant.STRING_FORMAT, "Appointment_Date") +" "
                                     +String.format(Constant.STRING_FORMAT,"Appoinment_Time") +" "
@@ -98,32 +106,63 @@ public class RatingMenu implements FeatureMenu {
         System.out.println("Please enter the appointment id for which you want to provide feedback: ");
         String ap_id = scanner.nextLine();
 
-        if(isNumber(ap_id)) {
-            System.out.println("Enter your feedback");
-            String feedback = scanner.nextLine();
-            if(lengthBelow500(feedback)) {
+        if(validAppointment(ap_id)) {
+            if(isNumber(ap_id)) {
+                selectedAppointmentId = Integer.parseInt(ap_id);
 
-                System.out.println("Press (S) to submit feeback or (C) to cancel it");
-                String userInput = scanner.nextLine();
+                System.out.println("Enter your feedback");
+                String feedback = scanner.nextLine();
+                if(isRequired(feedback)) {
+                    if(lengthBelow500(feedback)) {
 
-                if(userInput.equals("S") || userInput.equals("s")) {
-                    addRating();
-                } else if (userInput.equals("C") || userInput.equals("c")) {
-                    Dashboard dashboard = new Dashboard();
-                    dashboard.HomeMenu();
+                        feedbackVar = feedback;
+
+                        System.out.println("Press (S) to submit feeback or (C) to cancel it");
+                        String userInput = scanner.nextLine();
+
+                        if(userInput.equals("S") || userInput.equals("s")) {
+                            addRating();
+                        } else if (userInput.equals("C") || userInput.equals("c")) {
+                            Dashboard dashboard = new Dashboard();
+                            dashboard.HomeMenu();
+                        } else {
+                            System.out.println(Colors.C_RED +" Please select correct option" +Colors.C_RESET);
+                            menu();
+                        }
+
+                    } else {
+                        System.out.println(Colors.C_RED +"Feedback cannot be more than 500 characters" +Colors.C_RESET);
+                        menu();
+                    }
                 } else {
-                    System.out.println(Colors.C_RED +" Please select correct option" +Colors.C_RESET);
+                    System.out.println(Colors.C_RED +" Feedback is required" +Colors.C_RESET);
                     menu();
                 }
 
             } else {
-                System.out.println(Colors.C_RED +"Feedback cannot be more than 500 characters" +Colors.C_RESET);
-                menu();
+                    System.out.println(Colors.C_RED +"Appointment id only contains numher" +Colors.C_RESET);
+                    menu();
             }
         } else {
-            System.out.println(Colors.C_RED +"Appointment id only contains numher" +Colors.C_RESET);
-            menu();
+            System.out.println(Colors.C_RED +" Please enter correct appointment Id " +Colors.C_RESET);
+            getFeedbackFromUser();
         }
+    }
+
+    public Boolean validAppointment(String appoint_id) {
+        for(int i = 0;i<userAppointments.size();i++) {
+            if(userAppointments.get(i).getAppointment_id().toString().equals(appoint_id)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Boolean isRequired(String data) {
+        if(data.length() == 0) {
+            return false;
+        }
+        return true;
     }
 
     public void addRating(){
@@ -133,9 +172,28 @@ public class RatingMenu implements FeatureMenu {
         String rate = scanner.nextLine();
 
         if(isValidRating(rate)) {
-            System.out.println("Thank your for you feedback!!");
-            Dashboard dashboard = new Dashboard();
-            dashboard.HomeMenu();
+
+            if(!ratingDAO.feedbackExists(UserSession.userId, selectedAppointmentId)) {
+
+                Feedback feedback = new Feedback(selectedAppointmentId, UserSession.userId,feedbackVar, Integer.parseInt(rate));
+
+                if(ratingDAO.addFeedback(feedback)) {
+                    System.out.println("Thank your for you feedback!!");
+                    Dashboard dashboard = new Dashboard();
+                    dashboard.HomeMenu();
+                } else {
+                    System.out.println(Colors.C_RED +"Sorry! There was some issue sending your feedback. Please try later"
+                            +Colors.C_RESET);
+                    Dashboard dashboard = new Dashboard();
+                    dashboard.HomeMenu();
+                }
+            } else {
+                System.out.println(Colors.C_RED +" You have already send feedback for this appointment " +Colors.C_RESET);
+                menu();
+            }
+
+
+
         } else {
             System.out.println(Colors.C_RED +" Rating should be between 1 to 5"+ Colors.C_RESET);
             addRating();

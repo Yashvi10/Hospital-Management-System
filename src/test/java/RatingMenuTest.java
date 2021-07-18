@@ -47,4 +47,14 @@ public class RatingMenuTest {
     void isValidRating_false(){
         assertEquals(false, new RatingMenu().isValidRating("6")," Rating should be between 1 to 5");
     }
+
+    @Test
+    void isRequired_true(){
+        assertEquals(true, new RatingMenu().isRequired("Hello world"), "The text is required");
+    }
+
+    @Test
+    void isRequired_false(){
+        assertEquals(false, new RatingMenu().isRequired(""),"The text is required");
+    }
 }
