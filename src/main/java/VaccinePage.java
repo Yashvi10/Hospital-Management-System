@@ -5,22 +5,37 @@ import Service.VaccineService;
 import java.util.List;
 import java.util.Scanner;
 
+/*
+ *  Name of file: VaccinePage.java
+ *  Author:  Kushang Mistry
+ *  Purpose: The primary class which provides all Vaccine related options to end-user
+ *  Description: The class calls methods based on user's choice
+ *               Sub-menu (Vaccine menu) iterates itself until user selects
+ * */
 public class VaccinePage implements FeatureMenu {
 
+    /*
+    *  A method which gets vaccine information from the database
+    *  And displays it to the console.
+    *  Hence, user can get idea which vaccines are available
+    **/
     private void getVaccineData() {
         VaccineService vaccineService = new VaccineService();
-        List<Vaccine> vaccineList = vaccineService.getVaccines();
+        List<Vaccine> vaccineList = vaccineService.getVaccines();   // Fetches and stores all vaccine information
 
+        // Below are string decorators, enhanced for end user
         System.out.println("------------------------------------------------");
         System.out.format("%-4s%2s%-29s%5s\n", "Number", "", "Vaccine Name", "Quantity");
         System.out.println("------------------------------------------------");
 
+        // Prints all vaccine information to the console
         for (int i = 0; i < vaccineList.size(); i++) {
             System.out.format("\t%-4d%-29s%5d\n", vaccineList.get(i).getVaccineId(),
                     vaccineList.get(i).getVaccineName(), vaccineList.get(i).getAvailableDoses());
         }
     }
 
+    // Method which is responsible to call Vaccine Menu (Sub-menu of the system)
     @Override
     public void menu() {
         VaccinePage vaccinePage = new VaccinePage();
@@ -32,9 +47,11 @@ public class VaccinePage implements FeatureMenu {
         System.out.println("1 = View Available Vaccines");
         System.out.println("\nEnter your choice: ");
 
+        // Takes input from the user about their preference
         Scanner scanner = new Scanner(System.in);
         int userChoice = scanner.nextInt();
 
+        // Loop iterates until user enters number which is greater the 'Case' list
         while (userChoice<2) {
             switch (userChoice) {
                 case 1 :
@@ -51,7 +68,7 @@ public class VaccinePage implements FeatureMenu {
             System.out.println("==========================");
 
             System.out.println("1 = View Available Vaccines");
-            System.out.println("Any number greater than 1 to stop");
+            System.out.println("\nAny number greater than 1 to stop");
             System.out.println("\nEnter your choice: ");
             userChoice = scanner.nextInt();
         }
