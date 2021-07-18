@@ -12,12 +12,12 @@ Constant.java
  Constant
 BillingPage.java
  BillingPage
-Model/GenerateLabReports.java
- Model.GenerateLabReports
+Billing.java
+ Billing
 Model/BloodDonor.java
  Model.BloodDonor
-Service/BloodService.java
- Service.BloodService
+UserManagementPage.java
+ UserManagementPage
 Interface/BloodDAO.java
  Interface.BloodDAO
 Interface/OrderLastIdDAO.java
@@ -26,8 +26,8 @@ Service/BloodRequesterService.java
  Service.BloodRequesterService
 Service/ManageProfile.java
  Service.ManageProfile
-Dashboard.java
- Dashboard
+Colors.java
+ Colors
 Service/UserManagement.java
  Service.UserManagement
 Interface/OrderDAO.java
@@ -44,8 +44,8 @@ Service/BloodDonorService.java
  Service.BloodDonorService
 Interface/RegisterTestDAO.java
  Interface.RegisterTestDAO
-Service/GenerateLabReportsService.java
- Service.GenerateLabReportsService
+Service/CustomConnection.java
+ Service.CustomConnection
 Interface/GenerateLabReportsDAO.java
  Interface.GenerateLabReportsDAO
 Service/OrderService.java
@@ -64,8 +64,8 @@ Service/PharmacyService.java
  Service.PharmacyService
 Interface/BillingOrderItemDAO.java
  Interface.BillingOrderItemDAO
-BloodBank.java
- BloodBank
+Interface/IRegistration.java
+ Interface.IRegistration
 Model/ListOfTests.java
  Model.ListOfTests
 Interface/BloodRequesterDAO.java
@@ -88,21 +88,21 @@ Starter.java
  Starter
 PharmacyPage.java
  PharmacyPage
-UserManagementPage.java
- UserManagementPage
-Service/CustomConnection.java
- Service.CustomConnection
-Billing.java
- Billing
-Colors.java
- Colors
-Interface/IRegistration.java
- Interface.IRegistration
 Service/ListOfTestsService.java
  Service.ListOfTestsService
+Model/GenerateLabReports.java
+ Model.GenerateLabReports
+BloodBank.java
+ BloodBank
+Service/BloodService.java
+ Service.BloodService
 Model/RegisterTest.java
  Model.RegisterTest
-Laboratory.java
- Laboratory
 Service/RegisterTestService.java
  Service.RegisterTestService
+Service/GenerateLabReportsService.java
+ Service.GenerateLabReportsService
+Dashboard.java
+ Dashboard
+Laboratory.java
+ Laboratory

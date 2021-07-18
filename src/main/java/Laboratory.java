@@ -1,5 +1,7 @@
 import Interface.ListOfTestsDAO;
+import Model.GenerateLabReports;
 import Model.ListOfTests;
+import Service.GenerateLabReportsService;
 import Service.RegisterTestService;
 
 
@@ -12,6 +14,8 @@ public class Laboratory {
 
     private RegisterTestService registerTestService=new RegisterTestService();
 
+    private GenerateLabReports generateLabReports;
+
     public Laboratory(){};
 
     public Laboratory(ListOfTestsDAO listOfTestsDAO){
@@ -21,6 +25,10 @@ public class Laboratory {
 //    public Laboratory(RegisterTestService registerTestService) {
 //        this.registerTestService = registerTestService;
 //    }
+
+    public Laboratory(GenerateLabReports generateLabReports) {
+        this.generateLabReports = generateLabReports;
+    }
 
     public void LaboratoryMenu(){
 
@@ -69,7 +77,6 @@ public class Laboratory {
 
                     case 5 :
                         System.out.println("Exited");
-                        registerTestService.registerTest();
                         break;
                 }
 
@@ -83,7 +90,12 @@ public class Laboratory {
 
             case 3 :
                 System.out.println("Generate reports");
-
+                System.out.println("Enter your user_id");
+                Scanner user_id = new Scanner(System.in);
+                Integer uid_input = user_id.nextInt();
+//                GenerateLabReports generateLabReports = new GenerateLabReports();
+//                generateLabReports.setUser_id(user_id.nextInt());
+                listOfReports();
                 break;
 
             case 4 :
@@ -109,6 +121,14 @@ public class Laboratory {
         }
 
 //        LaboratoryMenu();
+    }
+
+    public void listOfReports() {
+        GenerateLabReportsService generateLabReportsService = new GenerateLabReportsService();
+        List<GenerateLabReports> generateLabReportsList = generateLabReportsService.generateReports();
+        for(int i = 0; i < generateLabReportsList.size(); i++) {
+            System.out.println(generateLabReportsList.get(i).getUser_id());
+        }
     }
 
 }

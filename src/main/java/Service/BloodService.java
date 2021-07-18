@@ -26,7 +26,7 @@ public class BloodService implements BloodDAO {
         List<BloodInventory> bloodInventoryList = new ArrayList<BloodInventory>();
 
         if(conn != null) {
-            String SQL = "Select * from blood_inventory";
+            String SQL = "select * from blood_inventory";
             Statement statement = null;
             try {
                 statement = conn.createStatement();
