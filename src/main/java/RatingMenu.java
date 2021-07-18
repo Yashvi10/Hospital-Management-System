@@ -67,6 +67,8 @@ public class RatingMenu implements FeatureMenu {
                                     +String.format(Constant.STRING_FORMAT, userAppointments.get(i).getAppointment_time()) +" \t\t"
                                     +String.format(Constant.STRING_FORMAT, userAppointments.get(i).getAppointment_status()));
                 }
+
+                getFeedbackFromUser();
             } else {
                 System.out.println(Colors.C_RED +"User is invalid" +Colors.C_RESET);
                 menu();
@@ -79,5 +81,65 @@ public class RatingMenu implements FeatureMenu {
 
     public Boolean isNumber(String data){
         return data.matches("[0-9]+");
+    }
+
+    public Boolean lengthBelow500(String data) {
+        if(data.length()>500){
+            return false;
+        }
+        return true;
+    }
+
+    public Boolean isValidRating(String rate) {
+        return rate.matches("[1-5]");
+    }
+
+    public void getFeedbackFromUser(){
+        System.out.println("Please enter the appointment id for which you want to provide feedback: ");
+        String ap_id = scanner.nextLine();
+
+        if(isNumber(ap_id)) {
+            System.out.println("Enter your feedback");
+            String feedback = scanner.nextLine();
+            if(lengthBelow500(feedback)) {
+
+                System.out.println("Press (S) to submit feeback or (C) to cancel it");
+                String userInput = scanner.nextLine();
+
+                if(userInput.equals("S") || userInput.equals("s")) {
+                    addRating();
+                } else if (userInput.equals("C") || userInput.equals("c")) {
+                    Dashboard dashboard = new Dashboard();
+                    dashboard.HomeMenu();
+                } else {
+                    System.out.println(Colors.C_RED +" Please select correct option" +Colors.C_RESET);
+                    menu();
+                }
+
+            } else {
+                System.out.println(Colors.C_RED +"Feedback cannot be more than 500 characters" +Colors.C_RESET);
+                menu();
+            }
+        } else {
+            System.out.println(Colors.C_RED +"Appointment id only contains numher" +Colors.C_RESET);
+            menu();
+        }
+    }
+
+    public void addRating(){
+        System.out.println("Please provide a rating for your appointment");
+        System.out.println("How good was your experience on the scale from 1 to 5");
+        System.out.println("Please enter number from 1 to 5: ");
+        String rate = scanner.nextLine();
+
+        if(isValidRating(rate)) {
+            System.out.println("Thank your for you feedback!!");
+            Dashboard dashboard = new Dashboard();
+            dashboard.HomeMenu();
+        } else {
+            System.out.println(Colors.C_RED +" Rating should be between 1 to 5"+ Colors.C_RESET);
+            addRating();
+        }
+
     }
 }

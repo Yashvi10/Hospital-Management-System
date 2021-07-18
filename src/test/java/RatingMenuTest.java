@@ -6,12 +6,45 @@ public class RatingMenuTest {
     @Test
     void isNumber_true(){
 
-        assertEquals(true, new RatingMenu().isNumber("12"));
+        assertEquals(true, new RatingMenu().isNumber("12"), "This is not number");
     }
 
     @Test
     void isNumber_false(){
 
-        assertEquals(false, new RatingMenu().isNumber("125f6"));
+        assertEquals(false, new RatingMenu().isNumber("125f6"),"This is not number");
+    }
+
+    @Test
+    void lengthBelow500_true(){
+
+        assertEquals(true, new RatingMenu().lengthBelow500("hello this is testing")
+                ,"The length is more than 500 characters");
+    }
+
+    @Test
+    void lengthBelow500_false(){
+
+        assertEquals(false, new RatingMenu().lengthBelow500("hello this is testing" +
+                        "hello this is testinghello this is testinghello this is testing" +
+                        "hello this is testinghello this is testinghello this is testing" +
+                        "hello this is testinghello this is testinghello this is testing" +
+                        "hello this is testinghello this is testinghello this is testing" +
+                        "hello this is testinghello this is testinghello this is testing" +
+                        "hello this is testinghello this is testinghello this is testing" +
+                        "hello this is testinghello this is testinghello this is testing" +
+                        "hello this is testinghello this is testinghello this is testing" +
+                        "hello this is testinghello this is testinghello this is testing")
+                ,"The length is more than 500 characters");
+    }
+
+    @Test
+    void isValidRating_true(){
+        assertEquals(true, new RatingMenu().isValidRating("5")," Rating should be between 1 to 5");
+    }
+
+    @Test
+    void isValidRating_false(){
+        assertEquals(false, new RatingMenu().isValidRating("6")," Rating should be between 1 to 5");
     }
 }
