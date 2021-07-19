@@ -32,7 +32,7 @@ public class BillingMenuPage {
         OrderService orderService = new OrderService();
 
         if(orderService.isUserFound(Integer.parseInt(userId))) {
-// use billing to reduce coupling
+
             BillingOrderDAO billingOrderDAO = new BillingService();
             Billing billing = new Billing(billingOrderDAO);
             orderlist = billing.getUserOrder(Integer.parseInt(userId));

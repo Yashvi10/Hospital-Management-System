@@ -1,4 +1,5 @@
 import Interface.FeatureMenu;
+import Interface.IDashboard;
 import Interface.OfferDAO;
 import Interface.PharmacyDAO;
 import Model.CartItem;
@@ -33,13 +34,16 @@ public class PharmacyMenu implements FeatureMenu {
 
     private OfferDAO offerDAO;
 
+    private IDashboard dashboard;
+
     public PharmacyMenu(){}
 
-    public PharmacyMenu(PharmacyDAO pharmacyDAO, OfferDAO offerDAO){
+    public PharmacyMenu(PharmacyDAO pharmacyDAO, OfferDAO offerDAO, IDashboard dashboard){
 
         //dependency injection
         this.pharmacyDAO = pharmacyDAO;
         this.offerDAO = offerDAO;
+        this.dashboard = dashboard;
 
         loadMedicines();
     }
@@ -64,7 +68,6 @@ public class PharmacyMenu implements FeatureMenu {
         if  (inputFromUser.equals(Constant.SMALL_l) || inputFromUser.equals(Constant.CAPITAL_L))  {
             getAllMedicines();
         }  else if  (inputFromUser.equals(Constant.SMALL_e) || inputFromUser.equals(Constant.CAPITAL_E))  {
-            Dashboard dashboard = new Dashboard();
             dashboard.HomeMenu();
         }  else  {
             NotFound();
