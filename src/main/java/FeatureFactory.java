@@ -1,6 +1,5 @@
 import Interface.FeatureMenu;
-import Service.OfferService;
-import Service.PharmacyService;
+import Service.*;
 
 /*
  *  Name of file: FeatureFactory.java
@@ -21,6 +20,8 @@ public class FeatureFactory {
             return new BillingMenu();
         } else if (menuType.equalsIgnoreCase("BLOODBANK")) {
             return new BloodBank();
+        } else if (menuType.equalsIgnoreCase("FEEDBACK")) {
+            return new RatingMenu(new UserIdVerifiedService(), new RatingService(), new DoctorRatingService());
         }
 
         return null;

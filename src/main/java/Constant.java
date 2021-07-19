@@ -26,6 +26,10 @@ public class Constant  {
     public static final String CAPITAL_O = "O";
     public static final String SMALL_s = "s";
     public static final String CAPITAL_S = "S";
+    public static final String SMALL_y = "y";
+    public static final String CAPITAL_Y = "Y";
+    public static final String SMALL_n = "n";
+    public static final String CAPITAL_N = "N";
     public static final Integer RANDOM_NUMBER_LIMIT = 85000;
     public static final String INVOICE_FILE_PATH = "D:\\Bills\\Invoice";
     public static final String DOUBLE_WITHOUT_SPACE_FORMAT = "%.2f";
