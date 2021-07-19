@@ -52,6 +52,8 @@ public class RatingMenu implements FeatureMenu {
     public void menu() {
         System.out.println("Press 1 for feedback");
         System.out.println("Press 2 to rate doctors");
+        System.out.println("Press 3 to go back");
+
         String userInput = scanner.nextLine();
 
         if(userInput.equals("1")) {
@@ -72,6 +74,9 @@ public class RatingMenu implements FeatureMenu {
             }
         } else if(userInput.equals("2")) {
             doctorRatingMenu();
+        } else if (userInput.equals("3")) {
+            Dashboard dashboard = new Dashboard();
+            dashboard.HomeMenu();
         } else {
             System.out.println(Colors.C_RED +" Please select correct option" +Colors.C_RESET);
             menu();
@@ -253,7 +258,7 @@ public class RatingMenu implements FeatureMenu {
             }
         } else {
             System.out.println(Colors.C_RED +" Please enter correct appointment Id " +Colors.C_RESET);
-            getFeedbackFromUser();
+            menu();
         }
     }
 

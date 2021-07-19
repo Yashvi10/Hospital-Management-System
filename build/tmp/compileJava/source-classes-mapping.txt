@@ -8,8 +8,8 @@ Model/Pharmacy.java
  Model.Pharmacy
 Interface/OfferValidDAO.java
  Interface.OfferValidDAO
-RatingMenu.java
- RatingMenu
+Service/UserManagement.java
+ Service.UserManagement
 Interface/OfferDAO.java
  Interface.OfferDAO
 Constant.java
@@ -38,8 +38,8 @@ Service/RatingService.java
  Service.RatingService
 Model/DoctorRating.java
  Model.DoctorRating
-FeatureFactory.java
- FeatureFactory
+UserManagementPage.java
+ UserManagementPage
 Interface/OrderDAO.java
  Interface.OrderDAO
 Model/Feedback.java
@@ -110,7 +110,7 @@ Colors.java
  Colors
 Interface/IRegistration.java
  Interface.IRegistration
-Service/UserManagement.java
- Service.UserManagement
-UserManagementPage.java
- UserManagementPage
+FeatureFactory.java
+ FeatureFactory
+RatingMenu.java
+ RatingMenu
