@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * */
 public class PharmacyPageTest {
 
-    PharmacyMenu pharmacyPage = new PharmacyMenu(new PharmacyService(), new OfferService());
+    PharmacyMenu pharmacyPage = new PharmacyMenu(new PharmacyService(), new OfferService(), new Dashboard());
 
     @Test
     void isItemInList_true()  {

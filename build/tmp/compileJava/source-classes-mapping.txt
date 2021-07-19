@@ -2,20 +2,22 @@ BillingMenuPage.java
  BillingMenuPage
 Interface/UserIdVerifiedDAO.java
  Interface.UserIdVerifiedDAO
-Billing.java
- Billing
+PharmacyMenu.java
+ PharmacyMenu
 Model/Pharmacy.java
  Model.Pharmacy
 Interface/OfferValidDAO.java
  Interface.OfferValidDAO
-Service/UserManagement.java
- Service.UserManagement
+RatingMenu.java
+ RatingMenu
 Interface/OfferDAO.java
  Interface.OfferDAO
+Interface/IDashboard.java
+ Interface.IDashboard
 Constant.java
  Constant
-Interface/DoctorRatingDAO.java
- Interface.DoctorRatingDAO
+BillingPage.java
+ BillingPage
 Model/BloodDonor.java
  Model.BloodDonor
 Service/BloodService.java
@@ -28,18 +30,18 @@ Service/UserSession.java
  Service.UserSession
 Model/Doctors.java
  Model.Doctors
-Colors.java
- Colors
+Dashboard.java
+ Dashboard
 Service/ManageProfile.java
  Service.ManageProfile
-Service/BloodRequesterService.java
- Service.BloodRequesterService
+Service/UserManagement.java
+ Service.UserManagement
 Service/RatingService.java
  Service.RatingService
 Model/DoctorRating.java
  Model.DoctorRating
-Interface/IRegistration.java
- Interface.IRegistration
+FeatureFactory.java
+ FeatureFactory
 Interface/OrderDAO.java
  Interface.OrderDAO
 Model/Feedback.java
@@ -96,23 +98,21 @@ Interface/BloodDonorDAO.java
  Interface.BloodDonorDAO
 Starter.java
  Starter
-Service/BloodDonorService.java
- Service.BloodDonorService
+UserManagementPage.java
+ UserManagementPage
 Service/CustomConnection.java
  Service.CustomConnection
 BillingMenu.java
  BillingMenu
-PharmacyMenu.java
- PharmacyMenu
-FeatureFactory.java
- FeatureFactory
-UserManagementPage.java
- UserManagementPage
-Dashboard.java
- Dashboard
-RatingMenu.java
- RatingMenu
-Interface/IDashboard.java
- Interface.IDashboard
-BillingPage.java
- BillingPage
+Interface/DoctorRatingDAO.java
+ Interface.DoctorRatingDAO
+Billing.java
+ Billing
+Colors.java
+ Colors
+Interface/IRegistration.java
+ Interface.IRegistration
+Service/BloodDonorService.java
+ Service.BloodDonorService
+Service/BloodRequesterService.java
+ Service.BloodRequesterService

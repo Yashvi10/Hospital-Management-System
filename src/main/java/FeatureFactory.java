@@ -15,7 +15,7 @@ public class FeatureFactory {
         }
 
         if(menuType.equalsIgnoreCase("PHARMACY")) {
-            return new PharmacyMenu(new PharmacyService(), new OfferService());
+            return new PharmacyMenu(new PharmacyService(), new OfferService(), new Dashboard());
         } else if (menuType.equalsIgnoreCase("BILLING")) {
             return new BillingMenu();
         } else if (menuType.equalsIgnoreCase("BLOODBANK")) {
