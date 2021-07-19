@@ -1,4 +1,5 @@
 import Interface.FeatureMenu;
+import Interface.IDashboard;
 import Service.OfferService;
 import Service.PharmacyService;
 
@@ -11,10 +12,11 @@ import java.util.Scanner;
  *  Description: This class is using Factory Pattern so passing name of object
  *               and it will create object and show menu for that feature
  * */
-public class Dashboard {
+public class Dashboard implements IDashboard {
 
     Scanner scanner = new Scanner(System.in);
 
+    @Override
     public void HomeMenu(){
         System.out.println("===============================");
         System.out.println("Press 1 for Pharmacy");
