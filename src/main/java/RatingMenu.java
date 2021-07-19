@@ -1,7 +1,4 @@
-import Interface.DoctorRatingDAO;
-import Interface.FeatureMenu;
-import Interface.RatingDAO;
-import Interface.UserIdVerifiedDAO;
+import Interface.*;
 import Model.AppointmentModel;
 import Model.DoctorRating;
 import Model.Doctors;
@@ -26,6 +23,8 @@ public class RatingMenu implements FeatureMenu {
 
     DoctorRatingDAO doctorRatingDAO;
 
+    IDashboard dashboard;
+
     List<AppointmentModel> userAppointments;
 
     List<Doctors> doctorsList;
@@ -35,13 +34,17 @@ public class RatingMenu implements FeatureMenu {
     Integer selectedAppointmentId = 0;
 
     public RatingMenu(){}
+
     //dependency injection to reduce coupling
     public RatingMenu(UserIdVerifiedDAO userIdVerifiedDAO,
                       RatingDAO ratingDAO,
-                      DoctorRatingDAO doctorRatingDAO) {
+                      DoctorRatingDAO doctorRatingDAO,
+                      IDashboard dashboard) {
+
         this.userIdVerifiedDAO = userIdVerifiedDAO;
         this.ratingDAO = ratingDAO;
         this.doctorRatingDAO = doctorRatingDAO;
+        this.dashboard = dashboard;
     }
 
     /*
@@ -63,7 +66,6 @@ public class RatingMenu implements FeatureMenu {
             if(inputFromUser.equals(Constant.SMALL_y) || inputFromUser.equals(Constant.CAPITAL_Y)) {
                 verifyUserMenu();
             } else if (inputFromUser.equals(Constant.SMALL_n) || inputFromUser.equals(Constant.CAPITAL_N)) {
-                Dashboard dashboard = new Dashboard();
                 dashboard.HomeMenu();
             }  else {
                 System.out.println(Colors.C_RED +" Please select correct option " +Colors.C_RESET);
@@ -230,7 +232,6 @@ public class RatingMenu implements FeatureMenu {
                         if(userInput.equals("S") || userInput.equals("s")) {
                             addRating();
                         } else if (userInput.equals("C") || userInput.equals("c")) {
-                            Dashboard dashboard = new Dashboard();
                             dashboard.HomeMenu();
                         } else {
                             System.out.println(Colors.C_RED +" Please select correct option" +Colors.C_RESET);
@@ -295,12 +296,10 @@ public class RatingMenu implements FeatureMenu {
 
                 if(ratingDAO.addFeedback(feedback)) {
                     System.out.println("Thank your for you feedback!!");
-                    Dashboard dashboard = new Dashboard();
                     dashboard.HomeMenu();
                 } else {
                     System.out.println(Colors.C_RED +"Sorry! There was some issue sending your feedback. Please try later"
                             +Colors.C_RESET);
-                    Dashboard dashboard = new Dashboard();
                     dashboard.HomeMenu();
                 }
             } else {

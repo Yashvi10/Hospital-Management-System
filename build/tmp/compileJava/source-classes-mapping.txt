@@ -12,6 +12,8 @@ Service/BloodDonorService.java
  Service.BloodDonorService
 Interface/OfferDAO.java
  Interface.OfferDAO
+Interface/IDashboard.java
+ Interface.IDashboard
 Constant.java
  Constant
 BillingPage.java
@@ -26,8 +28,8 @@ Interface/OrderLastIdDAO.java
  Interface.OrderLastIdDAO
 Service/UserSession.java
  Service.UserSession
-Billing.java
- Billing
+Model/Doctors.java
+ Model.Doctors
 Dashboard.java
  Dashboard
 Service/ManageProfile.java
@@ -36,6 +38,8 @@ Service/UserManagement.java
  Service.UserManagement
 Service/RatingService.java
  Service.RatingService
+Model/DoctorRating.java
+ Model.DoctorRating
 Service/BloodRequesterService.java
  Service.BloodRequesterService
 Interface/OrderDAO.java
@@ -66,8 +70,8 @@ CustomPDF.java
  CustomPDF
 Model/OrderItem.java
  Model.OrderItem
-Colors.java
- Colors
+Service/DoctorRatingService.java
+ Service.DoctorRatingService
 Service/PharmacyService.java
  Service.PharmacyService
 Interface/BillingOrderItemDAO.java
@@ -100,17 +104,15 @@ Service/CustomConnection.java
  Service.CustomConnection
 BillingMenu.java
  BillingMenu
-Interface/IRegistration.java
- Interface.IRegistration
-Model/DoctorRating.java
- Model.DoctorRating
 Interface/DoctorRatingDAO.java
  Interface.DoctorRatingDAO
-Model/Doctors.java
- Model.Doctors
-RatingMenu.java
- RatingMenu
+Billing.java
+ Billing
+Colors.java
+ Colors
+Interface/IRegistration.java
+ Interface.IRegistration
 FeatureFactory.java
  FeatureFactory
-Service/DoctorRatingService.java
- Service.DoctorRatingService
+RatingMenu.java
+ RatingMenu

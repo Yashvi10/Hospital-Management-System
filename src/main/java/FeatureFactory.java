@@ -21,7 +21,7 @@ public class FeatureFactory {
         } else if (menuType.equalsIgnoreCase("BLOODBANK")) {
             return new BloodBank();
         } else if (menuType.equalsIgnoreCase("FEEDBACK")) {
-            return new RatingMenu(new UserIdVerifiedService(), new RatingService(), new DoctorRatingService());
+            return new RatingMenu(new UserIdVerifiedService(), new RatingService(), new DoctorRatingService(), new Dashboard());
         }
 
         return null;
