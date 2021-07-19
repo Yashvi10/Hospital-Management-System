@@ -16,11 +16,11 @@ import java.util.Scanner;
 public class VaccinePage implements FeatureMenu {
 
     /*
-    *  A method which gets vaccine information from the database
-    *  And displays it to the console.
-    *  Hence, user can get idea which vaccines are available
+    *  1 - The method which gets vaccine information from the database
+    *      And displays it to the console.
+    *      Hence, user can get idea which vaccines are available
     **/
-    private void getVaccineData() {
+    public void getVaccineData() {
         VaccineService vaccineService = new VaccineService();
         List<Vaccine> vaccineList = vaccineService.getVaccines();   // Fetches and stores all vaccine information
 
@@ -29,14 +29,28 @@ public class VaccinePage implements FeatureMenu {
         System.out.format("%-4s%2s%-29s%5s\n", "Number", "", "Vaccine Name", "Quantity");
         System.out.println("------------------------------------------------");
 
-        // Prints all vaccine information to the console
-        for (int i = 0; i < vaccineList.size(); i++) {
-            System.out.format("\t%-4d%-29s%5d\n", vaccineList.get(i).getVaccineId(),
-                    vaccineList.get(i).getVaccineName(), vaccineList.get(i).getAvailableDoses());
+        /*
+         *  Prints all vaccine information to the console
+         *  Proceed further only if there is vaccine data available in database
+         *  This is one of the boundary test case
+         *  Generally private methods are not to check with unit tests
+         **/
+        if (vaccineList.size() != 0) {
+            for (int i = 0; i < vaccineList.size(); i++) {
+                System.out.format("\t%-4d%-29s%5d\n", vaccineList.get(i).getVaccineId(),
+                        vaccineList.get(i).getVaccineName(), vaccineList.get(i).getAvailableDoses());
+            }
+            System.out.println("------------------------------------------------");
         }
-        System.out.println("------------------------------------------------");
     }
 
+    /*
+     *  2 - This methods registers the uer for vaccination
+     *      Specifically for the first dose
+     **/
+    public void registerPatientForVaccination() {
+
+    }
     // Method which is responsible to call Vaccine Menu (Sub-menu of the system)
     @Override
     public void menu() {
