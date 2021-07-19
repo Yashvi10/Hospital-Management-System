@@ -28,7 +28,7 @@ public class OrderService implements OrderDAO, OrderLastIdDAO, UserIdVerifiedDAO
         if(conn != null)  {
             try  {
                 Statement st = conn.createStatement();
-                String SQL = "INSERT INTO order (user_id) VALUES ('"
+                String SQL = "INSERT INTO `order` (user_id) VALUES ('"
                         +order.getUser_id() +"')";
                 st.executeUpdate(SQL);
                 conn.close();
@@ -81,7 +81,7 @@ public class OrderService implements OrderDAO, OrderLastIdDAO, UserIdVerifiedDAO
         if (conn != null)  {
             try  {
                 Statement st = conn.createStatement();
-                String SQL = "Select max(order_id) from order";
+                String SQL = "Select max(order_id) from `order`";
                 ResultSet rs = st.executeQuery(SQL);
                 if  (rs != null)  {
                     while(rs.next())

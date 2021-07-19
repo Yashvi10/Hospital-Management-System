@@ -96,23 +96,23 @@ Model/BloodRequester.java
  Model.BloodRequester
 Interface/BloodDonorDAO.java
  Interface.BloodDonorDAO
+Service/UserIdVerifiedService.java
+ Service.UserIdVerifiedService
+Service/PharmacyService.java
+ Service.PharmacyService
+Service/OfferService.java
+ Service.OfferService
+Service/BillingService.java
+ Service.BillingService
+FeatureFactory.java
+ FeatureFactory
 BillingMenuPage.java
  BillingMenuPage
 Service/OrderService.java
  Service.OrderService
-Service/OfferService.java
- Service.OfferService
 PharmacyMenu.java
  PharmacyMenu
-FeatureFactory.java
- FeatureFactory
-Service/UserIdVerifiedService.java
- Service.UserIdVerifiedService
 BillingMenu.java
  BillingMenu
-Service/BillingService.java
- Service.BillingService
-Service/PharmacyService.java
- Service.PharmacyService
 BillingPage.java
  BillingPage
