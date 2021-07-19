@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface GenerateLabReportsDAO {
 
-  List<GenerateLabReports> generateReports();
+  List<GenerateLabReports> generateReports(Integer user_id);
 }

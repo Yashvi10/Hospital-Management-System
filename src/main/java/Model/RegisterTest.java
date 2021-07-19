@@ -1,5 +1,7 @@
 package Model;
 
+import java.time.LocalDate;
+
 public class RegisterTest {
 
   private int test_id;
@@ -18,14 +20,14 @@ public class RegisterTest {
 
   private String gender;
 
-  private String date_of_test;
+  private LocalDate date_of_test;
 
-  private String report_generation_date;
+  private LocalDate report_generation_date;
 
   public RegisterTest() {}
 
   public RegisterTest(int test_id, int user_id, String firstname, String lastname, String test_name, String contact,
-                      String email, String gender, String date_of_test, String report_generation_date) {
+                      String email, String gender, LocalDate date_of_test, LocalDate report_generation_date) {
     this.test_id = test_id;
     this.user_id = user_id;
     this.firstname = firstname;
@@ -102,18 +104,18 @@ public class RegisterTest {
     this.gender = gender;
   }
 
-  public String getDate_of_test() {
+  public LocalDate getDate_of_test() {
     return date_of_test;
   }
 
-  public void setDate_of_test(String date_of_test) {
+  public void setDate_of_test(LocalDate date_of_test) {
     this.date_of_test = date_of_test; }
 
-  public String getReport_generation_date() {
+  public LocalDate getReport_generation_date() {
     return report_generation_date;
   }
 
-  public void setReport_generation_date(String report_generation_date) {
+  public void setReport_generation_date(LocalDate report_generation_date) {
     this.report_generation_date = report_generation_date;
   }
 

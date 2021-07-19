@@ -2,10 +2,9 @@ package Service;
 
 import Interface.RegisterTestDAO;
 import Model.RegisterTest;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+
+import java.sql.*;
+import java.time.LocalDate;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -18,6 +17,10 @@ public class RegisterTestService implements RegisterTestDAO {
   static Integer test_id = 0;
 
   static Integer user_id = 0;
+
+//  LocalDate date_of_test;
+
+//  LocalDate report_generation_date;
 
   @Override
   public void registerTest() {
@@ -130,20 +133,16 @@ public class RegisterTestService implements RegisterTestDAO {
       return;
     }
 
-    System.out.println("Enter date_of_test: ");
-    String date_of_test = input.nextLine();
+    LocalDate date_of_test = LocalDate.now();
+    LocalDate report_generation_date = LocalDate.now().plusDays(1);
+    System.out.println("Your report will be generated on: " +report_generation_date  +"."+ "You can be download it from Generate Report Tab!");
 
-    registerTest = new RegisterTest(test_id, user_id, firstname, lastname, test_name, contact, email, gender, date_of_test, "");
+    registerTest = new RegisterTest(test_id, user_id, firstname, lastname, test_name, contact, email, gender, date_of_test, report_generation_date);
 
     addUserDetails();
   }
 
-//  @Override
-//  public Boolean addUserDetails() {
-//    return null;
-//  }
-
-    @Override
+  @Override
   public Boolean addUserDetails() {
     CustomConnection customConnection = new CustomConnection();
     Connection conn = customConnection.Connect();
@@ -151,28 +150,17 @@ public class RegisterTestService implements RegisterTestDAO {
     Boolean result = false;
 
     if(conn != null) {
-//      String SQL = "insert into registered_tests(test_id, user_id, firstname, lastname, test_name, contact, email, gender, date_of_test,report_generation_date) " +
-//              "values('" + registerTest.getTest_id() + "','" + registerTest.getUser_id() + "','"
-//              + registerTest.getFirstname() + "','" + registerTest.getLastname() + "','"
-//              + registerTest.getTest_name() + "','" + registerTest.getContact() + "','"
-//              + registerTest.getEmail() + "','" + registerTest.getGender() + "','"
-//              + registerTest.getDate_of_test() + "DATE_ADD('"+registerTest.getDate_of_test()+"',interval 1 day)" + "')";
+      String SQL = "insert into registered_tests(test_id, user_id, firstname, lastname, test_name, contact, email, gender, date_of_test,report_generation_date) " +
+              "values('" + registerTest.getTest_id() + "','" + registerTest.getUser_id() + "','"
+              + registerTest.getFirstname() + "','" + registerTest.getLastname() + "','"
+              + registerTest.getTest_name() + "','" + registerTest.getContact() + "','"
+              + registerTest.getEmail() + "','" + registerTest.getGender() + "','"
+              + registerTest.getDate_of_test() + "','" + registerTest.getReport_generation_date() + "')";
 
-//      Statement statement = null;
-      PreparedStatement preparedStatement = null;
+      Statement statement = null;
       try {
-        preparedStatement = conn.prepareStatement("insert into registered_tests(?,?,?,?,?,?,?,?,?,?)");
-        preparedStatement.setInt(1,registerTest.getTest_id());
-        preparedStatement.setInt(2,registerTest.getUser_id());
-        preparedStatement.setString(3,registerTest.getFirstname());
-        preparedStatement.setString(4,registerTest.getLastname());
-        preparedStatement.setString(5,registerTest.getTest_name());
-        preparedStatement.setString(6,registerTest.getContact());
-        preparedStatement.setString(7,registerTest.getEmail());
-        preparedStatement.setString(8,registerTest.getGender());
-        preparedStatement.setString(9,registerTest.getDate_of_test());
-        preparedStatement.setString(10,"DATE_ADD('"+registerTest.getDate_of_test()+"',INTERVAL 1 DAY)");
-        preparedStatement.executeUpdate();
+        statement = conn.createStatement();
+        statement.executeUpdate(SQL);
         conn.close();
         result = true;
         return result;

@@ -27,8 +27,8 @@ public class Dashboard {
         } else if (userInput.equals("5")) {
             Laboratory laboratory = new Laboratory(new ListOfTestsService());
             laboratory.LaboratoryMenu();
-            Laboratory laboratory1 = new Laboratory(new GenerateLabReports());
-            laboratory1.LaboratoryMenu();
+//            Laboratory laboratory1 = new Laboratory(new GenerateLabReports());
+//            laboratory1.LaboratoryMenu();
         } else {
             System.out.println("Please select correct option");
         }

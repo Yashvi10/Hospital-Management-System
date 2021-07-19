@@ -1,6 +1,7 @@
 import Interface.ListOfTestsDAO;
 import Model.GenerateLabReports;
 import Model.ListOfTests;
+import Model.RegisterTest;
 import Service.GenerateLabReportsService;
 import Service.RegisterTestService;
 
@@ -15,6 +16,8 @@ public class Laboratory {
     private RegisterTestService registerTestService=new RegisterTestService();
 
     private GenerateLabReports generateLabReports;
+
+    private static Integer uid_input;
 
     public Laboratory(){};
 
@@ -52,25 +55,25 @@ public class Laboratory {
 
                 switch (test_choice){
                     case 1 :
-                        System.out.println("You selected test for sugar checkup.");
+                        System.out.println("You selected sugar test.");
                         registerTestService.registerTest();
                         LaboratoryMenu();
                         break;
 
                     case 2 :
-                        System.out.println("Blood");
+                        System.out.println("You selected blood test.");
                         registerTestService.registerTest();
                         LaboratoryMenu();
                         break;
 
                     case 3 :
-                        System.out.println("uric acid");
+                        System.out.println("You selected uric-acid test.");
                         registerTestService.registerTest();
                         LaboratoryMenu();
                         break;
 
                     case 4 :
-                        System.out.println("urine");
+                        System.out.println("You selected urine test.");
                         registerTestService.registerTest();
                         LaboratoryMenu();
                         break;
@@ -92,10 +95,32 @@ public class Laboratory {
                 System.out.println("Generate reports");
                 System.out.println("Enter your user_id");
                 Scanner user_id = new Scanner(System.in);
-                Integer uid_input = user_id.nextInt();
-//                GenerateLabReports generateLabReports = new GenerateLabReports();
-//                generateLabReports.setUser_id(user_id.nextInt());
+                uid_input = user_id.nextInt();
                 listOfReports();
+
+                System.out.println("\n"+"Press 1 for test_id 1\nPress 2 for test_id 2\nPress 3 for test_id 3\n" +
+                        "Press 4 for test_id 4\nPress 5 to exit");
+
+                Scanner report = new Scanner(System.in);
+                Integer report_input = report.nextInt();
+
+                switch (report_input) {
+                    case 1 :
+                        System.out.println("report of sugar test");
+                        break;
+                    case 2 :
+                        System.out.println("report of blood test");
+                        break;
+                    case 3 :
+                        System.out.println("report of uric-acid test");
+                        break;
+                    case 4 :
+                        System.out.println("report of urine test");
+                        break;
+                    case 5 :
+                        System.out.println("Exited");
+                        break;
+                }
                 break;
 
             case 4 :
@@ -119,15 +144,18 @@ public class Laboratory {
         for(int i =0;i<listOfTestsList.size();i++) {
             System.out.println(listOfTestsList.get(i).getTest_id() + " " + listOfTestsList.get(i).getTest_name());
         }
-
-//        LaboratoryMenu();
     }
 
     public void listOfReports() {
         GenerateLabReportsService generateLabReportsService = new GenerateLabReportsService();
-        List<GenerateLabReports> generateLabReportsList = generateLabReportsService.generateReports();
+        List<GenerateLabReports> generateLabReportsList = generateLabReportsService.generateReports(uid_input);
+
         for(int i = 0; i < generateLabReportsList.size(); i++) {
-            System.out.println(generateLabReportsList.get(i).getUser_id());
+            System.out.println(generateLabReportsList.get(i).getTest_id() + " "+ generateLabReportsList.get(i).getUser_id()
+            +" " + generateLabReportsList.get(i).getFirstname()+" "+generateLabReportsList.get(i).getLastname()
+            +" " +generateLabReportsList.get(i).getTest_name()+" "+generateLabReportsList.get(i).getContact()+" "
+            + generateLabReportsList.get(i).getEmail()+generateLabReportsList.get(i).getGender() + " "
+            + generateLabReportsList.get(i).getDate_of_test()+" "+generateLabReportsList.get(i).getReport_generation_date());
         }
     }
 
