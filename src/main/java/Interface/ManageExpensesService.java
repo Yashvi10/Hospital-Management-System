@@ -1,35 +1,21 @@
-package Service;
+package Interface;
 
-import Interface.IAccount;
 import Model.Accounts;
-import java.sql.Statement;
-import java.sql.ResultSet;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Date;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
- *  Name of file: ManageAccountService.java
- *  Author:  Abimbola Babalola
- *  Purpose: This class manages the connection to the accounts
- *  Description: This class accesses the database to view accounts,
- *               insert and delete record
- */
-
-public class ManageAccountService implements IAccount {
-
+public class ManageExpensesService implements IAccount {
   Statement statement = null;
   ResultSet resultSet = null;
   Connection conn;
   PreparedStatement insertAccounts;
 
-  ManageAccountService() {
+  ManageExpensesService() {
   }
 
-  public ManageAccountService(Connection conn) {
+  public ManageExpensesService(Connection conn) {
     this.conn = conn;
   }
 

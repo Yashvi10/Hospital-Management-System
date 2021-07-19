@@ -7,27 +7,26 @@ package Model;
  *  Description: This class will set and get the variables for managing the expenses
  * */
 
-import Interface.ExpenseType;
+import Enum.EnumExpenseType;
+import Enum.EnumAccountType;
 import java.sql.Date;
 
 public class Accounts {
 
   private Integer id;
-  private String accountType;
-  private String category;
+  private int accountType;
   private String payName;
   private Double amount;
   private Date date;
-  private ExpenseType expenseType;
+  private int expenseType;
 
-  Accounts(Integer id, String accountType, String category, String payName, Double amount,
-           Date date, ExpenseType expenseType){
+
+  Accounts(Integer id, int accountType, String payName, Double amount, Date date, int expenseType){
     this.id=id;
     this.accountType=accountType;
-    this.category=category;
     this.payName=payName;
     this.date=date;
-    this.expenseType=expenseType;
+    this.expenseType = expenseType;
   }
 
   public Integer getId() {
@@ -38,20 +37,12 @@ public class Accounts {
     this.id = id;
   }
 
-  public String getAccountType() {
+  public int getAccountType() {
     return accountType;
   }
 
-  public void setAccountType(String accountType) {
+  public void setAccountType(int accountType) {
     this.accountType = accountType;
-  }
-
-  public String getCategory() {
-    return category;
-  }
-
-  public void setCategory(String category) {
-    this.category = category;
   }
 
   public String getPayName() {
@@ -78,11 +69,11 @@ public class Accounts {
     this.date = date;
   }
 
-  public ExpenseType getExpenseType() {
+  public int getExpenseType() {
     return expenseType;
   }
 
-  public void setExpenseType(ExpenseType expenseType) {
+  public void setExpenseType(int expenseType) {
     this.expenseType = expenseType;
   }
 }

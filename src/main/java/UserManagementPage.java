@@ -80,7 +80,6 @@ public class UserManagementPage {
             String phone = scanner.nextLine();
 
         User myUser=new User(firstName,lastName,address,phone,email,confirmEmail,password,confirmPassword,register );
-//        String result = user.registerStaff(role,myUser );
 
         String result = user.registerLogin(myUser);
 
