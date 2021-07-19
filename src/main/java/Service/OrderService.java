@@ -28,7 +28,7 @@ public class OrderService implements OrderDAO, OrderLastIdDAO, UserIdVerifiedDAO
         if(conn != null)  {
             try  {
                 Statement st = conn.createStatement();
-                String SQL = "INSERT INTO CSCI5308_8_DEVINT.order (user_id) VALUES ('"
+                String SQL = "INSERT INTO order (user_id) VALUES ('"
                         +order.getUser_id() +"')";
                 st.executeUpdate(SQL);
                 conn.close();
@@ -49,7 +49,7 @@ public class OrderService implements OrderDAO, OrderLastIdDAO, UserIdVerifiedDAO
         if  (conn != null)  {
             try  {
                 Statement st = conn.createStatement();
-                String SQL = "INSERT INTO CSCI5308_8_DEVINT.order_items " +
+                String SQL = "INSERT INTO order_items " +
                         "(pid,name,qty,price,total_bill,final_bill, order_id) VALUES ('"
                         +orderItem.getPid() +"','"
                         +orderItem.getName() +"','"
@@ -81,7 +81,7 @@ public class OrderService implements OrderDAO, OrderLastIdDAO, UserIdVerifiedDAO
         if (conn != null)  {
             try  {
                 Statement st = conn.createStatement();
-                String SQL = "Select max(order_id) from CSCI5308_8_DEVINT.order";
+                String SQL = "Select max(order_id) from order";
                 ResultSet rs = st.executeQuery(SQL);
                 if  (rs != null)  {
                     while(rs.next())
@@ -107,7 +107,7 @@ public class OrderService implements OrderDAO, OrderLastIdDAO, UserIdVerifiedDAO
             Statement st = null;
             try {
                 st = conn.createStatement();
-                String SQL = "SELECT count(*) FROM CSCI5308_8_DEVINT.loginTable where userid = " +user_id +";";
+                String SQL = "SELECT count(*) FROM loginTable where userid = " +user_id +";";
                 ResultSet rs = st.executeQuery(SQL);
                 rs.next();
 

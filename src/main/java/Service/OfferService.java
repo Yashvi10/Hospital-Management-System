@@ -28,7 +28,7 @@ public class OfferService implements OfferDAO, OfferValidDAO {
         Integer resultToReturn = 0;
 
         if  (conn != null)  {
-            String sql = "SELECT * FROM CSCI5308_8_DEVINT.offers where offer_id = "
+            String sql = "SELECT * FROM offers where offer_id = "
                     + offerId +" AND isActive = '1';";
             Statement statement = null;
             try  {
@@ -59,7 +59,7 @@ public class OfferService implements OfferDAO, OfferValidDAO {
         List<Offers> offersList = new ArrayList<Offers>();
 
         if(conn != null) {
-            String sql = "SELECT * FROM CSCI5308_8_DEVINT.offers where isActive = '1'";
+            String sql = "SELECT * FROM offers where isActive = '1'";
             Statement statement = null;
             try  {
                 statement = conn.createStatement();

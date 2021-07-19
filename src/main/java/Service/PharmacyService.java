@@ -28,7 +28,7 @@ public class PharmacyService implements PharmacyDAO, PharmacyUpdateStockDAO {
         List<Pharmacy> pharmacyList = new ArrayList<Pharmacy>();
 
         if  (conn != null)  {
-            String sql = "Select * from CSCI5308_8_DEVINT.pharmacy_list where stock > 0";
+            String sql = "Select * from pharmacy_list where stock > 0";
             Statement statement = null;
             try  {
                 statement = conn.createStatement();
@@ -64,7 +64,7 @@ public class PharmacyService implements PharmacyDAO, PharmacyUpdateStockDAO {
         Integer stock = 0;
 
         if  (conn != null)  {
-            String sql = "SELECT * from CSCI5308_8_DEVINT.pharmacy_list where p_id ='" +pId +"'";
+            String sql = "SELECT * from pharmacy_list where p_id ='" +pId +"'";
             Statement statement = null;
 
             try  {
@@ -78,7 +78,7 @@ public class PharmacyService implements PharmacyDAO, PharmacyUpdateStockDAO {
             }
 
             Integer newStock = stock - qty;
-            sql = "UPDATE CSCI5308_8_DEVINT.pharmacy_list set stock = '" +newStock +"' where p_id ='" +pId +"'";
+            sql = "UPDATE pharmacy_list set stock = '" +newStock +"' where p_id ='" +pId +"'";
             try  {
                 statement.executeUpdate(sql);
                 System.out.println("Stock Updated");

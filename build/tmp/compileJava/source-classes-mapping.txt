@@ -1,9 +1,9 @@
-BillingMenuPage.java
- BillingMenuPage
+Service/BloodRequesterService.java
+ Service.BloodRequesterService
 Interface/UserIdVerifiedDAO.java
  Interface.UserIdVerifiedDAO
-PharmacyMenu.java
- PharmacyMenu
+Colors.java
+ Colors
 Model/Pharmacy.java
  Model.Pharmacy
 Interface/OfferValidDAO.java
@@ -16,8 +16,8 @@ Interface/IDashboard.java
  Interface.IDashboard
 Constant.java
  Constant
-BillingPage.java
- BillingPage
+Starter.java
+ Starter
 Model/BloodDonor.java
  Model.BloodDonor
 Service/BloodService.java
@@ -40,24 +40,24 @@ Service/RatingService.java
  Service.RatingService
 Model/DoctorRating.java
  Model.DoctorRating
-FeatureFactory.java
- FeatureFactory
+Billing.java
+ Billing
 Interface/OrderDAO.java
  Interface.OrderDAO
 Model/Feedback.java
  Model.Feedback
-Service/UserIdVerifiedService.java
- Service.UserIdVerifiedService
+Interface/DoctorRatingDAO.java
+ Interface.DoctorRatingDAO
 Model/Offers.java
  Model.Offers
 Model/CartItem.java
  Model.CartItem
-Service/OfferService.java
- Service.OfferService
+Interface/IRegistration.java
+ Interface.IRegistration
 Interface/BillingOrderDAO.java
  Interface.BillingOrderDAO
-Service/OrderService.java
- Service.OrderService
+Service/BloodDonorService.java
+ Service.BloodDonorService
 Interface/PharmacyDAO.java
  Interface.PharmacyDAO
 Interface/PharmacyUpdateStockDAO.java
@@ -72,8 +72,8 @@ Model/OrderItem.java
  Model.OrderItem
 Service/DoctorRatingService.java
  Service.DoctorRatingService
-Service/PharmacyService.java
- Service.PharmacyService
+UserManagementPage.java
+ UserManagementPage
 Interface/BillingOrderItemDAO.java
  Interface.BillingOrderItemDAO
 Model/AppointmentModel.java
@@ -86,8 +86,8 @@ Model/BloodInventory.java
  Model.BloodInventory
 Interface/FeatureMenu.java
  Interface.FeatureMenu
-Service/BillingService.java
- Service.BillingService
+Service/CustomConnection.java
+ Service.CustomConnection
 Model/Order.java
  Model.Order
 Model/User.java
@@ -96,23 +96,23 @@ Model/BloodRequester.java
  Model.BloodRequester
 Interface/BloodDonorDAO.java
  Interface.BloodDonorDAO
-Starter.java
- Starter
-UserManagementPage.java
- UserManagementPage
-Service/CustomConnection.java
- Service.CustomConnection
+BillingMenuPage.java
+ BillingMenuPage
+Service/OrderService.java
+ Service.OrderService
+Service/OfferService.java
+ Service.OfferService
+PharmacyMenu.java
+ PharmacyMenu
+FeatureFactory.java
+ FeatureFactory
+Service/UserIdVerifiedService.java
+ Service.UserIdVerifiedService
 BillingMenu.java
  BillingMenu
-Interface/DoctorRatingDAO.java
- Interface.DoctorRatingDAO
-Billing.java
- Billing
-Colors.java
- Colors
-Interface/IRegistration.java
- Interface.IRegistration
-Service/BloodDonorService.java
- Service.BloodDonorService
-Service/BloodRequesterService.java
- Service.BloodRequesterService
+Service/BillingService.java
+ Service.BillingService
+Service/PharmacyService.java
+ Service.PharmacyService
+BillingPage.java
+ BillingPage

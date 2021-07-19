@@ -30,7 +30,7 @@ public class BillingService implements BillingOrderItemDAO, BillingOrderDAO {
 
         if  (con != null)  {
 
-            String sql = "SELECT * FROM CSCI5308_8_DEVINT.order_items where order_id = "
+            String sql = "SELECT * FROM order_items where order_id = "
                     + order_id +";";
             Statement statement = null;
             try  {
@@ -71,7 +71,7 @@ public class BillingService implements BillingOrderItemDAO, BillingOrderDAO {
 
         if  (con != null)  {
 
-            String sql = "SELECT * FROM CSCI5308_8_DEVINT.order where user_id = "
+            String sql = "SELECT * FROM order where user_id = "
                     + user_id +" order by order_id desc;";
             Statement statement = null;
 

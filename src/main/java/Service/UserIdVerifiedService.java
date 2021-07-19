@@ -20,7 +20,7 @@ public class UserIdVerifiedService implements UserIdVerifiedDAO {
             Statement st = null;
             try {
                 st = conn.createStatement();
-                String SQL = "SELECT count(*) FROM CSCI5308_8_DEVINT.loginTable where userid = " +user_id +";";
+                String SQL = "SELECT count(*) FROM loginTable where userid = " +user_id +";";
                 ResultSet rs = st.executeQuery(SQL);
                 rs.next();
 
