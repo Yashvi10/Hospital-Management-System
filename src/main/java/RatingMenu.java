@@ -35,6 +35,7 @@ public class RatingMenu implements FeatureMenu {
     Integer selectedAppointmentId = 0;
 
     public RatingMenu(){}
+
     //dependency injection to reduce coupling
     public RatingMenu(UserIdVerifiedDAO userIdVerifiedDAO,
                       RatingDAO ratingDAO,
@@ -46,9 +47,6 @@ public class RatingMenu implements FeatureMenu {
         this.dashboard = dashboard;
     }
 
-    /*
-     * This method is the main menu of Rating module
-     * */
     @Override
     public void menu() {
         System.out.println("Press 1 for feedback");
@@ -146,10 +144,6 @@ public class RatingMenu implements FeatureMenu {
         return false;
     }
 
-    /*
-     * This method basically ask user for their information and verify if the user is in the db or not
-     * If it is then go ahead otherwise show menu again
-     * */
     public void verifyUserMenu() {
 
         System.out.println("Enter your name: ");
@@ -184,16 +178,10 @@ public class RatingMenu implements FeatureMenu {
         }
     }
 
-    /*
-     * Simple method to check if its a number or not
-     * */
     public Boolean isNumber(String data){
         return data.matches("[0-9]+");
     }
 
-    /*
-     * Simple method to check if string is more than 500 characters
-     * */
     public Boolean lengthBelow500(String data) {
 
         if(data.length()>500){
@@ -202,16 +190,10 @@ public class RatingMenu implements FeatureMenu {
         return true;
     }
 
-    /*
-     * Simple method to validate the rating should be from 1 to 5
-     * */
     public Boolean isValidRating(String rate) {
         return rate.matches("[1-5]");
     }
 
-    /*
-     * This method will show rating menu to the user and get rating from user
-     * */
     public void getFeedbackFromUser(){
 
         System.out.println("Please enter the appointment id for which you want to provide feedback: ");
@@ -261,9 +243,6 @@ public class RatingMenu implements FeatureMenu {
         }
     }
 
-    /*
-     * This method will validate if the appointmentID is valid or not
-     * */
     public Boolean validAppointment(String appoint_id) {
         for(int i = 0;i<userAppointments.size();i++) {
             if(userAppointments.get(i).getAppointment_id().toString().equals(appoint_id)) {
@@ -273,9 +252,6 @@ public class RatingMenu implements FeatureMenu {
         return false;
     }
 
-    /*
-     * Simple method to check if str is required or not
-     * */
     public Boolean isRequired(String data) {
         if(data.length() == 0) {
             return false;
@@ -283,9 +259,6 @@ public class RatingMenu implements FeatureMenu {
         return true;
     }
 
-    /*
-     * This method will add rating and feedback to the db
-     * */
     public void addRating(){
         System.out.println("Please provide a rating for your appointment");
         System.out.println("How good was your experience on the scale from 1 to 5");

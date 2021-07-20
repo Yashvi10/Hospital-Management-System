@@ -30,8 +30,6 @@ public class BloodBank implements FeatureMenu {
     static String date = null;
     static Scanner input;
 
-    /* This method takes input of firstname from user
-     * */
     public String firstname(){
         String firstname = null;
         input = new Scanner(System.in);
@@ -50,8 +48,6 @@ public class BloodBank implements FeatureMenu {
         return firstname;
     }
 
-    /* This method takes input of middlename from user
-     * */
     public String middlename(){
         input = new Scanner(System.in);
         System.out.println("Enter your middlename: ");
@@ -69,8 +65,6 @@ public class BloodBank implements FeatureMenu {
         return middlename;
     }
 
-    /* This method takes input of lastname from user
-     * */
     public static String lastname(){
         input = new Scanner(System.in);
         System.out.println("Enter your lastname: ");
@@ -88,8 +82,6 @@ public class BloodBank implements FeatureMenu {
         return lastname;
     }
 
-    /* This method takes input of blood_group from user
-     * */
     public String blood_group(){
         input = new Scanner(System.in);
         System.out.println("Enter blood group: ");
@@ -107,8 +99,6 @@ public class BloodBank implements FeatureMenu {
         return blood_group;
     }
 
-    /* This method takes input of contact from user
-     * */
     public String contact(){
         input = new Scanner(System.in);
         System.out.println("Enter your contact details: ");
@@ -126,8 +116,6 @@ public class BloodBank implements FeatureMenu {
         return contact;
     }
 
-    /* This method takes input of date from user
-     * */
     public String Date(){
         input = new Scanner(System.in);
         System.out.println("Enter date in format YYYY-MM-DD: ");
@@ -135,8 +123,6 @@ public class BloodBank implements FeatureMenu {
         return date;
     }
 
-    /* This method takes required blood bottles of blood from user
-     * */
     public Integer Bloodbottles(){
         input = new Scanner(System.in);
         System.out.println("Enter required bottles of blood: ");
@@ -149,8 +135,6 @@ public class BloodBank implements FeatureMenu {
         return blood_bottles;
     }
 
-    /* This method returns list of all available items from inventory
-     * */
     public void listOfItems() {
 
         BloodService bloodService = new BloodService();
@@ -163,8 +147,6 @@ public class BloodBank implements FeatureMenu {
         menu();
     }
 
-    /* This method returns list of all blood requesters
-     * */
     public void listOfRequesters() {
 
         BloodRequesterService bloodRequesterService = new BloodRequesterService();
@@ -179,8 +161,6 @@ public class BloodBank implements FeatureMenu {
         menu();
     }
 
-    /* This method returns list of all blood requesters
-     * */
     public void listOfDonors() {
 
         BloodDonorService bloodDonorService = new BloodDonorService();
@@ -195,8 +175,6 @@ public class BloodBank implements FeatureMenu {
         menu();
     }
 
-    /* This method takes input of age from user
-     * */
     public Integer donationTest_age(){
         input = new Scanner(System.in);
         System.out.println("Enter your age: ");
@@ -209,8 +187,6 @@ public class BloodBank implements FeatureMenu {
         return age;
     }
 
-    /* This method takes input of weight from user
-     * */
     public Float donationTest_Weight(){
         input = new Scanner(System.in);
         System.out.println("Enter your weight: ");
@@ -223,8 +199,6 @@ public class BloodBank implements FeatureMenu {
         return weight;
     }
 
-    /* This method takes input of haemoglobin from user
-     * */
     public Float donationTest_Haemoglobin(){
         input = new Scanner(System.in);
         System.out.println("Enter your haemoglobin: ");
@@ -237,8 +211,6 @@ public class BloodBank implements FeatureMenu {
         return haemoglobin;
     }
 
-    /* This method inserts all details of blood donor into db and updates number of blood bottles in inventory
-     * */
     public void addToinventory(){
 
         BloodDonor bloodDonor = new BloodDonor(firstname,middlename,lastname,blood_group,contact,date);
@@ -257,8 +229,6 @@ public class BloodBank implements FeatureMenu {
 
     }
 
-    /* This method checks if the donor can donate blood or not based on certain requiremnents
-     * */
     public int donationTest() throws SQLException {
         String d = null;
         if(age<18 || age>65){
@@ -285,8 +255,6 @@ public class BloodBank implements FeatureMenu {
         return 1;
     }
 
-    /* This method inserts details of blood requester into db and updates inventory on request of blood
-     * */
     public void OnRequestUpdateInventory(){
 
         BloodRequesterService bloodRequesterService = new BloodRequesterService();

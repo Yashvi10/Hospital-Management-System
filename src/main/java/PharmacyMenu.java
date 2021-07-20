@@ -53,9 +53,6 @@ public class PharmacyMenu implements FeatureMenu {
         listOfMedicines = pharmacyDAO.getAllMedicines();
     }
 
-    /*
-     * This is the Menu for pharmacy module
-     * */
     @Override
     public void menu() {
         System.out.println("*************************************");
@@ -75,9 +72,6 @@ public class PharmacyMenu implements FeatureMenu {
     }
 
 
-    /*
-     * This is the Function which will show list of all available medicines
-     * */
     public void getAllMedicines(){
 
         System.out.println("=========PHARMACY LIST=========");
@@ -118,9 +112,6 @@ public class PharmacyMenu implements FeatureMenu {
         }
     }
 
-    /*
-     * This is the function from which user can buy specific medicines input will be product id
-     * */
     public void BuyItem()  {
 
         Scanner scanner = new Scanner(System.in);
@@ -141,10 +132,7 @@ public class PharmacyMenu implements FeatureMenu {
         }
     }
 
-    /*
-     * This is the function which will check if there are any items present in the list
-     * */
-    // This method will return true if the item is present in the list otherwise false
+
     public Boolean isItemInList(String pid)  {
 
         if  (pid.matches("[0-9]+" ))  {
@@ -157,9 +145,7 @@ public class PharmacyMenu implements FeatureMenu {
         return false;
     }
 
-    /*
-     * This is the function which will add medicines in the cart using product id
-     * */
+
     public void addItemInCart(String pid)  {
 
         for  (Pharmacy pharmacy: listOfMedicines)  {
@@ -183,9 +169,6 @@ public class PharmacyMenu implements FeatureMenu {
         }
     }
 
-    /*
-     * This is the Function which will call when user checkout so we can minus the qty in the stock
-     * */
     public Boolean updateStock(String pid)  {
 
         for  (Pharmacy medicine: listOfMedicines)  {
@@ -215,9 +198,6 @@ public class PharmacyMenu implements FeatureMenu {
         afterCartMenu();
     }
 
-    /*
-     * This is the Function which will show items present in the cart
-     * */
     public void showCart()  {
 
         for  (Map.Entry me: cart.entrySet())  {
@@ -227,7 +207,6 @@ public class PharmacyMenu implements FeatureMenu {
             String price = String.format(Constant.DOUBLE_FORMAT_WITHOUT_DOT, cartItem.getPrice());
             String qty = String.format(Constant.INTERGER_FORMAT, cartItem.getQty());
             String totalPrice = String.format(Constant.DOUBLE_FORMAT_WITHOUT_DOT, cartItem.getTotalPrice());
-//                String finalBill = String.format("|%10f|", cartItem.getFinalPrice());
             if  (isFinalPriceVisited == false)  {
                 finalPrice += cartItem.getTotalPrice();
             }
@@ -239,9 +218,6 @@ public class PharmacyMenu implements FeatureMenu {
         System.out.println("Your total bill is: $" +finalPrice);
     }
 
-    /*
-     * This is the just simple menu which will be called after showing cart
-     * */
     public void afterCartMenu()  {
         System.out.println("*************************************");
         System.out.println("Press c to checkout\nPress o to see offers\npress e to exit (it will remove the cart)");
@@ -262,9 +238,6 @@ public class PharmacyMenu implements FeatureMenu {
         }
     }
 
-    /*
-     * This is the checkout function
-     * */
     public void checkOut()  {
 
         if  (cart.size() > 0) {

@@ -7,6 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/*
+ *  Name of file: UserIdVerifiedService.java
+ *  Author:  Nadish Maredia
+ *  Purpose: This class is like service class which will implement the UserIdVerifiedDAO
+ * */
 public class UserIdVerifiedService implements UserIdVerifiedDAO {
 
     @Override

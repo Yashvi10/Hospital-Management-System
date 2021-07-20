@@ -32,9 +32,7 @@ public class BillingPage {
         this.orderLastIdDAO = orderLastIdDAO;
         this.offerValidDAO = offerValidDAO;
     }
-    /*
-     * This is the Main checkout function which will call another methods like paidByCash
-     * */
+
     public void CheckOut()  {
 
         Scanner scanner = new Scanner(System.in);
@@ -50,9 +48,7 @@ public class BillingPage {
         }
     }
 
-    /*
-     * This is the paid by cash function it will update the stock and clear the cart
-     * */
+
     public void paidByCash()  {
 
         Scanner scanner = new Scanner(System.in);
@@ -94,8 +90,6 @@ public class BillingPage {
             PharmacyMenu.cart.clear();
             PharmacyMenu.finalPrice = 0.0;
             System.out.println("You have been successfully checkout");
-//            PharmacyMenu pharmacyPage = new PharmacyMenu(new PharmacyService(), new OfferService());
-//            pharmacyPage.menu();
             FeatureFactory featureFactory = new FeatureFactory();
             FeatureMenu featureMenu = featureFactory.getMenu("PHARMACY");
             featureMenu.menu();
