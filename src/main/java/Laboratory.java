@@ -1,4 +1,5 @@
 import Interface.ListOfTestsDAO;
+import Interface.RegisterTestDAO;
 import Model.*;
 import Service.*;
 
@@ -16,10 +17,13 @@ public class Laboratory {
 
     private static Integer uid_input;
 
+    private RegisterTestDAO registerTestDAO;
+
     public Laboratory(){};
 
-    public Laboratory(ListOfTestsDAO listOfTestsDAO){
+    public Laboratory(ListOfTestsDAO listOfTestsDAO, RegisterTestDAO registerTestDAO){
         this.listOfTestsDAO = listOfTestsDAO;
+        this.registerTestDAO = registerTestDAO;
     }
 
 //    public Laboratory(RegisterTestService registerTestService) {
@@ -53,25 +57,26 @@ public class Laboratory {
                 switch (test_choice){
                     case 1 :
                         System.out.println("You selected Vitamin D checkup test.");
-                        registerTestService.registerTest();
+//                        registerTestService.registerTest();
+                        registerTestDAO.registerTest();
                         LaboratoryMenu();
                         break;
 
                     case 2 :
                         System.out.println("You selected CBC test.");
-                        registerTestService.registerTest();
+                        registerTestDAO.registerTest();
                         LaboratoryMenu();
                         break;
 
                     case 3 :
                         System.out.println("You selected uric-acid test.");
-                        registerTestService.registerTest();
+                        registerTestDAO.registerTest();
                         LaboratoryMenu();
                         break;
 
                     case 4 :
                         System.out.println("You selected urine test.");
-                        registerTestService.registerTest();
+                        registerTestDAO.registerTest();
                         LaboratoryMenu();
                         break;
 
@@ -110,9 +115,6 @@ public class Laboratory {
                     case 2 :
                         System.out.println("report of CBC test");
                         bloodReport();
-
-//                        BloodTestReportsService bloodTestReportsService = new BloodTestReportsService();
-//                        bloodTestReportsService.generatePDF();
                         break;
                     case 3 :
                         System.out.println("report of uric-acid test");
@@ -202,6 +204,9 @@ public class Laboratory {
             + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getPlatelet_count()) + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getRed_blood_cell_count())
             + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getHemoglobin()) + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getHematocrit()));
         }
+
+//        bloodTestReportsService.generatePDF("hello");
+
         LaboratoryMenu();
     }
 

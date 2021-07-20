@@ -5,6 +5,7 @@ import Model.RegisterTest;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -18,9 +19,9 @@ public class RegisterTestService implements RegisterTestDAO {
 
   static Integer user_id = 0;
 
-//  LocalDate date_of_test;
+  LocalTime time_of_test = LocalTime.now();
+  LocalTime report_generation_time = LocalTime.now().plusHours(3);
 
-//  LocalDate report_generation_date;
 
   @Override
   public void registerTest() {
@@ -135,11 +136,20 @@ public class RegisterTestService implements RegisterTestDAO {
 
     LocalDate date_of_test = LocalDate.now();
     LocalDate report_generation_date = LocalDate.now().plusDays(1);
-    System.out.println("Your report will be generated on: " +report_generation_date  +"."+ "You can be download it from Generate Report Tab!");
+    registerTest = new RegisterTest(test_id, user_id, firstname, lastname, test_name, contact, email, gender, date_of_test.toString(), report_generation_date.toString(),time_of_test.toString(),report_generation_time.toString());
 
-    registerTest = new RegisterTest(test_id, user_id, firstname, lastname, test_name, contact, email, gender, date_of_test, report_generation_date);
-
-    addUserDetails();
+    System.out.println("Do you want report on the same day?\nPress Y for Yes\nPress N for No");
+    Scanner input = new Scanner(System.in);
+    String str = input.next();
+    if(str.equals("Y") || str.equals("y")) {
+      System.out.println("Scheduleerrr");
+      scheduler();
+    } else if(str.equals("N") || str.equals("n")){
+      System.out.println("Your report will be generated on: " +report_generation_date  +"."+ "You can be download it from Generate Report Tab!");
+      addUserDetails();
+    } else {
+      System.out.println("Invalid input! Press Yes or No.");
+    }
   }
 
   @Override
@@ -150,12 +160,12 @@ public class RegisterTestService implements RegisterTestDAO {
     Boolean result = false;
 
     if(conn != null) {
-      String SQL = "insert into registered_tests(test_id, user_id, firstname, lastname, test_name, contact, email, gender, date_of_test,report_generation_date) " +
+      String SQL = "insert into registered_tests(test_id, user_id, firstname, lastname, test_name, contact, email, gender, date_of_test,report_generation_date,time_of_test,report_generation_time) " +
               "values('" + registerTest.getTest_id() + "','" + registerTest.getUser_id() + "','"
               + registerTest.getFirstname() + "','" + registerTest.getLastname() + "','"
               + registerTest.getTest_name() + "','" + registerTest.getContact() + "','"
               + registerTest.getEmail() + "','" + registerTest.getGender() + "','"
-              + registerTest.getDate_of_test() + "','" + registerTest.getReport_generation_date() + "')";
+              + registerTest.getDate_of_test() + "','" + registerTest.getReport_generation_date() + "','" + "" + "','" + "" + "')";
 
       Statement statement = null;
       try {
@@ -172,4 +182,37 @@ public class RegisterTestService implements RegisterTestDAO {
     return result;
   }
 
+  @Override
+  public Boolean scheduler() {
+
+    System.out.println("Your report will be generated on: " +report_generation_time  +"."+ "You can be download it from Generate Report Tab!");
+
+    CustomConnection customConnection = new CustomConnection();
+    Connection conn = customConnection.Connect();
+
+    Boolean result = false;
+
+    if (conn != null) {
+      String SQL = "insert into registered_tests(test_id, user_id, firstname, lastname, test_name, contact, email, gender, date_of_test,report_generation_date,time_of_test,report_generation_time) " +
+              "values('" + registerTest.getTest_id() + "','" + registerTest.getUser_id() + "','" +
+              registerTest.getFirstname() + "','" + registerTest.getLastname() + "','" +
+              registerTest.getTest_name() + "','" + registerTest.getContact() + "','" +
+              registerTest.getEmail() + "','" + registerTest.getGender() + "','" + "" + "','" + "" + "','" +
+              time_of_test.toString() + "','" +
+              report_generation_time.toString() + "')";
+
+      Statement statement = null;
+      try {
+        statement = conn.createStatement();
+        statement.executeUpdate(SQL);
+        conn.close();
+        result = true;
+        return result;
+
+      } catch (SQLException throwables) {
+        throwables.printStackTrace();
+      }
+    }
+    return result;
+  }
 }

@@ -6,4 +6,5 @@ public interface RegisterTestDAO {
 
   Boolean addUserDetails();
 
+  Boolean scheduler();
 }

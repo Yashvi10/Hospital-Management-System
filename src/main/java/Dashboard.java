@@ -25,7 +25,7 @@ public class Dashboard {
             BloodBank bloodBank = new BloodBank();
             bloodBank.BloodBankMainMenu();
         } else if (userInput.equals("5")) {
-            Laboratory laboratory = new Laboratory(new ListOfTestsService());
+            Laboratory laboratory = new Laboratory(new ListOfTestsService(), new RegisterTestService());
             laboratory.LaboratoryMenu();
 //            Laboratory laboratory1 = new Laboratory(new GenerateLabReports());
 //            laboratory1.LaboratoryMenu();

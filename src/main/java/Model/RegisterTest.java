@@ -1,6 +1,7 @@
 package Model;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class RegisterTest {
 
@@ -20,14 +21,18 @@ public class RegisterTest {
 
   private String gender;
 
-  private LocalDate date_of_test;
+  private String date_of_test;
 
-  private LocalDate report_generation_date;
+  private String report_generation_date;
+
+  private String time_of_test;
+
+  private String report_generation_time;
 
   public RegisterTest() {}
 
-  public RegisterTest(int test_id, int user_id, String firstname, String lastname, String test_name, String contact,
-                      String email, String gender, LocalDate date_of_test, LocalDate report_generation_date) {
+  public RegisterTest(int test_id, int user_id, String firstname, String lastname, String test_name, String contact, String email,
+                      String gender, String date_of_test, String report_generation_date, String time_of_test, String report_generation_time) {
     this.test_id = test_id;
     this.user_id = user_id;
     this.firstname = firstname;
@@ -38,6 +43,8 @@ public class RegisterTest {
     this.gender = gender;
     this.date_of_test = date_of_test;
     this.report_generation_date = report_generation_date;
+    this.time_of_test = time_of_test;
+    this.report_generation_time = report_generation_time;
   }
 
   public int getTest_id() {
@@ -64,20 +71,20 @@ public class RegisterTest {
     this.firstname = firstname;
   }
 
-  public String getTest_name() {
-    return test_name;
-  }
-
-  public void setTest_name(String test_name) {
-    this.test_name = test_name;
-  }
-
   public String getLastname() {
     return lastname;
   }
 
   public void setLastname(String lastname) {
     this.lastname = lastname;
+  }
+
+  public String getTest_name() {
+    return test_name;
+  }
+
+  public void setTest_name(String test_name) {
+    this.test_name = test_name;
   }
 
   public String getContact() {
@@ -104,19 +111,36 @@ public class RegisterTest {
     this.gender = gender;
   }
 
-  public LocalDate getDate_of_test() {
+  public String getDate_of_test() {
     return date_of_test;
   }
 
-  public void setDate_of_test(LocalDate date_of_test) {
-    this.date_of_test = date_of_test; }
+  public void setDate_of_test(String date_of_test) {
+    this.date_of_test = date_of_test;
+  }
 
-  public LocalDate getReport_generation_date() {
+  public String getReport_generation_date() {
     return report_generation_date;
   }
 
-  public void setReport_generation_date(LocalDate report_generation_date) {
+  public void setReport_generation_date(String report_generation_date) {
     this.report_generation_date = report_generation_date;
+  }
+
+  public String getTime_of_test() {
+    return time_of_test;
+  }
+
+  public void setTime_of_test(String time_of_test) {
+    this.time_of_test = time_of_test;
+  }
+
+  public String getReport_generation_time() {
+    return report_generation_time;
+  }
+
+  public void setReport_generation_time(String report_generation_time) {
+    this.report_generation_time = report_generation_time;
   }
 
 }

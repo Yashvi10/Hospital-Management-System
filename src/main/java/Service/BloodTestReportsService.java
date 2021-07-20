@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class BloodTestReportsService implements BloodTestReportsDAO {
 
@@ -46,7 +47,7 @@ public class BloodTestReportsService implements BloodTestReportsDAO {
           BloodTestReports bloodTestReports = new BloodTestReports(test_id, uid,blood_group,white_blood_cell,platelet_count,red_blood_cell,
                   hemoglobin,hematocrit);
           bloodTestReportsList.add(bloodTestReports);
-          generatePDF(bloodTestReportsList.toString());
+//          generatePDF(bloodTestReportsList.toString());
         }
       } catch (SQLException throwables) {
         throwables.printStackTrace();
@@ -59,9 +60,9 @@ public class BloodTestReportsService implements BloodTestReportsDAO {
   public void generatePDF(String data) {
 
 //    data = bloodTestReportsList.toString();
-    Document doc = new Document();
-    try{
-      PdfWriter writer = PdfWriter.getInstance(doc, new FileOutputStream("bloodreport.pdf"));
+//    Document doc = new Document();
+//    try{
+//      PdfWriter writer = PdfWriter.getInstance(doc, new FileOutputStream("bloodreport.pdf"));
 //      com.itextpdf.text.List list = new com.itextpdf.text.List();
 //      for(BloodTestReports bloodTestReports : bloodTestReportsList) {
 //        list.add(bloodTestReports.toString());
@@ -69,16 +70,35 @@ public class BloodTestReportsService implements BloodTestReportsDAO {
 //        doc.add(list);
 //        doc.close();
 //        writer.close();
-//      }
-      doc.open();
-      doc.add(new Paragraph(data));
-      doc.close();
+////      }
+//      doc.open();
+//      doc.add(new Paragraph(data));
+//      doc.close();
+//      writer.close();
+//    } catch (DocumentException e) {
+//      e.printStackTrace();
+//    } catch (FileNotFoundException e) {
+//      e.printStackTrace();
+//    }
+
+
+    Document document = new Document();
+    try  {
+      Random rand = new Random();
+      int random_number= rand.nextInt(85000);
+      PdfWriter writer = PdfWriter.getInstance(document,
+              new FileOutputStream("reports/report" +random_number +".pdf"));
+      document.open();
+      document.add(new Paragraph(data));
+      document.close();
       writer.close();
-    } catch (DocumentException e) {
+      System.out.println("PDF SAVED");
+    }  catch  (DocumentException e)  {
       e.printStackTrace();
-    } catch (FileNotFoundException e) {
+    }  catch  (FileNotFoundException e)  {
       e.printStackTrace();
     }
+
 
   }
 
