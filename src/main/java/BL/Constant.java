@@ -32,7 +32,7 @@ public class Constant  {
     public static final String SMALL_n = "n";
     public static final String CAPITAL_N = "N";
     public static final Integer RANDOM_NUMBER_LIMIT = 85000;
-    public static final String INVOICE_FILE_PATH = "D:\\Bills\\Invoice";
+    public static final String INVOICE_FILE_PATH = "Bills/";
     public static final String DOUBLE_WITHOUT_SPACE_FORMAT = "%.2f";
     public static final String SMALL_v = "v";
     public static final String CAPITAL_V = "V";

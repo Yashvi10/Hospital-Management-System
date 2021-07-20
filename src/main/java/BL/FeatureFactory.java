@@ -23,7 +23,7 @@ public class FeatureFactory {
         if(menuType.equalsIgnoreCase(Constant.PHARMACY_MENU)) {
             return new PharmacyMenu(new PharmacyService(), new OfferService(), new Dashboard());
         } else if (menuType.equalsIgnoreCase(Constant.BILLING_MENU)) {
-            return new BillingMenu();
+            return new BillingMenu(new Dashboard());
         } else if (menuType.equalsIgnoreCase(Constant.BLOODBANK_MENU)) {
             return new BloodBank();
         } else if (menuType.equalsIgnoreCase(Constant.FEEDBACK_MENU)) {

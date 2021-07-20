@@ -25,6 +25,12 @@ public class BillingMenu implements FeatureMenu {
 
     Scanner scanner = new Scanner(System.in);
 
+    IDashboard dashboard;
+
+    public BillingMenu(IDashboard dashboard) {
+        this.dashboard = dashboard;
+    }
+
     @Override
     public void menu() {
         System.out.println("Enter user id: ");
@@ -136,7 +142,7 @@ public class BillingMenu implements FeatureMenu {
         if  (userInput.equals(Constant.SMALL_s) || userInput.equals(Constant.CAPITAL_S))  {
             createPDF(data, orderId, tt_bill, ff_bill, (tt_bill - ff_bill));
         }  else  {
-            return;
+            dashboard.HomeMenu();
         }
 
         System.out.println();
@@ -159,6 +165,8 @@ public class BillingMenu implements FeatureMenu {
 
         CustomPDF pdf = new CustomPDF();
         pdf.generateBill(FinalData);
+
+        dashboard.HomeMenu();
 
     }
 

@@ -26,7 +26,7 @@ public class CustomPDF {
             Random rand = new Random();
             int random_number= rand.nextInt(Constant.RANDOM_NUMBER_LIMIT);
             PdfWriter writer = PdfWriter.getInstance(document,
-                    new FileOutputStream(Constant.INVOICE_FILE_PATH +random_number +".pdf"));
+                    new FileOutputStream(Constant.INVOICE_FILE_PATH +"Invoice" +random_number +".pdf"));
             document.open();
             document.add(new Paragraph(data));
             document.close();
