@@ -39,14 +39,6 @@ public class userManagementTest {
 
     }
 
-    @Test
-    public void registerPatient(){
-        myUser.setUserid(user.getLastUserId());
-        user = new UserManagement(db.Connect());
-        assertEquals("Patient record added" ,user.registerPatient(myUser ));
-
-    }
-
 
     @Test
     public void loginUserTest_True(){

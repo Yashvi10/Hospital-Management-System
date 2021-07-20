@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="userManagementTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-07-20T17:46:01" hostname="DESKTOP-IC8LASV" time="0.832">
+<testsuite name="userManagementTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-20T20:46:20" hostname="DESKTOP-IC8LASV" time="0.269">
   <properties/>
-  <testcase name="registerPatient()" classname="userManagementTest" time="0.144"/>
-  <testcase name="loadRecord_Test()" classname="userManagementTest" time="0.048"/>
-  <testcase name="loginUserTest_True()" classname="userManagementTest" time="0.062"/>
-  <testcase name="loginUserTest_False()" classname="userManagementTest" time="0.042"/>
-  <testcase name="ExistingLogin_Test()" classname="userManagementTest" time="0.073"/>
+  <testcase name="registerPatient()" classname="userManagementTest" time="0.269"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
