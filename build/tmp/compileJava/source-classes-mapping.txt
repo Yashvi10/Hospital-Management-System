@@ -64,8 +64,8 @@ Interface/PharmacyUpdateStockDAO.java
  Interface.PharmacyUpdateStockDAO
 Interface/RatingDAO.java
  Interface.RatingDAO
-DbConnection.java
- DbConnection
+BillingPage.java
+ BillingPage
 CustomPDF.java
  CustomPDF
 Model/OrderItem.java
@@ -114,5 +114,3 @@ RatingMenu.java
  RatingMenu
 BillingMenu.java
  BillingMenu
-BillingPage.java
- BillingPage

@@ -1,5 +1,6 @@
 import Interface.IRegistration;
 import Model.User;
+import Service.CustomConnection;
 import Service.ManageProfile;
 import Service.UserManagement;
 import org.junit.jupiter.api.Test;
@@ -17,7 +18,7 @@ public class ManageProfileTest {
     private static final String pswd="macdonald";
     private static final String confirmPswd= "macdonald";
 
-    DbConnection db=new DbConnection();
+    CustomConnection db=new CustomConnection();
     IRegistration register=new UserManagement(db.Connect());
     User myUser=new User(firstName,lastName,address,phone,email,confirmEmail,pswd,confirmPswd,register  );
     UserManagement user =new UserManagement(db.Connect());

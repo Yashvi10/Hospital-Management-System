@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="PharmacyPageTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-07-20T11:41:17" hostname="DESKTOP-IC8LASV" time="0.198">
+<testsuite name="PharmacyPageTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-07-20T11:44:48" hostname="DESKTOP-IC8LASV" time="0.202">
   <properties/>
   <testcase name="updateStock_false()" classname="PharmacyPageTest" time="0.0"/>
-  <testcase name="updateStock_true()" classname="PharmacyPageTest" time="0.001"/>
-  <testcase name="addItemInCart_false()" classname="PharmacyPageTest" time="0.0"/>
+  <testcase name="updateStock_true()" classname="PharmacyPageTest" time="0.0"/>
+  <testcase name="addItemInCart_false()" classname="PharmacyPageTest" time="0.001"/>
   <testcase name="isItemInList_false()" classname="PharmacyPageTest" time="0.001"/>
   <testcase name="isItemInList_true()" classname="PharmacyPageTest" time="0.0"/>
   <testcase name="addItemInCart_true()" classname="PharmacyPageTest" time="0.001"/>

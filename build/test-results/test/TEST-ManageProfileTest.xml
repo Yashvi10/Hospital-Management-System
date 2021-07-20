@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ManageProfileTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-07-20T11:41:17" hostname="DESKTOP-IC8LASV" time="0.134">
+<testsuite name="ManageProfileTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-07-20T11:44:48" hostname="DESKTOP-IC8LASV" time="0.125">
   <properties/>
-  <testcase name="updateProfileTest()" classname="ManageProfileTest" time="0.02"/>
+  <testcase name="updateProfileTest()" classname="ManageProfileTest" time="0.015"/>
   <testcase name="updatePasswordSame_Test()" classname="ManageProfileTest" time="0.005"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
-]]></system-err>
+  <system-err><![CDATA[]]></system-err>
 </testsuite>
