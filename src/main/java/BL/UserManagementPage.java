@@ -1,6 +1,7 @@
 package BL;
 
 import BL.Dashboard;
+import Interface.IDashboard;
 import Interface.IRegistration;
 import Model.User;
 import Service.CustomConnection;
@@ -50,6 +51,7 @@ public class UserManagementPage {
             dashboard.HomeMenu();
         } else {
             System.out.println("Login Failed");
+            MainMenu();
         }
     }
 

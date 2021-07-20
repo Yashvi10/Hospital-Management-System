@@ -10,8 +10,8 @@ Interface/IDashboard.java
  Interface.IDashboard
 Model/BloodDonor.java
  Model.BloodDonor
-Service/BloodService.java
- Service.BloodService
+BL/Dashboard.java
+ BL.Dashboard
 Interface/BloodDAO.java
  Interface.BloodDAO
 Interface/OrderLastIdDAO.java
@@ -28,8 +28,8 @@ Service/ManageProfile.java
  Service.ManageProfile
 Service/UserManagement.java
  Service.UserManagement
-Service/RatingService.java
- Service.RatingService
+BL/BillingPage.java
+ BL.BillingPage
 Model/DoctorRating.java
  Model.DoctorRating
 BL/RatingMenu.java
@@ -38,34 +38,34 @@ Interface/OrderDAO.java
  Interface.OrderDAO
 Model/Feedback.java
  Model.Feedback
-Service/UserIdVerifiedService.java
- Service.UserIdVerifiedService
+BL/BillingMenuPage.java
+ BL.BillingMenuPage
 Model/Offers.java
  Model.Offers
 Model/CartItem.java
  Model.CartItem
-Service/OfferService.java
- Service.OfferService
+BL/BillingMenu.java
+ BL.BillingMenu
 Interface/BillingOrderDAO.java
  Interface.BillingOrderDAO
-Service/OrderService.java
- Service.OrderService
+BL/FeatureFactory.java
+ BL.FeatureFactory
 Interface/PharmacyDAO.java
  Interface.PharmacyDAO
 Interface/PharmacyUpdateStockDAO.java
  Interface.PharmacyUpdateStockDAO
 Interface/RatingDAO.java
  Interface.RatingDAO
-Service/BloodRequesterService.java
- Service.BloodRequesterService
+BL/PharmacyMenu.java
+ BL.PharmacyMenu
 BL/Billing.java
  BL.Billing
 Model/OrderItem.java
  Model.OrderItem
-Service/DoctorRatingService.java
- Service.DoctorRatingService
-Service/PharmacyService.java
- Service.PharmacyService
+BL/CustomPDF.java
+ BL.CustomPDF
+Model/BloodRequester.java
+ Model.BloodRequester
 Interface/BillingOrderItemDAO.java
  Interface.BillingOrderItemDAO
 Model/AppointmentModel.java
@@ -78,8 +78,8 @@ Model/BloodInventory.java
  Model.BloodInventory
 Interface/FeatureMenu.java
  Interface.FeatureMenu
-Service/BillingService.java
- Service.BillingService
+Interface/BloodDonorDAO.java
+ Interface.BloodDonorDAO
 Interface/IRegistration.java
  Interface.IRegistration
 Model/Order.java
@@ -88,29 +88,29 @@ Interface/DoctorRatingDAO.java
  Interface.DoctorRatingDAO
 Model/User.java
  Model.User
-Model/BloodRequester.java
- Model.BloodRequester
-Interface/BloodDonorDAO.java
- Interface.BloodDonorDAO
 Starter.java
  Starter
-Service/BloodDonorService.java
- Service.BloodDonorService
+Service/OrderService.java
+ Service.OrderService
+Service/RatingService.java
+ Service.RatingService
+Service/OfferService.java
+ Service.OfferService
+Service/BloodService.java
+ Service.BloodService
+Service/UserIdVerifiedService.java
+ Service.UserIdVerifiedService
 Service/CustomConnection.java
  Service.CustomConnection
-BL/PharmacyMenu.java
- BL.PharmacyMenu
+Service/BloodDonorService.java
+ Service.BloodDonorService
+Service/BloodRequesterService.java
+ Service.BloodRequesterService
 BL/UserManagementPage.java
  BL.UserManagementPage
-BL/BillingMenuPage.java
- BL.BillingMenuPage
-BL/FeatureFactory.java
- BL.FeatureFactory
-BL/Dashboard.java
- BL.Dashboard
-BL/BillingMenu.java
- BL.BillingMenu
-BL/BillingPage.java
- BL.BillingPage
-BL/CustomPDF.java
- BL.CustomPDF
+Service/DoctorRatingService.java
+ Service.DoctorRatingService
+Service/BillingService.java
+ Service.BillingService
+Service/PharmacyService.java
+ Service.PharmacyService
