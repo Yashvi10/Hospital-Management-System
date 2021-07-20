@@ -14,13 +14,13 @@ public class FeatureFactory {
             return null;
         }
 
-        if(menuType.equalsIgnoreCase("PHARMACY")) {
+        if(menuType.equalsIgnoreCase(Constant.PHARMACY_MENU)) {
             return new PharmacyMenu(new PharmacyService(), new OfferService(), new Dashboard());
-        } else if (menuType.equalsIgnoreCase("BILLING")) {
+        } else if (menuType.equalsIgnoreCase(Constant.BILLING_MENU)) {
             return new BillingMenu();
-        } else if (menuType.equalsIgnoreCase("BLOODBANK")) {
+        } else if (menuType.equalsIgnoreCase(Constant.BLOODBANK_MENU)) {
             return new BloodBank();
-        } else if (menuType.equalsIgnoreCase("FEEDBACK")) {
+        } else if (menuType.equalsIgnoreCase(Constant.FEEDBACK_MENU)) {
             return new RatingMenu(new UserIdVerifiedService(), new RatingService(), new DoctorRatingService(), new Dashboard());
         }
 

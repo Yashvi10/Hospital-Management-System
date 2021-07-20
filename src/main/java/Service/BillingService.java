@@ -71,7 +71,7 @@ public class BillingService implements BillingOrderItemDAO, BillingOrderDAO {
 
         if  (con != null)  {
 
-            String sql = "SELECT * FROM order where user_id = "
+            String sql = "SELECT * FROM `order` where user_id = "
                     + user_id +" order by order_id desc;";
             Statement statement = null;
 

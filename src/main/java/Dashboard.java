@@ -28,16 +28,16 @@ public class Dashboard implements IDashboard {
         FeatureFactory featureFactory = new FeatureFactory();
 
         if(userInput.equals("1")) {
-            FeatureMenu featureMenu = featureFactory.getMenu("PHARMACY");
+            FeatureMenu featureMenu = featureFactory.getMenu(Constant.PHARMACY_MENU);
             featureMenu.menu();
         } else if (userInput.equals("2")) {
-            FeatureMenu featureMenu = featureFactory.getMenu("BILLING");
+            FeatureMenu featureMenu = featureFactory.getMenu(Constant.BILLING_MENU);
             featureMenu.menu();
         } else if (userInput.equals("3")) {
-            FeatureMenu featureMenu = featureFactory.getMenu("BLOODBANK");
+            FeatureMenu featureMenu = featureFactory.getMenu(Constant.BLOODBANK_MENU);
             featureMenu.menu();
         } else if (userInput.equals("5")) {
-            FeatureMenu featureMenu = featureFactory.getMenu("FEEDBACK");
+            FeatureMenu featureMenu = featureFactory.getMenu(Constant.FEEDBACK_MENU);
             featureMenu.menu();
         } else {
             System.out.println("Please select correct option");

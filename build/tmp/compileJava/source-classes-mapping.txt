@@ -2,8 +2,8 @@ Service/BloodRequesterService.java
  Service.BloodRequesterService
 Interface/UserIdVerifiedDAO.java
  Interface.UserIdVerifiedDAO
-Colors.java
- Colors
+PharmacyMenu.java
+ PharmacyMenu
 Model/Pharmacy.java
  Model.Pharmacy
 Interface/OfferValidDAO.java
@@ -16,8 +16,8 @@ Interface/IDashboard.java
  Interface.IDashboard
 Constant.java
  Constant
-Starter.java
- Starter
+BillingPage.java
+ BillingPage
 Model/BloodDonor.java
  Model.BloodDonor
 Service/BloodService.java
@@ -40,24 +40,24 @@ Service/RatingService.java
  Service.RatingService
 Model/DoctorRating.java
  Model.DoctorRating
-Billing.java
- Billing
+FeatureFactory.java
+ FeatureFactory
 Interface/OrderDAO.java
  Interface.OrderDAO
 Model/Feedback.java
  Model.Feedback
-Interface/DoctorRatingDAO.java
- Interface.DoctorRatingDAO
+Service/UserIdVerifiedService.java
+ Service.UserIdVerifiedService
 Model/Offers.java
  Model.Offers
 Model/CartItem.java
  Model.CartItem
-Interface/IRegistration.java
- Interface.IRegistration
+Service/OfferService.java
+ Service.OfferService
 Interface/BillingOrderDAO.java
  Interface.BillingOrderDAO
-Service/BloodDonorService.java
- Service.BloodDonorService
+Service/OrderService.java
+ Service.OrderService
 Interface/PharmacyDAO.java
  Interface.PharmacyDAO
 Interface/PharmacyUpdateStockDAO.java
@@ -72,8 +72,8 @@ Model/OrderItem.java
  Model.OrderItem
 Service/DoctorRatingService.java
  Service.DoctorRatingService
-UserManagementPage.java
- UserManagementPage
+Service/PharmacyService.java
+ Service.PharmacyService
 Interface/BillingOrderItemDAO.java
  Interface.BillingOrderItemDAO
 Model/AppointmentModel.java
@@ -86,8 +86,8 @@ Model/BloodInventory.java
  Model.BloodInventory
 Interface/FeatureMenu.java
  Interface.FeatureMenu
-Service/CustomConnection.java
- Service.CustomConnection
+Interface/IRegistration.java
+ Interface.IRegistration
 Model/Order.java
  Model.Order
 Model/User.java
@@ -96,23 +96,23 @@ Model/BloodRequester.java
  Model.BloodRequester
 Interface/BloodDonorDAO.java
  Interface.BloodDonorDAO
-Service/UserIdVerifiedService.java
- Service.UserIdVerifiedService
-Service/PharmacyService.java
- Service.PharmacyService
-Service/OfferService.java
- Service.OfferService
-Service/BillingService.java
- Service.BillingService
-FeatureFactory.java
- FeatureFactory
+Starter.java
+ Starter
+UserManagementPage.java
+ UserManagementPage
+Service/CustomConnection.java
+ Service.CustomConnection
+Service/BloodDonorService.java
+ Service.BloodDonorService
+Interface/DoctorRatingDAO.java
+ Interface.DoctorRatingDAO
+Billing.java
+ Billing
+Colors.java
+ Colors
 BillingMenuPage.java
  BillingMenuPage
-Service/OrderService.java
- Service.OrderService
-PharmacyMenu.java
- PharmacyMenu
 BillingMenu.java
  BillingMenu
-BillingPage.java
- BillingPage
+Service/BillingService.java
+ Service.BillingService

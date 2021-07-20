@@ -35,4 +35,8 @@ public class Constant  {
     public static final String DOUBLE_WITHOUT_SPACE_FORMAT = "%.2f";
     public static final String SMALL_v = "v";
     public static final String CAPITAL_V = "V";
+    public static final String PHARMACY_MENU = "PHARMACY";
+    public static final String BILLING_MENU = "BILLING";
+    public static final String BLOODBANK_MENU = "BLOODBANK";
+    public static final String FEEDBACK_MENU = "FEEDBACK";
 }
