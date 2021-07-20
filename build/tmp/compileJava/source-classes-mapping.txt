@@ -26,8 +26,8 @@ BL/Constant.java
  BL.Constant
 Service/ManageProfile.java
  Service.ManageProfile
-Service/UserManagement.java
- Service.UserManagement
+Service/PharmacyService.java
+ Service.PharmacyService
 BL/BillingPage.java
  BL.BillingPage
 Model/DoctorRating.java
@@ -106,11 +106,11 @@ Service/BloodDonorService.java
  Service.BloodDonorService
 Service/BloodRequesterService.java
  Service.BloodRequesterService
-BL/UserManagementPage.java
- BL.UserManagementPage
-Service/DoctorRatingService.java
- Service.DoctorRatingService
 Service/BillingService.java
  Service.BillingService
-Service/PharmacyService.java
- Service.PharmacyService
+Service/DoctorRatingService.java
+ Service.DoctorRatingService
+Service/UserManagement.java
+ Service.UserManagement
+BL/UserManagementPage.java
+ BL.UserManagementPage
