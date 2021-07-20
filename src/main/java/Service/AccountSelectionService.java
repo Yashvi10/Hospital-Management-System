@@ -1,5 +1,8 @@
 package Service;
 
+import Model.Accounts;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /*
@@ -9,39 +12,51 @@ import java.util.Scanner;
  *                         to be performed
  * */
 
-public class AccountSelectionService {
+public class AccountSelectionService extends ManageAccountService {
 
- Scanner sc = new Scanner(System.in);
- int accType;
+  Scanner sc = new Scanner(System.in);
+  int accType;
+ List<List<String>> rows;
 
- public int AccountType() {
-  System.out.println("Press 1: Income\nPress 2: Expense\nPress 0: Exit");
-  if (sc.hasNextInt()) {
-   accType = sc.nextInt();
-   sc.nextLine();
-  } else {
-   accType = -1;
-   sc.next();
-  }
-  return accType;
- }
-
- public void AccountMenuType() {
-  System.out.println("Press 1: ViewAll Records\nPress 2: View Period Records\nPress 3: Add New Record" +
-          "\nPress 4: Delete Record\nPress 5: Change Account Type\nPress 0: Exit");
-  accType = sc.nextInt();
-  switch (accType) {
-   case 1:
-   case 2:
-   case 3:
-   case 4:
-   case 5:
-
-   default:
-    System.out.println("Invalid Entry. Try again.");
-    break;
-
+  public int AccountType() {
+    System.out.println("Press 1: Income\nPress 2: Expense\nPress 0: Exit");
+    if (sc.hasNextInt()) {
+      accType = sc.nextInt();
+      sc.nextLine();
+    }
+    else {
+      accType = -1;
+      sc.next();
+    }
+    return accType;
   }
 
+  public int MenuOption() {
+    System.out.println("Press 1: ViewAll Records\nPress 2: Add New Record\nPress 3: Delete Record\nPress 0: Exit");
+    if (sc.hasNextInt()) {
+      accType = sc.nextInt();
+      sc.nextLine();
+    }
+    else {
+      accType = -1;
+      sc.next();
+    }
+    return accType;
+
+  }
+
+  public void ViewExpense(){
+    rows= new ArrayList<>();
+    rows=getExpenses();
+  }
+
+  public void ViewIncome( ){
+    rows= new ArrayList<>();
+    rows=getIncome();
+
  }
+
+  public void SaveIncome(Accounts account ) {
+   putIncome(account);
+  }
 }

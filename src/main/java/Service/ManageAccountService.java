@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +24,7 @@ public class ManageAccountService implements IAccount {
   ResultSet resultSet = null;
   Connection conn;
   PreparedStatement insertAccounts;
+  List<List<String>> dbRecord;
 
   ManageAccountService() {
   }
@@ -33,13 +33,37 @@ public class ManageAccountService implements IAccount {
     this.conn = conn;
   }
 
-  public List<List<String>> ViewAccounts(Date startDate, Date endDate) {
+  @Override
+  public List<List<String>> getExpenses( ) {
     List<String> dbRow;
-    List<List<String>> dbRecord = new ArrayList<>();
+    dbRecord = new ArrayList<>();
+    try {
+      statement = conn.createStatement();
+      resultSet = statement.executeQuery("order_id, name,qty, final_bill from order_items" );
+      while (resultSet.next()) {
+        dbRow = new ArrayList<>();
+        dbRow.add(String.valueOf(resultSet.getInt("order_id")));
+        dbRow.add(resultSet.getString("name"));
+        dbRow.add(String.valueOf(resultSet.getInt("qty")));
+        dbRow.add(String.valueOf(resultSet.getDouble("final_bill")));
+        dbRecord.add(dbRow);
+      }
+    }
+    catch (SQLException e) {
+      e.getMessage();
+    }
+
+    return dbRecord;
+  }
+
+  @Override
+  public List<List<String>> getIncome( ) {
+    List<String> dbRow;
+    dbRecord = new ArrayList<>();
     try {
       statement = conn.createStatement();
       resultSet = statement.executeQuery("select   accId , account_date, account_type , category ,  pay_name, " +
-              "amount  from  accounts where account_date between " + startDate + " and " + endDate);
+              "amount  from  accounts ");
       while (resultSet.next()) {
         dbRow = new ArrayList<>();
         dbRow.add(String.valueOf(resultSet.getInt("accId")));
@@ -59,7 +83,7 @@ public class ManageAccountService implements IAccount {
   }
 
   @Override
-  public String InsertRecord(Accounts accounts) {
+  public void putIncome(Accounts accounts) {
     String response = "";
     try {
       String queryUserTable = " insert into accounts( account_date,account_type , category ,  pay_name, " +
@@ -84,11 +108,9 @@ public class ManageAccountService implements IAccount {
       insertAccounts.setDouble(5, accounts.getAmount());
       insertAccounts.setString(6, "A");
       insertAccounts.executeUpdate();
-      response = "Accounts Updated";
     } catch (SQLException e) {
       System.out.println("SQLException: " + e.getMessage());
     }
-    return response;
   }
 
   @Override
