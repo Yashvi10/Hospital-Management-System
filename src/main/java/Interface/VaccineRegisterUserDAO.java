@@ -8,5 +8,4 @@ package Interface;
  * */
 public interface VaccineRegisterUserDAO {
 
-
 }
