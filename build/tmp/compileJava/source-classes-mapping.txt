@@ -8,8 +8,8 @@ Model/Pharmacy.java
  Model.Pharmacy
 Interface/OfferValidDAO.java
  Interface.OfferValidDAO
-RatingMenu.java
- RatingMenu
+Billing.java
+ Billing
 Interface/OfferDAO.java
  Interface.OfferDAO
 Interface/IDashboard.java
@@ -40,14 +40,14 @@ Service/RatingService.java
  Service.RatingService
 Model/DoctorRating.java
  Model.DoctorRating
-BillingMenu.java
- BillingMenu
+Interface/DoctorRatingDAO.java
+ Interface.DoctorRatingDAO
 Interface/OrderDAO.java
  Interface.OrderDAO
 Model/Feedback.java
  Model.Feedback
-Service/UserIdVerifiedService.java
- Service.UserIdVerifiedService
+Colors.java
+ Colors
 Model/Offers.java
  Model.Offers
 Model/CartItem.java
@@ -78,8 +78,8 @@ Interface/BillingOrderItemDAO.java
  Interface.BillingOrderItemDAO
 Model/AppointmentModel.java
  Model.AppointmentModel
-BloodBank.java
- BloodBank
+Service/BloodDonorService.java
+ Service.BloodDonorService
 Interface/BloodRequesterDAO.java
  Interface.BloodRequesterDAO
 Model/BloodInventory.java
@@ -102,17 +102,17 @@ UserManagementPage.java
  UserManagementPage
 Service/CustomConnection.java
  Service.CustomConnection
-Service/BloodDonorService.java
- Service.BloodDonorService
-Interface/DoctorRatingDAO.java
- Interface.DoctorRatingDAO
-Billing.java
- Billing
-Colors.java
- Colors
+BloodBank.java
+ BloodBank
 PharmacyMenu.java
  PharmacyMenu
 FeatureFactory.java
  FeatureFactory
+Service/UserIdVerifiedService.java
+ Service.UserIdVerifiedService
+RatingMenu.java
+ RatingMenu
+BillingMenu.java
+ BillingMenu
 BillingPage.java
  BillingPage
