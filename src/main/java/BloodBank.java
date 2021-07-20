@@ -327,7 +327,7 @@ public class BloodBank {
         BloodBank b = new BloodBank();
 
         System.out.println("Press 1 for Blood Request\nPress 2 for Blood Donate\nPress 3 for List all available items in inventory\n" +
-                "Press 4 for List of requesters\nPress 5 for List of donors");
+                "Press 4 for List of requesters\nPress 5 for List of donors\nPress 6 to exit");
 
         input = new Scanner(System.in);
         int choice = input.nextInt();
@@ -384,6 +384,9 @@ public class BloodBank {
                 System.out.println("You selected list of details of blood donors!");
                 System.out.println("============List of Donors============");
                 b.listOfDonors();
+
+            case 6:
+                System.out.println("Exited");
 
                 break;
             default :

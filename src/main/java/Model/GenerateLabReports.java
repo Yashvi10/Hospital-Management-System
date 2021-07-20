@@ -4,7 +4,7 @@ public class GenerateLabReports {
 
   private int test_id;
 
-  private int user_id;
+  private static int user_id;
 
   private String firstname;
 
@@ -22,6 +22,7 @@ public class GenerateLabReports {
 
   private String report_generation_date;
 
+  public GenerateLabReports(){};
 
   public GenerateLabReports(int test_id, int user_id, String firstname, String lastname, String test_name,
                             String contact, String email, String gender, String date_of_test, String report_generation_date) {

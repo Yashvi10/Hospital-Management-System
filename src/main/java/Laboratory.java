@@ -1,9 +1,6 @@
 import Interface.ListOfTestsDAO;
-import Model.GenerateLabReports;
-import Model.ListOfTests;
-import Model.RegisterTest;
-import Service.GenerateLabReportsService;
-import Service.RegisterTestService;
+import Model.*;
+import Service.*;
 
 
 import java.util.List;
@@ -47,7 +44,7 @@ public class Laboratory {
                 System.out.println("============Test Registration============");
                 System.out.println("**List of available tests**");
                 listOfTests();
-                System.out.println("\n"+"Press 1 for sugar test\nPress 2 for blood test\nPress 3 for uric-acid test\n" +
+                System.out.println("\n"+"Press 1 for Vitamin D test\nPress 2 for Complete Blood Count test\nPress 3 for uric-acid test\n" +
                         "Press 4 for urine test\nPress 5 to exit");
 
                 Scanner test_input = new Scanner(System.in);
@@ -55,13 +52,13 @@ public class Laboratory {
 
                 switch (test_choice){
                     case 1 :
-                        System.out.println("You selected sugar test.");
+                        System.out.println("You selected Vitamin D checkup test.");
                         registerTestService.registerTest();
                         LaboratoryMenu();
                         break;
 
                     case 2 :
-                        System.out.println("You selected blood test.");
+                        System.out.println("You selected CBC test.");
                         registerTestService.registerTest();
                         LaboratoryMenu();
                         break;
@@ -106,16 +103,23 @@ public class Laboratory {
 
                 switch (report_input) {
                     case 1 :
-                        System.out.println("report of sugar test");
+                        System.out.println("report of Vitamin D test");
+                        vitaminDReport();
                         break;
                     case 2 :
-                        System.out.println("report of blood test");
+                        System.out.println("report of CBC test");
+                        bloodReport();
+
+//                        BloodTestReportsService bloodTestReportsService = new BloodTestReportsService();
+//                        bloodTestReportsService.generatePDF();
                         break;
                     case 3 :
                         System.out.println("report of uric-acid test");
+                        uric_acidReports();
                         break;
                     case 4 :
                         System.out.println("report of urine test");
+                        urineReports();
                         break;
                     case 5 :
                         System.out.println("Exited");
@@ -156,7 +160,63 @@ public class Laboratory {
             +" " +generateLabReportsList.get(i).getTest_name()+" "+generateLabReportsList.get(i).getContact()+" "
             + generateLabReportsList.get(i).getEmail()+generateLabReportsList.get(i).getGender() + " "
             + generateLabReportsList.get(i).getDate_of_test()+" "+generateLabReportsList.get(i).getReport_generation_date());
+
+//            if(!generateLabReportsList.contains(generateLabReportsList.get(i).getTest_id())) {
+//                System.out.println("Invalid input");
+//                return;
+//            }
         }
     }
 
+    public void bloodReport() {
+        BloodTestReportsService bloodTestReportsService = new BloodTestReportsService();
+        List<BloodTestReports> bloodTestReportsList = bloodTestReportsService.bloodTestReport(uid_input);
+
+        for(int i = 0; i < bloodTestReportsList.size(); i++) {
+            System.out.println(bloodTestReportsList.get(i).getTest_id() + " " + bloodTestReportsList.get(i).getUser_id()
+            + " " + bloodTestReportsList.get(i).getBlood_group() + " " + bloodTestReportsList.get(i).getWhite_blood_cell_count()
+            + " " + bloodTestReportsList.get(i).getPlatelet_count() + " " + bloodTestReportsList.get(i).getRed_blood_cell_count()
+            + " " + bloodTestReportsList.get(i).getHemoglobin() + " " + bloodTestReportsList.get(i).getHematocrit());
+        }
+        LaboratoryMenu();
+    }
+
+    public void vitaminDReport() {
+      VitaminDTestReportsService vitaminDTestReportsService = new VitaminDTestReportsService();
+      List<VitaminDTestReports> vitaminDTestReportsList = vitaminDTestReportsService.vitaminDReports(uid_input);
+
+      for(int i = 0 ; i < vitaminDTestReportsList.size(); i++) {
+          System.out.println(vitaminDTestReportsList.get(i).getTest_id() + " " + vitaminDTestReportsList.get(i).getUser_id()
+          + " " + vitaminDTestReportsList.get(i).getHydroxy_VitaminD_serum() + " " + vitaminDTestReportsList.get(i).getUnits());
+      }
+      LaboratoryMenu();
+    }
+
+    public void urineReports() {
+        UrineTestReportsService urineTestReportsService = new UrineTestReportsService();
+        List<UrineTestReports> urineTestReportsList = urineTestReportsService.urineReports(uid_input);
+
+        for(int i = 0; i < urineTestReportsList.size(); i++) {
+            System.out.println(urineTestReportsList.get(i).getTest_id() + " " + urineTestReportsList.get(i).getUser_id()
+            + " " + urineTestReportsList.get(i).getColor() + " " + urineTestReportsList.get(i).getSpecific_gravity()
+            + " " + urineTestReportsList.get(i).getpH() + " " + urineTestReportsList.get(i).getBlood()
+            + " " + urineTestReportsList.get(i).getGlucose() + " " + urineTestReportsList.get(i).getUrobilinogen()
+            + " " + urineTestReportsList.get(i).getProtein() + " " + urineTestReportsList.get(i).getRbc()
+            + " " + urineTestReportsList.get(i).getPus_cells() + " " + urineTestReportsList.get(i).getCrystals()
+            + " " + urineTestReportsList.get(i).getCasts() + " " + urineTestReportsList.get(i).getTurbidity()
+            + " " + urineTestReportsList.get(i).getWbc());
+        }
+        LaboratoryMenu();
+    }
+
+    public void uric_acidReports() {
+      UricAcidTestReportsService uricAcidTestReportsService = new UricAcidTestReportsService();
+      List<UricAcidTestReports> uricAcidTestReportsList = uricAcidTestReportsService.uricacidReports(uid_input);
+
+      for(int i = 0; i < uricAcidTestReportsList.size(); i++) {
+        System.out.println(uricAcidTestReportsList.get(i).getTest_id() + " " + uricAcidTestReportsList.get(i).getUser_id()
+        + " " + uricAcidTestReportsList.get(i).getSerum_uric_acid() + " " + uricAcidTestReportsList.get(i).getUnits());
+      }
+      LaboratoryMenu();
+    }
 }
