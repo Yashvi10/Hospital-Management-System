@@ -46,6 +46,12 @@ public class OfferService implements OfferDAO, OfferValidDAO {
                 }
             }  catch  (SQLException throwables)  {
                 throwables.printStackTrace();
+            } finally {
+                try {
+                    conn.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
         return resultToReturn;
@@ -78,6 +84,12 @@ public class OfferService implements OfferDAO, OfferValidDAO {
                 }
             }  catch  (SQLException throwables)  {
                 throwables.printStackTrace();
+            } finally {
+                try {
+                    conn.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
         return offersList;

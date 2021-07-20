@@ -35,6 +35,12 @@ public class OrderService implements OrderDAO, OrderLastIdDAO, UserIdVerifiedDAO
                 return true;
             }  catch  (SQLException throwables)  {
                 throwables.printStackTrace();
+            }finally {
+                try {
+                    conn.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
 
@@ -65,6 +71,12 @@ public class OrderService implements OrderDAO, OrderLastIdDAO, UserIdVerifiedDAO
                 return true;
             }  catch (SQLException throwables)  {
                 throwables.printStackTrace();
+            }finally {
+                try {
+                    conn.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
         return false;
@@ -91,6 +103,12 @@ public class OrderService implements OrderDAO, OrderLastIdDAO, UserIdVerifiedDAO
                 }
             }  catch  (SQLException throwables)  {
                 throwables.printStackTrace();
+            }finally {
+                try {
+                    conn.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
         return lastOrderId;
@@ -117,6 +135,12 @@ public class OrderService implements OrderDAO, OrderLastIdDAO, UserIdVerifiedDAO
 
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
+            }finally {
+                try {
+                    conn.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
 

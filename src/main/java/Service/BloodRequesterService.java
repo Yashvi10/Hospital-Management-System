@@ -43,6 +43,12 @@ public class BloodRequesterService implements BloodRequesterDAO {
 
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
+            }finally {
+                try {
+                    conn.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
         return result;
@@ -67,6 +73,12 @@ public class BloodRequesterService implements BloodRequesterDAO {
 
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
+            }finally {
+                try {
+                    conn.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
         return result;
@@ -91,6 +103,12 @@ public class BloodRequesterService implements BloodRequesterDAO {
 
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
+            }finally {
+                try {
+                    conn.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
         return 0;
@@ -122,6 +140,12 @@ public class BloodRequesterService implements BloodRequesterDAO {
                 }
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
+            }finally {
+                try {
+                    conn.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
         return bloodRequesterList;

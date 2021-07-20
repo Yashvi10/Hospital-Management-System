@@ -85,6 +85,12 @@ public class PharmacyService implements PharmacyDAO, PharmacyUpdateStockDAO {
                 conn.close();
             }  catch  (SQLException throwables)  {
                 throwables.printStackTrace();
+            }finally {
+                try {
+                    conn.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
     }

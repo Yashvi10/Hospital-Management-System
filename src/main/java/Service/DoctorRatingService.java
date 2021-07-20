@@ -106,6 +106,12 @@ public class DoctorRatingService implements DoctorRatingDAO {
                 return true;
             }  catch (SQLException throwables)  {
                 throwables.printStackTrace();
+            }finally {
+                try {
+                    conn.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
         return false;
@@ -131,6 +137,12 @@ public class DoctorRatingService implements DoctorRatingDAO {
 
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
+            }finally {
+                try {
+                    conn.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
         return result;

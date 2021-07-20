@@ -56,6 +56,12 @@ public class BillingService implements BillingOrderItemDAO, BillingOrderDAO {
                 }
             }  catch  (SQLException throwables)  {
                 throwables.printStackTrace();
+            } finally {
+                try {
+                    con.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
 
@@ -87,6 +93,12 @@ public class BillingService implements BillingOrderItemDAO, BillingOrderDAO {
                 }
             }  catch  (SQLException throwables)  {
                 throwables.printStackTrace();
+            } finally {
+                try {
+                    con.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
         return orders;

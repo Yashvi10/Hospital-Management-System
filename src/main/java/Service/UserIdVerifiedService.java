@@ -35,6 +35,12 @@ public class UserIdVerifiedService implements UserIdVerifiedDAO {
 
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
+            }finally {
+                try {
+                    conn.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
 

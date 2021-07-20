@@ -42,6 +42,12 @@ public class BloodDonorService implements BloodDonorDAO {
 
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
+            } finally {
+                try {
+                    conn.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
         return result;
@@ -66,6 +72,12 @@ public class BloodDonorService implements BloodDonorDAO {
 
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
+            }finally {
+                try {
+                    conn.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
         return result;
@@ -97,6 +109,12 @@ public class BloodDonorService implements BloodDonorDAO {
                 }
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
+            }finally {
+                try {
+                    conn.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
         return bloodDonorList;

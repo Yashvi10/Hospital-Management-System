@@ -79,6 +79,12 @@ public class RatingService implements RatingDAO {
                 return true;
             }  catch (SQLException throwables)  {
                 throwables.printStackTrace();
+            }finally {
+                try {
+                    conn.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
         return false;
@@ -106,6 +112,12 @@ public class RatingService implements RatingDAO {
 
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
+            }finally {
+                try {
+                    conn.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
 
