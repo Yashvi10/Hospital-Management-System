@@ -1,4 +1,5 @@
-import Interface.FeatureMenu;
+import BL.Dashboard;
+import BL.PharmacyMenu;
 import Model.Pharmacy;
 import Service.OfferService;
 import Service.PharmacyService;

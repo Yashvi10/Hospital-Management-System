@@ -31,7 +31,7 @@ public class userManagementTest {
         userobj.setEmail("ronnie@iwk.com");
         assertEquals(3 ,user.loadRecord(userobj ));
     }
-    
+
     @Test
     public void ExistingLogin_Test(){
         user = new UserManagement(db.Connect());
