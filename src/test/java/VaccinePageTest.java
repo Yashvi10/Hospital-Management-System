@@ -67,4 +67,16 @@ public class VaccinePageTest {
         VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
         assertEquals(2, vaccineRegisterBL.checkUserRegistration(7));
     }
+
+    /*
+     * Tests the logic of date validation
+     *
+     * The method returns true as date is in accepted format
+     */
+    @Test
+    void validateDateTest_true()
+    {
+        VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
+        assertEquals(true, vaccineRegisterBL.validateDate("2021-08-28"));
+    }
 }
