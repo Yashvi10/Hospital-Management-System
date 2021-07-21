@@ -53,7 +53,7 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
   }
 
   @Override
-  public List<VaccineUserInformation> getUserInfo(Integer userId) {
+  public List<VaccineUserInformation> getVaccinationInfo(Integer userId) {
 
     CustomConnection customConnection = new CustomConnection();
     Connection conn = customConnection.Connect();
@@ -90,5 +90,42 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
       }
     }
     return userVaccineDetails;
+  }
+
+  public VaccineUserInformation getUserVaccineData(Integer userId) {
+    CustomConnection customConnection = new CustomConnection();
+    Connection conn = customConnection.Connect();
+
+    VaccineUserInformation userVaccineInformation = null;
+
+    if (conn != null) {
+      String fetchQuery = "select * from vaccination_patients where userId = "+userId;
+      Statement queryStatement = null;
+      try {
+        queryStatement = conn.createStatement();
+        ResultSet resultSet = queryStatement.executeQuery(fetchQuery);
+
+        while (resultSet.next()) {
+          String mailId = resultSet.getString("mail_id");
+          Integer age = resultSet.getInt("age");
+          String gender = resultSet.getString("gender");
+          String governmentId = resultSet.getString("government_id_number");
+          Date date = resultSet.getDate("preferred_next_date");
+          String preferred_timing = resultSet.getString("preferred_timing");
+
+          userVaccineInformation = new VaccineUserInformation(userId, mailId, age, gender, governmentId,date, preferred_timing);
+        }
+      } catch (SQLException exception) {
+        exception.printStackTrace();
+      } finally {
+        if (conn != null) {
+          try {
+            conn.close();
+          } catch (SQLException e) {
+          }
+        }
+      }
+    }
+    return userVaccineInformation;
   }
 }
