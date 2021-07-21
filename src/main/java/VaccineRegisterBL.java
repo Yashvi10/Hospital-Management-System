@@ -61,6 +61,9 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
     return null;
   }
 
+  /*
+   * This method gets all user information required for vaccine registration.
+   */
   public Boolean getUserInformation() {
     VaccineUserInformation vaccineUserInformation = new VaccineUserInformation();
 
