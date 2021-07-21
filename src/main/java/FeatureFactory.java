@@ -1,6 +1,7 @@
 import Interface.FeatureMenu;
 import Service.OfferService;
 import Service.PharmacyService;
+import Service.VaccineRegistration;
 import Service.VaccineService;
 
 /*
@@ -23,7 +24,7 @@ public class FeatureFactory {
         } else if (menuType.equalsIgnoreCase("BLOODBANK")) {
             return new BloodBank();
         } else if (menuType.equalsIgnoreCase("VACCINE")) {
-            return new VaccinePage(new VaccineBL(new VaccineService()));
+            return new VaccinePage(new VaccineBL(new VaccineService()), new VaccineRegisterBL(new VaccineRegistration()));
         }
 
         return null;
