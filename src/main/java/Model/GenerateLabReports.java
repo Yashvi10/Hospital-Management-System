@@ -26,7 +26,8 @@ public class GenerateLabReports {
 
   private String report_generation_time;
 
-  public GenerateLabReports() {}
+  public GenerateLabReports() {
+  }
 
   public GenerateLabReports(Integer test_id, Integer user_id, String firstname, String lastname, String test_name, String contact, String email, String gender, String date_of_test, String report_generation_date, String time_of_test, String report_generation_time) {
     this.test_id = test_id;

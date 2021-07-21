@@ -18,8 +18,7 @@ public class BloodTestReports {
 
   private Float Hematocrit;
 
-  public BloodTestReports(Integer test_id, Integer user_id, String Blood_group, Float White_blood_cell_count,
-                          Integer Platelet_count, Float Red_blood_cell_count, Float Hemoglobin, Float Hematocrit) {
+  public BloodTestReports(Integer test_id, Integer user_id, String Blood_group, Float White_blood_cell_count, Integer Platelet_count, Float Red_blood_cell_count, Float Hemoglobin, Float Hematocrit) {
     this.test_id = test_id;
     this.user_id = user_id;
     this.Blood_group = Blood_group;

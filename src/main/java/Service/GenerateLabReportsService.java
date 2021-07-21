@@ -28,13 +28,13 @@ public class GenerateLabReportsService implements GenerateLabReportsDAO {
 
     List<GenerateLabReports> generateLabReportsList = new ArrayList<GenerateLabReports>();
 
-    if(conn != null) {
+    if (conn != null) {
       String SQL = "select * from registered_tests where user_id = " + user_id + ";";
       Statement statement = null;
       try {
         statement = conn.createStatement();
         ResultSet rs = statement.executeQuery(SQL);
-        while(rs.next()) {
+        while (rs.next()) {
           Integer test_id = rs.getInt("test_id");
           Integer tests = rs.getInt("user_id");
           String firstname = rs.getString("firstname");
@@ -48,8 +48,7 @@ public class GenerateLabReportsService implements GenerateLabReportsDAO {
           String time_of_test = rs.getString("time_of_test");
           String report_generation_time = rs.getString("report_generation_time");
 
-          GenerateLabReports generateLabReports = new GenerateLabReports(test_id,tests,firstname,lastname,test_name,
-                  contact,email,gender,date_of_test,report_generation_date,time_of_test,report_generation_time);
+          GenerateLabReports generateLabReports = new GenerateLabReports(test_id, tests, firstname, lastname, test_name, contact, email, gender, date_of_test, report_generation_date, time_of_test, report_generation_time);
           generateLabReportsList.add(generateLabReports);
         }
       } catch (SQLException throwables) {

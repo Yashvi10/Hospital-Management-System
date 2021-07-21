@@ -30,32 +30,32 @@ public class VitaminDTestReportsService implements VitaminDTestReportsDAO {
     Connection conn = customConnection.Connect();
 
     GenerateLabReports generateLabReports = new GenerateLabReports();
-    if(conn != null) {
+    if (conn != null) {
       String SQL = "select * from vitaminDTest_reports where user_id = " + generateLabReports.getUser_id() + ";";
       Statement statement = null;
       try {
         statement = conn.createStatement();
         ResultSet rs = statement.executeQuery(SQL);
-        while(rs.next()) {
+        while (rs.next()) {
           Integer test_id = rs.getInt(2);
           Integer uid = rs.getInt(3);
           Float hydroxy_VitaminD_serum = rs.getFloat(4);
-          String  units = rs.getString(5);
+          String units = rs.getString(5);
 
-          VitaminDTestReports vitaminDTestReports = new VitaminDTestReports(test_id, uid,hydroxy_VitaminD_serum,units);
+          VitaminDTestReports vitaminDTestReports = new VitaminDTestReports(test_id, uid, hydroxy_VitaminD_serum, units);
           vitaminDTestReportsList.add(vitaminDTestReports);
-//          generatePDF(bloodTestReportsList.toString());
+          //          generatePDF(bloodTestReportsList.toString());
         }
       } catch (SQLException throwables) {
         throwables.printStackTrace();
       }
-//      finally {
-//        try {
-//          conn.close();
-//        } catch (SQLException throwables) {
-//          throwables.printStackTrace();
-//        }
-//      }
+      //      finally {
+      //        try {
+      //          conn.close();
+      //        } catch (SQLException throwables) {
+      //          throwables.printStackTrace();
+      //        }
+      //      }
     }
     return vitaminDTestReportsList;
   }

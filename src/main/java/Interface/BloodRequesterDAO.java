@@ -12,11 +12,12 @@ import java.util.List;
  * */
 public interface BloodRequesterDAO {
 
-    Boolean addRequester(BloodRequester bloodRequester);
+  Boolean addRequester(BloodRequester bloodRequester);
 
-    Boolean updateRequester(Integer bottleQuantity, String blood_group);
+  Boolean updateRequester(Integer bottleQuantity, String blood_group);
 
-    Integer isBloodAvaiable(String blood_group);
+  Integer isBloodAvaiable(String blood_group);
 
-    List<BloodRequester> getAllRequesters();
+  List<BloodRequester> getAllRequesters();
+
 }

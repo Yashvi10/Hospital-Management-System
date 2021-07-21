@@ -12,5 +12,6 @@ import java.util.List;
  * */
 public interface BloodDAO {
 
-    List<BloodInventory> getAllBloodGroup();
+  List<BloodInventory> getAllBloodGroup();
+
 }

@@ -18,37 +18,38 @@ import java.util.List;
  * */
 public class BloodService implements BloodDAO {
 
-    @Override
-    public List<BloodInventory> getAllBloodGroup() {
-        CustomConnection customConnection = new CustomConnection();
-        Connection conn = customConnection.Connect();
+  @Override
+  public List<BloodInventory> getAllBloodGroup() {
+    CustomConnection customConnection = new CustomConnection();
+    Connection conn = customConnection.Connect();
 
-        List<BloodInventory> bloodInventoryList = new ArrayList<BloodInventory>();
+    List<BloodInventory> bloodInventoryList = new ArrayList<BloodInventory>();
 
-        if(conn != null) {
-            String SQL = "select * from blood_inventory";
-            Statement statement = null;
-            try {
-                statement = conn.createStatement();
-                ResultSet rs = statement.executeQuery(SQL);
-                while(rs.next()) {
-                    Integer blood_id = rs.getInt(1);
-                    String blood_group = rs.getString(2);
-                    Integer bottles = rs.getInt(3);
+    if (conn != null) {
+      String SQL = "select * from blood_inventory";
+      Statement statement = null;
+      try {
+        statement = conn.createStatement();
+        ResultSet rs = statement.executeQuery(SQL);
+        while (rs.next()) {
+          Integer blood_id = rs.getInt(1);
+          String blood_group = rs.getString(2);
+          Integer bottles = rs.getInt(3);
 
-                    BloodInventory bloodInventory = new BloodInventory(blood_group, bottles);
-                    bloodInventoryList.add(bloodInventory);
-                }
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            } finally {
-                try {
-                    conn.close();
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                }
-            }
+          BloodInventory bloodInventory = new BloodInventory(blood_group, bottles);
+          bloodInventoryList.add(bloodInventory);
         }
-        return bloodInventoryList;
+      } catch (SQLException throwables) {
+        throwables.printStackTrace();
+      } finally {
+        try {
+          conn.close();
+        } catch (SQLException throwables) {
+          throwables.printStackTrace();
+        }
+      }
     }
+    return bloodInventoryList;
+  }
+
 }

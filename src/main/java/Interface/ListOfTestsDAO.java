@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface ListOfTestsDAO {
 
-    List<ListOfTests> getListOfTests();
+  List<ListOfTests> getListOfTests();
+
 }

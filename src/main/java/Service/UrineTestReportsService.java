@@ -3,6 +3,7 @@ package Service;
 import Interface.UrineTestReportsDAO;
 import Model.GenerateLabReports;
 import Model.UrineTestReports;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -27,13 +28,13 @@ public class UrineTestReportsService implements UrineTestReportsDAO {
     Connection conn = customConnection.Connect();
 
     GenerateLabReports generateLabReports = new GenerateLabReports();
-    if(conn != null) {
+    if (conn != null) {
       String SQL = "select * from urineTest_reports where user_id = " + generateLabReports.getUser_id() + ";";
       Statement statement = null;
       try {
         statement = conn.createStatement();
         ResultSet rs = statement.executeQuery(SQL);
-        while(rs.next()) {
+        while (rs.next()) {
           Integer test_id = rs.getInt(2);
           Integer uid = rs.getInt(3);
           String color = rs.getString(4);
@@ -50,8 +51,7 @@ public class UrineTestReportsService implements UrineTestReportsDAO {
           String turbidity = rs.getString(15);
           Float wbc = rs.getFloat(16);
 
-          UrineTestReports urineTestReports = new UrineTestReports(test_id, uid,color,specific_gravity,pH,blood,
-                  glucose,urobilinogen,protein,rbc,pus_cells,crystals,casts,turbidity,wbc);
+          UrineTestReports urineTestReports = new UrineTestReports(test_id, uid, color, specific_gravity, pH, blood, glucose, urobilinogen, protein, rbc, pus_cells, crystals, casts, turbidity, wbc);
           urineTestReportsList.add(urineTestReports);
         }
       } catch (SQLException throwables) {

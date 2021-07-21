@@ -32,8 +32,7 @@ public class UrineTestReports {
 
   private Float wbc;
 
-  public UrineTestReports(Integer test_id, Integer user_id, String color, Float specific_gravity,
-                          Float pH, Float blood, Float glucose, Float urobilinogen, Float protein, Float rbc, Float pus_cells, String crystals, Float casts, String turbidity, Float wbc) {
+  public UrineTestReports(Integer test_id, Integer user_id, String color, Float specific_gravity, Float pH, Float blood, Float glucose, Float urobilinogen, Float protein, Float rbc, Float pus_cells, String crystals, Float casts, String turbidity, Float wbc) {
     this.test_id = test_id;
     this.user_id = user_id;
     this.color = color;

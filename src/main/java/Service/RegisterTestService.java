@@ -2,6 +2,7 @@ package Service;
 
 import Interface.RegisterTestDAO;
 import Model.RegisterTest;
+
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -35,7 +36,7 @@ public class RegisterTestService implements RegisterTestDAO {
   @Override
   public void registerTest() {
 
-    try{
+    try {
       input = new Scanner(System.in);
       System.out.println("Enter test_id: ");
       test_id = input.nextInt();
@@ -44,12 +45,12 @@ public class RegisterTestService implements RegisterTestDAO {
       return;
     }
 
-    if(test_id == 0) {
+    if (test_id == 0) {
       System.out.println("Invalid input");
       return;
     }
 
-    try{
+    try {
       input = new Scanner(System.in);
       System.out.println("Enter user_id: ");
       user_id = input.nextInt();
@@ -58,7 +59,7 @@ public class RegisterTestService implements RegisterTestDAO {
       return;
     }
 
-    if(user_id == 0) {
+    if (user_id == 0) {
       System.out.println("Invalid input");
       return;
     }
@@ -67,12 +68,12 @@ public class RegisterTestService implements RegisterTestDAO {
     System.out.println("Enter firstname: ");
     String firstname = input.nextLine();
 
-    if(firstname.matches("^[0-9]")){
+    if (firstname.matches("^[0-9]")) {
       System.out.println("Your input is not valid");
       return;
     }
 
-    if(firstname == null || firstname.isEmpty()) {
+    if (firstname == null || firstname.isEmpty()) {
       System.out.println("Input cannot be empty!");
       return;
     }
@@ -80,12 +81,12 @@ public class RegisterTestService implements RegisterTestDAO {
     System.out.println("Enter lastname: ");
     String lastname = input.nextLine();
 
-    if(lastname.matches("^[0-9]")){
+    if (lastname.matches("^[0-9]")) {
       System.out.println("Your input is not valid");
       return;
     }
 
-    if(lastname == null || lastname.isEmpty()) {
+    if (lastname == null || lastname.isEmpty()) {
       System.out.println("Input cannot be empty!");
       return;
     }
@@ -106,12 +107,12 @@ public class RegisterTestService implements RegisterTestDAO {
     System.out.println("Enter contact: ");
     String contact = input.nextLine();
 
-    if(contact == null || contact.isEmpty()){
+    if (contact == null || contact.isEmpty()) {
       System.out.println("Input cannot be empty!");
       return;
     }
 
-    if(contact.length() < 10 || contact.length() > 10){
+    if (contact.length() < 10 || contact.length() > 10) {
       System.out.println("Contact number in incorrect");
       return;
     }
@@ -120,12 +121,12 @@ public class RegisterTestService implements RegisterTestDAO {
     System.out.println("Enter email: ");
     String email = input.nextLine();
 
-    if(email == null || email.isEmpty()){
+    if (email == null || email.isEmpty()) {
       System.out.println("Input cannot be empty!");
       return;
     }
 
-    if(email.matches("^(.+)@(\\S+)$")){
+    if (email.matches("^(.+)@(\\S+)$")) {
     } else {
       System.out.println("Email id cannot have any other special characters except @ and .");
     }
@@ -133,7 +134,7 @@ public class RegisterTestService implements RegisterTestDAO {
     System.out.println("Enter gender(Male(M)/Female(F)/Transgender(T)): ");
     String gender = input.nextLine();
 
-    if(gender.equalsIgnoreCase("M") || gender.equalsIgnoreCase("F") || gender.equalsIgnoreCase("T")){
+    if (gender.equalsIgnoreCase("M") || gender.equalsIgnoreCase("F") || gender.equalsIgnoreCase("T")) {
     } else {
       System.out.println("Invalid input");
       return;
@@ -152,15 +153,15 @@ public class RegisterTestService implements RegisterTestDAO {
     LocalDate date_of_test = LocalDate.now();
     LocalDate report_generation_date = LocalDate.now().plusDays(1);
 
-    registerTest = new RegisterTest(test_id, user_id, firstname, lastname, test_name, contact, email, gender, date_of_test.toString(), report_generation_date.toString(),time_of_test.toString(),report_generation_time.toString());
+    registerTest = new RegisterTest(test_id, user_id, firstname, lastname, test_name, contact, email, gender, date_of_test.toString(), report_generation_date.toString(), time_of_test.toString(), report_generation_time.toString());
 
     System.out.println("Do you want report on the same day?\nPress Y for Yes\nPress N for No");
     Scanner input = new Scanner(System.in);
     String str = input.next();
-    if(str.equals("Y") || str.equals("y")) {
+    if (str.equals("Y") || str.equals("y")) {
       scheduler();
-    } else if(str.equals("N") || str.equals("n")){
-      System.out.println("Your report will be generated on: " +report_generation_date  +"."+ "You can be check it from Generate Report Tab!");
+    } else if (str.equals("N") || str.equals("n")) {
+      System.out.println("Your report will be generated on: " + report_generation_date + "." + "You can be check it from Generate Report Tab!");
       addUserDetails();
     } else {
       System.out.println("Invalid input! Press Yes or No.");
@@ -174,13 +175,8 @@ public class RegisterTestService implements RegisterTestDAO {
 
     Boolean result = false;
 
-    if(conn != null) {
-      String SQL = "insert into registered_tests(test_id, user_id, firstname, lastname, test_name, contact, email, gender, date_of_test,report_generation_date,time_of_test,report_generation_time) " +
-              "values('" + registerTest.getTest_id() + "','" + registerTest.getUser_id() + "','"
-              + registerTest.getFirstname() + "','" + registerTest.getLastname() + "','"
-              + registerTest.getTest_name() + "','" + registerTest.getContact() + "','"
-              + registerTest.getEmail() + "','" + registerTest.getGender() + "','"
-              + registerTest.getDate_of_test() + "','" + registerTest.getReport_generation_date() + "','" + "" + "','" + "" + "')";
+    if (conn != null) {
+      String SQL = "insert into registered_tests(test_id, user_id, firstname, lastname, test_name, contact, email, gender, date_of_test,report_generation_date,time_of_test,report_generation_time) " + "values('" + registerTest.getTest_id() + "','" + registerTest.getUser_id() + "','" + registerTest.getFirstname() + "','" + registerTest.getLastname() + "','" + registerTest.getTest_name() + "','" + registerTest.getContact() + "','" + registerTest.getEmail() + "','" + registerTest.getGender() + "','" + registerTest.getDate_of_test() + "','" + registerTest.getReport_generation_date() + "','" + "" + "','" + "" + "')";
 
       Statement statement = null;
       try {
@@ -200,7 +196,7 @@ public class RegisterTestService implements RegisterTestDAO {
   @Override
   public Boolean scheduler() {
 
-    System.out.println("Your report will be generated on: " +report_generation_time  +"."+ "You can be check it from Generate Report Tab!");
+    System.out.println("Your report will be generated on: " + report_generation_time + "." + "You can be check it from Generate Report Tab!");
 
     CustomConnection customConnection = new CustomConnection();
     Connection conn = customConnection.Connect();
@@ -208,13 +204,7 @@ public class RegisterTestService implements RegisterTestDAO {
     Boolean result = false;
 
     if (conn != null) {
-      String SQL = "insert into registered_tests(test_id, user_id, firstname, lastname, test_name, contact, email, gender, date_of_test,report_generation_date,time_of_test,report_generation_time) " +
-              "values('" + registerTest.getTest_id() + "','" + registerTest.getUser_id() + "','" +
-              registerTest.getFirstname() + "','" + registerTest.getLastname() + "','" +
-              registerTest.getTest_name() + "','" + registerTest.getContact() + "','" +
-              registerTest.getEmail() + "','" + registerTest.getGender() + "','" + "" + "','" + "" + "','" +
-              time_of_test.toString() + "','" +
-              report_generation_time.toString() + "')";
+      String SQL = "insert into registered_tests(test_id, user_id, firstname, lastname, test_name, contact, email, gender, date_of_test,report_generation_date,time_of_test,report_generation_time) " + "values('" + registerTest.getTest_id() + "','" + registerTest.getUser_id() + "','" + registerTest.getFirstname() + "','" + registerTest.getLastname() + "','" + registerTest.getTest_name() + "','" + registerTest.getContact() + "','" + registerTest.getEmail() + "','" + registerTest.getGender() + "','" + "" + "','" + "" + "','" + time_of_test.toString() + "','" + report_generation_time.toString() + "')";
 
       Statement statement = null;
       try {
@@ -230,4 +220,5 @@ public class RegisterTestService implements RegisterTestDAO {
     }
     return result;
   }
+
 }

@@ -29,10 +29,10 @@ public class RegisterTest {
 
   private String report_generation_time;
 
-  public RegisterTest() {}
+  public RegisterTest() {
+  }
 
-  public RegisterTest(int test_id, int user_id, String firstname, String lastname, String test_name, String contact, String email,
-                      String gender, String date_of_test, String report_generation_date, String time_of_test, String report_generation_time) {
+  public RegisterTest(int test_id, int user_id, String firstname, String lastname, String test_name, String contact, String email, String gender, String date_of_test, String report_generation_date, String time_of_test, String report_generation_time) {
     this.test_id = test_id;
     this.user_id = user_id;
     this.firstname = firstname;

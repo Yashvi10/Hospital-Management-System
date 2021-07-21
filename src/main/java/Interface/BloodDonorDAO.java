@@ -11,9 +11,11 @@ import java.util.List;
  *  Description: This interface is responsible for handling DB operation related to BloodDonor model
  * */
 public interface BloodDonorDAO {
-    Boolean addDonor(BloodDonor bloodDonor);
 
-    Boolean updateDonor(String blood_group);
+  Boolean addDonor(BloodDonor bloodDonor);
 
-    List<BloodDonor> getAllDonors();
+  Boolean updateDonor(String blood_group);
+
+  List<BloodDonor> getAllDonors();
+
 }
