@@ -90,13 +90,14 @@ public class VaccinePage implements FeatureMenu {
           break;
 
         case 2 :
-          System.out.printf(" Welcome to registration of Vaccine");
+          System.out.printf("Welcome to registration of Vaccine");
           Date date=Date.valueOf("2021-07-20");
-          VaccineUserInformation vaccineUserInformation = new VaccineUserInformation(2, "nadish@dal.ca",
+          VaccineUserInformation vaccineUserInformation = new VaccineUserInformation(6, "nadish@dal.ca",
                   23, "M1ale", "S123456", date, "Morning");
 
           Boolean result = vaccineRegistrationBlInterface.registerUserVaccine(vaccineUserInformation);
-          System.out.printf("Result is: "+result);
+          System.out.println("Earlier dose taken: "+vaccineRegistrationBlInterface.isUserRegistered(2));
+          System.out.println("Added in vaccination list: "+result);
           break;
 
         default:
