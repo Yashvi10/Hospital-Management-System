@@ -226,20 +226,38 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
 
     String dateInputString;
 
-    Date date=null;
-
     userInput = new Scanner(System.in);
     System.out.println("Enter your preferred date from next week in YYYY-MM-DD format: ");
     dateInputString = userInput.next();
 
     dateInputString = dateInputString.trim();
 
-    date= java.sql.Date.valueOf(dateInputString);
-
-    if(date == null)
-      return null;
+    if(validateDate(dateInputString))
+      return java.sql.Date.valueOf(dateInputString);
     else
-      return date;
+      return null;
+  }
+
+  public Boolean validateDate(String dateString) {
+
+    String dateInputString;
+
+    Date date=null;
+
+    dateInputString = dateString;
+
+    dateInputString = dateInputString.trim();
+
+    try {
+      date= java.sql.Date.valueOf(dateInputString);
+    } catch (IllegalArgumentException e) {
+      return false;
+    }
+
+    if(date != null)
+      return true;
+    else
+      return false;
   }
 
   private String getPreferredTiming() {
