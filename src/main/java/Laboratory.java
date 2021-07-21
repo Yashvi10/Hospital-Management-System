@@ -43,10 +43,18 @@ public class Laboratory {
                 "Press 4 to exit");
 
         Scanner input = new Scanner(System.in);
-        int choice = input.nextInt();
+        String choice = input.nextLine();
+
+        if(choice.equals("1")) {
+        } else if (choice.equals("2")) {
+        } else if (choice.equals("3")) {
+        } else if (choice.equals("4")) {
+        } else {
+            System.out.println("Please select correct option");
+        }
 
         switch(choice){
-            case 1 :
+            case "1" :
                 System.out.println("============Test Registration============");
                 System.out.println("**List of available tests**");
                 listOfTests();
@@ -54,34 +62,43 @@ public class Laboratory {
                         "Press 4 for urine test\nPress 5 to exit");
 
                 Scanner test_input = new Scanner(System.in);
-                int test_choice = test_input.nextInt();
+                String test_choice = test_input.nextLine();
+
+                if(test_choice.equals("1")) {
+                } else if (test_choice.equals("2")) {
+                } else if (test_choice.equals("3")) {
+                } else if (test_choice.equals("4")) {
+                } else if (test_choice.equals("5")) {
+                } else {
+                    System.out.println("Please select correct option");
+                }
 
                 switch (test_choice){
-                    case 1 :
+                    case "1" :
                         System.out.println("You selected Vitamin D checkup test.");
                         registerTestDAO.registerTest();
                         LaboratoryMenu();
                         break;
 
-                    case 2 :
+                    case "2" :
                         System.out.println("You selected CBC test.");
                         registerTestDAO.registerTest();
                         LaboratoryMenu();
                         break;
 
-                    case 3 :
+                    case "3" :
                         System.out.println("You selected uric-acid test.");
                         registerTestDAO.registerTest();
                         LaboratoryMenu();
                         break;
 
-                    case 4 :
+                    case "4" :
                         System.out.println("You selected urine test.");
                         registerTestDAO.registerTest();
                         LaboratoryMenu();
                         break;
 
-                    case 5 :
+                    case "5" :
                         System.out.println("Exited");
                         LaboratoryMenu();
                         break;
@@ -89,49 +106,63 @@ public class Laboratory {
 
                 break;
 
-            case 2 :
+            case "2" :
                 System.out.println("============List of all tests============");
                 listOfTests();
                 LaboratoryMenu();
                 break;
 
-            case 3 :
+            case "3" :
                 System.out.println("Generate reports");
                 System.out.println("Enter your user_id");
                 Scanner user_id = new Scanner(System.in);
-                uid_input = user_id.nextInt();
+                if(user_id.hasNextInt() == false) {
+                    System.out.println("Only numbers are allowed.");
+                    return;
+                } else {
+                    uid_input = user_id.nextInt();
+                }
                 listOfReports();
 
                 System.out.println("\n"+"Press 1 for test_id 1\nPress 2 for test_id 2\nPress 3 for test_id 3\n" +
                         "Press 4 for test_id 4\nPress 5 to exit");
 
                 Scanner report = new Scanner(System.in);
-                Integer report_input = report.nextInt();
+                String report_input = report.nextLine();
+
+                if(report_input.equals("1")) {
+                } else if (report_input.equals("2")) {
+                } else if (report_input.equals("3")) {
+                } else if (report_input.equals("4")) {
+                } else if (report_input.equals("5")) {
+                } else {
+                    System.out.println("Please select correct option");
+                }
 
                 switch (report_input) {
-                    case 1 :
+                    case "1" :
                         System.out.println("report of Vitamin D test");
                         vitaminDReport();
                         break;
-                    case 2 :
+                    case "2" :
                         System.out.println("report of CBC test");
                         bloodReport();
                         break;
-                    case 3 :
+                    case "3" :
                         System.out.println("report of uric-acid test");
                         uric_acidReports();
                         break;
-                    case 4 :
+                    case "4" :
                         System.out.println("report of urine test");
                         urineReports();
                         break;
-                    case 5 :
+                    case "5" :
                         System.out.println("Exited");
                         break;
                 }
                 break;
 
-            case 4 :
+            case "4" :
                 System.out.println("Exited");
 
                 break;
@@ -202,9 +233,6 @@ public class Laboratory {
             + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getPlatelet_count()) + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getRed_blood_cell_count())
             + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getHemoglobin()) + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getHematocrit()));
         }
-
-//        bloodTestReportsService.generatePDF("hello");
-
         LaboratoryMenu();
     }
 
