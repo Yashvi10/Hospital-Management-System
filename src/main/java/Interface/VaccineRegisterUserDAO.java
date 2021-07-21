@@ -2,6 +2,8 @@ package Interface;
 
 import Model.VaccineUserInformation;
 
+import java.util.List;
+
 /*
  *  Name of file: VaccineRegisterUser.java
  *  Author:  Kushang Mistry
@@ -12,5 +14,5 @@ public interface VaccineRegisterUserDAO {
 
   Boolean registerUserVaccination(VaccineUserInformation vaccineUserInformation);
 
-  Boolean getUserInfo(Integer userId);
+  List<VaccineUserInformation> getUserInfo(Integer userId);
 }
