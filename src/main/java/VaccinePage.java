@@ -2,9 +2,8 @@ import Interface.FeatureMenu;
 import Interface.VaccineBLInterface;
 import Interface.VaccineRegistrationBLInterface;
 import Model.Vaccine;
-import Model.VaccineUserInformation;
+import Service.UserSession;
 
-import java.sql.Date;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -90,14 +89,25 @@ public class VaccinePage implements FeatureMenu {
           break;
 
         case 2 :
-          System.out.printf("Welcome to registration of Vaccine");
-          Date date=Date.valueOf("2021-07-20");
-          VaccineUserInformation vaccineUserInformation = new VaccineUserInformation(6, "nadish@dal.ca",
-                  23, "M1ale", "S123456", date, "Morning");
+          System.out.println("------------------------------------------------");
+          System.out.println("    Welcome to Vaccine Registration Process");
+          System.out.println("------------------------------------------------");
 
-          Boolean result = vaccineRegistrationBlInterface.registerUserVaccine(vaccineUserInformation);
-          System.out.println("Earlier dose taken: "+vaccineRegistrationBlInterface.isUserRegistered(2));
-          System.out.println("Added in vaccination list: "+result);
+          if(vaccineRegistrationBlInterface.checkUserRegistration(UserSession.userId) == 1) {
+            System.out.println("Congratulations! - You have completed the first dose of the vaccination");
+            System.out.println("Processing for the registration of second dose: ");
+            System.out.println("User Registered for Second dose? "+
+                    vaccineRegistrationBlInterface.registerUserVaccine(vaccineRegistrationBlInterface.getUserDetails(UserSession.userId)));
+          }
+          else if (vaccineRegistrationBlInterface.checkUserRegistration(UserSession.userId) == 2) {
+            System.out.println("User already completed two dose and Fully Vaccinated - Congratulations!");
+          }
+          else {
+            if(vaccineRegistrationBlInterface.getUserInformation())
+              System.out.println("User Registered for vaccination successfully.");
+            else
+              System.out.println("Invalid Input parameters, please add valid values ...");
+          }
           break;
 
         default:
