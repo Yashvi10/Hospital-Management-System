@@ -25,10 +25,12 @@ public class VaccineUserInformation {
 
   private String preferredTiming;
 
+  private Integer vaccineId;
+
   public VaccineUserInformation () {}
 
   public VaccineUserInformation(Integer userId, String mailId, Integer age, String gender,
-                                String governmentId, Date preferredDate, String preferredTiming) {
+                                String governmentId, Date preferredDate, String preferredTiming, Integer vaccineId) {
     this.userId = userId;
     this.mailId = mailId;
     this.age = age;
@@ -36,6 +38,7 @@ public class VaccineUserInformation {
     this.governmentId = governmentId;
     this.preferredDate = preferredDate;
     this.preferredTiming = preferredTiming;
+    this.vaccineId = vaccineId;
   }
 
   public Integer getUserId() {
@@ -93,4 +96,8 @@ public class VaccineUserInformation {
   public void setPreferredTiming(String preferredTiming) {
     this.preferredTiming = preferredTiming;
   }
+
+  public Integer getVaccineId() { return vaccineId; }
+
+  public void setVaccineId(Integer vaccineId) { this.vaccineId = vaccineId; }
 }

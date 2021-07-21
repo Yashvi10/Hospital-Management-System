@@ -80,10 +80,11 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
           Integer age = resultSet.getInt("age");
           String gender = resultSet.getString("gender");
           String governmentId = resultSet.getString("government_id_number");
-          Date date = resultSet.getDate("preferred_next_date");
+          Date date = resultSet.getDate("dose_date");
           String preferred_timing = resultSet.getString("preferred_timing");
+          Integer vaccineId = resultSet.getInt("vaccine_id");
 
-          VaccineUserInformation userInformation = new VaccineUserInformation(userId, mailId, age, gender, governmentId,date, preferred_timing);
+          VaccineUserInformation userInformation = new VaccineUserInformation(userId, mailId, age, gender, governmentId, date, preferred_timing, vaccineId);
           userVaccineDetails.add(userInformation);
         }
       } catch (SQLException exception) {
@@ -126,8 +127,9 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
           String governmentId = resultSet.getString("government_id_number");
           Date date = resultSet.getDate("preferred_next_date");
           String preferred_timing = resultSet.getString("preferred_timing");
+          Integer vaccineId = resultSet.getInt("vaccine_id");
 
-          userVaccineInformation = new VaccineUserInformation(userId, mailId, age, gender, governmentId,date, preferred_timing);
+          userVaccineInformation = new VaccineUserInformation(userId, mailId, age, gender, governmentId,date, preferred_timing, vaccineId);
         }
       } catch (SQLException exception) {
         exception.printStackTrace();
