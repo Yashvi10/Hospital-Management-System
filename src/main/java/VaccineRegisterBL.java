@@ -175,10 +175,18 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
 
     gender = gender.trim().toLowerCase();
 
-    if(gender.equals("male") || gender.equals("female") || gender.equals("m") || gender.equals("f"))
+    if(validateGender(gender))
       return gender;
     else
       return null;
+  }
+
+  public Boolean validateGender(String gender) {
+
+    if(gender.equals("male") || gender.equals("female") || gender.equals("m") || gender.equals("f"))
+      return true;
+    else
+      return false;
   }
 
   private String getGovernmentId() {
@@ -191,10 +199,27 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
 
     governmentId = governmentId.trim();
 
-    if(governmentId.length() > 0 && governmentId.length() < 20)
+    if(validateGovernmentId(governmentId))
       return governmentId;
     else
       return null;
+  }
+
+  public Boolean validateGovernmentId(String governmentId) {
+    String regex = "^[A-Za-z0-9]*$";
+    Pattern pattern = Pattern.compile(regex);
+    Matcher matcher;
+
+    matcher = pattern.matcher(governmentId);
+
+    if(governmentId.length() > 0 && governmentId.length() < 20) {
+      if(matcher.matches())
+        return true;
+      else
+        return false;
+    }
+    else
+      return false;
   }
 
   private Date getDate() {
