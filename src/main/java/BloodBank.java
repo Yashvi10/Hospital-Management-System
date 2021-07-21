@@ -1,3 +1,6 @@
+import Interface.BloodDAO;
+import Interface.BloodDonorDAO;
+import Interface.BloodRequesterDAO;
 import Model.BloodDonor;
 import Model.BloodInventory;
 import Model.BloodRequester;
@@ -38,6 +41,20 @@ public class BloodBank {
     static String date = null;
 
     static Scanner input;
+
+    private BloodDAO bloodDAO;
+
+    private BloodRequesterDAO bloodRequesterDAO;
+
+    private BloodDonorDAO bloodDonorDAO;
+
+    public BloodBank() {}
+
+    public BloodBank(BloodDAO bloodDAO, BloodRequesterDAO bloodRequesterDAO, BloodDonorDAO bloodDonorDAO) {
+        this.bloodDAO = bloodDAO;
+        this.bloodRequesterDAO = bloodRequesterDAO;
+        this.bloodDonorDAO = bloodDonorDAO;
+    }
 
     /* This method takes input of firstname from user
      * */
@@ -299,7 +316,6 @@ public class BloodBank {
     public void OnRequestUpdateInventory(){
 
         BloodRequesterService bloodRequesterService = new BloodRequesterService();
-        System.out.println(bloodRequesterService.isBloodAvaiable(blood_group));
 
         Integer counter = bloodRequesterService.isBloodAvaiable(blood_group);
         if(counter == 0){

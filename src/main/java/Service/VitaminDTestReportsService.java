@@ -41,13 +41,14 @@ public class VitaminDTestReportsService implements VitaminDTestReportsDAO {
         }
       } catch (SQLException throwables) {
         throwables.printStackTrace();
-      } finally {
-        try {
-          conn.close();
-        } catch (SQLException throwables) {
-          throwables.printStackTrace();
-        }
       }
+//      finally {
+//        try {
+//          conn.close();
+//        } catch (SQLException throwables) {
+//          throwables.printStackTrace();
+//        }
+//      }
     }
     return vitaminDTestReportsList;
   }

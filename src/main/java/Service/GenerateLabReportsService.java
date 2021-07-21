@@ -41,20 +41,23 @@ public class GenerateLabReportsService implements GenerateLabReportsDAO {
           String gender = rs.getString("gender");
           String date_of_test = rs.getString("date_of_test");
           String report_generation_date = rs.getString("report_generation_date");
+          String time_of_test = rs.getString("time_of_test");
+          String report_generation_time = rs.getString("report_generation_time");
 
           GenerateLabReports generateLabReports = new GenerateLabReports(test_id,tests,firstname,lastname,test_name,
-                  contact,email,gender,date_of_test,report_generation_date);
+                  contact,email,gender,date_of_test,report_generation_date,time_of_test,report_generation_time);
           generateLabReportsList.add(generateLabReports);
         }
       } catch (SQLException throwables) {
         throwables.printStackTrace();
-      } finally {
-        try {
-          conn.close();
-        } catch (SQLException throwables) {
-          throwables.printStackTrace();
-        }
       }
+//      finally {
+//        try {
+//          conn.close();
+//        } catch (SQLException throwables) {
+//          throwables.printStackTrace();
+//        }
+//      }
     }
     return generateLabReportsList;
   }

@@ -1,9 +1,5 @@
-import Interface.ListOfTestsDAO;
-import Interface.RegisterTestDAO;
+import Interface.*;
 import Model.*;
-import Service.*;
-
-
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,27 +7,33 @@ public class Laboratory {
 
     private ListOfTestsDAO listOfTestsDAO;
 
-    private RegisterTestService registerTestService=new RegisterTestService();
-
-    private GenerateLabReports generateLabReports;
-
     private static Integer uid_input;
 
     private RegisterTestDAO registerTestDAO;
 
+    private GenerateLabReportsDAO generateLabReportsDAO;
+
+    private BloodTestReportsDAO bloodTestReportsDAO;
+
+    private VitaminDTestReportsDAO vitaminDTestReportsDAO;
+
+    private UricAcidTestReportsDAO uricAcidTestReportsDAO;
+
+    private UrineTestReportsDAO urineTestReportsDAO;
+
     public Laboratory(){};
 
-    public Laboratory(ListOfTestsDAO listOfTestsDAO, RegisterTestDAO registerTestDAO){
+    public Laboratory(ListOfTestsDAO listOfTestsDAO, RegisterTestDAO registerTestDAO,
+                      GenerateLabReportsDAO generateLabReportsDAO, BloodTestReportsDAO bloodTestReportsDAO,
+                      VitaminDTestReportsDAO vitaminDTestReportsDAO, UricAcidTestReportsDAO uricAcidTestReportsDAO,
+                      UrineTestReportsDAO urineTestReportsDAO){
         this.listOfTestsDAO = listOfTestsDAO;
         this.registerTestDAO = registerTestDAO;
-    }
-
-//    public Laboratory(RegisterTestService registerTestService) {
-//        this.registerTestService = registerTestService;
-//    }
-
-    public Laboratory(GenerateLabReports generateLabReports) {
-        this.generateLabReports = generateLabReports;
+        this.generateLabReportsDAO = generateLabReportsDAO;
+        this.bloodTestReportsDAO = bloodTestReportsDAO;
+        this.vitaminDTestReportsDAO = vitaminDTestReportsDAO;
+        this.uricAcidTestReportsDAO = uricAcidTestReportsDAO;
+        this.urineTestReportsDAO = urineTestReportsDAO;
     }
 
     public void LaboratoryMenu(){
@@ -57,7 +59,6 @@ public class Laboratory {
                 switch (test_choice){
                     case 1 :
                         System.out.println("You selected Vitamin D checkup test.");
-//                        registerTestService.registerTest();
                         registerTestDAO.registerTest();
                         LaboratoryMenu();
                         break;
@@ -145,7 +146,6 @@ public class Laboratory {
     /* This method returns list of all tests from lab_tests
      */
     public void listOfTests() {
-
         List<ListOfTests> listOfTestsList = listOfTestsDAO.getListOfTests();
 
         System.out.println(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
@@ -157,8 +157,8 @@ public class Laboratory {
     }
 
     public void listOfReports() {
-        GenerateLabReportsService generateLabReportsService = new GenerateLabReportsService();
-        List<GenerateLabReports> generateLabReportsList = generateLabReportsService.generateReports(uid_input);
+
+        List<GenerateLabReports> generateLabReportsList = generateLabReportsDAO.generateReports(uid_input);
 
         System.out.println(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
                 String.format(Constant.STRING_FORMAT,"User_id") + " " +
@@ -169,21 +169,23 @@ public class Laboratory {
                 String.format(Constant.STRING_FORMAT, "Email")+ " " +
                 String.format(Constant.STRING_FORMAT,"Gender")+ " " +
                 String.format(Constant.STRING_FORMAT,"Date of test") + " " +
-                String.format(Constant.STRING_FORMAT,"Report Generation Date"));
+                String.format(Constant.STRING_FORMAT,"Report Generation Date") + " " +
+                String.format(Constant.STRING_FORMAT,"Time of test") + " " +
+                String.format(Constant.STRING_FORMAT, "Report Generation Time"));
 
         for(int i = 0; i < generateLabReportsList.size(); i++) {
             System.out.println(String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getTest_id()) + " "+ String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getUser_id())
             +" " + String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getFirstname())+" "+String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getLastname())
             +" " +String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getTest_name())+" "+String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getContact())+" "
             + String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getEmail())+String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getGender()) + " "
-            + String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getDate_of_test())+" "+String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getReport_generation_date()));
-
+            + String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getDate_of_test())+" "+String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getReport_generation_date())
+            + " " + String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getTime_of_test() + " " +
+                    String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getReport_generation_time())));
         }
     }
 
     public void bloodReport() {
-        BloodTestReportsService bloodTestReportsService = new BloodTestReportsService();
-        List<BloodTestReports> bloodTestReportsList = bloodTestReportsService.bloodTestReport(uid_input);
+        List<BloodTestReports> bloodTestReportsList = bloodTestReportsDAO.bloodTestReport(uid_input);
 
         System.out.println(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
                 String.format(Constant.STRING_FORMAT,"User_id") + " " +
@@ -207,8 +209,7 @@ public class Laboratory {
     }
 
     public void vitaminDReport() {
-      VitaminDTestReportsService vitaminDTestReportsService = new VitaminDTestReportsService();
-      List<VitaminDTestReports> vitaminDTestReportsList = vitaminDTestReportsService.vitaminDReports(uid_input);
+      List<VitaminDTestReports> vitaminDTestReportsList = vitaminDTestReportsDAO.vitaminDReports(uid_input);
 
         System.out.println(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
                 String.format(Constant.STRING_FORMAT,"User_id") + " " +
@@ -223,8 +224,7 @@ public class Laboratory {
     }
 
     public void urineReports() {
-        UrineTestReportsService urineTestReportsService = new UrineTestReportsService();
-        List<UrineTestReports> urineTestReportsList = urineTestReportsService.urineReports(uid_input);
+        List<UrineTestReports> urineTestReportsList = urineTestReportsDAO.urineReports(uid_input);
 
         System.out.println(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
                 String.format(Constant.STRING_FORMAT,"User_id") + " " +
@@ -256,8 +256,7 @@ public class Laboratory {
     }
 
     public void uric_acidReports() {
-      UricAcidTestReportsService uricAcidTestReportsService = new UricAcidTestReportsService();
-      List<UricAcidTestReports> uricAcidTestReportsList = uricAcidTestReportsService.uricacidReports(uid_input);
+      List<UricAcidTestReports> uricAcidTestReportsList = uricAcidTestReportsDAO.uricacidReports(uid_input);
 
         System.out.println(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
                 String.format(Constant.STRING_FORMAT,"User_id") + " " +

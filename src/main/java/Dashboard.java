@@ -22,13 +22,12 @@ public class Dashboard {
             BillingMenuPage billingPage = new BillingMenuPage();
             billingPage.showUserOrder();
         } else if (userInput.equals("3")) {
-            BloodBank bloodBank = new BloodBank();
+            BloodBank bloodBank = new BloodBank(new BloodService(), new BloodRequesterService(), new BloodDonorService());
             bloodBank.BloodBankMainMenu();
         } else if (userInput.equals("5")) {
-            Laboratory laboratory = new Laboratory(new ListOfTestsService(), new RegisterTestService());
+            Laboratory laboratory = new Laboratory(new ListOfTestsService(), new RegisterTestService(), new GenerateLabReportsService(),
+                    new BloodTestReportsService(), new VitaminDTestReportsService(), new UricAcidTestReportsService(), new UrineTestReportsService());
             laboratory.LaboratoryMenu();
-//            Laboratory laboratory1 = new Laboratory(new GenerateLabReports());
-//            laboratory1.LaboratoryMenu();
         } else {
             System.out.println("Please select correct option");
         }

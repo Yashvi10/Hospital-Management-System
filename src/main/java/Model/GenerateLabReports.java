@@ -2,9 +2,9 @@ package Model;
 
 public class GenerateLabReports {
 
-  private int test_id;
+  private Integer test_id;
 
-  private static int user_id;
+  private static Integer user_id;
 
   private String firstname;
 
@@ -22,10 +22,13 @@ public class GenerateLabReports {
 
   private String report_generation_date;
 
-  public GenerateLabReports(){};
+  private String time_of_test;
 
-  public GenerateLabReports(int test_id, int user_id, String firstname, String lastname, String test_name,
-                            String contact, String email, String gender, String date_of_test, String report_generation_date) {
+  private String report_generation_time;
+
+  public GenerateLabReports() {}
+
+  public GenerateLabReports(Integer test_id, Integer user_id, String firstname, String lastname, String test_name, String contact, String email, String gender, String date_of_test, String report_generation_date, String time_of_test, String report_generation_time) {
     this.test_id = test_id;
     this.user_id = user_id;
     this.firstname = firstname;
@@ -36,6 +39,8 @@ public class GenerateLabReports {
     this.gender = gender;
     this.date_of_test = date_of_test;
     this.report_generation_date = report_generation_date;
+    this.time_of_test = time_of_test;
+    this.report_generation_time = report_generation_time;
   }
 
   public int getTest_id() {
@@ -46,12 +51,12 @@ public class GenerateLabReports {
     this.test_id = test_id;
   }
 
-  public int getUser_id() {
+  public static int getUser_id() {
     return user_id;
   }
 
-  public void setUser_id(int user_id) {
-    this.user_id = user_id;
+  public static void setUser_id(int user_id) {
+    GenerateLabReports.user_id = user_id;
   }
 
   public String getFirstname() {
@@ -116,6 +121,22 @@ public class GenerateLabReports {
 
   public void setReport_generation_date(String report_generation_date) {
     this.report_generation_date = report_generation_date;
+  }
+
+  public String getTime_of_test() {
+    return time_of_test;
+  }
+
+  public void setTime_of_test(String time_of_test) {
+    this.time_of_test = time_of_test;
+  }
+
+  public String getReport_generation_time() {
+    return report_generation_time;
+  }
+
+  public void setReport_generation_time(String report_generation_time) {
+    this.report_generation_time = report_generation_time;
   }
 
 }

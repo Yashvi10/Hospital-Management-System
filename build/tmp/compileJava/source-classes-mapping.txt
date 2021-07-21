@@ -32,12 +32,12 @@ Interface/UrineTestReportsDAO.java
  Interface.UrineTestReportsDAO
 Interface/UricAcidTestReportsDAO.java
  Interface.UricAcidTestReportsDAO
-Service/BloodTestReportsService.java
- Service.BloodTestReportsService
+Service/BloodDonorService.java
+ Service.BloodDonorService
+Service/RegisterTestService.java
+ Service.RegisterTestService
 Service/ManageProfile.java
  Service.ManageProfile
-Service/BloodRequesterService.java
- Service.BloodRequesterService
 Service/UserManagement.java
  Service.UserManagement
 Interface/OrderDAO.java
@@ -54,8 +54,8 @@ Service/OfferService.java
  Service.OfferService
 Interface/BillingOrderDAO.java
  Interface.BillingOrderDAO
-Service/BloodDonorService.java
- Service.BloodDonorService
+Model/RegisterTest.java
+ Model.RegisterTest
 Interface/RegisterTestDAO.java
  Interface.RegisterTestDAO
 Interface/BloodTestReportsDAO.java
@@ -94,8 +94,8 @@ Interface/BloodRequesterDAO.java
  Interface.BloodRequesterDAO
 Model/BloodInventory.java
  Model.BloodInventory
-UserManagementPage.java
- UserManagementPage
+Service/BloodTestReportsService.java
+ Service.BloodTestReportsService
 Interface/ListOfTestsDAO.java
  Interface.ListOfTestsDAO
 Service/BillingService.java
@@ -112,8 +112,8 @@ Starter.java
  Starter
 PharmacyPage.java
  PharmacyPage
-Service/ListOfTestsService.java
- Service.ListOfTestsService
+Service/BloodRequesterService.java
+ Service.BloodRequesterService
 Service/CustomConnection.java
  Service.CustomConnection
 Billing.java
@@ -122,11 +122,11 @@ Colors.java
  Colors
 Interface/IRegistration.java
  Interface.IRegistration
-Model/RegisterTest.java
- Model.RegisterTest
+Service/ListOfTestsService.java
+ Service.ListOfTestsService
+UserManagementPage.java
+ UserManagementPage
 Dashboard.java
  Dashboard
 Laboratory.java
  Laboratory
-Service/RegisterTestService.java
- Service.RegisterTestService

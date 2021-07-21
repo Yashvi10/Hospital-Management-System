@@ -20,6 +20,7 @@ public class RegisterTestService implements RegisterTestDAO {
   static Integer user_id = 0;
 
   LocalTime time_of_test = LocalTime.now();
+
   LocalTime report_generation_time = LocalTime.now().plusHours(3);
 
 

@@ -33,13 +33,14 @@ public class ListOfTestsService implements ListOfTestsDAO {
                 }
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
-            } finally {
-                try {
-                    conn.close();
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                }
             }
+//            finally {
+//                try {
+//                    conn.close();
+//                } catch (SQLException throwables) {
+//                    throwables.printStackTrace();
+//                }
+//            }
         }
         return listOfTestsList;
     }
