@@ -1,5 +1,6 @@
 import Interface.FeatureMenu;
-import Interface.VaccineBlDAO;
+import Interface.VaccineBLInterface;
+import Interface.VaccineRegistrationBLInterface;
 import Model.Vaccine;
 
 import java.util.InputMismatchException;
@@ -15,12 +16,15 @@ import java.util.Scanner;
  * */
 public class VaccinePage implements FeatureMenu {
 
-  private VaccineBlDAO vaccineBlDAO;
+  private VaccineBLInterface vaccineBlInterface;
+
+  private VaccineRegistrationBLInterface vaccineRegistrationBlInterface;
 
   private List<Vaccine> vaccineList;
 
-  public VaccinePage(VaccineBlDAO vaccineBlDAO) {
-    this.vaccineBlDAO = vaccineBlDAO;
+  public VaccinePage(VaccineBLInterface vaccineBlInterface, VaccineRegistrationBLInterface vaccineRegistrationBlInterface) {
+    this.vaccineBlInterface = vaccineBlInterface;
+    this.vaccineRegistrationBlInterface = vaccineRegistrationBlInterface;
   }
 
   /*
@@ -40,6 +44,7 @@ public class VaccinePage implements FeatureMenu {
     System.out.println("==========================");
 
     System.out.println("1 = View Available Vaccines");
+    System.out.println("2 = Register for Vaccination");
     System.out.println("\nPress 0 (Zero) to stop");
     System.out.println("\nEnter your choice: ");
 
@@ -59,7 +64,7 @@ public class VaccinePage implements FeatureMenu {
       switch (userChoice) {
         case 1:
           System.out.println("\nAll vaccines are as follows");
-          vaccineList = vaccineBlDAO.getVaccineData();
+          vaccineList = vaccineBlInterface.getVaccineData();
 
           /*
            *  Prints all vaccine information to the console
@@ -82,6 +87,10 @@ public class VaccinePage implements FeatureMenu {
           }
           break;
 
+        case 2 :
+          System.out.printf("");
+          break;
+
         default:
           System.out.println("Invalid Input, Please select right option");
           break;
@@ -91,6 +100,7 @@ public class VaccinePage implements FeatureMenu {
       System.out.println("==========================");
 
       System.out.println("1 = View Available Vaccines");
+      System.out.println("2 = Register for Vaccination");
       System.out.println("\nPress 0 (Zero) to stop");
       System.out.println("\nEnter your choice: ");
 

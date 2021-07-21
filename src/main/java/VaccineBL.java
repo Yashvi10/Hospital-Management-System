@@ -1,4 +1,4 @@
-import Interface.VaccineBlDAO;
+import Interface.VaccineBLInterface;
 import Interface.VaccineDAO;
 import Model.Vaccine;
 
@@ -11,7 +11,7 @@ import java.util.List;
  *  Description: The class is under Business Logic layer and
  *               provides all result to the presentation layer class.
  * */
-public class VaccineBL implements VaccineBlDAO {
+public class VaccineBL implements VaccineBLInterface {
 
   private VaccineDAO vaccineDAO;
 
@@ -27,7 +27,6 @@ public class VaccineBL implements VaccineBlDAO {
   public List<Vaccine> getVaccineData() {
 
     List<Vaccine> vaccineList = vaccineDAO.getVaccines();   // Fetches and stores all vaccine information
-
 
     return vaccineList;
   }

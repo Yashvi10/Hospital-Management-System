@@ -22,11 +22,11 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
     Connection conn = customConnection.Connect();
 
     if (conn != null) {
-      String insertQuery = "insert into vaccination_patients(userId, mail_id, age, gender, government_id_number, preferred_next_date, preferred_timing) " +
-              "values(" + vaccineUserInformation.getUserId() + ",'" + vaccineUserInformation.getMailId()
-              +"'," + vaccineUserInformation.getAge() + ",'" + vaccineUserInformation.getGender()
-              +"','" + vaccineUserInformation.getGovernmentId() + "','" + vaccineUserInformation.getPreferredDate()
-              +"','" + vaccineUserInformation.getPreferredTiming() +"')";
+      String insertQuery = "insert into vaccination_patients(userId, mail_id, age, gender, government_id_number, preferred_next_date, preferred_timing) "
+              + "values(" + vaccineUserInformation.getUserId() + ",'" + vaccineUserInformation.getMailId()
+              + "'," + vaccineUserInformation.getAge() + ",'" + vaccineUserInformation.getGender()
+              + "','" + vaccineUserInformation.getGovernmentId() + "','" + vaccineUserInformation.getPreferredDate()
+              + "','" + vaccineUserInformation.getPreferredTiming() +"')";
 
       Statement statement = null;
       try {
@@ -53,7 +53,7 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
   }
 
   @Override
-  public Boolean isUserRegistered (Integer userId) {
+  public Boolean getUserInfo (Integer userId) {
     return false;
   }
 }

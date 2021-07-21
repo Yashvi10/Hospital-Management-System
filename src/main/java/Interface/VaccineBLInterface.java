@@ -1,6 +1,6 @@
 package Interface;
-
-import Model.VaccineUserInformation;
+import Model.Vaccine;
+import java.util.List;
 
 /*
  *  Name of file: VaccineBlInterface.java
@@ -8,10 +8,7 @@ import Model.VaccineUserInformation;
  *  Description: The Interface is responsible for DB operations related User Registration for Vaccination
  *  Purpose: An Interface having methods of Business Logic to Register User for vaccination
  * */
-public interface VaccineRegistrationBlInterface {
+public interface VaccineBLInterface {
 
-  Boolean registerUserVaccine(VaccineUserInformation vaccineUserInformation);
-
-  Boolean isUserRegistered();
-
+  List<Vaccine> getVaccineData();
 }

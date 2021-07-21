@@ -12,5 +12,5 @@ public interface VaccineRegisterUserDAO {
 
   Boolean registerUserVaccination(VaccineUserInformation vaccineUserInformation);
 
-  Boolean isUserRegistered(Integer userId);
+  Boolean getUserInfo(Integer userId);
 }
