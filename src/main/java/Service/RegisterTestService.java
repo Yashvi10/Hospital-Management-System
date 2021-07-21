@@ -2,12 +2,20 @@ package Service;
 
 import Interface.RegisterTestDAO;
 import Model.RegisterTest;
-
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+/*
+ *  Name of file: RegisterTestService.java
+ *  Author:  Yashvi Lad
+ *  Purpose: For registration of user to apply for any test.
+ *  Description: This service asks user to provide all the details that identifies them and stores it into the database.
+ *                It asks user if the test report is required on the same day or not and based on the answer it reflects
+ *                date or time of report generation.
+ * */
 
 public class RegisterTestService implements RegisterTestDAO {
 

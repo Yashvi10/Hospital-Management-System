@@ -1,7 +1,6 @@
 package Service;
 
 import Interface.VitaminDTestReportsDAO;
-import Model.BloodTestReports;
 import Model.GenerateLabReports;
 import Model.VitaminDTestReports;
 
@@ -11,6 +10,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+/*
+ *  Name of file: VitaminDTestReportsService.java
+ *  Author:  Yashvi Lad
+ *  Purpose: Gets report of Vitamin-D test.
+ *  Description: This service class fetches all the details of report of the given user_id and provides it
+ *                to the user.
+ * */
 
 public class VitaminDTestReportsService implements VitaminDTestReportsDAO {
 

@@ -15,7 +15,6 @@ public class BloodInventory {
     private Integer Number_of_bottles;
 
     public BloodInventory(String blood_group, Integer number_of_bottles) {
-//        this.blood_id = blood_id;
         this.blood_group = blood_group;
         Number_of_bottles = number_of_bottles;
     }

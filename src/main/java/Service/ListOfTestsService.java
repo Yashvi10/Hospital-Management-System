@@ -9,6 +9,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ *  Name of file: ListOfTestsService.java
+ *  Author:  Yashvi Lad
+ *  Purpose: Provides list of all available tests.
+ *  Description: This service will get all the tests list from the database and asks user to select the one they
+ *                want by choosing test_id of the listed tests.
+ * */
+
+
 public class ListOfTestsService implements ListOfTestsDAO {
 
     @Override

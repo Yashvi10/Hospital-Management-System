@@ -6,7 +6,6 @@ import Model.GenerateLabReports;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfDocument;
 import com.itextpdf.text.pdf.PdfWriter;
-
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.sql.Connection;
@@ -16,6 +15,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+/*
+ *  Name of file: BloodTestReportsService.java
+ *  Author:  Yashvi Lad
+ *  Purpose: Gets report of blood test.
+ *  Description: This service class fetches all the details of report of the given user id and provides it
+ *                to the user.
+ * */
 
 public class BloodTestReportsService implements BloodTestReportsDAO {
 

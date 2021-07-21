@@ -10,6 +10,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ *  Name of file: UricAcidTestReportsService.java
+ *  Author:  Yashvi Lad
+ *  Purpose: Gets report of uric-acid test.
+ *  Description: This service class fetches all the details of report of the given user_id and provides it
+ *                to the user.
+ * */
 public class UricAcidTestReportsService implements UricAcidTestReportsDAO {
 
   List<UricAcidTestReports> uricAcidTestReportsList = new ArrayList<UricAcidTestReports>();

@@ -3,6 +3,12 @@ import Model.*;
 import java.util.List;
 import java.util.Scanner;
 
+/*
+ *  Name of file: Laboratory.java
+ *  Author:  Yashvi Lad
+ *  Purpose: This is the driver class of feature Laboratory
+ *  Description: It provides menu to users for selecting appropriate choice and perform their task.
+ * */
 public class Laboratory {
 
     private ListOfTestsDAO listOfTestsDAO;
@@ -36,6 +42,8 @@ public class Laboratory {
         this.urineTestReportsDAO = urineTestReportsDAO;
     }
 
+    /* This method offers laboratory menu to users
+     * */
     public void LaboratoryMenu(){
 
         System.out.println("===============================");
@@ -187,6 +195,8 @@ public class Laboratory {
         }
     }
 
+    /* This method returns list of all reports one specified user_id have.
+     * */
     public void listOfReports() {
 
         List<GenerateLabReports> generateLabReportsList = generateLabReportsDAO.generateReports(uid_input);
@@ -215,6 +225,8 @@ public class Laboratory {
         }
     }
 
+    /* This method prints blood test report of the entered user_id.
+     * */
     public void bloodReport() {
         List<BloodTestReports> bloodTestReportsList = bloodTestReportsDAO.bloodTestReport(uid_input);
 
@@ -236,6 +248,8 @@ public class Laboratory {
         LaboratoryMenu();
     }
 
+    /* This method prints Vitamin D report of the entered user_id.
+     * */
     public void vitaminDReport() {
       List<VitaminDTestReports> vitaminDTestReportsList = vitaminDTestReportsDAO.vitaminDReports(uid_input);
 
@@ -251,6 +265,8 @@ public class Laboratory {
       LaboratoryMenu();
     }
 
+    /* This method prints urine report of the entered user_id.
+     * */
     public void urineReports() {
         List<UrineTestReports> urineTestReportsList = urineTestReportsDAO.urineReports(uid_input);
 
@@ -283,6 +299,8 @@ public class Laboratory {
         LaboratoryMenu();
     }
 
+    /* This method prints uric-acid report of the entered user_id.
+     * */
     public void uric_acidReports() {
       List<UricAcidTestReports> uricAcidTestReportsList = uricAcidTestReportsDAO.uricacidReports(uid_input);
 

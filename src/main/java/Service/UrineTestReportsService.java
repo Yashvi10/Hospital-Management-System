@@ -1,10 +1,8 @@
 package Service;
 
 import Interface.UrineTestReportsDAO;
-import Model.BloodTestReports;
 import Model.GenerateLabReports;
 import Model.UrineTestReports;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +10,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ *  Name of file: UrineTestReportsService.java
+ *  Author:  Yashvi Lad
+ *  Purpose: Gets report of urine test.
+ *  Description: This service class fetches all the details of report of the given user_id and provides it
+ *                to the user.
+ * */
 public class UrineTestReportsService implements UrineTestReportsDAO {
 
   List<UrineTestReports> urineTestReportsList = new ArrayList<UrineTestReports>();
@@ -48,7 +53,6 @@ public class UrineTestReportsService implements UrineTestReportsDAO {
           UrineTestReports urineTestReports = new UrineTestReports(test_id, uid,color,specific_gravity,pH,blood,
                   glucose,urobilinogen,protein,rbc,pus_cells,crystals,casts,turbidity,wbc);
           urineTestReportsList.add(urineTestReports);
-//          generatePDF(bloodTestReportsList.toString());
         }
       } catch (SQLException throwables) {
         throwables.printStackTrace();

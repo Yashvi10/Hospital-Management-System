@@ -11,6 +11,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ *  Name of file: GenerateLabReportsService.java
+ *  Author:  Yashvi Lad
+ *  Purpose: Provides list of all reports of the entered user_id.
+ *  Description: On providing user_id it fetches list of all the reports of different tests made
+ *                with all details.
+ * */
+
 public class GenerateLabReportsService implements GenerateLabReportsDAO {
 
   @Override
