@@ -12,10 +12,14 @@ import Service.AppointmentService;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -111,9 +115,22 @@ public class Appointments {
     }
 
     public Boolean validateDate(String date) {
+        LocalDate max_allowed_date = LocalDate.now().plusMonths(3);
+        // Getting system timezone
+        ZoneId systemTimeZone = ZoneId.systemDefault();
+
+        // converting LocalDateTime to ZonedDateTime with the system timezone
+        ZonedDateTime zonedDateTime = LocalDate.now().plusMonths(3).atStartOfDay(systemTimeZone);
+
+        // converting ZonedDateTime to Date using Date.from() and ZonedDateTime.toInstant()
+        Date utilDate = Date.from(zonedDateTime.toInstant());
         Date date1 = new Date();
         try {
             Date date2 = new SimpleDateFormat("dd-MM-yyyy").parse(date);
+            if (date2.after(utilDate)){
+                System.out.println("You can only enter dates within 3 months of period!");
+                return false;
+            }
             if (date2.after(date1)) {
                 return true;
             } else {

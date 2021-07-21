@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="AppointmentsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-21T09:54:48" hostname="LAPTOP-ORKNTPIH" time="0.016">
+<testsuite name="AppointmentsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-21T11:11:40" hostname="LAPTOP-ORKNTPIH" time="0.018">
   <properties/>
-  <testcase name="validateTime()" classname="AppointmentsTest" time="0.016"/>
-  <system-out><![CDATA[Please enter a valid time in the given format!
-Please enter a valid time in the given format!
-Please enter a valid time in the given format!
-Please enter a valid time in the given format!
+  <testcase name="validateDateWIthDateAfter3Months()" classname="AppointmentsTest" time="0.018"/>
+  <system-out><![CDATA[You can only enter dates within 3 months of period!
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

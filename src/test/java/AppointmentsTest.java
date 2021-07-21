@@ -38,6 +38,19 @@ class AppointmentsTest {
     }
 
     @Test
+    //test to validate if the date is more than months from now
+    void validateDateWIthDateAfter3Months() {
+        Appointments appointments = new Appointments();
+        Date date = new Date();
+        long ONE_DAY_MILLI_SECONDS = 24 * 60 * 60 * 1000;
+        //passing date after 93 days(2 months having 31 days)
+        long nextDayMilliSeconds = date.getTime() + (93 * ONE_DAY_MILLI_SECONDS);
+        Date nextDate = new Date(nextDayMilliSeconds);
+        String nextDateStr = new SimpleDateFormat("dd-MM-yyyy").format(nextDate);
+        assertEquals(false,appointments.validateDate(nextDateStr),"date is not validated");
+    }
+
+    @Test
     //test to validate if the time is in correct format
     void validateTime() {
         Appointments appointments = new Appointments();

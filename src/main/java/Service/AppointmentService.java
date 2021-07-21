@@ -112,7 +112,7 @@ public class AppointmentService implements AppointmentDAO {
         Connection con = cc.Connect();
         if (con != null) {
             try {
-                String SQL = "SELECT * FROM appointment where user_id = 123 and appointment_status = 'confirmed'";
+                String SQL = "SELECT * FROM appointment where user_id = 1 and appointment_status = 'confirmed'";
                 Statement st = con.createStatement();
                 ResultSet rs = st.executeQuery(SQL);
                 if (rs != null) {
@@ -129,7 +129,7 @@ public class AppointmentService implements AppointmentDAO {
                 }
 
 
-                System.out.println("Please enter the appointment_id for which you want to cancel the appointment:");
+                System.out.println("Please enter the appointment_id for which you want to rescedule the appointment:");
                 Scanner scanner = new Scanner(System.in);
                 int appointment_id = scanner.nextInt();
                 System.out.println("*************************************");
