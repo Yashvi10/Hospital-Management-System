@@ -56,7 +56,7 @@ public class BloodRequesterService implements BloodRequesterDAO {
         Boolean result = false;
 
         if(conn != null) {
-            String SQL = "update CSCI5308_8_DEVINT.blood_inventory SET No_of_bottles=No_of_bottles-" +bottleQuantity + " where blood_group = '" + blood_group + "';";
+            String SQL = "update blood_inventory SET No_of_bottles=No_of_bottles-" +bottleQuantity + " where blood_group = '" + blood_group + "';";
             Statement statement = null;
             try {
                 statement = conn.createStatement();
@@ -64,7 +64,6 @@ public class BloodRequesterService implements BloodRequesterDAO {
                 conn.close();
                 result = true;
                 return result;
-
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
@@ -91,6 +90,12 @@ public class BloodRequesterService implements BloodRequesterDAO {
 
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
+            } finally {
+                try {
+                    conn.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
         return 0;
@@ -122,6 +127,12 @@ public class BloodRequesterService implements BloodRequesterDAO {
                 }
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
+            } finally {
+                try {
+                    conn.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
         return bloodRequesterList;

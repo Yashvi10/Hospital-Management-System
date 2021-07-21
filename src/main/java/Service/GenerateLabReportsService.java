@@ -48,9 +48,14 @@ public class GenerateLabReportsService implements GenerateLabReportsDAO {
         }
       } catch (SQLException throwables) {
         throwables.printStackTrace();
+      } finally {
+        try {
+          conn.close();
+        } catch (SQLException throwables) {
+          throwables.printStackTrace();
+        }
       }
     }
-    System.out.println(generateLabReportsList);
     return generateLabReportsList;
   }
 

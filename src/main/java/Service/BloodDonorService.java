@@ -55,7 +55,7 @@ public class BloodDonorService implements BloodDonorDAO {
         Boolean result = false;
 
         if(conn != null) {
-            String SQL = "update CSCI5308_8_DEVINT.blood_inventory SET No_of_bottles=No_of_bottles + 1 where blood_group = '" + blood_group + "';";
+            String SQL = "update blood_inventory SET No_of_bottles=No_of_bottles + 1 where blood_group = '" + blood_group + "';";
             Statement statement = null;
             try {
                 statement = conn.createStatement();
@@ -97,6 +97,12 @@ public class BloodDonorService implements BloodDonorDAO {
                 }
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
+            } finally {
+                try {
+                    conn.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
         return bloodDonorList;

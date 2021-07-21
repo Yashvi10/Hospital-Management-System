@@ -178,10 +178,6 @@ public class Laboratory {
             + String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getEmail())+String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getGender()) + " "
             + String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getDate_of_test())+" "+String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getReport_generation_date()));
 
-//            if(!generateLabReportsList.contains(generateLabReportsList.get(i).getTest_id())) {
-//                System.out.println("Invalid input");
-//                return;
-//            }
         }
     }
 

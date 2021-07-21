@@ -51,6 +51,12 @@ public class BloodTestReportsService implements BloodTestReportsDAO {
         }
       } catch (SQLException throwables) {
         throwables.printStackTrace();
+      } finally {
+        try {
+          conn.close();
+        } catch (SQLException throwables) {
+          throwables.printStackTrace();
+        }
       }
     }
     return bloodTestReportsList;
