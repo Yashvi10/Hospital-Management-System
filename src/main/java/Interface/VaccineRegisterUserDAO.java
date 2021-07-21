@@ -2,6 +2,7 @@ package Interface;
 
 import Model.VaccineUserInformation;
 
+import java.sql.Date;
 import java.util.List;
 
 /*
@@ -17,4 +18,6 @@ public interface VaccineRegisterUserDAO {
   List<VaccineUserInformation> getVaccinationInfo(Integer userId);
 
   VaccineUserInformation getUserVaccineData(Integer userId);
+
+  Boolean updateSlotAvailability(Date date);
 }
