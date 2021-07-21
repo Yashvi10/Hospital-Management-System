@@ -69,6 +69,30 @@ public class VaccinePageTest {
     }
 
     /*
+     * Tests the logic of emailId validation
+     *
+     * The method returns true as date is in accepted format
+     */
+    @Test
+    void validateDateMailId_true()
+    {
+        VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
+        assertEquals(true, vaccineRegisterBL.validateEmailId("kush@dal.ca"));
+    }
+
+    /*
+     * Tests the logic of emailId validation
+     *
+     * The method returns true as date is in accepted format
+     */
+    @Test
+    void validateDateMailId_false()
+    {
+        VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
+        assertEquals(false, vaccineRegisterBL.validateEmailId("hello123"));
+    }
+
+    /*
      * Tests the logic of date validation
      *
      * The method returns true as date is in accepted format
