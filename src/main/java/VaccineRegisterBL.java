@@ -23,7 +23,7 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
 
   static Scanner userInput;
 
-  public VaccineRegisterBL() {}
+  //public VaccineRegisterBL() {}
 
   public VaccineRegisterBL(VaccineRegisterUserDAO vaccineRegisterUserDAO) {
     this.vaccineRegisterUserDAO = vaccineRegisterUserDAO;
@@ -105,7 +105,7 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
       return false;
   }
 
-  public String getMailId() {
+  private String getMailId() {
 
     String mailId=null;
 
@@ -126,7 +126,7 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
       return mailId;
   }
 
-  public Integer getAge() {
+  private Integer getAge() {
 
     String age=null;
 
@@ -147,7 +147,7 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
       return Integer.parseInt(age);
   }
 
-  public String getGender() {
+  private String getGender() {
 
     String gender=null;
 
@@ -163,7 +163,7 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
       return null;
   }
 
-  public String getGovernmentId() {
+  private String getGovernmentId() {
 
     String governmentId=null;
 
@@ -179,7 +179,7 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
       return null;
   }
 
-  public Date getDate() {
+  private Date getDate() {
 
     String dateInputString;
 
@@ -199,7 +199,7 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
       return date;
   }
 
-  public String getPreferredTiming() {
+  private String getPreferredTiming() {
 
     String timing=null;
 
