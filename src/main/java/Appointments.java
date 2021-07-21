@@ -6,21 +6,9 @@
  *  call different Services which are created
  * */
 
-import Model.AppointmentModel;
 import Service.AppointmentService;
 
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-import java.time.format.ResolverStyle;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Scanner;
 
 
@@ -54,34 +42,10 @@ public class Appointments {
     public void book_appointment() {
 
         AppointmentService appointmentService = new AppointmentService();
-        appointmentService.getDoctors();
-        System.out.println("*************************************");
-        System.out.println("Please enter Doctor Id for whom you want to book appointment: \n");
-        System.out.println("*************************************");
-        Scanner scanner = new Scanner(System.in);
-        String doctor_id = scanner.nextLine();
-        if (appointmentService.validateDoctorID(doctor_id)) {
-            System.out.println("*************************************");
-            System.out.println("Please enter Appointment Date(dd-mm-yyyy): \n");
-            System.out.println("*************************************");
-            Scanner scanner1 = new Scanner(System.in);
-            String appointment_date = scanner1.nextLine();
-            if (validateDate(appointment_date)) {
-                System.out.println("*************************************");
-                System.out.println("Please enter Appointment Time(hh:mm): \n");
-                System.out.println("*************************************");
-                String appointment_time = scanner1.nextLine();
-                if (validateTime(appointment_time)) {
-                    AppointmentModel appointment = new AppointmentModel(1, Integer.parseInt(doctor_id), appointment_date, appointment_time, "confirmed");
-                    if (appointmentService.book_appointment(appointment)) {
-                        System.out.println("Appointment booked successfully!");
-                    } else {
-                        System.out.println("Booking failed!");
-                    }
-                }
-            }
-        }else {
-            System.out.println("Please enter a valid doctor id!");
+        if (appointmentService.book_appointment()) {
+            System.out.println("Appointment booked successfully!");
+        } else {
+            System.out.println("Booking failed!");
         }
     }
 
@@ -114,44 +78,4 @@ public class Appointments {
         System.out.println("Invalid input!");
     }
 
-    public Boolean validateDate(String date) {
-        LocalDate max_allowed_date = LocalDate.now().plusMonths(3);
-        // Getting system timezone
-        ZoneId systemTimeZone = ZoneId.systemDefault();
-
-        // converting LocalDateTime to ZonedDateTime with the system timezone
-        ZonedDateTime zonedDateTime = LocalDate.now().plusMonths(3).atStartOfDay(systemTimeZone);
-
-        // converting ZonedDateTime to Date using Date.from() and ZonedDateTime.toInstant()
-        Date utilDate = Date.from(zonedDateTime.toInstant());
-        Date date1 = new Date();
-        try {
-            Date date2 = new SimpleDateFormat("dd-MM-yyyy").parse(date);
-            if (date2.after(utilDate)){
-                System.out.println("You can only enter dates within 3 months of period!");
-                return false;
-            }
-            if (date2.after(date1)) {
-                return true;
-            } else {
-                System.out.println("Please select a valid date!");
-                return false;
-            }
-        }catch (ParseException pe){
-            System.out.println("Please enter a valid date in the given format!");
-            return false;
-        }
-    }
-
-    public boolean validateTime(String appointment_time) {
-        DateTimeFormatter strictTimeFormatter = DateTimeFormatter.ofPattern("HH:mm")
-                .withResolverStyle(ResolverStyle.STRICT);
-        try {
-            LocalTime.parse(appointment_time,strictTimeFormatter);
-            return true;
-        } catch (DateTimeParseException | NullPointerException e) {
-            System.out.println("Please enter a valid time in the given format!");
-            return false;
-        }
-    }
 }

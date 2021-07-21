@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 public interface AppointmentDAO {
 
-    Boolean book_appointment(AppointmentModel appointmentModel);
+    Boolean book_appointment();
 
     Boolean cancel_appointment() throws SQLException;
 
