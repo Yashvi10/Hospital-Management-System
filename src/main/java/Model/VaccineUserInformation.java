@@ -25,6 +25,8 @@ public class VaccineUserInformation {
 
   private String preferredTiming;
 
+  public VaccineUserInformation () {}
+
   public VaccineUserInformation(Integer userId, String mailId, Integer age, String gender,
                                 String governmentId, Date preferredDate, String preferredTiming) {
     this.userId = userId;
