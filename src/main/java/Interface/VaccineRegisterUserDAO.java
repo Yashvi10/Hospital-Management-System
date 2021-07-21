@@ -1,5 +1,7 @@
 package Interface;
 
+import Model.VaccineUserInformation;
+
 /*
  *  Name of file: VaccineRegisterUser.java
  *  Author:  Kushang Mistry
@@ -8,4 +10,7 @@ package Interface;
  * */
 public interface VaccineRegisterUserDAO {
 
+  Boolean registerUserVaccination(VaccineUserInformation vaccineUserInformation);
+
+  Boolean isUserRegistered(Integer userId);
 }
