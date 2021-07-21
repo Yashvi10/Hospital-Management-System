@@ -28,6 +28,7 @@ public class RegisterTestService implements RegisterTestDAO {
 
   LocalTime report_generation_time = LocalTime.now().plusHours(3);
 
+  CustomConnection customConnection = new CustomConnection();
 
   @Override
   public void registerTest() {
@@ -166,7 +167,6 @@ public class RegisterTestService implements RegisterTestDAO {
 
   @Override
   public Boolean addUserDetails() {
-    CustomConnection customConnection = new CustomConnection();
     Connection conn = customConnection.Connect();
 
     Boolean result = false;

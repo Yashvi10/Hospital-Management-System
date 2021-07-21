@@ -20,10 +20,10 @@ import java.util.List;
  * */
 public class PharmacyService implements PharmacyDAO, PharmacyUpdateStockDAO {
 
+    CustomConnection connection = new CustomConnection();
     @Override
     public List<Pharmacy> getAllMedicines()  {
 
-        CustomConnection connection = new CustomConnection();
         Connection conn = connection.Connect();
         List<Pharmacy> pharmacyList = new ArrayList<Pharmacy>();
 
@@ -59,7 +59,7 @@ public class PharmacyService implements PharmacyDAO, PharmacyUpdateStockDAO {
     @Override
     public void updateStock(String pId, Integer qty)  {
 
-        CustomConnection connection = new CustomConnection();
+//        CustomConnection connection = new CustomConnection();
         Connection conn = connection.Connect();
         Integer stock = 0;
 

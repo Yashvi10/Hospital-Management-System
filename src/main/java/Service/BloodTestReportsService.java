@@ -26,11 +26,11 @@ public class BloodTestReportsService implements BloodTestReportsDAO {
 
 
   List<BloodTestReports> bloodTestReportsList = new ArrayList<BloodTestReports>();
+  CustomConnection customConnection = new CustomConnection();
 
   @Override
   public List<BloodTestReports> bloodTestReport(Integer user_id) {
 
-    CustomConnection customConnection = new CustomConnection();
     Connection conn = customConnection.Connect();
 
     GenerateLabReports generateLabReports = new GenerateLabReports();

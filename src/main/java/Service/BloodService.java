@@ -18,9 +18,9 @@ import java.util.List;
  * */
 public class BloodService implements BloodDAO {
 
+    CustomConnection customConnection = new CustomConnection();
     @Override
     public List<BloodInventory> getAllBloodGroup() {
-        CustomConnection customConnection = new CustomConnection();
         Connection conn = customConnection.Connect();
 
         List<BloodInventory> bloodInventoryList = new ArrayList<BloodInventory>();

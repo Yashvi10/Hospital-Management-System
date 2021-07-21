@@ -16,9 +16,9 @@ import java.util.List;
  * */
 public class ListOfTestsService implements ListOfTestsDAO {
 
+  CustomConnection customConnection = new CustomConnection();
   @Override
   public List<ListOfTests> getListOfTests() {
-    CustomConnection customConnection = new CustomConnection();
     Connection conn = customConnection.Connect();
 
     List<ListOfTests> listOfTestsList = new ArrayList<ListOfTests>();

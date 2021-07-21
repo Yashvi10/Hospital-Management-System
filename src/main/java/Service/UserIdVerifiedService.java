@@ -14,9 +14,9 @@ import java.sql.Statement;
  * */
 public class UserIdVerifiedService implements UserIdVerifiedDAO {
 
+    CustomConnection connection = new CustomConnection();
     @Override
     public Boolean isUserFound(Integer user_id) {
-        CustomConnection connection = new CustomConnection();
         Connection conn = connection.Connect();
 
         Boolean result = false;

@@ -16,9 +16,9 @@ import java.util.List;
  * */
 public class GenerateLabReportsService implements GenerateLabReportsDAO {
 
+  CustomConnection customConnection = new CustomConnection();
   @Override
   public List<GenerateLabReports> generateReports(Integer user_id) {
-    CustomConnection customConnection = new CustomConnection();
     Connection conn = customConnection.Connect();
 
     List<GenerateLabReports> generateLabReportsList = new ArrayList<GenerateLabReports>();

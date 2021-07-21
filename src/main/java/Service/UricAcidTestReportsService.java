@@ -19,9 +19,9 @@ public class UricAcidTestReportsService implements UricAcidTestReportsDAO {
 
   List<UricAcidTestReports> uricAcidTestReportsList = new ArrayList<UricAcidTestReports>();
 
+  CustomConnection customConnection = new CustomConnection();
   @Override
   public List<UricAcidTestReports> uricacidReports(Integer user_id) {
-    CustomConnection customConnection = new CustomConnection();
     Connection conn = customConnection.Connect();
 
     GenerateLabReports generateLabReports = new GenerateLabReports();
