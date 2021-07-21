@@ -143,7 +143,7 @@ public class VaccinePageTest {
     /*
      * Tests the logic of gender validation
      *
-     * The method returns true as age is valid case
+     * The method returns true as gender is valid case
      */
     @Test
     void validateGender_true()
@@ -155,7 +155,7 @@ public class VaccinePageTest {
     /*
      * Tests the logic of gender validation
      *
-     * The method returns false as age is invalid
+     * The method returns false as gender is invalid
      */
     @Test
     void validateGender_false()
@@ -163,6 +163,19 @@ public class VaccinePageTest {
         VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
         assertEquals(false, vaccineRegisterBL.validateGender("99"));
     }
+
+    /*
+     * Tests the logic of governmentId validation
+     *
+     * The method returns true as governmentId is valid case
+     */
+    @Test
+    void validateGovernmentId_true()
+    {
+        VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
+        assertEquals(true, vaccineRegisterBL.validateGovernmentId("R5468569"));
+    }
+
     /*
      * Tests the logic of date validation
      *
