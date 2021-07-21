@@ -71,10 +71,10 @@ public class VaccinePageTest {
     /*
      * Tests the logic of emailId validation
      *
-     * The method returns true as date is in accepted format
+     * The method returns true as emailId is in accepted format
      */
     @Test
-    void validateDateMailId_true()
+    void validateMailId_true()
     {
         VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
         assertEquals(true, vaccineRegisterBL.validateEmailId("kush@dal.ca"));
@@ -83,13 +83,25 @@ public class VaccinePageTest {
     /*
      * Tests the logic of emailId validation
      *
-     * The method returns true as date is in accepted format
+     * The method returns false as emailId is invalid
      */
     @Test
-    void validateDateMailId_false()
+    void validateMailId_false()
     {
         VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
         assertEquals(false, vaccineRegisterBL.validateEmailId("hello123"));
+    }
+
+    /*
+     * Tests the logic of age validation
+     *
+     * The method returns true as age is in accepted format
+     */
+    @Test
+    void validateAge_true()
+    {
+        VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
+        assertEquals(true, vaccineRegisterBL.validateAge("23"));
     }
 
     /*
