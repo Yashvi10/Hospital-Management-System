@@ -1,6 +1,7 @@
 import Interface.FeatureMenu;
 import Service.OfferService;
 import Service.PharmacyService;
+import Service.VaccineService;
 
 /*
  *  Name of file: FeatureFactory.java
@@ -22,7 +23,7 @@ public class FeatureFactory {
         } else if (menuType.equalsIgnoreCase("BLOODBANK")) {
             return new BloodBank();
         } else if (menuType.equalsIgnoreCase("VACCINE")) {
-            return new VaccinePage();
+            return new VaccinePage(new VaccineBL(new VaccineService()));
         }
 
         return null;
