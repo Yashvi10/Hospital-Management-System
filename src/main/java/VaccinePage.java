@@ -1,6 +1,6 @@
 import Interface.FeatureMenu;
+import Interface.VaccineBlInterface;
 import Model.Vaccine;
-import Service.VaccineService;
 
 import java.util.InputMismatchException;
 import java.util.List;
@@ -15,33 +15,12 @@ import java.util.Scanner;
  * */
 public class VaccinePage implements FeatureMenu {
 
-    /*
-    *  1 - The method which gets vaccine information from the database
-    *      And displays it to the console.
-    *      Hence, user can get idea which vaccines are available
-    **/
-    public void getVaccineData() {
-        VaccineService vaccineService = new VaccineService();
-        List<Vaccine> vaccineList = vaccineService.getVaccines();   // Fetches and stores all vaccine information
+    private VaccineBlInterface vaccineBlInterface;
 
-        // Below are string decorators, enhanced for end user
-        System.out.println("------------------------------------------------");
-        System.out.format("%-4s%2s%-29s%5s\n", "Number", "", "Vaccine Name", "Quantity");
-        System.out.println("------------------------------------------------");
+    private List<Vaccine> vaccineList;
 
-        /*
-         *  Prints all vaccine information to the console
-         *  Proceed further only if there is vaccine data available in database
-         *  This is one of the boundary test case
-         *  Generally private methods are not to check with unit tests
-         **/
-        if (vaccineList.size() != 0) {
-            for (int i = 0; i < vaccineList.size(); i++) {
-                System.out.format("\t%-4d%-29s%5d\n", vaccineList.get(i).getVaccineId(),
-                        vaccineList.get(i).getVaccineName(), vaccineList.get(i).getAvailableDoses());
-            }
-            System.out.println("------------------------------------------------");
-        }
+    public VaccinePage(VaccineBlInterface vaccineBlInterface) {
+        this.vaccineBlInterface = vaccineBlInterface;
     }
 
     /*
@@ -54,7 +33,6 @@ public class VaccinePage implements FeatureMenu {
     // Method which is responsible to call Vaccine Menu (Sub-menu of the system)
     @Override
     public void menu() {
-        VaccinePage vaccinePage = new VaccinePage();
 
         System.out.println("\n==========================");
         System.out.println("Select options from below");
@@ -81,7 +59,27 @@ public class VaccinePage implements FeatureMenu {
             switch (userChoice) {
                 case 1 :
                     System.out.println("\nAll vaccines are as follows");
-                    vaccinePage.getVaccineData();
+                    vaccineList = vaccineBlInterface.getVaccineData();
+
+                    /*
+                     *  Prints all vaccine information to the console
+                     *  Proceed further only if there is vaccine data available in database
+                     *  This is one of the boundary test case
+                     *  Generally private methods are not to check with unit tests
+                     *
+                     *  Below are string decorators, enhanced for end user
+                     **/
+                    System.out.println("------------------------------------------------");
+                    System.out.format("%-4s%2s%-29s%5s\n", "Number", "", "Vaccine Name", "Quantity");
+                    System.out.println("------------------------------------------------");
+
+                    if (vaccineList.size() != 0) {
+                        for (int i = 0; i < vaccineList.size(); i++) {
+                            System.out.format("\t%-4d%-29s%5d\n", vaccineList.get(i).getVaccineId(),
+                                    vaccineList.get(i).getVaccineName(), vaccineList.get(i).getAvailableDoses());
+                        }
+                        System.out.println("------------------------------------------------");
+                    }
                     break;
 
                 default:
