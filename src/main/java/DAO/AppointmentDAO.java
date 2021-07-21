@@ -10,6 +10,7 @@ package DAO;
 import Model.AppointmentModel;
 
 import java.sql.SQLException;
+import java.text.ParseException;
 
 public interface AppointmentDAO {
 
@@ -19,5 +20,5 @@ public interface AppointmentDAO {
 
     void view_appointment();
 
-    Boolean reschedule_appointment();
+    Boolean reschedule_appointment() throws ParseException, SQLException;
 }

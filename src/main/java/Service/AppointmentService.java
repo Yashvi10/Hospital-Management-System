@@ -19,9 +19,8 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.Date;
-import java.util.Scanner;
 
 public class AppointmentService implements AppointmentDAO {
 
@@ -51,21 +50,27 @@ public class AppointmentService implements AppointmentDAO {
                     String appointment_time = scanner1.nextLine();
                     if (validateTime(appointment_time)) {
                         try {
-                            appointmentModel = new AppointmentModel(1, Integer.parseInt(doctor_id), appointment_date, appointment_time, "confirmed");
+                            appointmentModel = new AppointmentModel(1, Integer.parseInt(doctor_id), appointment_date, appointment_time, "confirmed", 0);
                             String SQL = "INSERT INTO CSCI5308_8_DEVINT.appointment " +
-                                    "(user_id, doctor_id, appointment_date, appointment_time, appointment_status)" +
-                                    "VALUES (?,?,?,?,?)";
+                                    "(user_id, doctor_id, appointment_date, appointment_time, appointment_status, reschedule_counts)" +
+                                    "VALUES (?,?,?,?,?,?)";
                             PreparedStatement ps = con.prepareStatement(SQL);
                             ps.setInt(1, appointmentModel.getUser_id());
                             ps.setInt(2,appointmentModel.getDoctor_id());
                             ps.setString(3, appointmentModel.getAppointment_date());
                             ps.setString(4, appointmentModel.getAppointment_time());
                             ps.setString(5, appointmentModel.getAppointment_status());
+                            ps.setInt(6, appointmentModel.getReschedule_counts());
                             ps.executeUpdate();
-                            con.close();
                             return true;
                         } catch (SQLException e) {
                             e.printStackTrace();
+                        }finally  {
+                            try  {
+                                con.close();
+                            }  catch  (SQLException throwables)  {
+                                throwables.printStackTrace();
+                            }
                         }
                     }
                 }
@@ -80,7 +85,7 @@ public class AppointmentService implements AppointmentDAO {
         Connection con = cc.Connect();
         if (con != null) {
             try {
-                String SQL = "SELECT * FROM appointment where user_id = 123 and appointment_status = 'confirmed'";
+                String SQL = "SELECT * FROM appointment where user_id = 1 and appointment_status = 'confirmed'";
                 Statement st = con.createStatement();
                 ResultSet rs = st.executeQuery(SQL);
                 if (rs != null) {
@@ -103,10 +108,15 @@ public class AppointmentService implements AppointmentDAO {
                         "WHERE appointment_id = " + appointment_id;
                 Statement st1 = con.createStatement();
                 st1.executeUpdate(SQL1);
-                con.close();
                 return true;
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
+            }finally  {
+                try  {
+                    con.close();
+                }  catch  (SQLException throwables)  {
+                    throwables.printStackTrace();
+                }
             }
 
         }
@@ -115,33 +125,6 @@ public class AppointmentService implements AppointmentDAO {
 
     @Override
     public void view_appointment() {
-        CustomConnection cc = new CustomConnection();
-        Connection con = cc.Connect();
-        if (con != null) {
-            try {
-                String SQL = "SELECT * FROM appointment where user_id = 123 and appointment_status = 'confirmed'";
-                Statement st = con.createStatement();
-                ResultSet rs = st.executeQuery(SQL);
-                if (rs != null) {
-                    System.out.println("*************************************");
-                    System.out.println(String.format("%10s", "appointment_id") + "|" +
-                            String.format("%10s", "appointment_date") + "|" +
-                            String.format("%10s", "appointment_time"));
-                    while (rs.next()) {
-                        System.out.println(String.format("%14d", rs.getInt("appointment_id")) + "|" +
-                                String.format("%16s", rs.getString("appointment_date")) + "|" +
-                                String.format("%16s", rs.getString("appointment_time")));
-                    }
-                    System.out.println("*************************************\n");
-                }
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
-        }
-    }
-
-    @Override
-    public Boolean reschedule_appointment() {
         CustomConnection cc = new CustomConnection();
         Connection con = cc.Connect();
         if (con != null) {
@@ -163,11 +146,58 @@ public class AppointmentService implements AppointmentDAO {
                 }
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
+            }finally  {
+                try  {
+                    con.close();
+                }  catch  (SQLException throwables)  {
+                    throwables.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override
+    public Boolean reschedule_appointment() throws ParseException {
+        CustomConnection cc = new CustomConnection();
+        Connection con = cc.Connect();
+        int reschedule_counts = 0;
+        Map<Integer, ArrayList<String>> appointment_details = new HashMap<>();
+        if (con != null) {
+            try {
+                String SQL = "SELECT * FROM appointment where user_id = 1 and appointment_status = 'confirmed'";
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery(SQL);
+                if (rs != null) {
+                    System.out.println("*************************************");
+                    System.out.println(String.format("%10s", "appointment_id") + "|" +
+                            String.format("%10s", "appointment_date") + "|" +
+                            String.format("%10s", "appointment_time"));
+                    while (rs.next()) {
+                        reschedule_counts = rs.getInt("reschedule_counts");
+                        ArrayList<String> arrayList = new ArrayList<>();
+                        arrayList.add(String.valueOf(reschedule_counts));
+                        arrayList.add(rs.getString("appointment_date"));
+                        appointment_details.put(rs.getInt("appointment_id"),arrayList);
+                        System.out.println(String.format("%14d", rs.getInt("appointment_id")) + "|" +
+                                String.format("%16s", rs.getString("appointment_date")) + "|" +
+                                String.format("%16s", rs.getString("appointment_time")));
+                    }
+                    System.out.println("*************************************\n");
+                }
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
             }
             System.out.println("Please enter the appointment_id for which you want to reschedule the appointment:");
             Scanner scanner = new Scanner(System.in);
             int appointment_id = scanner.nextInt();
-            if (validateAppointmentID(appointment_id)) {
+            int this_reschedule_counts = Integer.parseInt(appointment_details.get(appointment_id).get(0));
+            if (this_reschedule_counts >= 2){
+                System.out.println("Sorry you cannot reschedule anymore as you have already done it twice!");
+                return false;
+            }else{
+                this_reschedule_counts++;
+            }
+            if (validateAppointmentIDAndDate(appointment_id, appointment_details)) {
                 System.out.println("*************************************");
                 System.out.println("Please enter Appointment Date(dd-mm-yyyy): \n");
                 System.out.println("*************************************");
@@ -183,13 +213,19 @@ public class AppointmentService implements AppointmentDAO {
                             String SQL1 = "UPDATE CSCI5308_8_DEVINT.appointment " +
                                     "SET appointment_date = " + "'" + new_date + "'" +
                                     ", appointment_time = " + "'" + new_time + "'" +
+                                    ", reschedule_counts = " + "'" + this_reschedule_counts + "'" +
                                     " WHERE appointment_id = " + appointment_id + ";";
                             Statement st1 = con.createStatement();
                             st1.executeUpdate(SQL1);
-                            con.close();
                             return true;
                         } catch (SQLException e) {
                             e.printStackTrace();
+                        }finally  {
+                            try  {
+                                con.close();
+                            }  catch  (SQLException throwables)  {
+                                throwables.printStackTrace();
+                            }
                         }
                     }
                 }
@@ -198,10 +234,26 @@ public class AppointmentService implements AppointmentDAO {
         return false;
     }
 
-    public boolean validateAppointmentID(int appointment_id) {
+    public boolean validateAppointmentIDAndDate(int appointment_id, Map<Integer, ArrayList<String>> appointment_details) throws ParseException {
         CustomConnection cc = new CustomConnection();
         Connection con = cc.Connect();
         ArrayList<Integer> appointment_ids = new ArrayList<>();
+
+        //check if the current appointment date is greater than 48 hours
+        String appointment_date = appointment_details.get(appointment_id).get(1);
+
+        // Getting system timezone
+        ZoneId systemTimeZone = ZoneId.systemDefault();
+
+        // converting LocalDateTime to ZonedDateTime with the system timezone
+        ZonedDateTime zonedDateTime = LocalDate.now().plusDays(2).atStartOfDay(systemTimeZone);
+
+        // converting ZonedDateTime to Date using Date.from() and ZonedDateTime.toInstant()
+        java.util.Date date_after_2_days = java.util.Date.from(zonedDateTime.toInstant());
+        Date date1 = new SimpleDateFormat("dd-MM-yyyy").parse(appointment_date);
+        if (!date1.after(date_after_2_days)){
+            System.out.println("Sorry but you cannot reschedule your appointment before 2 days!");
+        }
         if (con != null) {
             try {
                 String SQL = "SELECT * FROM appointment";
@@ -220,9 +272,10 @@ public class AppointmentService implements AppointmentDAO {
         if (appointment_ids.contains(appointment_id)){
             return true;
         }else {
-            System.out.println("Please enter a valid Doctor Id");
+            System.out.println("Please enter a valid Appointment Id");
             return false;
-        }    }
+        }
+    }
 
     public void getDoctors() {
         CustomConnection cc = new CustomConnection();
@@ -244,9 +297,14 @@ public class AppointmentService implements AppointmentDAO {
                     }
                     System.out.println("*************************************\n");
                 }
-                con.close();
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
+            }finally  {
+                try  {
+                    con.close();
+                }  catch  (SQLException throwables)  {
+                    throwables.printStackTrace();
+                }
             }
         }
     }
@@ -265,9 +323,14 @@ public class AppointmentService implements AppointmentDAO {
                         doctor_ids.add(rs.getInt("doctor_id"));
                     }
                 }
-                con.close();
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
+            }finally  {
+                try  {
+                    con.close();
+                }  catch  (SQLException throwables)  {
+                    throwables.printStackTrace();
+                }
             }
         }
         if (doctor_ids.contains(Integer.parseInt(doctor_id))){

@@ -9,12 +9,13 @@
 import Service.AppointmentService;
 
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.Scanner;
 
 
 public class Appointments {
 
-    public void Menu() throws SQLException {
+    public void Menu() throws SQLException, ParseException {
 
         System.out.println("*************************************");
         System.out.println("Press b to Book an appointment\n" +
@@ -39,39 +40,46 @@ public class Appointments {
         }
     }
 
-    public void book_appointment() {
+    public void book_appointment() throws SQLException, ParseException {
 
         AppointmentService appointmentService = new AppointmentService();
         if (appointmentService.book_appointment()) {
             System.out.println("Appointment booked successfully!");
+            Menu();
         } else {
             System.out.println("Booking failed!");
+            Menu();
         }
     }
 
-    public void cancel_appointment() throws SQLException {
+    public void cancel_appointment() throws SQLException, ParseException {
 
         AppointmentService appointmentService = new AppointmentService();
         if (appointmentService.cancel_appointment()){
             System.out.println("Appointment cancelled successfully!");
+            Menu();
         }else {
             System.out.println("Cancellation failed!");
+            Menu();
         }
     }
 
-    public void reschedule_appointment(){
+    public void reschedule_appointment() throws SQLException, ParseException {
         AppointmentService appointmentService = new AppointmentService();
         if (appointmentService.reschedule_appointment()){
             System.out.println("Appointment rescheduled successfully!");
+            Menu();
         }else {
             System.out.println("Cancellation failed!");
+            Menu();
         }
     }
 
-    public void view_appointments(){
+    public void view_appointments() throws SQLException, ParseException {
 
         AppointmentService appointmentService = new AppointmentService();
         appointmentService.view_appointment();
+        Menu();
     }
 
     public void invalid(){

@@ -21,12 +21,15 @@ public class AppointmentModel {
 
     private String appointment_status;
 
-    public AppointmentModel(Integer user_id,Integer doctor_id, String appointment_date, String appointment_time, String appointment_status) {
+    private Integer reschedule_counts;
+
+    public AppointmentModel(Integer user_id,Integer doctor_id, String appointment_date, String appointment_time, String appointment_status, Integer reschedule_counts) {
         this.user_id = user_id;
         this.doctor_id = doctor_id;
         this.appointment_date = appointment_date;
         this.appointment_time = appointment_time;
         this.appointment_status = appointment_status;
+        this.reschedule_counts = reschedule_counts;
     }
 
     public AppointmentModel() {
@@ -78,5 +81,13 @@ public class AppointmentModel {
 
     public void setAppointment_status(String appointment_status) {
         this.appointment_status = appointment_status;
+    }
+
+    public Integer getReschedule_counts() {
+        return reschedule_counts;
+    }
+
+    public void setReschedule_counts(Integer reschedule_counts) {
+        this.reschedule_counts = reschedule_counts;
     }
 }
