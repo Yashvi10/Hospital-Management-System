@@ -8,6 +8,11 @@ import Model.Pharmacy;
 import java.util.HashMap;
 import java.util.List;
 
+/*
+ *  Name of file: PharmacyBL.java
+ *  Author:  Nadish Maredia
+ *  Purpose & Description: This class hold the business logic for pharmacy feature
+ * */
 public class PharmacyBL implements IPharmacyBL {
 
   public List<Pharmacy> listOfMedicines;

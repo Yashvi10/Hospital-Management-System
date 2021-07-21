@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /*
- *  Name of file: BL.BillingMenu.java
+ *  Name of file: BillingMenu.java
  *  Author:  Nadish Maredia
  *  Purpose & Description: This class implement the FeatureMenu and is responsible for showing
  *                          different menus related to BL.Billing module

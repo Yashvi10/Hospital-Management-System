@@ -75,7 +75,6 @@ public class RatingMenu implements FeatureMenu {
         } else if(userInput.equals("2")) {
             doctorRatingMenu();
         } else if (userInput.equals("3")) {
-            Dashboard dashboard = new Dashboard();
             dashboard.HomeMenu();
         } else {
             System.out.println(Colors.C_RED +" Please select correct option" +Colors.C_RESET);
