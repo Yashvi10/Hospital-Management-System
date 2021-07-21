@@ -177,4 +177,37 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
     }
     return result;
   }
+
+  @Override
+  public Integer getAvailableSlots(Date date) {
+    CustomConnection customConnection = new CustomConnection();
+    Connection conn = customConnection.Connect();
+
+    Integer availableSlots = null;
+
+    Date doseDate = date;
+
+    if (conn != null) {
+      String fetchQuery = "select * from vaccine_available_slots where dose_date = '" + doseDate + "';";
+      Statement queryStatement = null;
+      try {
+        queryStatement = conn.createStatement();
+        ResultSet resultSet = queryStatement.executeQuery(fetchQuery);
+
+        while (resultSet.next()) {
+          availableSlots = resultSet.getInt("available_slots");
+        }
+      } catch (SQLException exception) {
+        exception.printStackTrace();
+      } finally {
+        if (conn != null) {
+          try {
+            conn.close();
+          } catch (SQLException e) {
+          }
+        }
+      }
+    }
+    return availableSlots;
+  }
 }
