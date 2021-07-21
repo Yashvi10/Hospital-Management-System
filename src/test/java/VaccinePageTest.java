@@ -1,6 +1,7 @@
-import org.junit.jupiter.api.Test;
-import Service.VaccineService;
 import Model.Vaccine;
+import Service.VaccineRegistration;
+import Service.VaccineService;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
@@ -26,5 +27,18 @@ public class VaccinePageTest {
     {
         List<Vaccine> vaccineList = new VaccineService().getVaccines();
         assertEquals(true, vaccineList.size() > 0);
+    }
+
+    /*
+     * This method tests weather user is already registered for the vaccination or not
+     * This tests the logic, if user is already registered
+     *
+     * then the method returns 0 if which confirms user is not registered for vaccination
+     */
+    @Test
+    void checkUserRegisteredAlready()
+    {
+        VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
+        assertEquals(0, vaccineRegisterBL.checkUserRegistration(9));
     }
 }
