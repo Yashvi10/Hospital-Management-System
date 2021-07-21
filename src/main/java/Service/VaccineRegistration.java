@@ -15,10 +15,15 @@ import java.util.List;
  * */
 public class VaccineRegistration implements VaccineRegisterUserDAO {
 
+  CustomConnection customConnection = new CustomConnection();
+
+  /*
+   * This method registers user for vaccination based on information provided
+   * Returns true if user added successfully false otherwise
+   */
   @Override
   public Boolean registerUserVaccination(VaccineUserInformation vaccineUserInformation) {
 
-    CustomConnection customConnection = new CustomConnection();
     Connection conn = customConnection.Connect();
 
     if (conn != null) {
@@ -52,10 +57,13 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
     return false;
   }
 
+  /*
+   * This method retrieves vaccine registration information
+   * Returns list of Vaccine Information class object (Maximum 2 - As only two doses are allowed)
+   */
   @Override
   public List<VaccineUserInformation> getVaccinationInfo(Integer userId) {
 
-    CustomConnection customConnection = new CustomConnection();
     Connection conn = customConnection.Connect();
 
     List<VaccineUserInformation> userVaccineDetails = new ArrayList<>();
@@ -92,8 +100,12 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
     return userVaccineDetails;
   }
 
+  /*
+   * This method retrieves single vaccine information about user
+   * Returns Vaccine Information class object - In form of fist dose registration
+   */
   public VaccineUserInformation getUserVaccineData(Integer userId) {
-    CustomConnection customConnection = new CustomConnection();
+
     Connection conn = customConnection.Connect();
 
     VaccineUserInformation userVaccineInformation = null;
