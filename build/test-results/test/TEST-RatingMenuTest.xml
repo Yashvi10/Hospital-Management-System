@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="RatingMenuTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2021-07-21T00:07:23" hostname="DESKTOP-IC8LASV" time="0.007">
+  <properties/>
+  <testcase name="isRequired_true()" classname="RatingMenuTest" time="0.002"/>
+  <testcase name="isNumber_true()" classname="RatingMenuTest" time="0.001"/>
+  <testcase name="isValidRating_false()" classname="RatingMenuTest" time="0.001"/>
+  <testcase name="lengthBelow500_false()" classname="RatingMenuTest" time="0.0"/>
+  <testcase name="isNumber_false()" classname="RatingMenuTest" time="0.0"/>
+  <testcase name="lengthBelow500_true()" classname="RatingMenuTest" time="0.0"/>
+  <testcase name="isValidRating_true()" classname="RatingMenuTest" time="0.001"/>
+  <testcase name="isRequired_false()" classname="RatingMenuTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

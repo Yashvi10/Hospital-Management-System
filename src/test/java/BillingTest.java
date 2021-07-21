@@ -1,4 +1,4 @@
-import BL.Billing;
+import View.Billing;
 import Interface.BillingOrderDAO;
 import Interface.BillingOrderItemDAO;
 import Service.BillingService;

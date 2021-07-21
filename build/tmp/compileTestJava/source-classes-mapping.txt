@@ -6,9 +6,9 @@ BloodBankTest.java
  BloodBankTest
 PharmacyPageTest.java
  PharmacyPageTest
+BillingPageTest.java
+ BillingPageTest
 ManageProfileTest.java
  ManageProfileTest
 userManagementTest.java
  userManagementTest
-BillingPageTest.java
- BillingPageTest

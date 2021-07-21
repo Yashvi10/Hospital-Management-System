@@ -1,4 +1,4 @@
-import BL.BloodBank;
+import View.BloodBank;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
