@@ -8,7 +8,7 @@ import java.util.List;
  *  Description: The Interface is responsible for DB operations related User Registration for Vaccination
  *  Purpose: An Interface having methods of Business Logic to Register User for vaccination
  * */
-public interface VaccineBlInterface {
+public interface VaccineBlDAO {
 
   List<Vaccine> getVaccineData();
 }

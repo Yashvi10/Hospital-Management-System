@@ -22,7 +22,7 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
     Connection conn = customConnection.Connect();
 
     if (conn != null) {
-      String SQL = "insert into vaccination_patients(userId, mail_id, age, gender, government_id_number, preferred_next_date, preferred_timing) " +
+      String insertQuery = "insert into vaccination_patients(userId, mail_id, age, gender, government_id_number, preferred_next_date, preferred_timing) " +
               "values(" + vaccineUserInformation.getUserId() + ",'" + vaccineUserInformation.getMailId()
               +"'," + vaccineUserInformation.getAge() + ",'" + vaccineUserInformation.getGender()
               +"','" + vaccineUserInformation.getGovernmentId() + "','" + vaccineUserInformation.getPreferredDate()
@@ -31,7 +31,7 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
       Statement statement = null;
       try {
         statement = conn.createStatement();
-        statement.executeUpdate(SQL);
+        statement.executeUpdate(insertQuery);
         conn.close();
 
         return true;

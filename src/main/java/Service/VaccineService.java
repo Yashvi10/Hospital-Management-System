@@ -18,43 +18,41 @@ import java.util.List;
  * */
 public class VaccineService implements VaccineDAO {
 
-    @Override
-    public List<Vaccine> getVaccines() {
+  @Override
+  public List<Vaccine> getVaccines() {
 
-        CustomConnection customConnection = new CustomConnection();
-        Connection dbConnection = customConnection.Connect();
+    CustomConnection customConnection = new CustomConnection();
+    Connection conn = customConnection.Connect();
 
-        List<Vaccine> vaccineList = new ArrayList<Vaccine>();
+    List<Vaccine> vaccineList = new ArrayList<Vaccine>();
 
-        if(dbConnection != null) {
-            String fetchQuery = "select * from vaccine";
-            Statement queryStatement = null;
-            try {
-                queryStatement = dbConnection.createStatement();
-                ResultSet resultSet = queryStatement.executeQuery(fetchQuery);
+    if (conn != null) {
+      String fetchQuery = "select * from vaccine";
+      Statement queryStatement = null;
+      try {
+        queryStatement = conn.createStatement();
+        ResultSet resultSet = queryStatement.executeQuery(fetchQuery);
 
-                while (resultSet.next()) {
-                    Integer vaccineId = resultSet.getInt(1);
-                    String vaccineName = resultSet.getString(2);
-                    Integer availableDoses = resultSet.getInt(3);
+        while (resultSet.next()) {
+          Integer vaccineId = resultSet.getInt(1);
+          String vaccineName = resultSet.getString(2);
+          Integer availableDoses = resultSet.getInt(3);
 
-                    Vaccine vaccineData = new Vaccine(vaccineId, vaccineName, availableDoses);
-                    vaccineList.add(vaccineData);
-                }
-            }
-            catch (SQLException exception) {
-                exception.printStackTrace();
-            }
-            finally {
-                if (dbConnection != null) {
-                    try {
-                        dbConnection.close();
-                    } catch (SQLException e) {}
-                    dbConnection = null;
-                }
-            }
+          Vaccine vaccineData = new Vaccine(vaccineId, vaccineName, availableDoses);
+          vaccineList.add(vaccineData);
         }
-
-        return vaccineList;
+      } catch (SQLException exception) {
+        exception.printStackTrace();
+      } finally {
+        if (conn != null) {
+          try {
+            conn.close();
+          } catch (SQLException e) {
+          }
+        }
+      }
     }
+
+    return vaccineList;
+  }
 }
