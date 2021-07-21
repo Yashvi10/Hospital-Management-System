@@ -177,6 +177,18 @@ public class VaccinePageTest {
     }
 
     /*
+     * Tests the logic of governmentId validation
+     *
+     * The method returns true as governmentId is valid case
+     */
+    @Test
+    void validateGovernmentId_false()
+    {
+        VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
+        assertEquals(false, vaccineRegisterBL.validateGovernmentId("Ab-@956"));
+    }
+
+    /*
      * Tests the logic of date validation
      *
      * The method returns true as date is in accepted format
