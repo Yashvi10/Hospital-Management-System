@@ -109,42 +109,60 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
 
     String mailId=null;
 
-    String regex = "^(.+)@(.+)$";
-    Pattern pattern = Pattern.compile(regex);
-    Matcher matcher;
-
     userInput = new Scanner(System.in);
     System.out.println("Enter your MailID: ");
     mailId = userInput.next();
 
     mailId = mailId.trim().toLowerCase();
-    matcher = pattern.matcher(mailId);
 
-    if(!matcher.matches())
-      return null;
-    else
+    if(validateEmailId(mailId))
       return mailId;
+    else
+      return null;
+  }
+
+  public Boolean validateEmailId(String emailId) {
+
+    String regex = "^(.+)@(.+)$";
+    Pattern pattern = Pattern.compile(regex);
+    Matcher matcher;
+
+    matcher = pattern.matcher(emailId);
+
+    if(matcher.matches())
+      return true;
+    else
+      return false;
   }
 
   private Integer getAge() {
 
     String age=null;
 
-    String regex = "^(?:[1-9][0-9]?|1[01][0-9]|120)$";
-    Pattern pattern = Pattern.compile(regex);
-    Matcher matcher;
-
     userInput = new Scanner(System.in);
     System.out.println("Enter your Age: ");
     age = userInput.next();
 
     age = age.trim();
+
+    if(validateAge(age))
+      return Integer.parseInt(age);
+    else
+      return null;
+  }
+
+  public Boolean validateAge(String age) {
+
+    String regex = "^(?:[1-9][0-9]?|1[01][0-9]|120)$";
+    Pattern pattern = Pattern.compile(regex);
+    Matcher matcher;
+
     matcher = pattern.matcher(age);
 
-    if(!matcher.matches())
-      return null;
+    if(matcher.matches())
+      return true;
     else
-      return Integer.parseInt(age);
+      return false;
   }
 
   private String getGender() {
