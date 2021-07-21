@@ -23,7 +23,7 @@ public interface VaccineRegisterUserDAO {
 
   Integer getAvailableSlots(Date date);
 
-  /*Boolean updateVaccineDoses(String vaccineId);
+  Boolean updateVaccineDoses(Integer vaccineId);
 
-  Integer getTotalVaccineDoses(String vaccineId);*/
+  //Integer getTotalVaccineDoses(Integer vaccineId);
 }

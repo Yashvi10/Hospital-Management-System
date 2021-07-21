@@ -210,4 +210,38 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
     }
     return availableSlots;
   }
+
+  @Override
+  public Boolean updateVaccineDoses(Integer vaccineId) {
+    CustomConnection customConnection = new CustomConnection();
+    Connection conn = customConnection.Connect();
+
+    Boolean result = false;
+
+    Integer vaccineIdToFetch = vaccineId;
+
+    if(conn != null) {
+      String SQL = "update CSCI5308_8_DEVINT.vaccine SET available_doses=available_doses - 1 where vaccine_id = '" + vaccineIdToFetch + "';";
+      Statement statement = null;
+      try {
+        statement = conn.createStatement();
+        statement.executeUpdate(SQL);
+        conn.close();
+        result = true;
+        return result;
+
+      } catch (SQLException exception) {
+        exception.printStackTrace();
+      } finally {
+        if (conn != null) {
+          try {
+            conn.close();
+          } catch (SQLException e) {
+          }
+        }
+      }
+    }
+    return result;
+  }
+
 }
