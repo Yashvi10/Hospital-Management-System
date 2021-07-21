@@ -244,4 +244,36 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
     return result;
   }
 
+  @Override
+  public Integer getTotalVaccineDoses(Integer vaccineId) {
+    CustomConnection customConnection = new CustomConnection();
+    Connection conn = customConnection.Connect();
+
+    Integer availableDoses = null;
+
+    Integer vaccineIdToFetch = vaccineId;
+
+    if (conn != null) {
+      String fetchQuery = "select * from vaccine where vaccine_id = '" + vaccineIdToFetch + "';";
+      Statement queryStatement = null;
+      try {
+        queryStatement = conn.createStatement();
+        ResultSet resultSet = queryStatement.executeQuery(fetchQuery);
+
+        while (resultSet.next()) {
+          availableDoses = resultSet.getInt("available_slots");
+        }
+      } catch (SQLException exception) {
+        exception.printStackTrace();
+      } finally {
+        if (conn != null) {
+          try {
+            conn.close();
+          } catch (SQLException e) {
+          }
+        }
+      }
+    }
+    return availableDoses;
+  }
 }

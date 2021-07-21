@@ -25,5 +25,5 @@ public interface VaccineRegisterUserDAO {
 
   Boolean updateVaccineDoses(Integer vaccineId);
 
-  //Integer getTotalVaccineDoses(Integer vaccineId);
+  Integer getTotalVaccineDoses(Integer vaccineId);
 }
