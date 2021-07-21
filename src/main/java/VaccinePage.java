@@ -2,7 +2,9 @@ import Interface.FeatureMenu;
 import Interface.VaccineBLInterface;
 import Interface.VaccineRegistrationBLInterface;
 import Model.Vaccine;
+import Model.VaccineUserInformation;
 
+import java.sql.Date;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -88,7 +90,13 @@ public class VaccinePage implements FeatureMenu {
           break;
 
         case 2 :
-          System.out.printf("");
+          System.out.printf(" Welcome to registration of Vaccine");
+          Date date=Date.valueOf("2021-07-20");
+          VaccineUserInformation vaccineUserInformation = new VaccineUserInformation(2, "nadish@dal.ca",
+                  23, "M1ale", "S123456", date, "Morning");
+
+          Boolean result = vaccineRegistrationBlInterface.registerUserVaccine(vaccineUserInformation);
+          System.out.printf("Result is: "+result);
           break;
 
         default:
