@@ -1,14 +1,7 @@
-import Interface.IRegistration;
-import Model.User;
-import Service.ManageProfile;
-import Service.UserManagement;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ManageProfileTest {
 
-    private static final String firstName="Elaine";
+    /*private static final String firstName="Elaine";
     private static final String lastName="MacDonald";
     private static final String address="50 Hamshore Street";
     private static final String phone="903458712";
@@ -31,6 +24,6 @@ public class ManageProfileTest {
     @Test
     public void updatePasswordSame_Test () {
         assertEquals(profileObj.resetPassword(myUser), "Password Updated");
-    }
+    }*/
 
 }
