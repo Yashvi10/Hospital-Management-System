@@ -1,12 +1,12 @@
-Model/AppointmentModel.java
- Model.AppointmentModel
 Service/CustomConnection.java
  Service.CustomConnection
 DAO/AppointmentDAO.java
  DAO.AppointmentDAO
-Service/AppointmentService.java
- Service.AppointmentService
+Model/AppointmentModel.java
+ Model.AppointmentModel
 Main.java
  Main
 Appointments.java
  Appointments
+Service/AppointmentService.java
+ Service.AppointmentService

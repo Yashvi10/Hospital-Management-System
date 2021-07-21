@@ -7,14 +7,13 @@
  * */
 package Model;
 
-import java.time.LocalTime;
-import java.util.Date;
-
 public class AppointmentModel {
 
     private Integer appointment_id;
 
     private Integer user_id;
+
+    private Integer doctor_id;
 
     private String appointment_date;
 
@@ -22,8 +21,9 @@ public class AppointmentModel {
 
     private String appointment_status;
 
-    public AppointmentModel(Integer user_id, String appointment_date, String appointment_time, String appointment_status) {
+    public AppointmentModel(Integer user_id,Integer doctor_id, String appointment_date, String appointment_time, String appointment_status) {
         this.user_id = user_id;
+        this.doctor_id = doctor_id;
         this.appointment_date = appointment_date;
         this.appointment_time = appointment_time;
         this.appointment_status = appointment_status;
@@ -46,6 +46,14 @@ public class AppointmentModel {
 
     public void setUser_id(Integer user_id) {
         this.user_id = user_id;
+    }
+
+    public Integer getDoctor_id() {
+        return doctor_id;
+    }
+
+    public void setDoctor_id(Integer doctor_id) {
+        this.doctor_id = doctor_id;
     }
 
     public String getAppointment_date() {

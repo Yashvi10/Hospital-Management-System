@@ -49,25 +49,35 @@ public class Appointments {
 
     public void book_appointment() {
 
+        AppointmentService appointmentService = new AppointmentService();
+        appointmentService.getDoctors();
         System.out.println("*************************************");
-        System.out.println("Please enter Appointment Date(dd-mm-yyyy): \n");
+        System.out.println("Please enter Doctor Id for whom you want to book appointment: \n");
         System.out.println("*************************************");
         Scanner scanner = new Scanner(System.in);
-        String appointment_date = scanner.nextLine();
-        if (validateDate(appointment_date)){
+        String doctor_id = scanner.nextLine();
+        if (appointmentService.validateDoctorID(doctor_id)) {
             System.out.println("*************************************");
-            System.out.println("Please enter Appointment Time(hh:mm): \n");
+            System.out.println("Please enter Appointment Date(dd-mm-yyyy): \n");
             System.out.println("*************************************");
-            String appointment_time = scanner.nextLine();
-            if (validateTime(appointment_time)) {
-                AppointmentService appointmentService = new AppointmentService();
-                AppointmentModel appointment = new AppointmentModel(123, appointment_date, appointment_time, "confirmed");
-                if (appointmentService.book_appointment(appointment)) {
-                    System.out.println("Appointment booked successfully!");
-                } else {
-                    System.out.println("Booking failed!");
+            Scanner scanner1 = new Scanner(System.in);
+            String appointment_date = scanner1.nextLine();
+            if (validateDate(appointment_date)) {
+                System.out.println("*************************************");
+                System.out.println("Please enter Appointment Time(hh:mm): \n");
+                System.out.println("*************************************");
+                String appointment_time = scanner1.nextLine();
+                if (validateTime(appointment_time)) {
+                    AppointmentModel appointment = new AppointmentModel(1, Integer.parseInt(doctor_id), appointment_date, appointment_time, "confirmed");
+                    if (appointmentService.book_appointment(appointment)) {
+                        System.out.println("Appointment booked successfully!");
+                    } else {
+                        System.out.println("Booking failed!");
+                    }
                 }
             }
+        }else {
+            System.out.println("Please enter a valid doctor id!");
         }
     }
 
@@ -121,7 +131,6 @@ public class Appointments {
                 .withResolverStyle(ResolverStyle.STRICT);
         try {
             LocalTime.parse(appointment_time,strictTimeFormatter);
-            System.out.println("Please imput a valid time!");
             return true;
         } catch (DateTimeParseException | NullPointerException e) {
             System.out.println("Please enter a valid time in the given format!");
