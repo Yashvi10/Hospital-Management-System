@@ -100,10 +100,12 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
     return userVaccineDetails;
   }
 
+
   /*
    * This method retrieves single vaccine information about user
    * Returns Vaccine Information class object - In form of fist dose registration
    */
+  @Override
   public VaccineUserInformation getUserVaccineData(Integer userId) {
 
     Connection conn = customConnection.Connect();
@@ -139,5 +141,38 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
       }
     }
     return userVaccineInformation;
+  }
+
+  @Override
+  public Boolean updateSlotAvailability(Date date) {
+    CustomConnection customConnection = new CustomConnection();
+    Connection conn = customConnection.Connect();
+
+    Boolean result = false;
+
+    Date changeDate = date;
+
+    if(conn != null) {
+      String SQL = "update CSCI5308_8_DEVINT.vaccine_available_slots SET available_slots=available_slots - 1 where dose_date = '" + changeDate + "';";
+      Statement statement = null;
+      try {
+        statement = conn.createStatement();
+        statement.executeUpdate(SQL);
+        conn.close();
+        result = true;
+        return result;
+
+      } catch (SQLException exception) {
+        exception.printStackTrace();
+      } finally {
+        if (conn != null) {
+          try {
+            conn.close();
+          } catch (SQLException e) {
+          }
+        }
+      }
+    }
+    return result;
   }
 }
