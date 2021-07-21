@@ -153,6 +153,17 @@ public class VaccinePageTest {
     }
 
     /*
+     * Tests the logic of gender validation
+     *
+     * The method returns false as age is invalid
+     */
+    @Test
+    void validateGender_false()
+    {
+        VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
+        assertEquals(false, vaccineRegisterBL.validateGender("99"));
+    }
+    /*
      * Tests the logic of date validation
      *
      * The method returns true as date is in accepted format
