@@ -122,8 +122,14 @@ public class RegisterTestService implements RegisterTestDAO {
       System.out.println("Email id cannot have any other special characters except @ and .");
     }
 
-    System.out.println("Enter gender: ");
+    System.out.println("Enter gender(Male(M)/Female(F)/Transgender(T)): ");
     String gender = input.nextLine();
+
+    if(gender.equalsIgnoreCase("M") || gender.equalsIgnoreCase("F") || gender.equalsIgnoreCase("T")){
+    } else {
+      System.out.println("Invalid input");
+      return;
+    }
 
     if (gender.matches("^[0-9]")) {
       System.out.println("Your input is not valid");
@@ -137,16 +143,16 @@ public class RegisterTestService implements RegisterTestDAO {
 
     LocalDate date_of_test = LocalDate.now();
     LocalDate report_generation_date = LocalDate.now().plusDays(1);
+
     registerTest = new RegisterTest(test_id, user_id, firstname, lastname, test_name, contact, email, gender, date_of_test.toString(), report_generation_date.toString(),time_of_test.toString(),report_generation_time.toString());
 
     System.out.println("Do you want report on the same day?\nPress Y for Yes\nPress N for No");
     Scanner input = new Scanner(System.in);
     String str = input.next();
     if(str.equals("Y") || str.equals("y")) {
-      System.out.println("Scheduleerrr");
       scheduler();
     } else if(str.equals("N") || str.equals("n")){
-      System.out.println("Your report will be generated on: " +report_generation_date  +"."+ "You can be download it from Generate Report Tab!");
+      System.out.println("Your report will be generated on: " +report_generation_date  +"."+ "You can be check it from Generate Report Tab!");
       addUserDetails();
     } else {
       System.out.println("Invalid input! Press Yes or No.");
@@ -186,7 +192,7 @@ public class RegisterTestService implements RegisterTestDAO {
   @Override
   public Boolean scheduler() {
 
-    System.out.println("Your report will be generated on: " +report_generation_time  +"."+ "You can be download it from Generate Report Tab!");
+    System.out.println("Your report will be generated on: " +report_generation_time  +"."+ "You can be check it from Generate Report Tab!");
 
     CustomConnection customConnection = new CustomConnection();
     Connection conn = customConnection.Connect();

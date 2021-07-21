@@ -13,10 +13,6 @@ import java.util.List;
 
 public class GenerateLabReportsService implements GenerateLabReportsDAO {
 
-//  public GenerateLabReportsService(GenerateLabReports generateLabReports) {
-//    this.generateLabReports = generateLabReports;
-//  }
-
   @Override
   public List<GenerateLabReports> generateReports(Integer user_id) {
     CustomConnection customConnection = new CustomConnection();
@@ -50,14 +46,13 @@ public class GenerateLabReportsService implements GenerateLabReportsDAO {
         }
       } catch (SQLException throwables) {
         throwables.printStackTrace();
+      } finally {
+        try {
+          conn.close();
+        } catch (SQLException throwables) {
+          throwables.printStackTrace();
+        }
       }
-//      finally {
-//        try {
-//          conn.close();
-//        } catch (SQLException throwables) {
-//          throwables.printStackTrace();
-//        }
-//      }
     }
     return generateLabReportsList;
   }

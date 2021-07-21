@@ -47,7 +47,6 @@ public class BloodTestReportsService implements BloodTestReportsDAO {
           BloodTestReports bloodTestReports = new BloodTestReports(test_id, uid,blood_group,white_blood_cell,platelet_count,red_blood_cell,
                   hemoglobin,hematocrit);
           bloodTestReportsList.add(bloodTestReports);
-//          generatePDF(bloodTestReportsList.toString());
         }
       } catch (SQLException throwables) {
         throwables.printStackTrace();
