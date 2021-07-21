@@ -24,6 +24,7 @@ public class Dashboard implements IDashboard {
         System.out.println("Press 3 for blood bank");
         System.out.println("Press 4 for laboratory");
         System.out.println("Press 5 for feedback and rating");
+        System.out.println("Press 6 for appointments");
         String userInput = scanner.nextLine();
 
         FeatureFactory featureFactory = new FeatureFactory();
@@ -40,8 +41,11 @@ public class Dashboard implements IDashboard {
         }else if (userInput.equals("4")) {
             FeatureMenu featureMenu = featureFactory.getMenu(Constant.LABORATORY_MENU);
             featureMenu.menu();
-        }else if (userInput.equals("5")) {
+        } else if (userInput.equals("5")) {
             FeatureMenu featureMenu = featureFactory.getMenu(Constant.FEEDBACK_MENU);
+            featureMenu.menu();
+        } else if (userInput.equals("6")) {
+            FeatureMenu featureMenu = featureFactory.getMenu(Constant.APPOINTMENT_MENU);
             featureMenu.menu();
         } else {
             System.out.println("Please select correct option");
