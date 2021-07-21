@@ -44,7 +44,20 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
   public VaccineUserInformation getUserDetails(Integer userId) {
     VaccineUserInformation vaccineUserInformation = vaccineRegisterUserDAO.getUserVaccineData(userId);
 
+    if(vaccineUserInformation != null) {
+      Date date = getDate();
+      if (date == null)
+        return null;
 
+      String preferredTiming = getPreferredTiming();
+      if (preferredTiming == null)
+        return null;
+
+      vaccineUserInformation.setPreferredDate(date);
+      vaccineUserInformation.setPreferredTiming(preferredTiming);
+
+      return vaccineUserInformation;
+    }
     return null;
   }
 
