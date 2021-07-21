@@ -128,6 +128,17 @@ public class VaccinePageTest {
         assertEquals(false, vaccineRegisterBL.validateAge("-10"));
     }
 
+    /*
+     * Tests the logic of age validation
+     *
+     * The method returns false as age is invalid
+     */
+    @Test
+    void validateAge_false_zero()
+    {
+        VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
+        assertEquals(false, vaccineRegisterBL.validateAge("0"));
+    }
 
     /*
      * Tests the logic of date validation
