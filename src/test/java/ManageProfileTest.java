@@ -23,14 +23,14 @@ public class ManageProfileTest {
     UserManagement user =new UserManagement(db.Connect());
     ManageProfile profileObj=new ManageProfile(db.Connect());
 
-    @Test
-    public void updateProfileTest() {
-        assertEquals(profileObj.updateProfile (myUser), "Record Updated");
-    }
-
-    @Test
-    public void updatePasswordSame_Test () {
-        assertEquals(profileObj.resetPassword(myUser), "Password Updated");
-    }
+//    @Test
+//    public void updateProfileTest() {
+//        assertEquals(profileObj.updateProfile (myUser), "Record Updated");
+//    }
+//
+//    @Test
+//    public void updatePasswordSame_Test () {
+//        assertEquals(profileObj.resetPassword(myUser), "Password Updated");
+//    }
 
 }
