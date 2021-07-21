@@ -46,6 +46,11 @@ public class ManageProfile {
                 try { conn.close(); } catch (SQLException sqlEx) { sqlEx.getMessage();}
                 conn = null;
             }
+            try {
+                conn.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
         }
 
         return response;
@@ -81,6 +86,11 @@ public class ManageProfile {
             if (conn != null) {
                 try { conn.close(); } catch (SQLException sqlEx) { sqlEx.getMessage();}
                 conn = null;
+            }
+            try {
+                conn.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
             }
         }
 

@@ -2,18 +2,26 @@ Interface/UserIdVerifiedDAO.java
  Interface.UserIdVerifiedDAO
 View/Billing.java
  View.Billing
+Service/RatingService.java
+ Service.RatingService
 Interface/OfferValidDAO.java
  Interface.OfferValidDAO
 Model/Pharmacy.java
  Model.Pharmacy
+Interface/DoctorRatingDAO.java
+ Interface.DoctorRatingDAO
 Interface/OfferDAO.java
  Interface.OfferDAO
 Interface/IDashboard.java
  Interface.IDashboard
+Service/CustomConnection.java
+ Service.CustomConnection
+Service/BloodDonorService.java
+ Service.BloodDonorService
 Model/BloodDonor.java
  Model.BloodDonor
-Service/BloodService.java
- Service.BloodService
+Interface/BloodDonorDAO.java
+ Interface.BloodDonorDAO
 Interface/BloodDAO.java
  Interface.BloodDAO
 View/Dashboard.java
@@ -26,54 +34,78 @@ View/BillingMenu.java
  View.BillingMenu
 Service/UserSession.java
  Service.UserSession
+Service/OfferService.java
+ Service.OfferService
 Model/Doctors.java
  Model.Doctors
-Service/ManageProfile.java
- Service.ManageProfile
+Service/DoctorRatingService.java
+ Service.DoctorRatingService
+Service/UserIdVerifiedService.java
+ Service.UserIdVerifiedService
+Model/BloodInventory.java
+ Model.BloodInventory
 Service/UserManagement.java
  Service.UserManagement
-Service/RatingService.java
- Service.RatingService
+Model/User.java
+ Model.User
 Model/DoctorRating.java
  Model.DoctorRating
 Interface/OrderDAO.java
  Interface.OrderDAO
-View/UserManagementPage.java
- View.UserManagementPage
+Service/PharmacyService.java
+ Service.PharmacyService
 Model/Feedback.java
  Model.Feedback
-Service/UserIdVerifiedService.java
- Service.UserIdVerifiedService
+Service/ManageProfile.java
+ Service.ManageProfile
+Model/BloodRequester.java
+ Model.BloodRequester
 Model/Offers.java
  Model.Offers
 View/Constant.java
  View.Constant
+Service/BloodRequesterService.java
+ Service.BloodRequesterService
 Model/CartItem.java
  Model.CartItem
-Service/OfferService.java
- Service.OfferService
+View/BillingMenuPage.java
+ View.BillingMenuPage
 Interface/IPharmacyBL.java
  Interface.IPharmacyBL
 Interface/BillingOrderDAO.java
  Interface.BillingOrderDAO
-View/Colors.java
- View.Colors
 Service/OrderService.java
  Service.OrderService
+View/UserManagementPage.java
+ View.UserManagementPage
+Model/Order.java
+ Model.Order
+View/CustomPDF.java
+ View.CustomPDF
+Interface/BloodRequesterDAO.java
+ Interface.BloodRequesterDAO
+View/Colors.java
+ View.Colors
+Interface/FeatureMenu.java
+ Interface.FeatureMenu
 Interface/PharmacyDAO.java
  Interface.PharmacyDAO
+Service/BillingService.java
+ Service.BillingService
 Interface/PharmacyUpdateStockDAO.java
  Interface.PharmacyUpdateStockDAO
 Interface/RatingDAO.java
  Interface.RatingDAO
+Interface/IRegistration.java
+ Interface.IRegistration
 View/PharmacyMenu.java
  View.PharmacyMenu
 Model/OrderItem.java
  Model.OrderItem
-Service/DoctorRatingService.java
- Service.DoctorRatingService
-Service/PharmacyService.java
- Service.PharmacyService
+View/RatingMenu.java
+ View.RatingMenu
+Starter.java
+ Starter
 Interface/BillingOrderItemDAO.java
  Interface.BillingOrderItemDAO
 Model/AppointmentModel.java
@@ -82,39 +114,51 @@ BL/PharmacyBL.java
  BL.PharmacyBL
 View/BloodBank.java
  View.BloodBank
-Interface/BloodRequesterDAO.java
- Interface.BloodRequesterDAO
-Model/BloodInventory.java
- Model.BloodInventory
-Interface/FeatureMenu.java
- Interface.FeatureMenu
-Service/BillingService.java
- Service.BillingService
-Model/Order.java
- Model.Order
-View/CustomPDF.java
- View.CustomPDF
-Model/User.java
- Model.User
-Model/BloodRequester.java
- Model.BloodRequester
-Interface/BloodDonorDAO.java
- Interface.BloodDonorDAO
-View/BillingMenuPage.java
- View.BillingMenuPage
-Starter.java
- Starter
-Service/CustomConnection.java
- Service.CustomConnection
-Interface/DoctorRatingDAO.java
- Interface.DoctorRatingDAO
-View/RatingMenu.java
- View.RatingMenu
-Interface/IRegistration.java
- Interface.IRegistration
-Service/BloodDonorService.java
- Service.BloodDonorService
+Service/BloodService.java
+ Service.BloodService
+View/Laboratory.java
+ View.Laboratory
+Interface/VitaminDTestReportsDAO.java
+ Interface.VitaminDTestReportsDAO
+Model/BloodTestReports.java
+ Model.BloodTestReports
+Service/UrineTestReportsService.java
+ Service.UrineTestReportsService
+Model/UricAcidTestReports.java
+ Model.UricAcidTestReports
+Service/VitaminDTestReportsService.java
+ Service.VitaminDTestReportsService
+Model/VitaminDTestReports.java
+ Model.VitaminDTestReports
+Model/UrineTestReports.java
+ Model.UrineTestReports
+Model/GenerateLabReports.java
+ Model.GenerateLabReports
+Model/ListOfTests.java
+ Model.ListOfTests
+Service/ListOfTestsService.java
+ Service.ListOfTestsService
+Interface/UrineTestReportsDAO.java
+ Interface.UrineTestReportsDAO
+Model/RegisterTest.java
+ Model.RegisterTest
+Interface/UricAcidTestReportsDAO.java
+ Interface.UricAcidTestReportsDAO
 View/FeatureFactory.java
  View.FeatureFactory
-Service/BloodRequesterService.java
- Service.BloodRequesterService
+Service/BloodTestReportsService.java
+ Service.BloodTestReportsService
+Interface/RegisterTestDAO.java
+ Interface.RegisterTestDAO
+Interface/ListOfTestsDAO.java
+ Interface.ListOfTestsDAO
+Interface/BloodTestReportsDAO.java
+ Interface.BloodTestReportsDAO
+Service/UricAcidTestReportsService.java
+ Service.UricAcidTestReportsService
+Service/RegisterTestService.java
+ Service.RegisterTestService
+Service/GenerateLabReportsService.java
+ Service.GenerateLabReportsService
+Interface/GenerateLabReportsDAO.java
+ Interface.GenerateLabReportsDAO

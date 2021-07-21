@@ -23,6 +23,9 @@ public class FeatureFactory {
             return new BillingMenu(new Dashboard());
         } else if (menuType.equalsIgnoreCase(Constant.BLOODBANK_MENU)) {
             return new BloodBank();
+        } else if (menuType.equalsIgnoreCase(Constant.LABORATORY_MENU)) {
+            return new Laboratory(new ListOfTestsService(), new RegisterTestService(), new GenerateLabReportsService(),
+                    new BloodTestReportsService(), new VitaminDTestReportsService(), new UricAcidTestReportsService(), new UrineTestReportsService());
         } else if (menuType.equalsIgnoreCase(Constant.FEEDBACK_MENU)) {
             return new RatingMenu(new UserIdVerifiedService(), new RatingService(), new DoctorRatingService(), new Dashboard());
         }
