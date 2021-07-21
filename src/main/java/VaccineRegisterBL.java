@@ -2,6 +2,8 @@ import Interface.VaccineRegisterUserDAO;
 import Interface.VaccineRegistrationBLInterface;
 import Model.VaccineUserInformation;
 
+import java.util.List;
+
 /*
  *  Name of file: VaccineRegisterBL.java
  *  Author:  Kushang Mistry
@@ -25,7 +27,11 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
       return false;
   }
 
-  public Boolean isUserRegistered() {
-    return false;
+  public Boolean isUserRegistered(Integer userId) {
+    List<VaccineUserInformation> userInformation = vaccineRegisterUserDAO.getUserInfo(userId);
+    if(userInformation.size() > 0)
+      return true;
+    else
+      return false;
   }
 }

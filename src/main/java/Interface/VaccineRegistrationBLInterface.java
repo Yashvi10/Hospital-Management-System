@@ -12,6 +12,5 @@ public interface VaccineRegistrationBLInterface {
 
   Boolean registerUserVaccine(VaccineUserInformation vaccineUserInformation);
 
-  Boolean isUserRegistered();
-
+  Boolean isUserRegistered(Integer userId);
 }
