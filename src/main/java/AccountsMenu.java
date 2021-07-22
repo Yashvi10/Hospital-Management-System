@@ -32,43 +32,37 @@ public class AccountsMenu extends ManageAccountService implements FeatureMenu, I
     List<List<String>> rows;
 
     System.out.println("******Accounts Menu******");
-    //System.out.println("Press 1: Income\nPress 2: Expense\nPress 0: Exit");
-    //accType = sc.nextLine();
-    //System.out.println("Press 1: View Expenses\nPress 2: Add Expenses\nPress 3: Delete Expenses ");
-
     do {
       System.out.println("Press 1: Income\nPress 2: Expense\nPress 0: Exit");
       accType = sc.nextInt();
-      System.out.println("Press 1: View Expenses\nPress 2: Add Expenses\nPress 3: Delete Expenses ");
-      menuOption= sc.nextInt();
-      //accType = AccountType();
       switch (accType) {
         case 1:
-          //ViewIncome ();
           rows= new ArrayList<>();
           rows=getIncome();
           printRecord(rows);
           break;
         case 2:
-          //menuOption = MenuOption();
+          do{
+          System.out.println("Press 1: View Expenses\nPress 2: Add Expenses\nPress 3: Delete Expenses\nPress 0: Exit" );
+          menuOption= sc.nextInt();
           switch(menuOption) {
             case 1:
-              //ViewExpense();
               rows= new ArrayList<>();
               rows= getExpenses();
               printRecord(rows);
               break;
             case 2:
-              //SaveExpense(account);
               printOutput(addExpense(account));
               break;
-            case 3:
-              //Delete(account);
+            case 3:System.out.println("Delete Expenses");
               printOutput(DeleteRecord(account));
               break;
+            case 0:
             default:
-              break;
+              break;}
           }
+          while(menuOption!=0);
+
         case 0:
         default:
           break;
@@ -77,6 +71,7 @@ public class AccountsMenu extends ManageAccountService implements FeatureMenu, I
     } while (accType != 0) ;
 
   }
+
   @Override
   public void printOutput(boolean response) {
     if(response){

@@ -92,17 +92,19 @@ Service/CustomConnection.java
  Service.CustomConnection
 Service/UserManagement.java
  Service.UserManagement
-Service/AccountSelectionService.java
- Service.AccountSelectionService
-AccountsMenu.java
- AccountsMenu
+UserManagementPage.java
+ UserManagementPage
+Starter.java
+ Starter
 Service/ManageProfile.java
  Service.ManageProfile
 Interface/IAccount.java
  Interface.IAccount
+Service/AccountSelectionService.java
+ Service.AccountSelectionService
 Service/ManageAccountService.java
  Service.ManageAccountService
-Starter.java
- Starter
-UserManagementPage.java
- UserManagementPage
+Main.java
+ Main
+AccountsMenu.java
+ AccountsMenu
