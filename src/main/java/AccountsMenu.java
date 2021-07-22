@@ -27,8 +27,8 @@ public class AccountsMenu extends ManageAccountService implements FeatureMenu, I
 
   @Override
   public void menu( ) {
-    int menuOption=0;
-    int accType =0;
+    int menuOption ;
+    int accType  ;
     List<List<String>> rows;
 
     System.out.println("******Accounts Menu******");
@@ -47,7 +47,6 @@ public class AccountsMenu extends ManageAccountService implements FeatureMenu, I
           menuOption= sc.nextInt();
           switch(menuOption) {
             case 1:
-              rows= new ArrayList<>();
               rows= getExpenses();
               printRecord(rows);
               break;
