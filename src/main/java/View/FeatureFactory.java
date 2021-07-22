@@ -1,5 +1,6 @@
 package View;
 
+import BL.HelpDeskFaqBL;
 import BL.PharmacyBL;
 import BL.VaccineBL;
 import BL.VaccineRegisterBL;
@@ -37,6 +38,8 @@ public class FeatureFactory {
         } else if (menuType.equalsIgnoreCase(Constant.CAMP_MENU)) {
             return new NearbyCamps(new AddCampsService(), new SearchCampsService(),
                     new ListOfCampsService());
+        } else if (menuType.equalsIgnoreCase(Constant.HELPDESK_MENU)) {
+            return new HelpDeskPage(new HelpDeskFaqBL(new HelpDeskFaqService()));
         }
 
         return null;
