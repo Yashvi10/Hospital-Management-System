@@ -71,6 +71,10 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
     if(mailId == null)
       return false;
 
+    Integer vaccineId = getVaccineId();
+    if (vaccineId == null)
+      return false;
+
     Integer age = getAge();
     if (age == null)
       return false;
@@ -98,6 +102,7 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
     vaccineUserInformation.setGovernmentId(governmentId);
     vaccineUserInformation.setPreferredDate(date);
     vaccineUserInformation.setPreferredTiming(preferredTiming);
+    vaccineUserInformation.setVaccineId(vaccineId);
 
     if (registerUserVaccine(vaccineUserInformation))
       return true;
@@ -269,6 +274,7 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
   private Date getDate() {
 
     String dateInputString;
+    Date dateToFetch;
 
     userInput = new Scanner(System.in);
     System.out.println("Enter your preferred date from next week in YYYY-MM-DD format: ");
@@ -276,8 +282,13 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
 
     dateInputString = dateInputString.trim();
 
-    if(validateDate(dateInputString))
-      return java.sql.Date.valueOf(dateInputString);
+    if(validateDate(dateInputString)) {
+      dateToFetch = java.sql.Date.valueOf(dateInputString);
+      if(checkSlotAvailability(dateToFetch))
+        return dateToFetch;
+      else
+        return null;
+    }
     else
       return null;
   }
@@ -299,6 +310,13 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
     }
 
     if(date != null)
+      return true;
+    else
+      return false;
+  }
+
+  public Boolean checkSlotAvailability(Date date) {
+    if(vaccineRegisterUserDAO.getAvailableSlots(date) != null && vaccineRegisterUserDAO.getAvailableSlots(date) > 0)
       return true;
     else
       return false;

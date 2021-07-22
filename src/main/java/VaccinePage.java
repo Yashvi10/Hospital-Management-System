@@ -95,6 +95,7 @@ public class VaccinePage implements FeatureMenu {
 
           if(vaccineRegistrationBlInterface.checkUserRegistration(UserSession.userId) == 1) {
             System.out.println("Congratulations! - You have completed the first dose of the vaccination");
+            System.out.println("Information! - You will get second dose of same Vaccine");
             System.out.println("Processing for the registration of second dose: ");
             System.out.println("User Registered for Second dose? "+
                     vaccineRegistrationBlInterface.registerUserVaccine(vaccineRegistrationBlInterface.getUserDetails(UserSession.userId)));
@@ -106,7 +107,7 @@ public class VaccinePage implements FeatureMenu {
             if(vaccineRegistrationBlInterface.getUserInformation())
               System.out.println("User Registered for vaccination successfully.");
             else
-              System.out.println("Invalid Input parameters, please add valid values ...");
+              System.out.println("Invalid Input parameters OR Vaccine is not available at moment");
           }
           break;
 
