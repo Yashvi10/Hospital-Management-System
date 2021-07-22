@@ -1,6 +1,8 @@
 package View;
 
 import BL.PharmacyBL;
+import BL.VaccineBL;
+import BL.VaccineRegisterBL;
 import Interface.FeatureMenu;
 import Service.*;
 
@@ -30,6 +32,8 @@ public class FeatureFactory {
             return new RatingMenu(new UserIdVerifiedService(), new RatingService(), new DoctorRatingService(), new Dashboard());
         } else if (menuType.equalsIgnoreCase(Constant.APPOINTMENT_MENU)) {
             return new Appointments();
+        } else if (menuType.equalsIgnoreCase(Constant.VACCINE_MENU)) {
+            return new VaccinePage(new VaccineBL(new VaccineService()), new VaccineRegisterBL(new VaccineRegistration()));
         }
 
         return null;

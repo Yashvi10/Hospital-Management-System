@@ -1,3 +1,5 @@
+View/VaccinePage.java
+ View.VaccinePage
 Interface/UserIdVerifiedDAO.java
  Interface.UserIdVerifiedDAO
 View/Billing.java
@@ -24,8 +26,8 @@ Service/BloodService.java
  Service.BloodService
 Interface/BloodDAO.java
  Interface.BloodDAO
-View/Dashboard.java
- View.Dashboard
+BL/VaccineRegisterBL.java
+ BL.VaccineRegisterBL
 View/BillingPage.java
  View.BillingPage
 Interface/OrderLastIdDAO.java
@@ -48,22 +50,26 @@ Service/UserManagement.java
  Service.UserManagement
 Service/RatingService.java
  Service.RatingService
+Interface/VaccineBLInterface.java
+ Interface.VaccineBLInterface
 Model/DoctorRating.java
  Model.DoctorRating
-Service/BloodRequesterService.java
- Service.BloodRequesterService
+Service/AppointmentService.java
+ Service.AppointmentService
 Interface/OrderDAO.java
  Interface.OrderDAO
-View/UserManagementPage.java
- View.UserManagementPage
+Service/BloodRequesterService.java
+ Service.BloodRequesterService
 Model/Feedback.java
  Model.Feedback
 Model/BloodTestReports.java
  Model.BloodTestReports
+BL/VaccineBL.java
+ BL.VaccineBL
 Service/UserIdVerifiedService.java
  Service.UserIdVerifiedService
-View/FeatureFactory.java
- View.FeatureFactory
+View/Appointments.java
+ View.Appointments
 Model/Offers.java
  Model.Offers
 View/Constant.java
@@ -100,6 +106,8 @@ Interface/PharmacyUpdateStockDAO.java
  Interface.PharmacyUpdateStockDAO
 Interface/RatingDAO.java
  Interface.RatingDAO
+View/UserManagementPage.java
+ View.UserManagementPage
 Service/UrineTestReportsService.java
  Service.UrineTestReportsService
 View/PharmacyMenu.java
@@ -108,12 +116,16 @@ Model/OrderItem.java
  Model.OrderItem
 Service/DoctorRatingService.java
  Service.DoctorRatingService
+Interface/VaccineRegisterUserDAO.java
+ Interface.VaccineRegisterUserDAO
 Service/PharmacyService.java
  Service.PharmacyService
 Interface/BillingOrderItemDAO.java
  Interface.BillingOrderItemDAO
 Model/AppointmentModel.java
  Model.AppointmentModel
+Model/VaccineUserInformation.java
+ Model.VaccineUserInformation
 BL/PharmacyBL.java
  BL.PharmacyBL
 View/BloodBank.java
@@ -126,6 +138,8 @@ Model/BloodInventory.java
  Model.BloodInventory
 Interface/FeatureMenu.java
  Interface.FeatureMenu
+Interface/VaccineRegistrationBLInterface.java
+ Interface.VaccineRegistrationBLInterface
 Service/BloodTestReportsService.java
  Service.BloodTestReportsService
 Interface/ListOfTestsDAO.java
@@ -140,6 +154,8 @@ View/CustomPDF.java
  View.CustomPDF
 Model/User.java
  Model.User
+Model/Vaccine.java
+ Model.Vaccine
 Model/BloodRequester.java
  Model.BloodRequester
 Interface/BloodDonorDAO.java
@@ -154,8 +170,12 @@ Interface/DoctorRatingDAO.java
  Interface.DoctorRatingDAO
 View/RatingMenu.java
  View.RatingMenu
+Interface/VaccineDAO.java
+ Interface.VaccineDAO
 Interface/IRegistration.java
  Interface.IRegistration
+Service/VaccineService.java
+ Service.VaccineService
 Interface/AppointmentDAO.java
  Interface.AppointmentDAO
 Service/ListOfTestsService.java
@@ -164,7 +184,9 @@ Model/RegisterTest.java
  Model.RegisterTest
 Service/BloodDonorService.java
  Service.BloodDonorService
-Service/AppointmentService.java
- Service.AppointmentService
-View/Appointments.java
- View.Appointments
+View/Dashboard.java
+ View.Dashboard
+Service/VaccineRegistration.java
+ Service.VaccineRegistration
+View/FeatureFactory.java
+ View.FeatureFactory

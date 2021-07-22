@@ -20,11 +20,12 @@ public class Dashboard implements IDashboard {
     public void HomeMenu(){
         System.out.println("===============================");
         System.out.println("Press 1 for Pharmacy");
-        System.out.println("Press 2 for billing");
-        System.out.println("Press 3 for blood bank");
-        System.out.println("Press 4 for laboratory");
-        System.out.println("Press 5 for feedback and rating");
-        System.out.println("Press 6 for appointments");
+        System.out.println("Press 2 for Billing");
+        System.out.println("Press 3 for Blood bank");
+        System.out.println("Press 4 for Laboratory");
+        System.out.println("Press 5 for Feedback and rating");
+        System.out.println("Press 6 for Appointments");
+        System.out.println("Press 7 for Vaccine");
         String userInput = scanner.nextLine();
 
         FeatureFactory featureFactory = new FeatureFactory();
@@ -46,6 +47,9 @@ public class Dashboard implements IDashboard {
             featureMenu.menu();
         } else if (userInput.equals("6")) {
             FeatureMenu featureMenu = featureFactory.getMenu(Constant.APPOINTMENT_MENU);
+            featureMenu.menu();
+        } else if (userInput.equals("7")) {
+            FeatureMenu featureMenu = featureFactory.getMenu(Constant.VACCINE_MENU);
             featureMenu.menu();
         } else {
             System.out.println("Please select correct option");
