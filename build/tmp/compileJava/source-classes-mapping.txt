@@ -96,13 +96,13 @@ Service/AccountSelectionService.java
  Service.AccountSelectionService
 AccountsMenu.java
  AccountsMenu
-Starter.java
- Starter
-Interface/IAccount.java
- Interface.IAccount
-UserManagementPage.java
- UserManagementPage
-Service/ManageAccountService.java
- Service.ManageAccountService
 Service/ManageProfile.java
  Service.ManageProfile
+Interface/IAccount.java
+ Interface.IAccount
+Service/ManageAccountService.java
+ Service.ManageAccountService
+Starter.java
+ Starter
+UserManagementPage.java
+ UserManagementPage

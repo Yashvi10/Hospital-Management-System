@@ -8,7 +8,5 @@ PharmacyPageTest.java
  PharmacyPageTest
 AccountsTest.java
  AccountsTest
-ManageProfileTest.java
- ManageProfileTest
 userManagementTest.java
  userManagementTest
