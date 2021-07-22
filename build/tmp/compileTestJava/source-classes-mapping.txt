@@ -1,12 +1,14 @@
 BillingTest.java
  BillingTest
-PharmacyPageTest.java
- PharmacyPageTest
-BillingPageTest.java
- BillingPageTest
-ManageProfileTest.java
- ManageProfileTest
 BloodBankTest.java
  BloodBankTest
+ManageProfileTest.java
+ ManageProfileTest
+BillingPageTest.java
+ BillingPageTest
 userManagementTest.java
  userManagementTest
+PharmacyPageTest.java
+ PharmacyPageTest
+VaccinePageTest.java
+ VaccinePageTest

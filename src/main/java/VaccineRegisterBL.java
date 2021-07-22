@@ -27,6 +27,11 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
     this.vaccineRegisterUserDAO = vaccineRegisterUserDAO;
   }
 
+  /*
+   * Mainly initiates the process of registering the user
+   * Validates the availability of slots and vaccines
+   */
+  @Override
   public Boolean registerUserVaccine(VaccineUserInformation vaccineUserInformation) {
     if (vaccineRegisterUserDAO.registerUserVaccination(vaccineUserInformation)) {
       vaccineRegisterUserDAO.updateSlotAvailability(vaccineUserInformation.getPreferredDate());
@@ -37,11 +42,20 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
       return false;
   }
 
+  /*
+   * This method checks weather user is already registered or not
+   * Returns integers how many doses given
+   */
+  @Override
   public Integer checkUserRegistration(Integer userId) {
     List<VaccineUserInformation> userInformation = vaccineRegisterUserDAO.getVaccinationInfo(userId);
     return userInformation.size();
   }
 
+  /*
+   * This method retrieves information about single user
+   */
+  @Override
   public VaccineUserInformation getUserDetails(Integer userId) {
     VaccineUserInformation vaccineUserInformation = vaccineRegisterUserDAO.getUserVaccineData(userId);
 
@@ -65,6 +79,7 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
   /*
    * This method gets all user information required for vaccine registration.
    */
+  @Override
   public Boolean getUserInformation() {
     VaccineUserInformation vaccineUserInformation = new VaccineUserInformation();
 
@@ -109,6 +124,20 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
       return true;
     else
       return false;
+  }
+
+  /*
+   * This method retrieves information about administered doses of user
+   */
+  @Override
+  public List<VaccineUserInformation> getDosageInformation() {
+    List<VaccineUserInformation> dosageInfo = vaccineRegisterUserDAO.getVaccinationInfo(UserSession.userId);
+
+    if(dosageInfo != null) {
+      return dosageInfo;
+    } else {
+      return null;
+    }
   }
 
   private String getMailId() {
@@ -338,16 +367,5 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
       return timing;
     else
       return null;
-  }
-
-  @Override
-  public List<VaccineUserInformation> getDosageInformation() {
-    List<VaccineUserInformation> dosageInfo = vaccineRegisterUserDAO.getVaccinationInfo(UserSession.userId);
-
-    if(dosageInfo != null) {
-      return dosageInfo;
-    } else {
-      return null;
-    }
   }
 }

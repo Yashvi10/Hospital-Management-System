@@ -12,5 +12,5 @@ import java.util.List;
  * */
 public interface VaccineDAO {
 
-    List<Vaccine> getVaccines();
+  List<Vaccine> getVaccines();
 }

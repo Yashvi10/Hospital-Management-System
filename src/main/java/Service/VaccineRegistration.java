@@ -101,7 +101,6 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
     return userVaccineDetails;
   }
 
-
   /*
    * This method retrieves single vaccine information about user
    * Returns Vaccine Information class object - In form of fist dose registration
@@ -145,6 +144,10 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
     return userVaccineInformation;
   }
 
+  /*
+   * The method returns true if slots are available for vaccination
+   * if not then returns false
+   */
   @Override
   public Boolean updateSlotAvailability(Date date) {
     CustomConnection customConnection = new CustomConnection();
@@ -178,6 +181,9 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
     return result;
   }
 
+  /*
+   * The method returns total number of available vaccination slots
+   */
   @Override
   public Integer getAvailableSlots(Date date) {
     CustomConnection customConnection = new CustomConnection();
@@ -211,6 +217,9 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
     return availableSlots;
   }
 
+  /*
+   * The method updates the vaccination doses
+   */
   @Override
   public Boolean updateVaccineDoses(Integer vaccineId) {
     CustomConnection customConnection = new CustomConnection();
@@ -244,6 +253,9 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
     return result;
   }
 
+  /*
+   * The method returns total number of doses available
+   */
   @Override
   public Integer getTotalVaccineDoses(Integer vaccineId) {
     CustomConnection customConnection = new CustomConnection();

@@ -2,6 +2,7 @@ import Interface.FeatureMenu;
 import Interface.VaccineBLInterface;
 import Interface.VaccineRegistrationBLInterface;
 import Model.Vaccine;
+import Model.VaccineUserInformation;
 import Service.UserSession;
 
 import java.util.InputMismatchException;
@@ -23,17 +24,11 @@ public class VaccinePage implements FeatureMenu {
 
   private List<Vaccine> vaccineList;
 
+  private List<VaccineUserInformation> userInformation;
+
   public VaccinePage(VaccineBLInterface vaccineBlInterface, VaccineRegistrationBLInterface vaccineRegistrationBlInterface) {
     this.vaccineBlInterface = vaccineBlInterface;
     this.vaccineRegistrationBlInterface = vaccineRegistrationBlInterface;
-  }
-
-  /*
-   *  2 - This methods registers the uer for vaccination
-   *      Specifically for the first dose
-   **/
-  public void registerPatientForVaccination() {
-
   }
 
   // Method which is responsible to call Vaccine Menu (Sub-menu of the system)
@@ -46,6 +41,7 @@ public class VaccinePage implements FeatureMenu {
 
     System.out.println("1 = View Available Vaccines");
     System.out.println("2 = Register for Vaccination");
+    System.out.println("3 = View Doses Taken");
     System.out.println("\nPress 0 (Zero) to stop");
     System.out.println("\nEnter your choice: ");
 
@@ -88,26 +84,66 @@ public class VaccinePage implements FeatureMenu {
           }
           break;
 
-        case 2 :
+        case 2:
           System.out.println("------------------------------------------------");
           System.out.println("    Welcome to Vaccine Registration Process");
           System.out.println("------------------------------------------------");
 
-          if(vaccineRegistrationBlInterface.checkUserRegistration(UserSession.userId) == 1) {
+          if (vaccineRegistrationBlInterface.checkUserRegistration(UserSession.userId) == 1) {
             System.out.println("Congratulations! - You have completed the first dose of the vaccination");
             System.out.println("Information! - You will get second dose of same Vaccine");
             System.out.println("Processing for the registration of second dose: ");
-            System.out.println("User Registered for Second dose? "+
+            System.out.println("User Registered for Second dose? " +
                     vaccineRegistrationBlInterface.registerUserVaccine(vaccineRegistrationBlInterface.getUserDetails(UserSession.userId)));
-          }
-          else if (vaccineRegistrationBlInterface.checkUserRegistration(UserSession.userId) == 2) {
+          } else if (vaccineRegistrationBlInterface.checkUserRegistration(UserSession.userId) == 2) {
             System.out.println("User already completed two dose and Fully Vaccinated - Congratulations!");
-          }
-          else {
-            if(vaccineRegistrationBlInterface.getUserInformation())
+          } else {
+            if (vaccineRegistrationBlInterface.getUserInformation())
               System.out.println("User Registered for vaccination successfully.");
             else
               System.out.println("Invalid Input parameters OR Vaccine is not available at moment");
+          }
+          break;
+
+        case 3:
+          userInformation = vaccineRegistrationBlInterface.getDosageInformation();
+          if (userInformation == null || userInformation.size() == 0) {
+            System.out.println("::::: We are sorry to inform, you have not taken any Vaccine dose or registered for :::::");
+            System.out.println("\n You want to register for vaccine dose? Y: ");
+            String option = scanner.next();
+
+            if (option.equals("Y") || option.equals("y")) {
+              if (vaccineRegistrationBlInterface.getUserInformation())
+                System.out.println("User Registered for vaccination successfully.");
+              else
+                System.out.println("Invalid Input parameters OR Vaccine is not available at moment");
+            } else {
+              break;
+            }
+          } else if (userInformation.size() == 1) {
+            System.out.println("------------------------------------------------");
+            System.out.println("    Here is vaccine dosage information");
+            System.out.println("------------------------------------------------");
+
+            System.out.println("\nFirst Dose: " + userInformation.get(0).getPreferredDate().toString() +
+                    " Vaccine ID: " + userInformation.get(0).getVaccineId().toString());
+            System.out.println("\n------------------------------------------------");
+
+            System.out.println("Please register for second vaccine dose.1");
+
+            break;
+          } else if (vaccineRegistrationBlInterface.getDosageInformation().size() == 2) {
+            System.out.println("------------------------------------------------");
+            System.out.println("    Here is vaccine dosage information");
+            System.out.println("------------------------------------------------");
+
+            for (int i = 0; i < userInformation.size(); i++) {
+              System.out.println("\nFirst Dose: " + userInformation.get(i).getPreferredDate().toString() +
+                      " Vaccine ID: " + userInformation.get(i).getVaccineId().toString());
+            }
+            System.out.println("\n------------------------------------------------");
+            System.out.println("Congratulations! - You are fully vaccinated");
+            break;
           }
           break;
 
@@ -121,6 +157,7 @@ public class VaccinePage implements FeatureMenu {
 
       System.out.println("1 = View Available Vaccines");
       System.out.println("2 = Register for Vaccination");
+      System.out.println("3 = View Doses Taken");
       System.out.println("\nPress 0 (Zero) to stop");
       System.out.println("\nEnter your choice: ");
 
