@@ -5,6 +5,7 @@ import Model.Order;
 import Model.OrderItem;
 import Service.BillingService;
 import Service.OrderService;
+import Service.UserSession;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -32,15 +33,15 @@ public class BillingMenu implements FeatureMenu {
 
     @Override
     public void menu() {
-        System.out.println("Enter user id: ");
-        String userId = scanner.nextLine();
+//        System.out.println("Enter user id: ");
+//        String userId = scanner.nextLine();
 
         OrderService orderService = new OrderService();
 
-        if(orderService.isUserFound(Integer.parseInt(userId))) {
+        if(orderService.isUserFound(UserSession.userId)) {
             BillingOrderDAO billingOrderDAO = new BillingService();
             Billing billing = new Billing(billingOrderDAO);
-            orderlist = billing.getUserOrder(Integer.parseInt(userId));
+            orderlist = billing.getUserOrder(UserSession.userId);
 
             System.out.println("=========Your Latest Orders=========");
             System.out.println(String.format(Constant.STRING_FORMAT, "Order Id"));
