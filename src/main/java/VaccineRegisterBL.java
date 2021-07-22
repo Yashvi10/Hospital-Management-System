@@ -23,15 +23,16 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
 
   static Scanner userInput;
 
-  //public VaccineRegisterBL() {}
-
   public VaccineRegisterBL(VaccineRegisterUserDAO vaccineRegisterUserDAO) {
     this.vaccineRegisterUserDAO = vaccineRegisterUserDAO;
   }
 
   public Boolean registerUserVaccine(VaccineUserInformation vaccineUserInformation) {
-    if (vaccineRegisterUserDAO.registerUserVaccination(vaccineUserInformation))
+    if (vaccineRegisterUserDAO.registerUserVaccination(vaccineUserInformation)) {
+      vaccineRegisterUserDAO.updateSlotAvailability(vaccineUserInformation.getPreferredDate());
+      vaccineRegisterUserDAO.updateVaccineDoses(vaccineUserInformation.getVaccineId());
       return true;
+    }
     else
       return false;
   }
