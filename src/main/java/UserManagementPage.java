@@ -9,6 +9,7 @@ import java.util.Scanner;
  *  Author:  Abimbola Babalola
  *  Purpose: This is the load page for the user Management feature
  *  Description: This class is the wrapper for the sevice methods in the userManagement.java service
+ *
  */
 
 public class UserManagementPage {
