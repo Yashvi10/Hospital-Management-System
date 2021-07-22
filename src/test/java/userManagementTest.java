@@ -23,7 +23,7 @@ public class userManagementTest {
   }
 
   @Test
-  public void checkCredentialsTest_True() throws NoSuchAlgorithmException {
+  public void checkCredentialsTest_True() {
     assertTrue( profile.checkCredentials("abimbola@dal.ca","abimbola@dal.ca","password",
             "password"))  ;
   }

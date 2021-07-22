@@ -12,8 +12,9 @@ import java.sql.SQLException;
 /*
  *  Name of file: ManageProfile.java
  *  Author:  Abimbola Babalola
- *  Purpose: This class manages a user's profile
- *  Description: This class updates a saved profile and resets a user's password
+ *  Purpose: This class manages basic operations for UserManagement.java
+ *  Description: This class updates a saved profile, resets a user's password, encrypts a password string
+ *              and validates email
  */
 
 public class ManageProfile {
@@ -136,8 +137,8 @@ public class ManageProfile {
     md.update(password.getBytes());
     byte[] passByte=md.digest();
     StringBuilder string=new StringBuilder();
-    for(int i=0; i<passByte.length;i++){
-      string.append(Integer.toString((passByte[i]&0xff)+0x100, 16).substring(1));
+    for (byte b : passByte) {
+      string.append(Integer.toString((b & 0xff) + 0x100, 16).substring(1));
     }
 
     return string.toString();
