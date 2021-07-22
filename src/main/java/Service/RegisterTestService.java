@@ -172,7 +172,13 @@ public class RegisterTestService implements RegisterTestDAO {
     Boolean result = false;
 
     if (conn != null) {
-      String SQL = "insert into registered_tests(test_id, user_id, firstname, lastname, test_name, contact, email, gender, date_of_test,report_generation_date,time_of_test,report_generation_time) " + "values('" + registerTest.getTest_id() + "','" + registerTest.getUser_id() + "','" + registerTest.getFirstname() + "','" + registerTest.getLastname() + "','" + registerTest.getTest_name() + "','" + registerTest.getContact() + "','" + registerTest.getEmail() + "','" + registerTest.getGender() + "','" + registerTest.getDate_of_test() + "','" + registerTest.getReport_generation_date() + "','" + "" + "','" + "" + "')";
+      String SQL = "insert into registered_tests(test_id, user_id, firstname, lastname, test_name, " +
+              "contact, email, gender, date_of_test,report_generation_date,time_of_test,report_generation_time) "
+              + "values('" + registerTest.getTest_id() + "','" + registerTest.getUser_id() + "','"
+              + registerTest.getFirstname() + "','" + registerTest.getLastname() + "','" + registerTest.getTest_name()
+              + "','" + registerTest.getContact() + "','" + registerTest.getEmail() + "','" + registerTest.getGender()
+              + "','" + registerTest.getDate_of_test() + "','" + registerTest.getReport_generation_date() + "','" + ""
+              + "','" + "" + "')";
 
       Statement statement = null;
       try {
@@ -206,7 +212,8 @@ public class RegisterTestService implements RegisterTestDAO {
     Boolean result = false;
 
     if (conn != null) {
-      String SQL = "insert into registered_tests(test_id, user_id, firstname, lastname, test_name, contact, email, gender, date_of_test,report_generation_date,time_of_test,report_generation_time) " + "values('" + registerTest.getTest_id() + "','" + registerTest.getUser_id() + "','" + registerTest.getFirstname() + "','" + registerTest.getLastname() + "','" + registerTest.getTest_name() + "','" + registerTest.getContact() + "','" + registerTest.getEmail() + "','" + registerTest.getGender() + "','" + "" + "','" + "" + "','" + time_of_test.toString() + "','" + report_generation_time.toString() + "')";
+      String SQL = "insert into registered_tests(test_id, user_id, firstname, lastname, test_name," +
+              "contact, email, gender, date_of_test,report_generation_date,time_of_test,report_generation_time) " + "values('" + registerTest.getTest_id() + "','" + registerTest.getUser_id() + "','" + registerTest.getFirstname() + "','" + registerTest.getLastname() + "','" + registerTest.getTest_name() + "','" + registerTest.getContact() + "','" + registerTest.getEmail() + "','" + registerTest.getGender() + "','" + "" + "','" + "" + "','" + time_of_test.toString() + "','" + report_generation_time.toString() + "')";
 
       Statement statement = null;
       try {

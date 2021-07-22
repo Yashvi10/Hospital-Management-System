@@ -1,5 +1,9 @@
 package Model;
 
+/*
+ * File Name: AddCamps.java
+ * Author: Yashvi Lad
+ * */
 public class AddCamps {
 
   private String camp_type;

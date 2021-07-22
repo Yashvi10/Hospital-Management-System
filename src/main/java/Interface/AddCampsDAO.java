@@ -1,7 +1,11 @@
 package Interface;
 
+import Model.AddCamps;
+
 public interface AddCampsDAO {
 
-  Boolean addCamps();
+  Boolean campDetails();
+
+  Boolean addToDatabase(AddCamps addCamps);
 
 }
