@@ -100,8 +100,6 @@ Service/ManageProfile.java
  Service.ManageProfile
 Interface/IAccount.java
  Interface.IAccount
-Service/AccountSelectionService.java
- Service.AccountSelectionService
 Service/ManageAccountService.java
  Service.ManageAccountService
 Main.java

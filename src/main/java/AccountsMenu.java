@@ -3,7 +3,6 @@ import Interface.IPrint;
 import Model.Accounts;
 import Service.ManageAccountService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -37,7 +36,6 @@ public class AccountsMenu extends ManageAccountService implements FeatureMenu, I
       accType = sc.nextInt();
       switch (accType) {
         case 1:
-          rows= new ArrayList<>();
           rows=getIncome();
           printRecord(rows);
           break;

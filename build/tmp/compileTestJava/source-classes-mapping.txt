@@ -6,7 +6,7 @@ BloodBankTest.java
  BloodBankTest
 PharmacyPageTest.java
  PharmacyPageTest
-AccountsTest.java
- AccountsTest
 userManagementTest.java
  userManagementTest
+AccountsTest.java
+ AccountsTest
