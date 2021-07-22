@@ -1,12 +1,10 @@
 package Service;
 
+
 import Interface.IRegistration;
 import Model.User;
-import java.sql.Statement;
-import java.sql.ResultSet;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+
+import java.sql.*;
 
 /*
  *  Name of file: UserManagement.java
@@ -22,80 +20,28 @@ public class UserManagement extends ManageProfile implements IRegistration {
   ResultSet resultSet ;
   Connection conn ;
   PreparedStatement insertUserTable;
-  String response;
   int checkRecord=0 ;
-  int userid ;
+  DatabaseService dbService;
+  boolean check=false;
 
-  public UserManagement(Connection conn){
-    this.conn= conn;
+  public UserManagement(DatabaseService dbService ){
+    this.dbService= dbService;
   }
 
-  //This method checks and returns an existing user's record from database
-  @Override
-  public int loadRecord(User users  ){
-    userid=0;
+  public boolean registerLogin(User user,String role){
+
     try {
-      statement =  conn.createStatement();
-      resultSet = statement.executeQuery(" Select * from loginTable where username='"
-    + users.getEmail().trim() + "';");
-      while (resultSet.next()) {
-        userid = resultSet.getInt("userid");
-      }
-    }
-    catch (SQLException e) {
-      System.out.println("Record does not exist");
-    }
-    finally {
-      if (resultSet != null) {
-        try {
-          resultSet.close();
-        }
-        catch (SQLException sqlEx) {
-          sqlEx.getMessage();
-        }
-
-        resultSet = null;
-      }
-
-      if (statement != null) {
-        try {
-          statement.close();
-        }
-        catch (SQLException sqlEx) {
-          sqlEx.getMessage();
-        }
-        statement = null;
-      }
-
-      if (this.conn != null) {
-        try {
-          this.conn.close();
-        }
-        catch (SQLException sqlEx) {
-          sqlEx.getMessage();
-        }
-
-        this.conn = null;
-      }
-    }
-
-    return userid;
-  }
-
-  public String registerLogin(User user){
-    response="" ;
-    try {
-      checkRecord=user.getcheckUser();
+      checkRecord=loadRecord(user.getEmail());
       if( checkRecord==0) {
-        String queryUserTable = " insert into loginTable( username,password ) values( ?,? )";
-        insertUserTable = conn.prepareStatement(queryUserTable);
-        insertUserTable.setString(1, user.getEmail() );
-        insertUserTable.setString(2, user.getPswd() );
-        insertUserTable.executeUpdate();
-        response="Login added";
-      }
-      else {
-        response="Username already exists";
+        if(validateEmail(user.getEmail())) {
+          String queryUserTable = " insert into loginTable( username,password,designation ) values( ?,? ,?)";
+          insertUserTable = dbService.conn.prepareStatement(queryUserTable);
+          insertUserTable.setString(1, user.getEmail());
+          insertUserTable.setString(2, user.getPswd());
+          insertUserTable.setString(3, role);
+          insertUserTable.executeUpdate();
+          check = true;
+        }
       }
     }
     catch (SQLException e) {
@@ -119,39 +65,35 @@ public class UserManagement extends ManageProfile implements IRegistration {
           statement = null;
       }
 
-      if (conn != null) {
+      if (dbService.conn != null) {
         try {
-          conn.close();
+          dbService.conn.close();
         }
         catch (SQLException sqlEx) { }
-          conn = null;
+        dbService.conn = null;
       }
     }
 
-    return response;
+    return check;
   }
 
   @Override
-  public String registerPatient(User user ) {
+  public boolean registerPatient(User user ) {
     resultSet = null;
-    response=null;
     try {
-      checkRecord=user.getcheckUser();
+      checkRecord=loadRecord(user.getEmail());
       if ( checkRecord>=0) {
-        if ( (user.getEmail().equals(user.getconfirmEmail( ) )) &&(user.getPswd().equals(user.getconfirmPswd( ) ))) {
-          String queryUserTable = " insert into patientTable(userid,firstName,LastName,address,phone  ) " +
+        if (checkCredentials(user.getEmail(),user.getconfirmEmail( ) ,user.getPswd(),user.getconfirmPswd( )) ) {
+          String queryUserTable = " insert into patientTable(firstName, LastName, address, phone , loginId) " +
         "values( ?,?,?,?,? )";
-          insertUserTable = conn.prepareStatement(queryUserTable);
-          insertUserTable.setInt(1, user.getUserid() );
-          insertUserTable.setString(2, user.getfirstName() );
-          insertUserTable.setString(3, user.getlastName() );
-          insertUserTable.setString(4, user.getaddress() );
-          insertUserTable.setString(5, user.getphone() );
+          insertUserTable = dbService.conn.prepareStatement(queryUserTable);
+          insertUserTable.setString(1, user.getfirstName() );
+          insertUserTable.setString(2, user.getlastName() );
+          insertUserTable.setString(3, user.getaddress() );
+          insertUserTable.setString(4, user.getphone() );
+          insertUserTable.setInt(5, checkRecord);
           insertUserTable.executeUpdate();
-          response="Patient record added";
-        }
-        else {
-          response="Confirm Email/Password" ;
+          check=true;
         }
       }
     }
@@ -170,31 +112,26 @@ public class UserManagement extends ManageProfile implements IRegistration {
       }
     }
 
-    return response;
+    return check;
   }
 
   @Override
-  public String registerStaff(String role,User user ) {
-    resultSet = null;
-    response=null;
+  public boolean registerStaff(String role,User user ) {
     try {
-      checkRecord=user.getcheckUser();
+      checkRecord=loadRecord(user.getEmail());
       if(( checkRecord>=0)&&(( user.getEmail().equals(user.getconfirmEmail( ) ))
       &&(user.getPswd().equals(user.getconfirmPswd( ) )))){
-        String queryUserTable = " insert into hospitalStaff(userid,firstName,LastName,address,phone,designation  ) " +
+        String queryUserTable = " insert into hospitalStaff(firstName, LastName, address, phone, designation,loginID) " +
       " values( ?,?,?,?,? ,?)";
-        insertUserTable = conn.prepareStatement(queryUserTable);
-        insertUserTable.setInt(1, user.getUserid() );
-        insertUserTable.setString(2, user.getfirstName() );
-        insertUserTable.setString(3, user.getlastName() );
-        insertUserTable.setString(4, user.getaddress() );
-        insertUserTable.setString(5, user.getphone() );
-        insertUserTable.setString(6, role);
+        insertUserTable = dbService.conn.prepareStatement(queryUserTable);
+        insertUserTable.setString(1, user.getfirstName() );
+        insertUserTable.setString(2, user.getlastName() );
+        insertUserTable.setString(3, user.getaddress() );
+        insertUserTable.setString(4, user.getphone() );
+        insertUserTable.setString(5, role);
+        insertUserTable.setInt(6, checkRecord);
         insertUserTable.executeUpdate();
-        response="Staff record added";
-      }
-      else {
-        response="Confirm Email/Password" ;
+        check=true;
       }
     }
     catch (SQLException e) {
@@ -212,16 +149,16 @@ public class UserManagement extends ManageProfile implements IRegistration {
       }
     }
 
-    return response;
+    return check;
   }
 
-  public boolean loginUser( User user){
+  public boolean loginUser( String username, String password){
     boolean boolResponse=false;
     String qUser="";
     try{
-      statement = conn.createStatement();
-      resultSet = statement.executeQuery("Select username,password from loginTable where trim(username) ='"
-    + user.getEmail().trim() + "'  and trim(password)='"+user.getPswd()+"'; ");
+      String query="Select username,password from loginTable where trim(username) ='"
+              + username.trim() + "'  and trim(password)='"+password.trim()+"'; ";
+      resultSet=  dbService.executeQuery(query);
       while (resultSet.next()){
         qUser=resultSet.getString("username");
       }
@@ -230,7 +167,7 @@ public class UserManagement extends ManageProfile implements IRegistration {
         boolResponse=true;
       }
     }
-    catch (SQLException e) {
+    catch (SQLException | ClassNotFoundException e) {
       System.out.println("SQLException: " + e.getMessage());
     }
     finally {
@@ -271,13 +208,13 @@ public class UserManagement extends ManageProfile implements IRegistration {
   public Integer getLastUserId() {
     Integer result = 0;
     try {
-      statement = conn.createStatement();
-      resultSet = statement.executeQuery("SELECT Max(userid) FROM CSCI5308_8_DEVINT.loginTable;");
+      String query="SELECT Max(userid) FROM CSCI5308_8_DEVINT.loginTable;";
+      resultSet=  dbService.executeQuery(query);
       while (resultSet.next()) {
         result = resultSet.getInt("max(userid)");
       }
     }
-    catch (SQLException e) {
+    catch (SQLException | ClassNotFoundException e) {
       System.out.println("Record does not exist");
     }
 

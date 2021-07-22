@@ -1,5 +1,6 @@
-import Interface.IRegistration;
 import Model.User;
+import Service.CustomConnection;
+import Service.DatabaseService;
 import Service.ManageProfile;
 import Service.UserManagement;
 import org.junit.jupiter.api.Test;
@@ -16,12 +17,13 @@ public class ManageProfileTest {
     private static final String confirmEmail="elaine@gmail.com";
     private static final String pswd="macdonald";
     private static final String confirmPswd= "macdonald";
+    private static final String role = "Patient";
 
-    DbConnection db=new DbConnection();
-    IRegistration register=new UserManagement(db.Connect());
-    User myUser=new User(firstName,lastName,address,phone,email,confirmEmail,pswd,confirmPswd,register  );
-    UserManagement user =new UserManagement(db.Connect());
-    ManageProfile profileObj=new ManageProfile(db.Connect());
+    CustomConnection db=new CustomConnection();
+    DatabaseService dbService=new DatabaseService(db.Connect());
+    User myUser=new User(firstName,lastName,address,phone,email,confirmEmail,pswd,confirmPswd );//,register  );
+    UserManagement user =new UserManagement(dbService );
+    ManageProfile profileObj=new ManageProfile(dbService);
 
     @Test
     public void updateProfileTest() {

@@ -2,11 +2,8 @@ package Service;
 
 import Interface.IAccount;
 import Model.Accounts;
-import java.sql.Statement;
-import java.sql.ResultSet;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,28 +15,31 @@ import java.util.List;
  *               insert and delete record
  */
 
-public class ManageAccountService implements IAccount {
+public class ManageAccountService  implements IAccount {
 
   Statement statement = null;
   ResultSet resultSet = null;
-  Connection conn;
+  DatabaseService dbService;
   PreparedStatement insertAccounts;
   List<List<String>> dbRecord;
+  boolean response = false;
+  Connection conn;
 
-  ManageAccountService() {
+  public ManageAccountService() {
   }
 
-  public ManageAccountService(Connection conn) {
-    this.conn = conn;
+  public ManageAccountService(DatabaseService dbService) {
+    this.dbService = dbService;
+    this.conn=dbService.conn;
   }
 
   @Override
-  public List<List<String>> getExpenses( ) {
+  public List<List<String>> getIncome( ) {
     List<String> dbRow;
     dbRecord = new ArrayList<>();
     try {
-      statement = conn.createStatement();
-      resultSet = statement.executeQuery("order_id, name,qty, final_bill from order_items" );
+      String query="select order_id, name,qty, final_bill from order_items;" ;
+      resultSet=  dbService.executeQuery(query);
       while (resultSet.next()) {
         dbRow = new ArrayList<>();
         dbRow.add(String.valueOf(resultSet.getInt("order_id")));
@@ -49,7 +49,7 @@ public class ManageAccountService implements IAccount {
         dbRecord.add(dbRow);
       }
     }
-    catch (SQLException e) {
+    catch (SQLException | ClassNotFoundException e) {
       e.getMessage();
     }
 
@@ -57,13 +57,12 @@ public class ManageAccountService implements IAccount {
   }
 
   @Override
-  public List<List<String>> getIncome( ) {
+  public List<List<String>> getExpenses( ) {
     List<String> dbRow;
     dbRecord = new ArrayList<>();
     try {
-      statement = conn.createStatement();
-      resultSet = statement.executeQuery("select   accId , account_date, account_type , category ,  pay_name, " +
-              "amount  from  accounts ");
+      String query="select   accId , account_date, account_type , category ,  pay_name,  amount  from  accounts " ;
+      resultSet=  dbService.executeQuery(query);
       while (resultSet.next()) {
         dbRow = new ArrayList<>();
         dbRow.add(String.valueOf(resultSet.getInt("accId")));
@@ -75,7 +74,7 @@ public class ManageAccountService implements IAccount {
         dbRecord.add(dbRow);
       }
     }
-    catch (SQLException e) {
+    catch (SQLException | ClassNotFoundException e) {
       e.getMessage();
     }
 
@@ -83,18 +82,13 @@ public class ManageAccountService implements IAccount {
   }
 
   @Override
-  public void putIncome(Accounts accounts) {
-    String response = "";
+  public boolean addExpense(Accounts accounts) {
     try {
       String queryUserTable = " insert into accounts( account_date,account_type , category ,  pay_name, " +
               " amount,status )   values( ?,?,?,?,? ,?)";
-      insertAccounts = conn.prepareStatement(queryUserTable);
-      insertAccounts.setDate(1, accounts.getDate());
-      if (accounts.getAccountType() == 1) {
-        insertAccounts.setString(2, "Income");
-      } else if (accounts.getAccountType() == 2) {
-        insertAccounts.setString(2, "Expense");
-      }
+      insertAccounts =  dbService.conn.prepareStatement(queryUserTable);
+      insertAccounts.setString(1, accounts.getDate() );
+      insertAccounts.setString(2, "Expense");
 
       if (accounts.getExpenseType() == 1) {
         insertAccounts.setString(3, "Maintenance");
@@ -108,28 +102,24 @@ public class ManageAccountService implements IAccount {
       insertAccounts.setDouble(5, accounts.getAmount());
       insertAccounts.setString(6, "A");
       insertAccounts.executeUpdate();
-    } catch (SQLException e) {
+      response=true;
+    } catch (SQLException   e) {
       System.out.println("SQLException: " + e.getMessage());
     }
+    return response;
   }
 
   @Override
-  public String DeleteRecord(Accounts accounts) {
-    String response = "";
+  public boolean DeleteRecord(Accounts accounts) {
     try {
-      String queryUserTable = "update accounts set status='D' where account_date=? and account_type=? " +
+      String queryUserTable = "update accounts set status='D' where account_date=?  " +
               "  and pay_name=? and amount=? ";
-      insertAccounts = conn.prepareStatement(queryUserTable);
-      insertAccounts.setDate(1, accounts.getDate());
-      if (accounts.getAccountType() == 1) {
-        insertAccounts.setString(2, "Income");
-      } else if (accounts.getAccountType() == 2) {
-        insertAccounts.setString(2, "Expense");
-      }
-
+      insertAccounts = dbService.conn.prepareStatement(queryUserTable);
+      insertAccounts.setString(1, accounts.getDate());
+      insertAccounts.setString(2, accounts.getPayName());
       insertAccounts.setDouble(3, accounts.getAmount());
       insertAccounts.executeUpdate();
-      response = "Accounts Updated";
+      response = true;
     } catch (SQLException e) {
       System.out.println("SQLException: " + e.getMessage());
     }

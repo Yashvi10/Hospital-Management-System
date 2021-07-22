@@ -1,6 +1,6 @@
-import Interface.IRegistration;
 import Model.User;
 import Service.CustomConnection;
+import Service.DatabaseService;
 import Service.UserManagement;
 
 import java.util.Scanner;
@@ -8,9 +8,10 @@ import java.util.Scanner;
 public class UserManagementPage {
 
     CustomConnection db=new CustomConnection();
-    UserManagement user = new UserManagement(db.Connect());
-    IRegistration register=new UserManagement(db.Connect());
-    Scanner scanner = new Scanner(System.in);
+    DatabaseService dbService=new DatabaseService(db.Connect());
+
+     UserManagement user = new UserManagement(dbService);
+     Scanner scanner = new Scanner(System.in);
 
     public void MainMenu(){
         System.out.println("================Hospital Management System===============");
@@ -37,9 +38,9 @@ public class UserManagementPage {
         System.out.println("Enter password: ");
         String password = scanner.nextLine();
 
-        User myUser=new User("","","","",email,"",password,"",register);
+        User myUser=new User("","","","",email,"",password,"" );//,register);
 
-        Boolean result = user.loginUser(myUser);
+        Boolean result = user.loginUser(email,password);
 
         if(result) {
             System.out.println("Login");
@@ -79,15 +80,16 @@ public class UserManagementPage {
             System.out.println("Enter phone: ");
             String phone = scanner.nextLine();
 
-        User myUser=new User(firstName,lastName,address,phone,email,confirmEmail,password,confirmPassword,register );
 
-        String result = user.registerLogin(myUser);
+        User myUser=new User(firstName,lastName,address,phone,email,confirmEmail,password,confirmPassword );//,register );
 
-        if(result.equals("Login added")) {
-            user = new UserManagement(db.Connect());
+        boolean result = user.registerLogin(myUser,"Staff");
+
+        if(result==true) {
+            user = new UserManagement(dbService);
             myUser.setUserid(user.getLastUserId());
             result = user.registerStaff(role,myUser );
-            if(result.equals("Staff record added")) {
+            if(result==true) {
                 System.out.println("User Added");
             }
 
@@ -122,20 +124,17 @@ public class UserManagementPage {
         System.out.println("Enter phone: ");
         String phone = scanner.nextLine();
 
-        User myUser=new User(firstName,lastName,address,phone,email,confirmEmail,password,confirmPassword,register );
-//        String result = user.registerStaff(role,myUser );
+        User myUser=new User(firstName,lastName,address,phone,email,confirmEmail,password,confirmPassword );
 
-        String result = user.registerLogin(myUser);
+        boolean result = user.registerLogin(myUser,"Patient");
 
-        if(result.equals("Login added")) {
-            user = new UserManagement(db.Connect());
+        if(result==true) {
+            user = new UserManagement(dbService);
             myUser.setUserid(user.getLastUserId());
             result = user.registerPatient(myUser );
-            if(result.equals("Staff record added")) {
+            if(result==true) {
                 System.out.println("User Added");
             }
-        } else {
-            System.out.println(result);
         }
     }
 }

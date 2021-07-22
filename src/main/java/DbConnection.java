@@ -3,9 +3,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DbConnection {
+    Connection con = null;
 
     public Connection Connect(){
-        Connection con = null;
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con= DriverManager.getConnection(
@@ -21,4 +22,6 @@ public class DbConnection {
 
         return con;
     }
+
+
 }

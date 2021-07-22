@@ -5,21 +5,22 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class CustomConnection {
-    public Connection Connect(){
-        Connection con = null;
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con= DriverManager.getConnection(
-                    "jdbc:mysql://db-5308.cs.dal.ca/CSCI5308_8_DEVINT?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","CSCI5308_8_DEVINT_USER","cWhbaAs94FR");
+  Connection con = null;
 
-            if(con != null) {
-                return con;
-            }
+  public Connection Connect() {
+    try {
+      Class.forName("com.mysql.cj.jdbc.Driver");
+      con = DriverManager.getConnection(
+              "jdbc:mysql://db-5308.cs.dal.ca/CSCI5308_8_DEVINT?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "CSCI5308_8_DEVINT_USER", "cWhbaAs94FR");
 
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-
+      if (con != null) {
         return con;
+      }
+
+    } catch (ClassNotFoundException | SQLException e) {
+      e.printStackTrace();
     }
+
+    return con;
+  }
 }
