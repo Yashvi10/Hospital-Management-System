@@ -224,10 +224,39 @@ public class VaccinePageTest {
         assertEquals(true, vaccineRegisterBL.validateVaccineIdInput("1"));
     }
 
+    /*
+     * Tests the logic of vaccineId validation
+     *
+     * The method returns false as vaccineId is invalid
+     */
     @Test
     void validateVaccineId_false()
     {
         VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
         assertEquals(false, vaccineRegisterBL.validateVaccineIdInput("abc"));
+    }
+
+    /*
+     * Tests the logic of vaccineId validation
+     *
+     * The method returns true as vaccineId is valid and vaccine available in database
+     */
+    @Test
+    void checkVaccineAvailability_true()
+    {
+        VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
+        assertEquals(true, vaccineRegisterBL.checkVaccineAvailability(1));
+    }
+
+    /*
+     * Tests the logic of vaccineId validation
+     *
+     * The method returns true as vaccineId is invalid and not available in database
+     */
+    @Test
+    void checkVaccineAvailability_false()
+    {
+        VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
+        assertEquals(false, vaccineRegisterBL.checkVaccineAvailability(25));
     }
 }
