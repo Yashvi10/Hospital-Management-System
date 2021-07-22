@@ -27,7 +27,7 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
     Connection conn = customConnection.Connect();
 
     if (conn != null) {
-      String insertQuery = "insert into vaccination_patients(userId, mail_id, age, gender, government_id_number, preferred_next_date, preferred_timing) "
+      String insertQuery = "insert into vaccination_patients(userId, mail_id, age, gender, government_id_number, dose_date, preferred_timing) "
               + "values(" + vaccineUserInformation.getUserId() + ",'" + vaccineUserInformation.getMailId()
               + "'," + vaccineUserInformation.getAge() + ",'" + vaccineUserInformation.getGender()
               + "','" + vaccineUserInformation.getGovernmentId() + "','" + vaccineUserInformation.getPreferredDate()

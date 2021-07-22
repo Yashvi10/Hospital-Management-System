@@ -80,6 +80,13 @@ public class VaccinePageTest {
         assertEquals(true, vaccineRegisterBL.validateEmailId("kush@dal.ca"));
     }
 
+    @Test
+    void validateMailTEMP()
+    {
+        VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
+        assertEquals(true, vaccineRegisterBL.validateEmailId("ronnie@dal.ca"));
+    }
+
     /*
      * Tests the logic of emailId validation
      *

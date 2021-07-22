@@ -209,6 +209,7 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
     System.out.println("Press 3: Moderna");
     System.out.println("Press 4: Sputnik V");
     System.out.println("\nEnter your Preffered Vaccine: ");
+    userVaccineInput = userInput.next();
 
     if(validateVaccineIdInput(userVaccineInput)) {
       vaccineId = Integer.parseInt(userVaccineInput);
