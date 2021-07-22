@@ -126,18 +126,25 @@ public class Laboratory implements FeatureMenu {
         System.out.println("Generate reports");
         System.out.println("Enter your user_id");
         Scanner user_id = new Scanner(System.in);
+
         if (user_id.hasNextInt() == false) {
           System.out.println("Only numbers are allowed.");
           return;
         } else {
           uid_input = user_id.nextInt();
         }
+
         listOfReports();
 
         System.out.println("\n" + "Press 1 for test_id 1\nPress 2 for test_id 2\nPress 3 for test_id 3\n" + "Press 4 for test_id 4\nPress 5 to exit");
 
         Scanner report = new Scanner(System.in);
         String report_input = report.nextLine();
+
+        if (report_input == null || report_input.isEmpty()) {
+          System.out.println("Input cannot be empty!");
+          return;
+        }
 
         if (report_input.equals("1")) {
         } else if (report_input.equals("2")) {

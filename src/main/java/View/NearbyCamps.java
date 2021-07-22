@@ -43,6 +43,19 @@ public class NearbyCamps implements FeatureMenu {
     Scanner input = new Scanner(System.in);
     String choice = input.next();
 
+    if (choice == null || choice.isEmpty()) {
+      System.out.println("Input cannot be empty!");
+      return;
+    }
+
+    if (choice.equals("1")) {
+    } else if (choice.equals("2")) {
+    } else if (choice.equals("3")) {
+    } else if (choice.equals("4")) {
+    } else {
+      System.out.println("Please select correct option");
+    }
+
     switch (choice) {
 
       case "1":
@@ -55,6 +68,16 @@ public class NearbyCamps implements FeatureMenu {
         Scanner camp = new Scanner(System.in);
         System.out.println("Enter your location: ");
         camp_location = camp.next();
+
+        if (camp_location.matches("^[0-9]")) {
+          System.out.println("Your input is not valid");
+          return;
+        }
+
+        if (camp_location == null || camp_location.isEmpty()) {
+          System.out.println("Input cannot be empty!");
+          return;
+        }
         searchCamps();
         break;
       case "3":
@@ -69,6 +92,8 @@ public class NearbyCamps implements FeatureMenu {
     }
   }
 
+  /* This method returns list of camps based on the provided location by user
+   */
   public void searchCamps() {
     List<SearchCamps> searchCampsList = searchCampsDAO.searchCamp(camp_location);
 
@@ -80,6 +105,8 @@ public class NearbyCamps implements FeatureMenu {
     menu();
   }
 
+  /* This method returns list of all available camps
+   */
   public void listOfCamps() {
     List<ListOfCamps> listOfCampsList = listOfCampsDAO.allCamps();
 

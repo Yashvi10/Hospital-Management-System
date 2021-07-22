@@ -35,17 +35,57 @@ public class AddCampsService implements AddCampsDAO {
     System.out.println("Enter camp type: ");
     camp_type = input.next();
 
+    if (camp_type.matches("^[0-9]")) {
+      System.out.println("Your input is not valid");
+      return false;
+    }
+
+    if (camp_type == null || camp_type.isEmpty()) {
+      System.out.println("Input cannot be empty!");
+      return false;
+    }
+
     input = new Scanner(System.in);
     System.out.println("Enter camp description: ");
     camp_description = input.next();
+
+    if (camp_description.matches("^[0-9]")) {
+      System.out.println("Your input is not valid");
+      return false;
+    }
+
+    if (camp_description == null || camp_description.isEmpty()) {
+      System.out.println("Input cannot be empty!");
+      return false;
+    }
 
     input = new Scanner(System.in);
     System.out.println("Enter camp location: ");
     camp_location = input.next();
 
+    if (camp_location.matches("^[0-9]")) {
+      System.out.println("Your input is not valid");
+      return false;
+    }
+
+    if (camp_location == null || camp_location.isEmpty()) {
+      System.out.println("Input cannot be empty!");
+      return false;
+    }
+
     input = new Scanner(System.in);
     System.out.println("Enter your fullname: ");
     added_by = input.next();
+
+    if (added_by.matches("^[0-9]")) {
+      System.out.println("Your input is not valid");
+      return false;
+    }
+
+    if (added_by == null || added_by.isEmpty()) {
+      System.out.println("Input cannot be empty!");
+      return false;
+    }
 
     AddCamps addCamps = new AddCamps(camp_type, camp_description, camp_location, added_by);
 

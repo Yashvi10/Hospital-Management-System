@@ -24,7 +24,6 @@ public class ListOfCampsService implements ListOfCampsDAO {
   public List<ListOfCamps> allCamps() {
 
     Connection conn = customConnection.Connect();
-    ListOfCamps listOfCamps = new ListOfCamps();
     List<ListOfCamps> listOfCampsList = new ArrayList<>();
 
     if (conn != null) {

@@ -10,8 +10,8 @@ Model/Pharmacy.java
  Model.Pharmacy
 Service/VitaminDTestReportsService.java
  Service.VitaminDTestReportsService
-Service/AddCampsService.java
- Service.AddCampsService
+Interface/IRegistration.java
+ Interface.IRegistration
 Interface/OfferDAO.java
  Interface.OfferDAO
 Interface/IDashboard.java
@@ -28,8 +28,8 @@ Interface/BloodDAO.java
  Interface.BloodDAO
 Service/BloodRequesterService.java
  Service.BloodRequesterService
-Service/SearchCampsService.java
- Service.SearchCampsService
+Service/BloodDonorService.java
+ Service.BloodDonorService
 Interface/OrderLastIdDAO.java
  Interface.OrderLastIdDAO
 View/BillingMenu.java
@@ -68,12 +68,12 @@ Service/UserIdVerifiedService.java
  Service.UserIdVerifiedService
 View/Appointments.java
  View.Appointments
-Interface/SearchCampsDAO.java
- Interface.SearchCampsDAO
+View/BillingPage.java
+ View.BillingPage
 Model/Offers.java
  Model.Offers
-Service/ListOfCampsService.java
- Service.ListOfCampsService
+View/RatingMenu.java
+ View.RatingMenu
 View/Constant.java
  View.Constant
 Model/UrineTestReports.java
@@ -136,8 +136,8 @@ Model/ListOfTests.java
  Model.ListOfTests
 Interface/BloodRequesterDAO.java
  Interface.BloodRequesterDAO
-Interface/ListOfCampsDAO.java
- Interface.ListOfCampsDAO
+View/Dashboard.java
+ View.Dashboard
 Model/BloodInventory.java
  Model.BloodInventory
 Interface/FeatureMenu.java
@@ -150,8 +150,8 @@ Service/BillingService.java
  Service.BillingService
 Model/Order.java
  Model.Order
-View/Laboratory.java
- View.Laboratory
+Interface/AppointmentDAO.java
+ Interface.AppointmentDAO
 View/CustomPDF.java
  View.CustomPDF
 Model/User.java
@@ -170,21 +170,21 @@ Service/CustomConnection.java
  Service.CustomConnection
 Interface/DoctorRatingDAO.java
  Interface.DoctorRatingDAO
-View/RatingMenu.java
- View.RatingMenu
-Interface/IRegistration.java
- Interface.IRegistration
+View/Laboratory.java
+ View.Laboratory
 Model/ListOfCamps.java
  Model.ListOfCamps
-Interface/AppointmentDAO.java
- Interface.AppointmentDAO
-Service/BloodDonorService.java
- Service.BloodDonorService
-View/Dashboard.java
- View.Dashboard
-View/BillingPage.java
- View.BillingPage
 View/NearbyCamps.java
  View.NearbyCamps
+Interface/ListOfCampsDAO.java
+ Interface.ListOfCampsDAO
+Service/SearchCampsService.java
+ Service.SearchCampsService
+Interface/SearchCampsDAO.java
+ Interface.SearchCampsDAO
 View/FeatureFactory.java
  View.FeatureFactory
+Service/AddCampsService.java
+ Service.AddCampsService
+Service/ListOfCampsService.java
+ Service.ListOfCampsService
