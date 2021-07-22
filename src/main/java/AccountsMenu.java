@@ -19,9 +19,9 @@ import java.util.Scanner;
 public class AccountsMenu extends ManageAccountService implements FeatureMenu, IPrint {
 
   Scanner sc = new Scanner(System.in);
-
   Accounts account;
-  AccountsMenu(Accounts account ){
+
+  public AccountsMenu(Accounts account ){
     this.account=account;
   }
 
