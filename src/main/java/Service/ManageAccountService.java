@@ -60,7 +60,7 @@ public class ManageAccountService  implements IAccount {
     List<String> dbRow;
     dbRecord = new ArrayList<>();
     try {
-      String query="select   accId , account_date, account_type , category ,  pay_name,  amount  from  accounts " ;
+      String query="select   accId , account_date, account_type , category ,  pay_name,  amount  from  ExpenseAccounts " ;
       resultSet=  dbService.executeQuery(query);
       while (resultSet.next()) {
         dbRow = new ArrayList<>();
@@ -83,23 +83,35 @@ public class ManageAccountService  implements IAccount {
   @Override
   public boolean addExpense(Accounts accounts) {
     try {
-      String queryUserTable = " insert into accounts( account_date,account_type , category ,  pay_name, " +
-              " amount,status )   values( ?,?,?,?,? ,?)";
+      String expenseType ;
+      if(accounts.getExpenseType()==1){
+        expenseType="Maintenance";
+      }
+      else if(accounts.getExpenseType()==2){
+        expenseType="Supplies";
+      }
+      else {
+        expenseType="Salary";
+      }
+      /*String queryUserTable = " insert into ExpenseAccounts(account_date, category,pay_name,amount,status) " +
+              "select "+accounts.getDate()+ ", "+expenseType+", "+accounts.getPayName()+", "+accounts.getAmount()+", 'A' from dual " +
+              "where not exists (select * from ExpenseAccounts where account_date='"+accounts.getDate()+"' and " +
+              "category='"+expenseType+"' and pay_name='"+accounts.getPayName()+"'  and amount= "+accounts.getAmount()+";";
+              */
+      String queryUserTable = " insert into ExpenseAccounts(account_date, category,pay_name,amount,status) " +
+              "select ?,?, ?, ?, ? from dual  where not exists (select * from ExpenseAccounts where account_date=? and " +
+              " category=? and pay_name=?  and amount= ?;";
+
       insertAccounts =  dbService.conn.prepareStatement(queryUserTable);
       insertAccounts.setString(1, accounts.getDate() );
-      insertAccounts.setString(2, "Expense");
-
-      if (accounts.getExpenseType() == 1) {
-        insertAccounts.setString(3, "Maintenance");
-      } else if (accounts.getExpenseType() == 2) {
-        insertAccounts.setString(3, "Supplies");
-      } else if (accounts.getExpenseType() == 3) {
-        insertAccounts.setString(3, "Salary");
-      }
-
-      insertAccounts.setString(4, accounts.getPayName());
-      insertAccounts.setDouble(5, accounts.getAmount());
-      insertAccounts.setString(6, "A");
+      insertAccounts.setString(2, expenseType);
+      insertAccounts.setString(3, accounts.getPayName());
+      insertAccounts.setDouble(4, accounts.getAmount());
+      insertAccounts.setString(5, "A");
+      insertAccounts.setString(6, accounts.getDate() );
+      insertAccounts.setString(7, expenseType);
+      insertAccounts.setString(8, accounts.getPayName());
+      insertAccounts.setDouble(9, accounts.getAmount());
       insertAccounts.executeUpdate();
       response=true;
     } catch (SQLException   e) {
@@ -111,7 +123,7 @@ public class ManageAccountService  implements IAccount {
   @Override
   public boolean DeleteRecord(Accounts accounts) {
     try {
-      String queryUserTable = "update accounts set status='D' where account_date=?  " +
+      String queryUserTable = "update ExpenseAccounts set status='D' where account_date=?  " +
               "  and pay_name=? and amount=? ";
       insertAccounts = dbService.conn.prepareStatement(queryUserTable);
       insertAccounts.setString(1, accounts.getDate());

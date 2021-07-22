@@ -39,6 +39,7 @@ public class ManageProfile {
       while (resultSet.next()) {
         userid = resultSet.getInt("userid");
       }
+      dbService.closeDB();
     }
     catch (SQLException | ClassNotFoundException e) {
       e.getMessage();

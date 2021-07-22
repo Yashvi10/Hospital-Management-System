@@ -41,6 +41,7 @@ public class UserManagement extends ManageProfile implements IRegistration {
           check = true;
         }
       }
+      dbService.closeDB();
     }
     catch (SQLException e) {
       System.out.println("SQLException: " + e.getMessage());
@@ -94,6 +95,7 @@ public class UserManagement extends ManageProfile implements IRegistration {
           check=true;
         }
       }
+      dbService.closeDB();
     }
     catch (SQLException e) {
       System.out.println("SQLException: " + e.getMessage());
@@ -131,6 +133,7 @@ public class UserManagement extends ManageProfile implements IRegistration {
         insertUserTable.executeUpdate();
         check=true;
       }
+      dbService.closeDB();
     }
     catch (SQLException e) {
       System.out.println("SQLException: " + e.getMessage());
@@ -164,6 +167,7 @@ public class UserManagement extends ManageProfile implements IRegistration {
       if(!qUser.equals( "")  ) {
         boolResponse=true;
       }
+      dbService.closeDB();
     }
     catch (SQLException | ClassNotFoundException e) {
       System.out.println("SQLException: " + e.getMessage());
@@ -211,6 +215,7 @@ public class UserManagement extends ManageProfile implements IRegistration {
       while (resultSet.next()) {
         result = resultSet.getInt("max(userid)");
       }
+      dbService.closeDB();
     }
     catch (SQLException | ClassNotFoundException e) {
       e.getMessage();
