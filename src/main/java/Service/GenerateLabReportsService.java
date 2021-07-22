@@ -26,7 +26,7 @@ public class GenerateLabReportsService implements GenerateLabReportsDAO {
     List<GenerateLabReports> generateLabReportsList = new ArrayList<GenerateLabReports>();
 
     if (conn != null) {
-      String SQL = "select * from registered_tests where user_id = " + user_id + ";";
+      String SQL = "select * from registered_tests where user_id = '" + user_id + "';";
       Statement statement = null;
       try {
         statement = conn.createStatement();

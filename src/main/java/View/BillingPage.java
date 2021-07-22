@@ -11,6 +11,7 @@ import Model.OrderItem;
 import Service.OrderService;
 import Service.PharmacyService;
 
+import java.io.IOException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -35,7 +36,7 @@ public class BillingPage {
         this.offerValidDAO = offerValidDAO;
     }
 
-    public void CheckOut()  {
+    public void CheckOut() throws IOException {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Press (s for cash): ");
@@ -51,7 +52,7 @@ public class BillingPage {
     }
 
 
-    public void paidByCash()  {
+    public void paidByCash() throws IOException {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Offer id:");

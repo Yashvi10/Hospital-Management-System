@@ -1,7 +1,6 @@
 package Service;
 
 import Interface.UrineTestReportsDAO;
-import Model.GenerateLabReports;
 import Model.UrineTestReports;
 
 import java.sql.Connection;
@@ -25,9 +24,8 @@ public class UrineTestReportsService implements UrineTestReportsDAO {
   public List<UrineTestReports> urineReports(Integer user_id) {
     Connection conn = customConnection.Connect();
 
-    GenerateLabReports generateLabReports = new GenerateLabReports();
     if (conn != null) {
-      String SQL = "select * from urineTest_reports where user_id = " + generateLabReports.getUser_id() + ";";
+      String SQL = "select * from urineTest_reports where user_id = '" + user_id + "';";
       Statement statement = null;
       try {
         statement = conn.createStatement();

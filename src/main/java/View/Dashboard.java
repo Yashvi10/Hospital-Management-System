@@ -3,6 +3,7 @@ package View;
 import Interface.FeatureMenu;
 import Interface.IDashboard;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 /*
@@ -17,7 +18,7 @@ public class Dashboard implements IDashboard {
     Scanner scanner = new Scanner(System.in);
 
     @Override
-    public void HomeMenu(){
+    public void HomeMenu() throws IOException {
         System.out.println("===============================");
         System.out.println("Press 1 for Pharmacy");
         System.out.println("Press 2 for billing");

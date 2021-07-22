@@ -8,8 +8,8 @@ import Model.Pharmacy;
 import Service.OfferService;
 import Service.OrderService;
 
+import java.io.IOException;
 import java.text.DecimalFormat;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -44,7 +44,7 @@ public class PharmacyMenu implements FeatureMenu {
 
 
     @Override
-    public void menu() {
+    public void menu() throws IOException {
         System.out.println("*************************************");
         System.out.println("Press l to list all medicines\nPress e to back");
         System.out.println("*************************************");
@@ -62,7 +62,7 @@ public class PharmacyMenu implements FeatureMenu {
     }
 
 
-    public void getAllMedicines(){
+    public void getAllMedicines() throws IOException {
 
         System.out.println("=========PHARMACY LIST=========");
         System.out.println(String.format(Constant.STRING_FORMAT, "P_id") +" "
@@ -102,7 +102,7 @@ public class PharmacyMenu implements FeatureMenu {
         }
     }
 
-    public void BuyItem()  {
+    public void BuyItem() throws IOException {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("*************************************");
@@ -123,7 +123,7 @@ public class PharmacyMenu implements FeatureMenu {
     }
 
 
-    public void showCartItems()  {
+    public void showCartItems() throws IOException {
 
         if  (PharmacyBL.cart.size() == 0)  {
             System.out.println(Colors.C_RED +"Cart is empty" +Colors.C_RESET);
@@ -160,7 +160,7 @@ public class PharmacyMenu implements FeatureMenu {
         System.out.println("Your total bill is: $" +PharmacyBL.finalPrice);
     }
 
-    public void afterCartMenu()  {
+    public void afterCartMenu() throws IOException {
         System.out.println("*************************************");
         System.out.println("Press c to checkout\nPress o to see offers\npress e to exit (it will remove the cart)");
         System.out.println("*************************************");
@@ -180,7 +180,7 @@ public class PharmacyMenu implements FeatureMenu {
         }
     }
 
-    public void checkOut()  {
+    public void checkOut() throws IOException {
 
         if  (PharmacyBL.cart.size() > 0) {
             BillingPage billingPage = new BillingPage(new OrderService(), new OrderService(), new OfferService());
@@ -196,7 +196,7 @@ public class PharmacyMenu implements FeatureMenu {
         System.out.println(Colors.C_RED  +  "Please select the correct option"  +  Colors.C_RESET);
     }
 
-    public void ViewOffers(){
+    public void ViewOffers() throws IOException {
         System.out.println("==========Offer List==========");
 
         List<Offers> offersList = offerDAO.getAllOffer();

@@ -69,16 +69,11 @@ public class NearbyCamps implements FeatureMenu {
         System.out.println("Enter your location: ");
         camp_location = camp.next();
 
-        if (camp_location.matches("^[0-9]")) {
+        if(isNumber(camp_location) || camp_location == null || camp_location.isEmpty()) {
           System.out.println("Your input is not valid");
-          return;
+        } else {
+          searchCamps();
         }
-
-        if (camp_location == null || camp_location.isEmpty()) {
-          System.out.println("Input cannot be empty!");
-          return;
-        }
-        searchCamps();
         break;
       case "3":
         System.out.println("==========List of all camps==========");
@@ -116,6 +111,10 @@ public class NearbyCamps implements FeatureMenu {
       System.out.println(String.format(Constant.STRING_FORMAT, listOfCampsList.get(i).getCamp_type()) + " " + String.format(Constant.STRING_FORMAT, listOfCampsList.get(i).getCamp_description()) + " " + String.format(Constant.STRING_FORMAT, listOfCampsList.get(i).getCamp_location()) + " " + String.format(Constant.STRING_FORMAT, listOfCampsList.get(i).getCamp_addedBy()));
     }
     menu();
+  }
+
+  public Boolean isNumber(String data){
+    return data.matches("^[0-9]");
   }
 
 }

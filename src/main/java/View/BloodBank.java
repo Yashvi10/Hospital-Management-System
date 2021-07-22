@@ -288,15 +288,24 @@ public class BloodBank implements FeatureMenu {
 
         BloodBank b = new BloodBank();
 
-        System.out.println("1 = Blood Request\n2 = Blood Donate\n3 = List all available items\n" +
-                "4 = List of requesters\n5 = List of donors");
-        System.out.println("Select one: 1,2,3,4 or 5");
+        System.out.println("Press 1 for Blood Request\nPress 2 for Blood Donate\nPress 3 for List all available items\n" +
+                "Press 4 for List of requesters\nPress 5 for List of donors\nPress 6 for exit");
 
         input = new Scanner(System.in);
-        int choice = input.nextInt();
+        String choice = input.next();
+
+        if (choice.equals("1")) {
+        } else if (choice.equals("2")) {
+        } else if (choice.equals("3")) {
+        } else if (choice.equals("4")) {
+        } else if (choice.equals("5")) {
+        } else if (choice.equals("6")) {
+        } else {
+            System.out.println("Please select correct option");
+        }
 
         switch(choice){
-            case 1 :
+            case "1" :
                 System.out.println("You selected request for blood option!");
                 b.firstname();
                 b.middlename();
@@ -309,7 +318,7 @@ public class BloodBank implements FeatureMenu {
 
                 break;
 
-            case 2 :
+            case "2" :
                 System.out.println("You selected blood donation");
                 System.out.println("Provide your details and you will need to give some tests done to donate blood.");
                 b.firstname();
@@ -329,26 +338,28 @@ public class BloodBank implements FeatureMenu {
 
                 break;
 
-            case 3 :
+            case "3" :
                 System.out.println("You selected listing all items in inventory!");
                 System.out.println("============List of Inventory============");
                 b.listOfItems();
 
                 break;
 
-            case 4 :
+            case "4" :
                 System.out.println("You selected list of details of blood requesters!");
                 System.out.println("============List of Requesters============");
                 b.listOfRequesters();
 
                 break;
 
-            case 5 :
+            case "5" :
                 System.out.println("You selected list of details of blood donors!");
                 System.out.println("============List of Donors============");
                 b.listOfDonors();
 
                 break;
+            case "6" :
+                System.out.println("Exited");
             default :
                 System.out.println("Your input is not valid. Check for valid input!");
 

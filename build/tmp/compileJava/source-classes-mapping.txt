@@ -10,8 +10,8 @@ Model/Pharmacy.java
  Model.Pharmacy
 Service/VitaminDTestReportsService.java
  Service.VitaminDTestReportsService
-Interface/IRegistration.java
- Interface.IRegistration
+Service/AddCampsService.java
+ Service.AddCampsService
 Interface/OfferDAO.java
  Interface.OfferDAO
 Interface/IDashboard.java
@@ -26,10 +26,10 @@ Service/BloodService.java
  Service.BloodService
 Interface/BloodDAO.java
  Interface.BloodDAO
-Service/BloodRequesterService.java
- Service.BloodRequesterService
-Service/BloodDonorService.java
- Service.BloodDonorService
+View/Dashboard.java
+ View.Dashboard
+View/BillingPage.java
+ View.BillingPage
 Interface/OrderLastIdDAO.java
  Interface.OrderLastIdDAO
 View/BillingMenu.java
@@ -58,8 +58,8 @@ Service/AppointmentService.java
  Service.AppointmentService
 Interface/OrderDAO.java
  Interface.OrderDAO
-Service/ListOfTestsService.java
- Service.ListOfTestsService
+View/UserManagementPage.java
+ View.UserManagementPage
 Model/Feedback.java
  Model.Feedback
 Model/BloodTestReports.java
@@ -68,12 +68,12 @@ Service/UserIdVerifiedService.java
  Service.UserIdVerifiedService
 View/Appointments.java
  View.Appointments
-View/BillingPage.java
- View.BillingPage
+Interface/SearchCampsDAO.java
+ Interface.SearchCampsDAO
 Model/Offers.java
  Model.Offers
-View/RatingMenu.java
- View.RatingMenu
+Service/ListOfCampsService.java
+ Service.ListOfCampsService
 View/Constant.java
  View.Constant
 Model/UrineTestReports.java
@@ -82,8 +82,8 @@ Model/CartItem.java
  Model.CartItem
 Service/OfferService.java
  Service.OfferService
-View/UserManagementPage.java
- View.UserManagementPage
+View/NearbyCamps.java
+ View.NearbyCamps
 Interface/IPharmacyBL.java
  Interface.IPharmacyBL
 Interface/BillingOrderDAO.java
@@ -114,8 +114,8 @@ Interface/RatingDAO.java
  Interface.RatingDAO
 Service/UrineTestReportsService.java
  Service.UrineTestReportsService
-Model/RegisterTest.java
- Model.RegisterTest
+Service/SearchCampsService.java
+ Service.SearchCampsService
 View/PharmacyMenu.java
  View.PharmacyMenu
 Model/OrderItem.java
@@ -136,8 +136,8 @@ Model/ListOfTests.java
  Model.ListOfTests
 Interface/BloodRequesterDAO.java
  Interface.BloodRequesterDAO
-View/Dashboard.java
- View.Dashboard
+Interface/ListOfCampsDAO.java
+ Interface.ListOfCampsDAO
 Model/BloodInventory.java
  Model.BloodInventory
 Interface/FeatureMenu.java
@@ -150,8 +150,8 @@ Service/BillingService.java
  Service.BillingService
 Model/Order.java
  Model.Order
-Interface/AppointmentDAO.java
- Interface.AppointmentDAO
+Service/BloodRequesterService.java
+ Service.BloodRequesterService
 View/CustomPDF.java
  View.CustomPDF
 Model/User.java
@@ -170,21 +170,21 @@ Service/CustomConnection.java
  Service.CustomConnection
 Interface/DoctorRatingDAO.java
  Interface.DoctorRatingDAO
-View/Laboratory.java
- View.Laboratory
+View/RatingMenu.java
+ View.RatingMenu
+Interface/IRegistration.java
+ Interface.IRegistration
 Model/ListOfCamps.java
  Model.ListOfCamps
-View/NearbyCamps.java
- View.NearbyCamps
-Interface/ListOfCampsDAO.java
- Interface.ListOfCampsDAO
-Service/SearchCampsService.java
- Service.SearchCampsService
-Interface/SearchCampsDAO.java
- Interface.SearchCampsDAO
+Interface/AppointmentDAO.java
+ Interface.AppointmentDAO
+Service/ListOfTestsService.java
+ Service.ListOfTestsService
+Model/RegisterTest.java
+ Model.RegisterTest
+Service/BloodDonorService.java
+ Service.BloodDonorService
+View/Laboratory.java
+ View.Laboratory
 View/FeatureFactory.java
  View.FeatureFactory
-Service/AddCampsService.java
- Service.AddCampsService
-Service/ListOfCampsService.java
- Service.ListOfCampsService

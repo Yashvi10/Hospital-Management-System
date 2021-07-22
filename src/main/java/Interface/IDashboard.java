@@ -1,6 +1,8 @@
 package Interface;
 
+import java.io.IOException;
+
 public interface IDashboard {
 
-    void HomeMenu();
+    void HomeMenu() throws IOException;
 }

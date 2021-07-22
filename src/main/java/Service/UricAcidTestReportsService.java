@@ -1,7 +1,6 @@
 package Service;
 
 import Interface.UricAcidTestReportsDAO;
-import Model.GenerateLabReports;
 import Model.UricAcidTestReports;
 
 import java.sql.Connection;
@@ -26,9 +25,8 @@ public class UricAcidTestReportsService implements UricAcidTestReportsDAO {
   public List<UricAcidTestReports> uricacidReports(Integer user_id) {
     Connection conn = customConnection.Connect();
 
-    GenerateLabReports generateLabReports = new GenerateLabReports();
     if (conn != null) {
-      String SQL = "select * from uric_acidTest_Reports where user_id = " + generateLabReports.getUser_id() + ";";
+      String SQL = "select * from uric_acidTest_Reports where user_id = '" + user_id + "';";
       Statement statement = null;
       try {
         statement = conn.createStatement();

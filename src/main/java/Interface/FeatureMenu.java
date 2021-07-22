@@ -1,5 +1,7 @@
 package Interface;
 
+import java.io.IOException;
+
 /*
  *  Name of file: FeatureMenu.java
  *  Author:  Nadish Maredia
@@ -8,5 +10,5 @@ package Interface;
  * */
 public interface FeatureMenu {
 
-    void menu();
+    void menu() throws IOException;
 }
