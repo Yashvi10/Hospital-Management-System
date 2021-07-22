@@ -2,6 +2,8 @@ package Interface;
 
 import Model.VaccineUserInformation;
 
+import java.util.List;
+
 /*
  *  Name of file: VaccineBlInterface.java
  *  Author:  Kushang Mistry
@@ -17,4 +19,6 @@ public interface VaccineRegistrationBLInterface {
   Boolean getUserInformation();
 
   VaccineUserInformation getUserDetails(Integer userId);
+
+  List<VaccineUserInformation> getDosageInformation();
 }

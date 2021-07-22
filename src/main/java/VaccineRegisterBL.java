@@ -339,4 +339,15 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
     else
       return null;
   }
+
+  @Override
+  public List<VaccineUserInformation> getDosageInformation() {
+    List<VaccineUserInformation> dosageInfo = vaccineRegisterUserDAO.getVaccinationInfo(UserSession.userId);
+
+    if(dosageInfo != null) {
+      return dosageInfo;
+    } else {
+      return null;
+    }
+  }
 }
