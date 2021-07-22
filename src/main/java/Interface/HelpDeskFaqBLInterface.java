@@ -1,6 +1,6 @@
 package Interface;
 
-import Model.Vaccine;
+import Model.HelpDeskFaq;
 
 import java.util.List;
 
@@ -12,5 +12,5 @@ import java.util.List;
  * */
 public interface HelpDeskFaqBLInterface {
 
-  List<Vaccine> getFaqData();
+  List<HelpDeskFaq> getFaqData();
 }
