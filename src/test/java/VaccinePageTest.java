@@ -251,12 +251,36 @@ public class VaccinePageTest {
     /*
      * Tests the logic of vaccineId validation
      *
-     * The method returns true as vaccineId is invalid and not available in database
+     * The method returns false as vaccineId is invalid and not available in database
      */
     @Test
     void checkVaccineAvailability_false()
     {
         VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
         assertEquals(false, vaccineRegisterBL.checkVaccineAvailability(25));
+    }
+
+    /*
+     * Tests the slot availability validation
+     *
+     * The method returns true as slots are available on date 18
+     */
+    @Test
+    void checkSlotAvailability_true()
+    {
+        VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
+        assertEquals(true, vaccineRegisterBL.checkSlotAvailability(java.sql.Date.valueOf("2021-07-18")));
+    }
+
+    /*
+     * Tests the slot availability validation
+     *
+     * The method returns false as no slots are available on date 19
+     */
+    @Test
+    void checkSlotAvailability_false()
+    {
+        VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
+        assertEquals(false, vaccineRegisterBL.checkSlotAvailability(java.sql.Date.valueOf("2021-07-19")));
     }
 }
