@@ -2,8 +2,14 @@ import Model.User;
 import Service.CustomConnection;
 import Service.DatabaseService;
 import Service.UserManagement;
-
 import java.util.Scanner;
+
+/*
+ *  Name of file: UserManagementPage.java
+ *  Author:  Abimbola Babalola
+ *  Purpose: This is the load page for the user Management feature
+ *  Description: This class is the wrapper for the sevice methods in the userManagement.java service
+ */
 
 public class UserManagementPage {
 

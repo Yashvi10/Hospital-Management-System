@@ -3,6 +3,13 @@ import org.junit.jupiter.api.Test;
 import java.security.NoSuchAlgorithmException;
 import static org.junit.jupiter.api.Assertions.*;
 
+/*
+ *  Name of file: userManagementTest.java
+ *  Author:  Abimbola Babalola
+ *  Purpose: Testing
+ *  Description: This class tests the business logic for the userManagement Features
+ */
+
 public class userManagementTest {
 
   ManageProfile profile=new ManageProfile();

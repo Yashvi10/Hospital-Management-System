@@ -1,9 +1,7 @@
 package Service;
 
-
 import Interface.IRegistration;
 import Model.User;
-
 import java.sql.*;
 
 /*
@@ -215,7 +213,7 @@ public class UserManagement extends ManageProfile implements IRegistration {
       }
     }
     catch (SQLException | ClassNotFoundException e) {
-      System.out.println("Record does not exist");
+      e.getMessage();
     }
 
     return result;

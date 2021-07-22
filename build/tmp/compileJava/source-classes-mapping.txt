@@ -74,37 +74,35 @@ Service/BillingService.java
  Service.BillingService
 Model/Order.java
  Model.Order
-Interface/IAccount.java
- Interface.IAccount
+Service/DatabaseService.java
+ Service.DatabaseService
 Model/User.java
  Model.User
 Model/BloodRequester.java
  Model.BloodRequester
 Interface/BloodDonorDAO.java
  Interface.BloodDonorDAO
-Starter.java
- Starter
+BillingMenu.java
+ BillingMenu
 Interface/IRegistration.java
  Interface.IRegistration
 Model/Accounts.java
  Model.Accounts
 Service/CustomConnection.java
  Service.CustomConnection
-BillingMenu.java
- BillingMenu
-Service/DatabaseService.java
- Service.DatabaseService
-Service/ManageAccountService.java
- Service.ManageAccountService
+Service/UserManagement.java
+ Service.UserManagement
 Service/AccountSelectionService.java
  Service.AccountSelectionService
 AccountsMenu.java
  AccountsMenu
-Service/LoginService.java
- Service.LoginService
-Service/UserManagement.java
- Service.UserManagement
+Starter.java
+ Starter
+Interface/IAccount.java
+ Interface.IAccount
 UserManagementPage.java
  UserManagementPage
+Service/ManageAccountService.java
+ Service.ManageAccountService
 Service/ManageProfile.java
  Service.ManageProfile
