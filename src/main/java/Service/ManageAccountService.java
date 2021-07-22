@@ -17,7 +17,6 @@ import java.util.List;
 
 public class ManageAccountService  implements IAccount {
 
-  Statement statement = null;
   ResultSet resultSet = null;
   DatabaseService dbService;
   PreparedStatement insertAccounts;
