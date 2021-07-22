@@ -50,8 +50,8 @@ public class OrderService implements OrderDAO, OrderLastIdDAO, UserIdVerifiedDAO
     @Override
     public Boolean addOrderItems(OrderItem orderItem)  {
 
-//        CustomConnection connection = new CustomConnection();
         Connection conn = connection.Connect();
+
         if  (conn != null)  {
             try  {
                 Statement st = conn.createStatement();
@@ -85,7 +85,6 @@ public class OrderService implements OrderDAO, OrderLastIdDAO, UserIdVerifiedDAO
     @Override
     public Integer getLastOrderId()  {
 
-//        CustomConnection connection = new CustomConnection();
         Connection conn = connection.Connect();
 
         Integer lastOrderId = 0;
@@ -116,7 +115,7 @@ public class OrderService implements OrderDAO, OrderLastIdDAO, UserIdVerifiedDAO
 
     @Override
     public Boolean isUserFound(Integer user_id) {
-//        CustomConnection connection = new CustomConnection();
+
         Connection conn = connection.Connect();
 
         Boolean result = false;

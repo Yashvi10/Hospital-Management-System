@@ -15,11 +15,17 @@ import java.sql.*;
 public class UserManagement extends ManageProfile implements IRegistration {
 
     Statement statement ;
+
     ResultSet resultSet ;
+
     Connection conn ;
+
     PreparedStatement insertUserTable;
+
     int checkRecord=0 ;
+
     DatabaseService dbService;
+
     boolean check=false;
 
     public UserManagement(DatabaseService dbService ){
@@ -157,11 +163,12 @@ public class UserManagement extends ManageProfile implements IRegistration {
         boolean boolResponse=false;
         String qUser="";
         try{
-            String query="Select username,password from loginTable where trim(username) ='"
+            String query="Select userid,username,password from loginTable where trim(username) ='"
                     + username.trim() + "'  and trim(password)='"+password.trim()+"'; ";
             resultSet=  dbService.executeQuery(query);
             while (resultSet.next()){
                 qUser=resultSet.getString("username");
+                UserSession.userId = resultSet.getInt("userid");
             }
 
             if(!qUser.equals( "")  ) {

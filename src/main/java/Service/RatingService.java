@@ -62,8 +62,8 @@ public class RatingService implements RatingDAO {
     @Override
     public Boolean addFeedback(Feedback feedback) {
 
-//        CustomConnection connection = new CustomConnection();
         Connection conn = connection.Connect();
+
         if  (conn != null)  {
             try  {
                 Statement st = conn.createStatement();
@@ -94,8 +94,8 @@ public class RatingService implements RatingDAO {
     @Override
     public Boolean feedbackExists(Integer user_id, Integer appointment_id) {
 
-//        CustomConnection connection = new CustomConnection();
         Connection conn = connection.Connect();
+
         Boolean result = false;
 
         if(conn != null) {

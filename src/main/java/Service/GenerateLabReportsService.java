@@ -19,6 +19,7 @@ public class GenerateLabReportsService implements GenerateLabReportsDAO {
   CustomConnection customConnection = new CustomConnection();
   @Override
   public List<GenerateLabReports> generateReports(Integer user_id) {
+
     Connection conn = customConnection.Connect();
 
     List<GenerateLabReports> generateLabReportsList = new ArrayList<GenerateLabReports>();

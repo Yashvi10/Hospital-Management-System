@@ -16,7 +16,6 @@ import java.util.List;
  * */
 public class UrineTestReportsService implements UrineTestReportsDAO {
 
-
   List<UrineTestReports> urineTestReportsList = new ArrayList<UrineTestReports>();
 
   CustomConnection customConnection = new CustomConnection();

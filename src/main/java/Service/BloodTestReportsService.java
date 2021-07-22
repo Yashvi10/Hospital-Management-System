@@ -24,8 +24,8 @@ import java.util.Random;
  * */
 public class BloodTestReportsService implements BloodTestReportsDAO {
 
-
   List<BloodTestReports> bloodTestReportsList = new ArrayList<BloodTestReports>();
+
   CustomConnection customConnection = new CustomConnection();
 
   @Override

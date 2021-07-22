@@ -20,8 +20,11 @@ import java.sql.SQLException;
 public class ManageProfile {
 
     Connection conn;
+
     ResultSet resultSet;
+
     DatabaseService dbService;
+
     int checkRecord=0;
 
     public ManageProfile(){}

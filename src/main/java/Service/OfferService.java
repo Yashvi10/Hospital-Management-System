@@ -60,7 +60,7 @@ public class OfferService implements OfferDAO, OfferValidDAO {
 
     @Override
     public List<Offers> getAllOffer() {
-//        CustomConnection con = new CustomConnection();
+
         Connection conn = con.Connect();
 
         List<Offers> offersList = new ArrayList<Offers>();

@@ -71,8 +71,8 @@ public class BillingService implements BillingOrderItemDAO, BillingOrderDAO {
     @Override
     public List<Order> getUserOrder(Integer user_id)  {
 
-//        CustomConnection conn = new CustomConnection();
         Connection con = conn.Connect();
+
         List<Order> orders = new ArrayList<Order>();
 
         if  (con != null)  {

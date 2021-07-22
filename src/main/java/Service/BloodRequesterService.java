@@ -56,7 +56,7 @@ public class BloodRequesterService implements BloodRequesterDAO {
 
     @Override
     public Boolean updateRequester(Integer bottleQuantity, String blood_group) {
-//        CustomConnection customConnection = new CustomConnection();
+
         Connection conn = customConnection.Connect();
 
         Boolean result = false;
@@ -86,7 +86,7 @@ public class BloodRequesterService implements BloodRequesterDAO {
 
     @Override
     public Integer isBloodAvaiable(String blood_group) {
-//        CustomConnection customConnection = new CustomConnection();
+
         Connection conn = customConnection.Connect();
 
         if(conn != null) {
@@ -116,7 +116,7 @@ public class BloodRequesterService implements BloodRequesterDAO {
 
     @Override
     public List<BloodRequester> getAllRequesters() {
-//        CustomConnection customConnection = new CustomConnection();
+
         Connection conn = customConnection.Connect();
 
         List<BloodRequester> bloodRequesterList = new ArrayList<BloodRequester>();

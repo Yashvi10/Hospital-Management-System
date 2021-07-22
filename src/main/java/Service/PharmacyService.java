@@ -59,8 +59,8 @@ public class PharmacyService implements PharmacyDAO, PharmacyUpdateStockDAO {
     @Override
     public void updateStock(String pId, Integer qty)  {
 
-//        CustomConnection connection = new CustomConnection();
         Connection conn = connection.Connect();
+
         Integer stock = 0;
 
         if  (conn != null)  {

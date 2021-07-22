@@ -18,10 +18,11 @@ import java.util.List;
  * */
 public class VaccineService implements VaccineDAO {
 
+  CustomConnection customConnection = new CustomConnection();
+
   @Override
   public List<Vaccine> getVaccines() {
 
-    CustomConnection customConnection = new CustomConnection();
     Connection conn = customConnection.Connect();
 
     List<Vaccine> vaccineList = new ArrayList<Vaccine>();

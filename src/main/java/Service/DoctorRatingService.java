@@ -56,7 +56,7 @@ public class DoctorRatingService implements DoctorRatingDAO {
 
     @Override
     public DoctorRating isDoctorAlreadyInDB(Integer doctor_id) {
-//        CustomConnection connection = new CustomConnection();
+
         Connection conn = connection.Connect();
 
         if  (conn != null)  {
@@ -89,7 +89,7 @@ public class DoctorRatingService implements DoctorRatingDAO {
 
     @Override
     public Boolean AddFirstRating(DoctorRating doctorRating) {
-//        CustomConnection connection = new CustomConnection();
+
         Connection conn = connection.Connect();
         if  (conn != null)  {
             try  {
@@ -120,7 +120,7 @@ public class DoctorRatingService implements DoctorRatingDAO {
 
     @Override
     public Boolean updateRating(Integer doctor_id, Double rating, Integer count, Double total) {
-//        CustomConnection customConnection = new CustomConnection();
+
         Connection conn = connection.Connect();
 
         Boolean result = false;

@@ -55,7 +55,6 @@ public class BloodDonorService implements BloodDonorDAO {
 
     @Override
     public Boolean updateDonor(String blood_group) {
-//        CustomConnection customConnection = new CustomConnection();
         Connection conn = customConnection.Connect();
 
         Boolean result = false;
@@ -85,7 +84,6 @@ public class BloodDonorService implements BloodDonorDAO {
 
     @Override
     public List<BloodDonor> getAllDonors() {
-//        CustomConnection customConnection = new CustomConnection();
         Connection conn = customConnection.Connect();
 
         List<BloodDonor> bloodDonorList = new ArrayList<BloodDonor>();

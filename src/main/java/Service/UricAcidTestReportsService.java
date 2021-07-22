@@ -16,7 +16,6 @@ import java.util.List;
  * */
 public class UricAcidTestReportsService implements UricAcidTestReportsDAO {
 
-
   List<UricAcidTestReports> uricAcidTestReportsList = new ArrayList<UricAcidTestReports>();
 
   CustomConnection customConnection = new CustomConnection();

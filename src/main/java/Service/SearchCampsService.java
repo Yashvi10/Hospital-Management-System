@@ -18,7 +18,6 @@ import java.util.List;
  * */
 public class SearchCampsService implements SearchCampsDAO {
 
-
   CustomConnection customConnection = new CustomConnection();
 
   @Override
