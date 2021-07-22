@@ -189,6 +189,50 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
       return false;
   }
 
+  private Integer getVaccineId() {
+    Integer vaccineId = null;
+
+    String userVaccineInput = null;
+
+    userInput = new Scanner(System.in);
+    System.out.println("---------------------");
+    System.out.println("Approved Vaccines");
+    System.out.println("---------------------\n");
+    System.out.println("Press 1: Covishield");
+    System.out.println("Press 2: Pfizer BioNTech");
+    System.out.println("Press 3: Moderna");
+    System.out.println("Press 4: Sputnik V");
+    System.out.println("\nEnter your Preffered Vaccine: ");
+
+    if(validateVaccineIdInput(userVaccineInput)) {
+      vaccineId = Integer.parseInt(userVaccineInput);
+      if(checkVaccineAvailability(vaccineId))
+        return vaccineId;
+      else
+        return null;
+    }
+    else
+      return null;
+  }
+
+  public Boolean validateVaccineIdInput(String userInput) {
+    String vaccineId = userInput;
+
+    try {
+      Integer.parseInt(vaccineId);
+      return true;
+    } catch (NumberFormatException e) {
+      return false;
+    }
+  }
+
+  public Boolean checkVaccineAvailability (Integer vaccineId) {
+    if(vaccineRegisterUserDAO.getTotalVaccineDoses(vaccineId) != null && vaccineRegisterUserDAO.getTotalVaccineDoses(vaccineId) > 0)
+      return true;
+    else
+      return false;
+  }
+
   private String getGovernmentId() {
 
     String governmentId=null;

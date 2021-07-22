@@ -261,7 +261,7 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
         ResultSet resultSet = queryStatement.executeQuery(fetchQuery);
 
         while (resultSet.next()) {
-          availableDoses = resultSet.getInt("available_slots");
+          availableDoses = resultSet.getInt("available_doses");
         }
       } catch (SQLException exception) {
         exception.printStackTrace();
