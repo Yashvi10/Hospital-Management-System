@@ -211,4 +211,23 @@ public class VaccinePageTest {
         VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
         assertEquals(false, vaccineRegisterBL.validateDate("2021a-08-28"));
     }
+
+    /*
+     * Tests the logic of vaccineId validation
+     *
+     * The method returns true as vaccineId is valid
+     */
+    @Test
+    void validateVaccineId_true()
+    {
+        VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
+        assertEquals(true, vaccineRegisterBL.validateVaccineIdInput("1"));
+    }
+
+    @Test
+    void validateVaccineId_false()
+    {
+        VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
+        assertEquals(false, vaccineRegisterBL.validateVaccineIdInput("abc"));
+    }
 }
