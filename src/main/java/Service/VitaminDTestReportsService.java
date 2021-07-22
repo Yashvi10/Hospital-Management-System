@@ -19,10 +19,10 @@ public class VitaminDTestReportsService implements VitaminDTestReportsDAO {
 
   List<VitaminDTestReports> vitaminDTestReportsList = new ArrayList<VitaminDTestReports>();
 
+  CustomConnection customConnection = new CustomConnection();
   @Override
   public List<VitaminDTestReports> vitaminDReports(Integer user_id) {
 
-    CustomConnection customConnection = new CustomConnection();
     Connection conn = customConnection.Connect();
 
     GenerateLabReports generateLabReports = new GenerateLabReports();

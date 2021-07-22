@@ -18,10 +18,11 @@ import java.util.List;
  *  Description: This class will implement all the actual logic define in RatingDAO
  * */
 public class RatingService implements RatingDAO {
+
+    CustomConnection connection = new CustomConnection();
     @Override
     public List<AppointmentModel> userAppointments(String user_Id) {
 
-        CustomConnection connection = new CustomConnection();
         Connection conn = connection.Connect();
         List<AppointmentModel> appointmentList = new ArrayList<AppointmentModel>();
 
@@ -61,7 +62,7 @@ public class RatingService implements RatingDAO {
     @Override
     public Boolean addFeedback(Feedback feedback) {
 
-        CustomConnection connection = new CustomConnection();
+//        CustomConnection connection = new CustomConnection();
         Connection conn = connection.Connect();
         if  (conn != null)  {
             try  {
@@ -93,7 +94,7 @@ public class RatingService implements RatingDAO {
     @Override
     public Boolean feedbackExists(Integer user_id, Integer appointment_id) {
 
-        CustomConnection connection = new CustomConnection();
+//        CustomConnection connection = new CustomConnection();
         Connection conn = connection.Connect();
         Boolean result = false;
 

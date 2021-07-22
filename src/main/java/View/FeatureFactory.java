@@ -28,6 +28,8 @@ public class FeatureFactory {
                     new BloodTestReportsService(), new VitaminDTestReportsService(), new UricAcidTestReportsService(), new UrineTestReportsService());
         } else if (menuType.equalsIgnoreCase(Constant.FEEDBACK_MENU)) {
             return new RatingMenu(new UserIdVerifiedService(), new RatingService(), new DoctorRatingService(), new Dashboard());
+        } else if (menuType.equalsIgnoreCase(Constant.APPOINTMENT_MENU)) {
+            return new Appointments();
         }
 
         return null;

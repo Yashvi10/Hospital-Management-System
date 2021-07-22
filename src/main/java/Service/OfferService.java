@@ -20,9 +20,10 @@ import java.util.List;
  * */
 public class OfferService implements OfferDAO, OfferValidDAO {
 
+    CustomConnection con = new CustomConnection();
     @Override
     public Integer isOfferValid(Integer offerId)  {
-        CustomConnection con = new CustomConnection();
+
         Connection conn = con.Connect();
 
         Integer resultToReturn = 0;
@@ -59,7 +60,7 @@ public class OfferService implements OfferDAO, OfferValidDAO {
 
     @Override
     public List<Offers> getAllOffer() {
-        CustomConnection con = new CustomConnection();
+//        CustomConnection con = new CustomConnection();
         Connection conn = con.Connect();
 
         List<Offers> offersList = new ArrayList<Offers>();

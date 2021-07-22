@@ -1,14 +1,16 @@
 userManagementTest.java
  userManagementTest
+BillingPageTest.java
+ BillingPageTest
+PharmacyPageTest.java
+ PharmacyPageTest
 BillingTest.java
  BillingTest
 BloodBankTest.java
  BloodBankTest
 ManageProfileTest.java
  ManageProfileTest
-BillingPageTest.java
- BillingPageTest
 RatingMenuTest.java
  RatingMenuTest
-PharmacyPageTest.java
- PharmacyPageTest
+AppointmentsTest.java
+ AppointmentsTest

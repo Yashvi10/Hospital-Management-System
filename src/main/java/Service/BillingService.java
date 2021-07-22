@@ -21,10 +21,10 @@ import java.util.List;
  * */
 public class BillingService implements BillingOrderItemDAO, BillingOrderDAO {
 
+    CustomConnection conn = new CustomConnection();
     @Override
     public List<OrderItem> getUserOrderItems(Integer order_id)  {
 
-        CustomConnection conn = new CustomConnection();
         Connection con = conn.Connect();
         List<OrderItem> orderItems = new ArrayList<OrderItem>();
 
@@ -71,7 +71,7 @@ public class BillingService implements BillingOrderItemDAO, BillingOrderDAO {
     @Override
     public List<Order> getUserOrder(Integer user_id)  {
 
-        CustomConnection conn = new CustomConnection();
+//        CustomConnection conn = new CustomConnection();
         Connection con = conn.Connect();
         List<Order> orders = new ArrayList<Order>();
 

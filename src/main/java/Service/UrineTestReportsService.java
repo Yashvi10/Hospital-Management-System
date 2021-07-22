@@ -19,9 +19,9 @@ public class UrineTestReportsService implements UrineTestReportsDAO {
 
   List<UrineTestReports> urineTestReportsList = new ArrayList<UrineTestReports>();
 
+  CustomConnection customConnection = new CustomConnection();
   @Override
   public List<UrineTestReports> urineReports(Integer user_id) {
-    CustomConnection customConnection = new CustomConnection();
     Connection conn = customConnection.Connect();
 
     GenerateLabReports generateLabReports = new GenerateLabReports();
