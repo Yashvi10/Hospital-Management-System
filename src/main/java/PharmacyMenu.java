@@ -7,6 +7,7 @@ import Model.Pharmacy;
 import Service.OfferService;
 import Service.OrderService;
 
+import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
@@ -53,7 +54,7 @@ public class PharmacyMenu implements FeatureMenu {
      * This is the Menu for pharmacy module
      * */
     @Override
-    public void menu() {
+    public void menu()  {
         System.out.println("*************************************");
         System.out.println("Press l to list all medicines\nPress e to back");
         System.out.println("*************************************");

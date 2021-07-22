@@ -22,7 +22,7 @@ public class User {
   public User(){}
 
   public User(String firstName, String lastName, String address, String phone, String email, String confirmEmail,
-         String pswd,String confirmPswd ){//, IRegistration register ) {
+         String pswd,String confirmPswd ){
     this.firstName = firstName;
     this.lastName = lastName;
     this.address = address;
@@ -31,7 +31,6 @@ public class User {
     this.pswd = pswd;
     this.confirmEmail = confirmEmail;
     this.confirmPswd = confirmPswd;
-   // checkrecord=register.loadRecord(this);
   }
 
   public Integer getUserid() {
@@ -105,13 +104,4 @@ public class User {
   public void setconfirmPswd(String confirmPswd) {
     this.confirmPswd = confirmPswd;
   }
-
-
-  //public   int  getcheckUser() {
-  //  return checkrecord;
- // }
-
-  //public void setcheckUser( int  checkrecord) {
-  //  this.checkrecord = checkrecord;
-  //}
 }

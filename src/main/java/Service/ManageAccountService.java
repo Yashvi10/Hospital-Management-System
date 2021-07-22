@@ -51,6 +51,16 @@ public class ManageAccountService  implements IAccount {
     catch (SQLException | ClassNotFoundException e) {
       e.getMessage();
     }
+    finally {
+      if (resultSet != null) {
+        try {
+          resultSet.close();
+        } catch (SQLException sqlEx) {
+          sqlEx.getMessage();
+        }
+        resultSet = null;
+      }
+    }
 
     return dbRecord;
   }
@@ -60,13 +70,12 @@ public class ManageAccountService  implements IAccount {
     List<String> dbRow;
     dbRecord = new ArrayList<>();
     try {
-      String query="select   accId , account_date, account_type , category ,  pay_name,  amount  from  ExpenseAccounts " ;
+      String query="select   accId , account_date, category ,  pay_name,  amount  from  ExpenseAccounts " ;
       resultSet=  dbService.executeQuery(query);
       while (resultSet.next()) {
         dbRow = new ArrayList<>();
         dbRow.add(String.valueOf(resultSet.getInt("accId")));
-        dbRow.add(String.valueOf(resultSet.getDate("account_date")));
-        dbRow.add(resultSet.getString("account_type"));
+        dbRow.add( resultSet.getString("account_date")) ;
         dbRow.add(resultSet.getString("category"));
         dbRow.add(resultSet.getString("pay_name"));
         dbRow.add(String.valueOf(resultSet.getDouble("amount")));
@@ -76,12 +85,23 @@ public class ManageAccountService  implements IAccount {
     catch (SQLException | ClassNotFoundException e) {
       e.getMessage();
     }
+    finally {
+      if (resultSet != null) {
+        try {
+          resultSet.close();
+        } catch (SQLException sqlEx) {
+          sqlEx.getMessage();
+        }
+        resultSet = null;
+      }
+
+    }
 
     return dbRecord;
   }
 
   @Override
-  public boolean addExpense(Accounts accounts) {
+  public boolean addExpense(Accounts accounts ) {
     try {
       String expenseType ;
       if(accounts.getExpenseType()==1){
@@ -93,47 +113,23 @@ public class ManageAccountService  implements IAccount {
       else {
         expenseType="Salary";
       }
-      /*String queryUserTable = " insert into ExpenseAccounts(account_date, category,pay_name,amount,status) " +
-              "select "+accounts.getDate()+ ", "+expenseType+", "+accounts.getPayName()+", "+accounts.getAmount()+", 'A' from dual " +
-              "where not exists (select * from ExpenseAccounts where account_date='"+accounts.getDate()+"' and " +
-              "category='"+expenseType+"' and pay_name='"+accounts.getPayName()+"'  and amount= "+accounts.getAmount()+";";
-              */
-      String queryUserTable = " insert into ExpenseAccounts(account_date, category,pay_name,amount,status) " +
-              "select ?,?, ?, ?, ? from dual  where not exists (select * from ExpenseAccounts where account_date=? and " +
-              " category=? and pay_name=?  and amount= ?;";
+      String queryUserTable = " insert into ExpenseAccounts(account_date, category,pay_name,amount ) " +
+              "select ?,?, ?, ?  from dual  where not exists (select * from ExpenseAccounts where account_date='"+
+              accounts.getDate()+"' and category='"+expenseType+"' and pay_name='"+accounts.getPayName()+
+              "' and amount= "+accounts.getAmount()+" );";
 
       insertAccounts =  dbService.conn.prepareStatement(queryUserTable);
       insertAccounts.setString(1, accounts.getDate() );
       insertAccounts.setString(2, expenseType);
       insertAccounts.setString(3, accounts.getPayName());
       insertAccounts.setDouble(4, accounts.getAmount());
-      insertAccounts.setString(5, "A");
-      insertAccounts.setString(6, accounts.getDate() );
-      insertAccounts.setString(7, expenseType);
-      insertAccounts.setString(8, accounts.getPayName());
-      insertAccounts.setDouble(9, accounts.getAmount());
       insertAccounts.executeUpdate();
       response=true;
-    } catch (SQLException   e) {
-      System.out.println("SQLException: " + e.getMessage());
     }
-    return response;
-  }
+    catch (SQLException   e) {
+      System.out.println(  e.getMessage());
+    }
 
-  @Override
-  public boolean DeleteRecord(Accounts accounts) {
-    try {
-      String queryUserTable = "update ExpenseAccounts set status='D' where account_date=?  " +
-              "  and pay_name=? and amount=? ";
-      insertAccounts = dbService.conn.prepareStatement(queryUserTable);
-      insertAccounts.setString(1, accounts.getDate());
-      insertAccounts.setString(2, accounts.getPayName());
-      insertAccounts.setDouble(3, accounts.getAmount());
-      insertAccounts.executeUpdate();
-      response = true;
-    } catch (SQLException e) {
-      System.out.println("SQLException: " + e.getMessage());
-    }
     return response;
   }
 }

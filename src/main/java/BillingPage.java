@@ -5,7 +5,6 @@ import Interface.OrderLastIdDAO;
 import Model.CartItem;
 import Model.Order;
 import Model.OrderItem;
-import Service.OfferService;
 import Service.OrderService;
 import Service.PharmacyService;
 
@@ -53,7 +52,7 @@ public class BillingPage {
     /*
      * This is the paid by cash function it will update the stock and clear the cart
      * */
-    public void paidByCash()  {
+    public void paidByCash()   {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Offer id:");

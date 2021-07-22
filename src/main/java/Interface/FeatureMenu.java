@@ -8,5 +8,5 @@ package Interface;
  * */
 public interface FeatureMenu {
 
-    void menu();
+    void menu()  ;
 }

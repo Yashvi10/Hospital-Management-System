@@ -1,10 +1,15 @@
 import Interface.FeatureMenu;
+import Interface.IDateValidation;
 import Interface.IPrint;
 import Model.Accounts;
 import Service.CustomConnection;
 import Service.DatabaseService;
 import Service.ManageAccountService;
 
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,7 +22,7 @@ import java.util.Scanner;
  *               ManageAccountService class.
  * */
 
-public class AccountsMenu extends ManageAccountService implements FeatureMenu, IPrint {
+public class AccountsMenu extends ManageAccountService implements FeatureMenu, IPrint, IDateValidation {
 
   Scanner sc = new Scanner(System.in);
   Accounts account;
@@ -32,47 +37,59 @@ public class AccountsMenu extends ManageAccountService implements FeatureMenu, I
 
   @Override
   public void menu( ) {
-    int menuOption ;
-    int accType  ;
-    List<List<String>> rows;
+    try {
+      int menuOption;
+      int accType;
 
-    System.out.println("******Accounts Menu******");
-    do {
-      System.out.println("Press 1: Income\nPress 2: Expense\nPress 0: Exit");
-      accType = sc.nextInt();
-      switch (accType) {
-        case 1:
-          rows=manageAccountService.getIncome();
-          printRecord(rows);
-          break;
-        case 2:
-          do{
-            System.out.println("Press 1: View Expenses\nPress 2: Add Expenses\nPress 3: Delete Expenses\nPress 0: Exit" );
-            menuOption= sc.nextInt();
-            switch(menuOption) {
-              case 1:
-                rows= manageAccountService.getExpenses();
-                printRecord(rows);
-                break;
-              case 2:
-                userInput();
-                printOutput(manageAccountService.addExpense(account));
-                break;
-              case 3:System.out.println("Delete Expenses");
-                printOutput(manageAccountService.DeleteRecord(account));
-                break;
-              case 0:
-              default:
-                break;}
-          }
-          while(menuOption!=0);
+      System.out.println("******Accounts Menu******");
+      do {
+        System.out.println("Press 1: Income\nPress 2: Expense\nPress 0: Exit");
+        accType = sc.nextInt();
+        switch (accType) {
+          case 1:
+            printRecord(manageAccountService.getIncome());
+            System.out.println();
+            break;
+          case 2:
+            do {
+              System.out.println("***********************");
+              System.out.println("Press 1: View Expenses\nPress 2: Add Expenses \nPress 0: Exit");
+              menuOption = sc.nextInt();
+              switch (menuOption) {
+                case 1:
+                  printRecord(manageAccountService.getExpenses());
+                  break;
+                case 2:
+                  printOutput(manageAccountService.addExpense(userInput()));
+                  break;
+                case 0:
+                default:
+                  break;
+              }
+            }
+            while (menuOption != 0);
 
-        case 0:
-        default:
-          break;
+          case 0:
+          default:
+            break;
+        }
+
+      } while (accType != 0);
+
+      databaseService.closeDB();
+    }
+    catch(SQLException e){
+       e.getMessage();
+    }
+    finally {
+      try {
+        databaseService.closeDB();
+      }
+      catch (SQLException sqlEx) {
+        sqlEx.getMessage();
       }
 
-    } while (accType != 0) ;
+    }
 
   }
 
@@ -97,18 +114,51 @@ public class AccountsMenu extends ManageAccountService implements FeatureMenu, I
     }
   }
 
-  public void userInput( ) {
-    System.out.println("Provide Expense Payment Details\nEnter Payment Date: ");
-    account.setDate(sc.nextLine());
+  @Override
+  public boolean validateDate(String date){
+    boolean dateCheck=false;
+    if(!date.trim().equals("")){
+      SimpleDateFormat format=new SimpleDateFormat( "dd/MM/yyyy");
+      format.setLenient(false);
+      try{
+        Date recordDate=format.parse(date);
+        dateCheck=true;
+      }
+      catch( ParseException e){
+        e.getMessage();
+      }
+    }
+    return dateCheck;
+  }
+
+  public Accounts userInput( ) {
+    Scanner scan=new Scanner(System.in);
+    System.out.println("Provide Expense Payment Details" );
+    System.out.println("Enter Receiver Name: ");
+    String payName=scan.nextLine() ;
+    String date;
+    boolean checkResult=false;
+    do {
+      System.out.println("Enter Payment Date: ");
+      date = scan.nextLine();
+      checkResult=validateDate(date);
+      if (!checkResult){
+        System.out.println("Invalid Date")  ;
+      }
+    }
+    while(checkResult=false);
+
+    int expenseType;
     do{
       System.out.println("Enter Payment purpose\nPress 1 for Maintenance\nPress 2 for Supplies\nPress 3 for Salary" );
-      account.setExpenseType(sc.nextInt());
+      expenseType=scan.nextInt() ;
     }
-    while((sc.nextInt()!=1) &&(sc.nextInt()!=2)&&(sc.nextInt()!=3));
-    System.out.println("Enter Receiver Name: ");
-    account.setPayName(sc.nextLine());
+    while((expenseType!=1) &&(expenseType!=2)&&(expenseType!=3));
+
     System.out.println("Enter Amount: ");
-    account.setAmount(sc.nextDouble());
+    Double amount=scan.nextDouble() ;
+    account=new Accounts( payName,amount,date,expenseType);
+    return account;
   }
 
 }
