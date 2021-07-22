@@ -11,11 +11,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 /*
- * File Name: VitaminDTestReportsService.java
- * Author: Yashvi Lad
+ *  Name of file: VitaminDTestReportsService.java
+ *  Author:  Yashvi Lad
+ *  Purpose: This class is like service which will implement the VitaminDTestReportsDAO
+ *  Description: This class will implement all the actual logic define in VitaminDTestReportsDAO
  * */
 public class VitaminDTestReportsService implements VitaminDTestReportsDAO {
-
 
   List<VitaminDTestReports> vitaminDTestReportsList = new ArrayList<VitaminDTestReports>();
 

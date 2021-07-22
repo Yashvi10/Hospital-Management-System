@@ -2,7 +2,6 @@ package View;
 
 import Interface.FeatureMenu;
 import Interface.IDashboard;
-import Service.AddCampsService;
 
 import java.util.Scanner;
 
@@ -50,10 +49,11 @@ public class Dashboard implements IDashboard {
             FeatureMenu featureMenu = featureFactory.getMenu(Constant.APPOINTMENT_MENU);
             featureMenu.menu();
         } else if (userInput.equals("7")) {
-            NearbyCamps nearbyCamps = new NearbyCamps(new AddCampsService());
-            nearbyCamps.menu();
-//            FeatureMenu featureMenu = featureFactory.getMenu(Constant.NEARBYCAMPS_MENU);
-//            featureMenu.menu();
+//            NearbyCamps nearbyCamps = new NearbyCamps(new AddCampsService(), new SearchCampsService(),
+//                    new ListOfCampsService());
+//            nearbyCamps.menu();
+            FeatureMenu featureMenu = featureFactory.getMenu(Constant.NEARBYCAMPS_MENU);
+            featureMenu.menu();
         } else {
             System.out.println("Please select correct option");
         }

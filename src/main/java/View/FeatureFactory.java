@@ -30,6 +30,9 @@ public class FeatureFactory {
             return new RatingMenu(new UserIdVerifiedService(), new RatingService(), new DoctorRatingService(), new Dashboard());
         } else if (menuType.equalsIgnoreCase(Constant.APPOINTMENT_MENU)) {
             return new Appointments();
+        } else if (menuType.equalsIgnoreCase(Constant.NEARBYCAMPS_MENU)){
+            return new NearbyCamps(new AddCampsService(), new SearchCampsService(),
+                    new ListOfCampsService());
         }
 
         return null;

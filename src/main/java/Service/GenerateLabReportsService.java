@@ -11,8 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * File Name: GenerateLabReportsService.java
- * Author: Yashvi Lad
+ *  Name of file: GenerateLabReportsService.java
+ *  Author:  Yashvi Lad
+ *  Purpose: This class is like service which will implement the GenerateLabReportsDAO
+ *  Description: This class will implement all the actual logic define in GenerateLabReportsDAO
  * */
 public class GenerateLabReportsService implements GenerateLabReportsDAO {
 

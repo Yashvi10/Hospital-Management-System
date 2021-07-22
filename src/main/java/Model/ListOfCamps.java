@@ -1,13 +1,13 @@
 package Model;
 
 /*
- *  Name of file: AddCamps.java
+ *  Name of file: ListOfCamps.java
  *  Author:  Yashvi Lad
  *  Purpose: This class is like mapper help us in interacting with DB models
  *  Description: This class will behaves like a mapper so it will be easy when
  *               we are working by using getter and setter methods
- * */
-public class AddCamps {
+ **/
+public class ListOfCamps {
 
   private String camp_type;
 
@@ -17,7 +17,10 @@ public class AddCamps {
 
   private String camp_addedBy;
 
-  public AddCamps(String camp_type, String camp_description, String camp_location, String camp_addedBy) {
+  public ListOfCamps() {
+  }
+
+  public ListOfCamps(String camp_type, String camp_description, String camp_location, String camp_addedBy) {
     this.camp_type = camp_type;
     this.camp_description = camp_description;
     this.camp_location = camp_location;
@@ -57,3 +60,4 @@ public class AddCamps {
   }
 
 }
+

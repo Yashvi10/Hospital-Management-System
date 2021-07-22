@@ -3,24 +3,18 @@ package Service;
 import Interface.BloodTestReportsDAO;
 import Model.BloodTestReports;
 import Model.GenerateLabReports;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfWriter;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-
 /*
- * File Name: BloodTestReportsService.java
- * Author: Yashvi Lad
+ *  Name of file: BloodTestReportsService.java
+ *  Author:  Yashvi Lad
+ *  Purpose: This class is like service which will implement the BloodTestReportsDAO
+ *  Description: This class will implement all the actual logic define in BloodTestReportsDAO
  * */
 public class BloodTestReportsService implements BloodTestReportsDAO {
 

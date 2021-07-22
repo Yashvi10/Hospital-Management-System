@@ -86,11 +86,10 @@ public class BloodRequesterService implements BloodRequesterDAO {
 
     @Override
     public Integer isBloodAvaiable(String blood_group) {
-//        CustomConnection customConnection = new CustomConnection();
         Connection conn = customConnection.Connect();
 
         if(conn != null) {
-            String SQL = "select No_of_bottles from  CSCI5308_8_DEVINT.blood_inventory where blood_group = '" +blood_group +"';";
+            String SQL = "select No_of_bottles from blood_inventory where blood_group = '" +blood_group +"';";
             Statement statement = null;
             try {
                 statement = conn.createStatement();

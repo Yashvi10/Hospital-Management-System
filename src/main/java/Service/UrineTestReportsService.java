@@ -11,11 +11,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 /*
- * File Name: UrineTestReportsService.java
- * Author: Yashvi Lad
+ *  Name of file: UrineTestReportsService.java
+ *  Author:  Yashvi Lad
+ *  Purpose: This class is like service which will implement the UrineTestReportsDAO
+ *  Description: This class will implement all the actual logic define in UrineTestReportsDAO
  * */
 public class UrineTestReportsService implements UrineTestReportsDAO {
-
 
   List<UrineTestReports> urineTestReportsList = new ArrayList<UrineTestReports>();
 

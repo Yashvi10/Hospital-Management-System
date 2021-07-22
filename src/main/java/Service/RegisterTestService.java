@@ -11,8 +11,10 @@ import java.time.LocalTime;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 /*
- * File Name: RegisterTestService.java
- * Author: Yashvi Lad
+ *  Name of file: RegisterTestService.java
+ *  Author:  Yashvi Lad
+ *  Purpose: This class is like service which will implement the RegisterTestDAO
+ *  Description: This class will implement all the actual logic define in RegisterTestDAO
  * */
 public class RegisterTestService implements RegisterTestDAO {
 

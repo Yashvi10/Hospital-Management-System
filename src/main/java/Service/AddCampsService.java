@@ -2,14 +2,17 @@ package Service;
 
 import Interface.AddCampsDAO;
 import Model.AddCamps;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
 /*
- * File Name: AddCampsService.java
- * Author: Yashvi Lad
+ *  Name of file: AddCampsService.java
+ *  Author:  Yashvi Lad
+ *  Purpose: This class is like service which will implement the AddCampsDAO
+ *  Description: This class will implement all the actual logic define in AddCampsDAO
  * */
 public class AddCampsService implements AddCampsDAO {
 
@@ -44,7 +47,7 @@ public class AddCampsService implements AddCampsDAO {
     System.out.println("Enter your fullname: ");
     added_by = input.next();
 
-    AddCamps addCamps = new AddCamps(camp_type,camp_description,camp_location,added_by);
+    AddCamps addCamps = new AddCamps(camp_type, camp_description, camp_location, added_by);
 
     addToDatabase(addCamps);
 
@@ -58,10 +61,8 @@ public class AddCampsService implements AddCampsDAO {
 
     Boolean result = false;
 
-    if(conn != null) {
-      String SQL = "insert into AddCamps(camp_type,camp_description,camp_location,camp_adddedBy) " +
-              "values('" +addCamps.getCamp_type() +"','" +addCamps.getCamp_description()
-              +"','" +addCamps.getCamp_location() +"','" +addCamps.getCamp_addedBy() +"')";
+    if (conn != null) {
+      String SQL = "insert into AddCamps(camp_type,camp_description,camp_location,camp_adddedBy) " + "values('" + addCamps.getCamp_type() + "','" + addCamps.getCamp_description() + "','" + addCamps.getCamp_location() + "','" + addCamps.getCamp_addedBy() + "')";
 
       Statement statement = null;
       try {
@@ -73,7 +74,7 @@ public class AddCampsService implements AddCampsDAO {
 
       } catch (SQLException throwables) {
         throwables.printStackTrace();
-      }finally {
+      } finally {
         try {
           conn.close();
         } catch (SQLException throwables) {

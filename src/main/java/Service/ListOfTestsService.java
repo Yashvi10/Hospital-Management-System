@@ -11,8 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * File Name: ListOfTestsService.java
- * Author: Yashvi Lad
+ *  Name of file: ListOfTestsService.java
+ *  Author:  Yashvi Lad
+ *  Purpose: This class is like service which will implement the ListOfTestsDAO
+ *  Description: This class will implement all the actual logic define in ListOfTestsDAO
  * */
 public class ListOfTestsService implements ListOfTestsDAO {
 

@@ -1,9 +1,12 @@
 package Model;
 
 /*
- * File Name: BloodTestReports.java
- * Author: Yashvi Lad
- * */
+ *  Name of file: BloodTestReports.java
+ *  Author:  Yashvi Lad
+ *  Purpose: This class is like mapper help us in interacting with DB models
+ *  Description: This class will behaves like a mapper so it will be easy when
+ *               we are working by using getter and setter methods
+ **/
 public class BloodTestReports {
 
   private Integer test_id;
