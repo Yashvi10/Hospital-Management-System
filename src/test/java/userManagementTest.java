@@ -1,57 +1,50 @@
-import Interface.IRegistration;
-import Model.User;
-import Service.CustomConnection;
-import Service.UserManagement;
+import Service.ManageProfile;
 import org.junit.jupiter.api.Test;
-
+import java.security.NoSuchAlgorithmException;
 import static org.junit.jupiter.api.Assertions.*;
+
+/*
+ *  Name of file: userManagementTest.java
+ *  Author:  Abimbola Babalola
+ *  Purpose: Testing
+ *  Description: This class tests the business logic for the userManagement Features
+ */
 
 public class userManagementTest {
 
-    // Sample Nurse data
-//    private static final String firstName="Kathy";
-//    private static final String lastName="Raine";
-//    private static final String address="5672 Spring Garden road";
-//    private static final String phone="9029886545";
-//    private static final String email="kathy@iwk.com";
-//    private static final String confirmEmail="kathy@iwk.com";
-//    private static final String pswd="kathy";
-//    private static final String confirmPswd=  "kathy";
-//    private static final String role="Nurse";
-//    private static final int userid=1;
-//
-//    CustomConnection db=new CustomConnection();
-//    IRegistration register=new UserManagement(db.Connect());
-//    User myUser=new User(firstName,lastName,address,phone,email,confirmEmail,pswd,confirmPswd,register );
-//    UserManagement user =new UserManagement(db.Connect());
-//
-//    @Test
-//    public void loadRecord_Test(){
-//        User userobj = new User();
-//        userobj.setEmail("ronnie@iwk.com");
-//        assertEquals(3 ,user.loadRecord(userobj ));
-//    }
-//
-//    @Test
-//    public void ExistingLogin_Test(){
-//        user = new UserManagement(db.Connect());
-//        assertEquals("Username already exists" ,user.registerLogin(myUser ));
-//
-//    }
-//
-//
-//    @Test
-//    public void loginUserTest_True(){
-//
-//        assertTrue(user.loginUser(myUser), "Login successful");
-//    }
-//
-//    @Test
-//    public void loginUserTest_False(){
-//        User userobj = new User();
-//        userobj.setEmail("null@dal.ca");
-//        userobj.setPswd("hello");
-//        assertFalse (user.loginUser(userobj), "Login failed");
-//    }
+  ManageProfile profile=new ManageProfile();
+
+  @Test
+  public void validateEmailTest_True(){
+    assertTrue(profile.validateEmail("ronnie@dal.ca"))  ;
+  }
+
+  @Test
+  public void validateEmailTest_False(){
+    assertFalse(profile.validateEmail("abimbola@dal@ca.com"))  ;
+  }
+
+  @Test
+  public void encryptPassword_Test() throws NoSuchAlgorithmException {
+    assertEquals("5f4dcc3b5aa765d61d8327deb882cf99",profile.encryptPassword("password"))  ;
+  }
+
+  @Test
+  public void checkCredentialsTest_True() {
+    assertTrue( profile.checkCredentials("abimbola@dal.ca","abimbola@dal.ca","password",
+            "password"))  ;
+  }
+
+  @Test
+  public void checkCredentialsTest_mismatchEmail()  {
+    assertFalse( profile.checkCredentials("abimbola@dal.ca","abimbola"  ,"password",
+            "password"))  ;
+  }
+
+  @Test
+  public void checkCredentialsTest_mismatchPassword()  {
+    assertFalse( profile.checkCredentials("abimbola@dal.ca","abimbola@dal.ca"  ,"password",
+            "passwrod"))  ;
+  }
 
 }

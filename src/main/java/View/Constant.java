@@ -43,4 +43,5 @@ public class Constant  {
     public static final String LABORATORY_MENU = "LABORATORY";
     public static final String APPOINTMENT_MENU = "APPOINTMENT";
     public static final String VACCINE_MENU = "VACCINE";
+    public static final String CAMP_MENU = "CAMP";
 }

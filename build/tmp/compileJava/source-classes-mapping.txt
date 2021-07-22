@@ -1,87 +1,49 @@
 View/VaccinePage.java
  View.VaccinePage
-Interface/UserIdVerifiedDAO.java
- Interface.UserIdVerifiedDAO
 View/Billing.java
  View.Billing
-Model/UricAcidTestReports.java
- Model.UricAcidTestReports
 Interface/OfferValidDAO.java
  Interface.OfferValidDAO
 Model/Pharmacy.java
  Model.Pharmacy
 Service/VitaminDTestReportsService.java
  Service.VitaminDTestReportsService
-Interface/OfferDAO.java
- Interface.OfferDAO
+Service/AddCampsService.java
+ Service.AddCampsService
 Interface/IDashboard.java
  Interface.IDashboard
 Model/VitaminDTestReports.java
  Model.VitaminDTestReports
-Model/GenerateLabReports.java
- Model.GenerateLabReports
 Model/BloodDonor.java
  Model.BloodDonor
 Service/BloodService.java
  Service.BloodService
-Interface/BloodDAO.java
- Interface.BloodDAO
-BL/VaccineRegisterBL.java
- BL.VaccineRegisterBL
-View/BillingPage.java
- View.BillingPage
 Interface/OrderLastIdDAO.java
  Interface.OrderLastIdDAO
-View/BillingMenu.java
- View.BillingMenu
 Service/UserSession.java
  Service.UserSession
 Interface/UrineTestReportsDAO.java
  Interface.UrineTestReportsDAO
-Model/Doctors.java
- Model.Doctors
-Interface/UricAcidTestReportsDAO.java
- Interface.UricAcidTestReportsDAO
+Interface/AddCampsDAO.java
+ Interface.AddCampsDAO
 Service/RegisterTestService.java
  Service.RegisterTestService
 Service/ManageProfile.java
  Service.ManageProfile
-Service/UserManagement.java
- Service.UserManagement
 Service/RatingService.java
  Service.RatingService
-Interface/VaccineBLInterface.java
- Interface.VaccineBLInterface
 Model/DoctorRating.java
  Model.DoctorRating
-Service/AppointmentService.java
- Service.AppointmentService
 Interface/OrderDAO.java
  Interface.OrderDAO
-Service/BloodRequesterService.java
- Service.BloodRequesterService
 Model/Feedback.java
  Model.Feedback
-Model/BloodTestReports.java
- Model.BloodTestReports
-BL/VaccineBL.java
- BL.VaccineBL
-Service/UserIdVerifiedService.java
- Service.UserIdVerifiedService
-View/Appointments.java
- View.Appointments
+Interface/SearchCampsDAO.java
+ Interface.SearchCampsDAO
 Model/Offers.java
  Model.Offers
 View/Constant.java
  View.Constant
-Model/UrineTestReports.java
- Model.UrineTestReports
-Model/CartItem.java
- Model.CartItem
-Service/OfferService.java
- Service.OfferService
-Interface/IPharmacyBL.java
- Interface.IPharmacyBL
 Interface/BillingOrderDAO.java
  Interface.BillingOrderDAO
 Interface/RegisterTestDAO.java
@@ -90,60 +52,138 @@ Interface/BloodTestReportsDAO.java
  Interface.BloodTestReportsDAO
 Service/UricAcidTestReportsService.java
  Service.UricAcidTestReportsService
+Model/AddCamps.java
+ Model.AddCamps
 Service/GenerateLabReportsService.java
  Service.GenerateLabReportsService
 Interface/GenerateLabReportsDAO.java
  Interface.GenerateLabReportsDAO
+Interface/PharmacyDAO.java
+ Interface.PharmacyDAO
+Service/VaccineRegistration.java
+ Service.VaccineRegistration
+Service/UrineTestReportsService.java
+ Service.UrineTestReportsService
+Service/SearchCampsService.java
+ Service.SearchCampsService
+View/PharmacyMenu.java
+ View.PharmacyMenu
+Service/DoctorRatingService.java
+ Service.DoctorRatingService
+Interface/VaccineRegisterUserDAO.java
+ Interface.VaccineRegisterUserDAO
+Model/AppointmentModel.java
+ Model.AppointmentModel
+BL/PharmacyBL.java
+ BL.PharmacyBL
+Model/ListOfTests.java
+ Model.ListOfTests
+Interface/ListOfCampsDAO.java
+ Interface.ListOfCampsDAO
+Interface/FeatureMenu.java
+ Interface.FeatureMenu
+Service/BloodTestReportsService.java
+ Service.BloodTestReportsService
+Interface/ListOfTestsDAO.java
+ Interface.ListOfTestsDAO
+Service/DatabaseService.java
+ Service.DatabaseService
+Model/Vaccine.java
+ Model.Vaccine
+Interface/BloodDonorDAO.java
+ Interface.BloodDonorDAO
+View/BillingMenuPage.java
+ View.BillingMenuPage
+Service/CustomConnection.java
+ Service.CustomConnection
+View/RatingMenu.java
+ View.RatingMenu
+Interface/IRegistration.java
+ Interface.IRegistration
+Model/ListOfCamps.java
+ Model.ListOfCamps
+Service/ListOfTestsService.java
+ Service.ListOfTestsService
+Service/BloodDonorService.java
+ Service.BloodDonorService
+Service/BloodRequesterService.java
+ Service.BloodRequesterService
+BL/VaccineRegisterBL.java
+ BL.VaccineRegisterBL
+Interface/UserIdVerifiedDAO.java
+ Interface.UserIdVerifiedDAO
+Model/UricAcidTestReports.java
+ Model.UricAcidTestReports
+Interface/OfferDAO.java
+ Interface.OfferDAO
+Model/GenerateLabReports.java
+ Model.GenerateLabReports
+Interface/BloodDAO.java
+ Interface.BloodDAO
+View/Dashboard.java
+ View.Dashboard
+View/BillingPage.java
+ View.BillingPage
+View/BillingMenu.java
+ View.BillingMenu
+Model/Doctors.java
+ Model.Doctors
+Interface/UricAcidTestReportsDAO.java
+ Interface.UricAcidTestReportsDAO
+Service/UserManagement.java
+ Service.UserManagement
+Interface/VaccineBLInterface.java
+ Interface.VaccineBLInterface
+Service/AppointmentService.java
+ Service.AppointmentService
+View/UserManagementPage.java
+ View.UserManagementPage
+Model/BloodTestReports.java
+ Model.BloodTestReports
+BL/VaccineBL.java
+ BL.VaccineBL
+Service/UserIdVerifiedService.java
+ Service.UserIdVerifiedService
+View/Appointments.java
+ View.Appointments
+Service/ListOfCampsService.java
+ Service.ListOfCampsService
+Model/UrineTestReports.java
+ Model.UrineTestReports
+Model/CartItem.java
+ Model.CartItem
+Service/OfferService.java
+ Service.OfferService
+View/NearbyCamps.java
+ View.NearbyCamps
+Interface/IPharmacyBL.java
+ Interface.IPharmacyBL
 View/Colors.java
  View.Colors
 Service/OrderService.java
  Service.OrderService
-Interface/PharmacyDAO.java
- Interface.PharmacyDAO
 Interface/VitaminDTestReportsDAO.java
  Interface.VitaminDTestReportsDAO
 Interface/PharmacyUpdateStockDAO.java
  Interface.PharmacyUpdateStockDAO
 Interface/RatingDAO.java
  Interface.RatingDAO
-View/UserManagementPage.java
- View.UserManagementPage
-Service/UrineTestReportsService.java
- Service.UrineTestReportsService
-View/PharmacyMenu.java
- View.PharmacyMenu
 Model/OrderItem.java
  Model.OrderItem
-Service/DoctorRatingService.java
- Service.DoctorRatingService
-Interface/VaccineRegisterUserDAO.java
- Interface.VaccineRegisterUserDAO
 Service/PharmacyService.java
  Service.PharmacyService
 Interface/BillingOrderItemDAO.java
  Interface.BillingOrderItemDAO
-Model/AppointmentModel.java
- Model.AppointmentModel
 Model/VaccineUserInformation.java
  Model.VaccineUserInformation
-BL/PharmacyBL.java
- BL.PharmacyBL
 View/BloodBank.java
  View.BloodBank
-Model/ListOfTests.java
- Model.ListOfTests
 Interface/BloodRequesterDAO.java
  Interface.BloodRequesterDAO
 Model/BloodInventory.java
  Model.BloodInventory
-Interface/FeatureMenu.java
- Interface.FeatureMenu
 Interface/VaccineRegistrationBLInterface.java
  Interface.VaccineRegistrationBLInterface
-Service/BloodTestReportsService.java
- Service.BloodTestReportsService
-Interface/ListOfTestsDAO.java
- Interface.ListOfTestsDAO
 Service/BillingService.java
  Service.BillingService
 Model/Order.java
@@ -154,39 +194,21 @@ View/CustomPDF.java
  View.CustomPDF
 Model/User.java
  Model.User
-Model/Vaccine.java
- Model.Vaccine
+Model/SearchCamps.java
+ Model.SearchCamps
 Model/BloodRequester.java
  Model.BloodRequester
-Interface/BloodDonorDAO.java
- Interface.BloodDonorDAO
-View/BillingMenuPage.java
- View.BillingMenuPage
 Starter.java
  Starter
-Service/CustomConnection.java
- Service.CustomConnection
 Interface/DoctorRatingDAO.java
  Interface.DoctorRatingDAO
-View/RatingMenu.java
- View.RatingMenu
 Interface/VaccineDAO.java
  Interface.VaccineDAO
-Interface/IRegistration.java
- Interface.IRegistration
 Service/VaccineService.java
  Service.VaccineService
 Interface/AppointmentDAO.java
  Interface.AppointmentDAO
-Service/ListOfTestsService.java
- Service.ListOfTestsService
 Model/RegisterTest.java
  Model.RegisterTest
-Service/BloodDonorService.java
- Service.BloodDonorService
-View/Dashboard.java
- View.Dashboard
-Service/VaccineRegistration.java
- Service.VaccineRegistration
 View/FeatureFactory.java
  View.FeatureFactory

@@ -26,6 +26,7 @@ public class Dashboard implements IDashboard {
         System.out.println("Press 5 for Feedback and rating");
         System.out.println("Press 6 for Appointments");
         System.out.println("Press 7 for Vaccine");
+        System.out.println("Press 8 for Near by Camps");
         String userInput = scanner.nextLine();
 
         FeatureFactory featureFactory = new FeatureFactory();
@@ -50,6 +51,9 @@ public class Dashboard implements IDashboard {
             featureMenu.menu();
         } else if (userInput.equals("7")) {
             FeatureMenu featureMenu = featureFactory.getMenu(Constant.VACCINE_MENU);
+            featureMenu.menu();
+        } else if (userInput.equals("8")) {
+            FeatureMenu featureMenu = featureFactory.getMenu(Constant.CAMP_MENU);
             featureMenu.menu();
         } else {
             System.out.println("Please select correct option");

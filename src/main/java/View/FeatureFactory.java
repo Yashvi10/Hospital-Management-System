@@ -34,6 +34,9 @@ public class FeatureFactory {
             return new Appointments();
         } else if (menuType.equalsIgnoreCase(Constant.VACCINE_MENU)) {
             return new VaccinePage(new VaccineBL(new VaccineService()), new VaccineRegisterBL(new VaccineRegistration()));
+        } else if (menuType.equalsIgnoreCase(Constant.CAMP_MENU)) {
+            return new NearbyCamps(new AddCampsService(), new SearchCampsService(),
+                    new ListOfCampsService());
         }
 
         return null;
