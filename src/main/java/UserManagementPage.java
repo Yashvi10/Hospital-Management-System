@@ -25,13 +25,19 @@ public class UserManagementPage {
 
     String userInput = scanner.nextLine();
 
-
-    switch (userInput) {
-      case "1" -> Login();
-      case "2" -> registerAsStaff();
-      case "3" -> registerAsPatient();
-      default -> System.out.println("Please select correct option");
+    if(userInput.equals("1")){
+      Login();
     }
+    else if(userInput.equals("2")){
+      registerAsStaff();
+    }
+    else if(userInput.equals("3")){
+      registerAsPatient();
+    }
+    else{
+      System.out.println("Please select correct option");
+    }
+
   }
 
   public void Login() {
