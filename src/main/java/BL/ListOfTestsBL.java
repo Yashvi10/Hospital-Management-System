@@ -27,10 +27,9 @@ public class ListOfTestsBL implements ListOfTestsBLDAO {
 
     List<ListOfTests> listOfTestsList = listOfTestsDAO.getListOfTests();
 
-    System.out.println(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
-            String.format(Constant.STRING_FORMAT, "Test Name"));
+    System.out.println(String.format(Constant.STRING_FORMAT, "Test_id") + " " + String.format(Constant.STRING_FORMAT, "Test Name"));
 
-    for(int i =0;i<listOfTestsList.size();i++) {
+    for (int i = 0; i < listOfTestsList.size(); i++) {
       System.out.println(String.format(Constant.STRING_FORMAT, listOfTestsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT, listOfTestsList.get(i).getTest_name()));
     }
     return listOfTestsList;

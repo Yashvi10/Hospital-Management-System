@@ -5,6 +5,7 @@ import Interface.SearchCampsDAO;
 import Model.SearchCamps;
 import View.Constant;
 import View.NearbyCamps;
+
 import java.util.List;
 
 /*
@@ -35,7 +36,7 @@ public class SearchCampsBL implements SearchCampsBLDAO {
       System.out.println(String.format(Constant.STRING_FORMAT, searchCampsList.get(i).getCamp_type().replace('-', ' ')) + " " + String.format(Constant.STRING_FORMAT, searchCampsList.get(i).getCamp_description().replace('-', ' ')) + " " + String.format(Constant.STRING_FORMAT, searchCampsList.get(i).getCamp_location()) + " " + String.format(Constant.STRING_FORMAT, searchCampsList.get(i).getCamp_addedBy().replace('-', ' ')));
     }
     nearbyCamps.menu();
-    return  searchCampsList;
+    return searchCampsList;
   }
 
 }

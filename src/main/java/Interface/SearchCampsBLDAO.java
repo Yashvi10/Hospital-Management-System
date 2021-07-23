@@ -1,6 +1,5 @@
 package Interface;
 
-import Model.ListOfCamps;
 import Model.SearchCamps;
 
 import java.util.List;

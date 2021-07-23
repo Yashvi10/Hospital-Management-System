@@ -33,15 +33,11 @@ public class VitaminDReportBL implements VitaminDTestReportsDAO {
 
     List<VitaminDTestReports> vitaminDTestReportsList = vitaminDTestReportsDAO.vitaminDReports(user_id);
 
-    fileWriter = new FileWriter("resources/VitaminDReport"+user_id+".txt");
-    fileWriter.write(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
-            String.format(Constant.STRING_FORMAT,"User_id") + " " +
-            String.format(Constant.STRING_FORMAT, "Hydroxy VitaminD Serum") + " " +
-            String.format(Constant.STRING_FORMAT, "Units") + "\n");
+    fileWriter = new FileWriter("resources/VitaminDReport" + user_id + ".txt");
+    fileWriter.write(String.format(Constant.STRING_FORMAT, "Test_id") + " " + String.format(Constant.STRING_FORMAT, "User_id") + " " + String.format(Constant.STRING_FORMAT, "Hydroxy VitaminD Serum") + " " + String.format(Constant.STRING_FORMAT, "Units") + "\n");
 
-    for(int i = 0 ; i < vitaminDTestReportsList.size(); i++) {
-      fileWriter.write(String.format(Constant.STRING_FORMAT,vitaminDTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT,vitaminDTestReportsList.get(i).getUser_id())
-              + " " + String.format(Constant.STRING_FORMAT,vitaminDTestReportsList.get(i).getHydroxy_VitaminD_serum()) + " " + String.format(Constant.STRING_FORMAT,vitaminDTestReportsList.get(i).getUnits()));
+    for (int i = 0; i < vitaminDTestReportsList.size(); i++) {
+      fileWriter.write(String.format(Constant.STRING_FORMAT, vitaminDTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT, vitaminDTestReportsList.get(i).getUser_id()) + " " + String.format(Constant.STRING_FORMAT, vitaminDTestReportsList.get(i).getHydroxy_VitaminD_serum()) + " " + String.format(Constant.STRING_FORMAT, vitaminDTestReportsList.get(i).getUnits()));
     }
     System.out.println("Report stored in a text file.");
     fileWriter.close();
