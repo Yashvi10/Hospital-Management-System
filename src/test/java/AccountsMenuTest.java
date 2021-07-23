@@ -1,8 +1,8 @@
 import Model.Accounts;
-import Service.CustomConnection;
-import Service.DatabaseService;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /*
  *  Name of file: AccountsMenuTest.java
@@ -12,10 +12,8 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 
 public class AccountsMenuTest {
-  CustomConnection db = new CustomConnection();
   Accounts account = new Accounts(" ", 0.00, " ", 0);
   AccountsMenu menu = new AccountsMenu(account);
-  DatabaseService dbService = new DatabaseService(db.Connect());
 
   @Test
   public void validateDateTest_True(){
