@@ -2,6 +2,7 @@ package View;
 
 import Interface.FeatureMenu;
 import Interface.HelpDeskFaqBLInterface;
+import Interface.HelpDeskRequestRegisterBLInterface;
 import Model.HelpDeskFaq;
 import Model.Vaccine;
 import Service.UserSession;
@@ -21,10 +22,17 @@ public class HelpDeskPage implements FeatureMenu {
 
   private HelpDeskFaqBLInterface helpDeskFaqBLInterface;
 
+  private HelpDeskRequestRegisterBLInterface helpDeskRequestRegisterBLInterface;
+
   private List<HelpDeskFaq> helpDeskFaqs;
 
-  public HelpDeskPage (HelpDeskFaqBLInterface helpDeskFaqBLInterface) {
+  static Scanner userInput;
+
+  public HelpDeskPage () {}
+
+  public HelpDeskPage (HelpDeskFaqBLInterface helpDeskFaqBLInterface, HelpDeskRequestRegisterBLInterface helpDeskRequestRegisterBLInterface) {
     this.helpDeskFaqBLInterface = helpDeskFaqBLInterface;
+    this.helpDeskRequestRegisterBLInterface = helpDeskRequestRegisterBLInterface;
   }
 
   // Method which is responsible to call Help Desk Menu (Sub-menu of the system)
@@ -36,6 +44,7 @@ public class HelpDeskPage implements FeatureMenu {
     System.out.println("==========================");
 
     System.out.println("1 = View General FAQ");
+    System.out.println("2 = To register a request");
     System.out.println("\nPress 0 (Zero) to stop");
     System.out.println("\nEnter your choice: ");
 
@@ -70,6 +79,24 @@ public class HelpDeskPage implements FeatureMenu {
           }
           break;
 
+        case 2 :
+          System.out.println("------------------------------------------------");
+          System.out.println("\t\t\tPlease register your concerns here");
+          System.out.println("------------------------------------------------");
+
+          String description = getDescription();
+          if(description == null) {
+            System.out.println("Description can not be null");
+            break;
+          }
+
+          if(!helpDeskRequestRegisterBLInterface.getRequestInformation(description)) {
+            System.out.println("There was problem registering your request - either staff is unavailable or your request is not registered");
+            break;
+          } else {
+            System.out.println("Your concerns are very important to us - We noted your request, our staff will contact you shortly");
+          }
+          break;
         default:
           System.out.println("Invalid Input, Please select right option");
           break;
@@ -79,6 +106,7 @@ public class HelpDeskPage implements FeatureMenu {
       System.out.println("==========================");
 
       System.out.println("1 = View General FAQ");
+      System.out.println("2 = To register a request");
       System.out.println("\nPress 0 (Zero) to stop");
       System.out.println("\nEnter your choice: ");
 
@@ -89,5 +117,28 @@ public class HelpDeskPage implements FeatureMenu {
         menu();
       }
     }
+  }
+
+  private String getDescription() {
+
+    String description=null;
+
+    userInput = new Scanner(System.in);
+    System.out.println("Enter your concern: ");
+    description = userInput.nextLine();
+
+    description = description.trim().toLowerCase();
+
+    if(validateDescription(description))
+      return description;
+    else
+      return null;
+  }
+
+  public Boolean validateDescription(String description) {
+    if (description != null && !description.equals("") && description.length() < 500)
+      return true;
+    else
+      return false;
   }
 }
