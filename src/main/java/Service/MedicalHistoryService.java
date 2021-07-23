@@ -47,7 +47,7 @@ public class MedicalHistoryService implements MedicalHistoryDAO {
       ps.setString(2,medicalHistoryModel.getDocument_name());
       ps.setString(3, medicalHistoryModel.getFilename());
       ps.executeUpdate();
-      if (file_write(file, filename)){
+      if (file_write(file)){
         return true;
       }else {
         return false;
@@ -69,11 +69,13 @@ public class MedicalHistoryService implements MedicalHistoryDAO {
     return true;
   }
 
-  public Boolean file_write(File file, String filename){
-    String new_path = "resources\\Uploads\\"+UserSession.userId+filename;
+  public Boolean file_write(File file){
+    String new_path = "resources\\Uploads\\"+UserSession.userId+file.getName();
     try {
       File new_file = new File(new_path);
-      Files.copy(file.toPath(), new_file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+      if (!new_file.exists()){
+        Files.copy(file.toPath(), new_file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+      }
       return true;
     }catch (IOException io){
       io.printStackTrace();

@@ -166,13 +166,13 @@ Service/AppointmentService.java
  Service.AppointmentService
 Interface/AppointmentDAO.java
  Interface.AppointmentDAO
-Service/MedicalHistoryService.java
- Service.MedicalHistoryService
+View/RatingMenu.java
+ View.RatingMenu
 Model/MedicalHistoryModel.java
  Model.MedicalHistoryModel
 View/FeatureFactory.java
  View.FeatureFactory
+Service/MedicalHistoryService.java
+ Service.MedicalHistoryService
 View/MedicalHistoryMenu.java
  View.MedicalHistoryMenu
-View/RatingMenu.java
- View.RatingMenu
