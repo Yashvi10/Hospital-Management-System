@@ -1,5 +1,5 @@
-RatingMenuTest.java
- RatingMenuTest
+VaccinePageTest.java
+ VaccinePageTest
 BillingPageTest.java
  BillingPageTest
 AppointmentsTest.java
@@ -12,5 +12,7 @@ PharmacyPageTest.java
  PharmacyPageTest
 userManagementTest.java
  userManagementTest
-VaccinePageTest.java
- VaccinePageTest
+RatingMenuTest.java
+ RatingMenuTest
+HelpDeskPageTest.java
+ HelpDeskPageTest
