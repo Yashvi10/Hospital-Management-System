@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="HelpDeskPageTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-07-23T01:13:51" hostname="DESKTOP-IC8LASV" time="0.036">
+<testsuite name="HelpDeskPageTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-07-23T01:17:27" hostname="DESKTOP-IC8LASV" time="0.043">
   <properties/>
-  <testcase name="checkValidateDescription_empty_false()" classname="HelpDeskPageTest" time="0.025"/>
+  <testcase name="checkValidateDescription_empty_false()" classname="HelpDeskPageTest" time="0.031"/>
   <testcase name="checkValidateDescription_longDescription_false()" classname="HelpDeskPageTest" time="0.001"/>
-  <testcase name="validateAge_false_zero()" classname="HelpDeskPageTest" time="0.004"/>
+  <testcase name="validateAge_false_zero()" classname="HelpDeskPageTest" time="0.005"/>
   <testcase name="checkValidateDescription_true()" classname="HelpDeskPageTest" time="0.001"/>
-  <testcase name="checkValidateDescription_null_false()" classname="HelpDeskPageTest" time="0.0"/>
+  <testcase name="checkValidateDescription_null_false()" classname="HelpDeskPageTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

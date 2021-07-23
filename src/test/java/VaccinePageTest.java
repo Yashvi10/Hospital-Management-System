@@ -8,6 +8,13 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/*
+ *  Name of file: VaccinePageTest.java
+ *  Author:  Kushang Mistry
+ *  Purpose: This class tests operations related to vaccine
+ *  Description: These test cases ensures how the logic should behave
+ *               Passing all test cases ensures that logic is working as intended.
+ * */
 public class VaccinePageTest {
 
   /*

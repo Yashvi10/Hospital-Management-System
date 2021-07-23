@@ -1,6 +1,7 @@
 package View;
 
 import Interface.FeatureMenu;
+import Interface.IDashboard;
 import Interface.VaccineBLInterface;
 import Interface.VaccineRegistrationBLInterface;
 import Model.Vaccine;
@@ -24,13 +25,18 @@ public class VaccinePage implements FeatureMenu {
 
   private VaccineRegistrationBLInterface vaccineRegistrationBlInterface;
 
+  private IDashboard dashboard;
+
   private List<Vaccine> vaccineList;
 
   private List<VaccineUserInformation> userInformation;
 
-  public VaccinePage(VaccineBLInterface vaccineBlInterface, VaccineRegistrationBLInterface vaccineRegistrationBlInterface) {
+  public VaccinePage(VaccineBLInterface vaccineBlInterface,
+                     VaccineRegistrationBLInterface vaccineRegistrationBlInterface,
+                     IDashboard dashboard) {
     this.vaccineBlInterface = vaccineBlInterface;
     this.vaccineRegistrationBlInterface = vaccineRegistrationBlInterface;
+    this.dashboard = dashboard;
   }
 
   // Method which is responsible to call Vaccine Menu (Sub-menu of the system)
@@ -170,5 +176,6 @@ public class VaccinePage implements FeatureMenu {
         menu();
       }
     }
+    dashboard.HomeMenu();
   }
 }

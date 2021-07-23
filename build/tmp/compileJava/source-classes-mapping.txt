@@ -1,5 +1,5 @@
-View/VaccinePage.java
- View.VaccinePage
+View/HelpDeskPage.java
+ View.HelpDeskPage
 View/Billing.java
  View.Billing
 Interface/OfferValidDAO.java
@@ -226,11 +226,11 @@ Interface/VaccineDAO.java
  Interface.VaccineDAO
 Service/VaccineService.java
  Service.VaccineService
-View/Dashboard.java
- View.Dashboard
 View/BillingPage.java
  View.BillingPage
-View/HelpDeskPage.java
- View.HelpDeskPage
+View/Dashboard.java
+ View.Dashboard
+View/VaccinePage.java
+ View.VaccinePage
 View/FeatureFactory.java
  View.FeatureFactory
