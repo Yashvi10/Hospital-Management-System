@@ -8,6 +8,8 @@ Model/Pharmacy.java
  Model.Pharmacy
 Service/VitaminDTestReportsService.java
  Service.VitaminDTestReportsService
+BL/HelpDeskFaqBL.java
+ BL.HelpDeskFaqBL
 Service/AddCampsService.java
  Service.AddCampsService
 Interface/IDashboard.java
@@ -96,6 +98,8 @@ View/BillingMenuPage.java
  View.BillingMenuPage
 Service/CustomConnection.java
  Service.CustomConnection
+Model/HelpDeskFaq.java
+ Model.HelpDeskFaq
 View/RatingMenu.java
  View.RatingMenu
 Interface/IRegistration.java
@@ -120,10 +124,10 @@ Model/GenerateLabReports.java
  Model.GenerateLabReports
 Interface/BloodDAO.java
  Interface.BloodDAO
-View/Dashboard.java
- View.Dashboard
-View/BillingPage.java
- View.BillingPage
+Interface/AppointmentDAO.java
+ Interface.AppointmentDAO
+Model/RegisterTest.java
+ Model.RegisterTest
 View/BillingMenu.java
  View.BillingMenu
 Model/Doctors.java
@@ -158,6 +162,8 @@ View/NearbyCamps.java
  View.NearbyCamps
 Interface/IPharmacyBL.java
  Interface.IPharmacyBL
+Interface/HelpDeskFaqDAO.java
+ Interface.HelpDeskFaqDAO
 View/Colors.java
  View.Colors
 Service/OrderService.java
@@ -172,8 +178,12 @@ Model/OrderItem.java
  Model.OrderItem
 Service/PharmacyService.java
  Service.PharmacyService
+Service/HelpDeskFaqService.java
+ Service.HelpDeskFaqService
 Interface/BillingOrderItemDAO.java
  Interface.BillingOrderItemDAO
+Interface/HelpDeskFaqBLInterface.java
+ Interface.HelpDeskFaqBLInterface
 Model/VaccineUserInformation.java
  Model.VaccineUserInformation
 View/BloodBank.java
@@ -206,9 +216,21 @@ Interface/VaccineDAO.java
  Interface.VaccineDAO
 Service/VaccineService.java
  Service.VaccineService
-Interface/AppointmentDAO.java
- Interface.AppointmentDAO
-Model/RegisterTest.java
- Model.RegisterTest
+Interface/HelpDeskRegisterRequest.java
+ Interface.HelpDeskRegisterRequest
+View/Dashboard.java
+ View.Dashboard
+View/BillingPage.java
+ View.BillingPage
+Interface/HelpDeskRequestRegisterBLInterface.java
+ Interface.HelpDeskRequestRegisterBLInterface
+Service/HelpDeskRegisterService.java
+ Service.HelpDeskRegisterService
+Model/HelpDeskRequestInformation.java
+ Model.HelpDeskRequestInformation
+BL/HelpDeskRequestRegisterBL.java
+ BL.HelpDeskRequestRegisterBL
+View/HelpDeskPage.java
+ View.HelpDeskPage
 View/FeatureFactory.java
  View.FeatureFactory
