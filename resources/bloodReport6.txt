@@ -1,0 +1,2 @@
+|   Test_id| |   User_id| |Blood Group| |White Blood Cells| |Platelet Count| |Blood Cell Count| |Hemoglobin| |Hematocrit|
+|         2| |         6| |        B-| |       8.5| |       300| |       4.4| |      14.3| |      39.5|

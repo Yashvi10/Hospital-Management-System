@@ -1,0 +1,2 @@
+|   Test_id| |   User_id| |    Colour| |Specific Gravity| |        pH| |     Blood| |   Glucose| |Urobilinogen| |   Protein| |Red blood cells| | Pus Cells| |  Crystals| |     Casts| | Turbidity| |White blood cells|
+|         4| |         7| |      pale| |      1.01| |       5.0| |       2.0| |     110.0| |       0.5| |     105.0| |       1.0| |       2.5| |Acid urine| |       1.0| |     clear| |       2.0|
