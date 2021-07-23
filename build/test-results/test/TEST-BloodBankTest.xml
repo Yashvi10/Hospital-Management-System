@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BloodBankTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2021-07-23T17:06:24" hostname="DESKTOP-IC8LASV" time="0.025">
+<testsuite name="BloodBankTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2021-07-23T17:41:18" hostname="DESKTOP-IC8LASV" time="0.02">
   <properties/>
-  <testcase name="Weight()" classname="BloodBankTest" time="0.008"/>
-  <testcase name="lastname()" classname="BloodBankTest" time="0.002"/>
-  <testcase name="blood_group()" classname="BloodBankTest" time="0.001"/>
-  <testcase name="middlename()" classname="BloodBankTest" time="0.001"/>
-  <testcase name="Haemoglobin()" classname="BloodBankTest" time="0.004"/>
+  <testcase name="Weight()" classname="BloodBankTest" time="0.005"/>
+  <testcase name="lastname()" classname="BloodBankTest" time="0.001"/>
+  <testcase name="blood_group()" classname="BloodBankTest" time="0.0"/>
+  <testcase name="middlename()" classname="BloodBankTest" time="0.0"/>
+  <testcase name="Haemoglobin()" classname="BloodBankTest" time="0.002"/>
   <testcase name="Age()" classname="BloodBankTest" time="0.002"/>
   <testcase name="Date()" classname="BloodBankTest" time="0.001"/>
   <testcase name="firstname()" classname="BloodBankTest" time="0.001"/>
