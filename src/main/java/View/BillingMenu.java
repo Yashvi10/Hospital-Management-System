@@ -7,6 +7,7 @@ import Service.BillingService;
 import Service.OrderService;
 import Service.UserSession;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public class BillingMenu implements FeatureMenu {
     }
 
     @Override
-    public void menu() {
+    public void menu() throws IOException {
 //        System.out.println("Enter user id: ");
 //        String userId = scanner.nextLine();
 
@@ -70,7 +71,7 @@ public class BillingMenu implements FeatureMenu {
     }
 
 
-    public void viewOrderDetails()  {
+    public void viewOrderDetails() throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter order id to view: ");
         String orderIdFromUser = scanner.nextLine();
@@ -101,7 +102,7 @@ public class BillingMenu implements FeatureMenu {
 
     }
 
-    public void showOrderItems(List<OrderItem> items)  {
+    public void showOrderItems(List<OrderItem> items) throws IOException {
 
         String data = "";
         String heading = "";
@@ -149,7 +150,7 @@ public class BillingMenu implements FeatureMenu {
     }
 
     public void createPDF(String data, String orderId, Double totalbill,
-                          Double finalbill, Double discount) {
+                          Double finalbill, Double discount) throws IOException {
 
         LocalDateTime myDateObj = LocalDateTime.now();
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");

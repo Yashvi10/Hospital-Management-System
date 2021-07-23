@@ -7,6 +7,7 @@ import Model.Doctors;
 import Model.Feedback;
 import Service.UserSession;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -50,7 +51,7 @@ public class RatingMenu implements FeatureMenu {
     }
 
     @Override
-    public void menu() {
+    public void menu() throws IOException {
         System.out.println("Press 1 for feedback");
         System.out.println("Press 2 to rate doctors");
         System.out.println("Press 3 to go back");
@@ -82,7 +83,7 @@ public class RatingMenu implements FeatureMenu {
         }
     }
 
-    public void doctorRatingMenu() {
+    public void doctorRatingMenu() throws IOException {
         System.out.println("==============================");
         System.out.println("\t\tLIST OF DOCTORS");
         System.out.println("==============================");
@@ -145,7 +146,7 @@ public class RatingMenu implements FeatureMenu {
         return false;
     }
 
-    public void verifyUserMenu() {
+    public void verifyUserMenu() throws IOException {
 
         System.out.println("Enter your name: ");
         String name = scanner.nextLine();
@@ -195,7 +196,7 @@ public class RatingMenu implements FeatureMenu {
         return rate.matches("[1-5]");
     }
 
-    public void getFeedbackFromUser(){
+    public void getFeedbackFromUser() throws IOException {
 
         System.out.println("Please enter the appointment id for which you want to provide feedback: ");
         String ap_id = scanner.nextLine();
@@ -260,7 +261,7 @@ public class RatingMenu implements FeatureMenu {
         return true;
     }
 
-    public void addRating(){
+    public void addRating() throws IOException {
         System.out.println("Please provide a rating for your appointment");
         System.out.println("How good was your experience on the scale from 1 to 5");
         System.out.println("Please enter number from 1 to 5: ");

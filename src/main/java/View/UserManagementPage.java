@@ -4,6 +4,8 @@ import Model.User;
 import Service.CustomConnection;
 import Service.DatabaseService;
 import Service.UserManagement;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 /*
@@ -22,7 +24,7 @@ public class UserManagementPage {
     UserManagement user = new UserManagement(dbService);
     Scanner scanner = new Scanner(System.in);
 
-    public void MainMenu() {
+    public void MainMenu() throws IOException {
         System.out.println("================Hospital Management System===============");
         System.out.println("Press 1 to login\nPress 2 to register as staff\nPress 3 to register as patient");
 
@@ -43,7 +45,7 @@ public class UserManagementPage {
 
     }
 
-    public void Login() {
+    public void Login() throws IOException {
         System.out.println("Enter email: ");
         String email = scanner.nextLine();
 

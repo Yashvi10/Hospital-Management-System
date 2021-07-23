@@ -6,6 +6,7 @@ import Interface.HelpDeskRequestRegisterBLInterface;
 import Interface.IDashboard;
 import Model.HelpDeskFaq;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -41,7 +42,7 @@ public class HelpDeskPage implements FeatureMenu {
 
   // Method which is responsible to call Help Desk Menu (Sub-menu of the system)
   @Override
-  public void menu() {
+  public void menu() throws IOException {
 
     System.out.println("\n==========================");
     System.out.println("Select options from below");

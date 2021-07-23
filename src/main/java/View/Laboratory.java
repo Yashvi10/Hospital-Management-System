@@ -159,18 +159,22 @@ public class Laboratory implements FeatureMenu{
           case "1" :
             System.out.println("report of Vitamin D test");
             vitaminDReport();
+            menu();
             break;
           case "2" :
             System.out.println("report of CBC test");
             bloodReport();
+            menu();
             break;
           case "3" :
             System.out.println("report of uric-acid test");
             uric_acidReports();
+            menu();
             break;
           case "4" :
             System.out.println("report of urine test");
             urineReports();
+            menu();
             break;
           case "5" :
             System.out.println("Exited");
@@ -247,7 +251,7 @@ public class Laboratory implements FeatureMenu{
             String.format(Constant.STRING_FORMAT,"Platelet Count") + " " +
             String.format(Constant.STRING_FORMAT, "Blood Cell Count") + " " +
             String.format(Constant.STRING_FORMAT, "Hemoglobin")+ " " +
-            String.format(Constant.STRING_FORMAT,"Hematocrit"));
+            String.format(Constant.STRING_FORMAT,"Hematocrit") + "\n");
 
     for(int i = 0; i < bloodTestReportsList.size(); i++) {
       fileWriter.write(String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getUser_id())
@@ -255,6 +259,8 @@ public class Laboratory implements FeatureMenu{
               + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getPlatelet_count()) + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getRed_blood_cell_count())
               + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getHemoglobin()) + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getHematocrit()));
     }
+    System.out.println("Report stored in a text file.");
+    fileWriter.close();
     menu();
   }
 
@@ -267,12 +273,14 @@ public class Laboratory implements FeatureMenu{
     fileWriter.write(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
             String.format(Constant.STRING_FORMAT,"User_id") + " " +
             String.format(Constant.STRING_FORMAT, "Hydroxy VitaminD Serum") + " " +
-            String.format(Constant.STRING_FORMAT, "Units"));
+            String.format(Constant.STRING_FORMAT, "Units") + "\n");
 
     for(int i = 0 ; i < vitaminDTestReportsList.size(); i++) {
       fileWriter.write(String.format(Constant.STRING_FORMAT,vitaminDTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT,vitaminDTestReportsList.get(i).getUser_id())
               + " " + String.format(Constant.STRING_FORMAT,vitaminDTestReportsList.get(i).getHydroxy_VitaminD_serum()) + " " + String.format(Constant.STRING_FORMAT,vitaminDTestReportsList.get(i).getUnits()));
     }
+    System.out.println("Report stored in a text file.");
+    fileWriter.close();
     menu();
   }
 
@@ -296,7 +304,7 @@ public class Laboratory implements FeatureMenu{
             String.format(Constant.STRING_FORMAT,"Crystals") + " " +
             String.format(Constant.STRING_FORMAT,"Casts") + " " +
             String.format(Constant.STRING_FORMAT,"Turbidity") + " " +
-            String.format(Constant.STRING_FORMAT,"White blood cells"));
+            String.format(Constant.STRING_FORMAT,"White blood cells") + "\n");
 
     for(int i = 0; i < urineTestReportsList.size(); i++) {
       fileWriter.write(String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getUser_id())
@@ -308,6 +316,8 @@ public class Laboratory implements FeatureMenu{
               + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getCasts()) + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getTurbidity())
               + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getWbc()));
     }
+    System.out.println("Report stored in a text file.");
+    fileWriter.close();
     menu();
   }
 
@@ -320,12 +330,14 @@ public class Laboratory implements FeatureMenu{
     fileWriter.write(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
             String.format(Constant.STRING_FORMAT,"User_id") + " " +
             String.format(Constant.STRING_FORMAT, "Serum Uric Acid: %f") + " " +
-            String.format(Constant.STRING_FORMAT, "Units"));
+            String.format(Constant.STRING_FORMAT, "Units") + "\n");
 
     for(int i = 0; i < uricAcidTestReportsList.size(); i++) {
       fileWriter.write(String.format(Constant.STRING_FORMAT,uricAcidTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT,uricAcidTestReportsList.get(i).getUser_id())
               + " " + String.format(Constant.STRING_FORMAT,uricAcidTestReportsList.get(i).getSerum_uric_acid()) + " " + String.format(uricAcidTestReportsList.get(i).getUnits(),uricAcidTestReportsList.get(i).getUnits()));
     }
+    System.out.println("Report stored in a text file.");
+    fileWriter.close();
     menu();
   }
 }

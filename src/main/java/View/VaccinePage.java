@@ -8,6 +8,7 @@ import Model.Vaccine;
 import Model.VaccineUserInformation;
 import Service.UserSession;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -41,7 +42,7 @@ public class VaccinePage implements FeatureMenu {
 
   // Method which is responsible to call Vaccine Menu (Sub-menu of the system)
   @Override
-  public void menu() {
+  public void menu() throws IOException {
 
     System.out.println("\n==========================");
     System.out.println("Select options from below");

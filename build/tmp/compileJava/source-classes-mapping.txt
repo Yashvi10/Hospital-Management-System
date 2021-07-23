@@ -218,8 +218,8 @@ Service/BillingService.java
  Service.BillingService
 Model/Order.java
  Model.Order
-View/Laboratory.java
- View.Laboratory
+View/HelpDeskPage.java
+ View.HelpDeskPage
 View/CustomPDF.java
  View.CustomPDF
 Model/User.java
@@ -242,7 +242,7 @@ Interface/AppointmentDAO.java
  Interface.AppointmentDAO
 Model/RegisterTest.java
  Model.RegisterTest
-View/HelpDeskPage.java
- View.HelpDeskPage
+View/Laboratory.java
+ View.Laboratory
 View/FeatureFactory.java
  View.FeatureFactory
