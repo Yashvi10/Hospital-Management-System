@@ -16,4 +16,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * */
 public class HelpDeskPageTest {
 
+  /*
+   * Tests the logic of description input validation
+   *
+   * The method returns true as description is valid.
+   */
+  @Test
+  void  checkValidateDescription_true() {
+    HelpDeskPage helpDeskPage = new HelpDeskPage();
+    assertEquals(true, helpDeskPage.validateDescription("When will I get vaccine?"));
+  }
 }
