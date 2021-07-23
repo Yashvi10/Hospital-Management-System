@@ -25,9 +25,8 @@ public class VitaminDTestReportsService implements VitaminDTestReportsDAO {
 
     Connection conn = customConnection.Connect();
 
-    GenerateLabReports generateLabReports = new GenerateLabReports();
     if (conn != null) {
-      String SQL = "select * from vitaminDTest_reports where user_id = " + generateLabReports.getUser_id() + ";";
+      String SQL = "select * from vitaminDTest_reports where user_id = " + user_id + ";";
       Statement statement = null;
       try {
         statement = conn.createStatement();

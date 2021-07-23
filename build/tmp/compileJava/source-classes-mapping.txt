@@ -132,8 +132,8 @@ Model/GenerateLabReports.java
  Model.GenerateLabReports
 Interface/BloodDAO.java
  Interface.BloodDAO
-Model/RegisterTest.java
- Model.RegisterTest
+View/Dashboard.java
+ View.Dashboard
 View/BillingPage.java
  View.BillingPage
 View/BillingMenu.java
@@ -150,8 +150,8 @@ Interface/VaccineBLInterface.java
  Interface.VaccineBLInterface
 Service/AppointmentService.java
  Service.AppointmentService
-View/HelpDeskPage.java
- View.HelpDeskPage
+View/UserManagementPage.java
+ View.UserManagementPage
 Model/BloodTestReports.java
  Model.BloodTestReports
 BL/VaccineBL.java
@@ -240,9 +240,9 @@ Service/VaccineService.java
  Service.VaccineService
 Interface/AppointmentDAO.java
  Interface.AppointmentDAO
-View/Dashboard.java
- View.Dashboard
-View/UserManagementPage.java
- View.UserManagementPage
+Model/RegisterTest.java
+ Model.RegisterTest
+View/HelpDeskPage.java
+ View.HelpDeskPage
 View/FeatureFactory.java
  View.FeatureFactory

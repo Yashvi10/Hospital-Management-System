@@ -33,9 +33,8 @@ public class BloodTestReportsService implements BloodTestReportsDAO {
 
     Connection conn = customConnection.Connect();
 
-    GenerateLabReports generateLabReports = new GenerateLabReports();
     if (conn != null) {
-      String SQL = "select * from bloodTest_reports where user_id = " + generateLabReports.getUser_id() + ";";
+      String SQL = "select * from bloodTest_reports where user_id = " + user_id + ";";
       Statement statement = null;
       try {
         statement = conn.createStatement();

@@ -3,6 +3,8 @@ package View;
 import Interface.*;
 import Model.*;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -30,6 +32,8 @@ public class Laboratory implements FeatureMenu{
 
   private UrineTestReportsDAO urineTestReportsDAO;
 
+  FileWriter fileWriter;
+
   public Laboratory(){};
 
   public Laboratory(ListOfTestsDAO listOfTestsDAO, RegisterTestDAO registerTestDAO,
@@ -48,7 +52,7 @@ public class Laboratory implements FeatureMenu{
   /* This method offers laboratory menu to users
    * */
   @Override
-  public void menu(){
+  public void menu() throws IOException {
 
     System.out.println("===============================");
     System.out.println("Press 1 to register for test\nPress 2 for Listing all Tests\nPress 3 for Generating your test reports\n" +
@@ -231,10 +235,12 @@ public class Laboratory implements FeatureMenu{
 
   /* This method prints blood test report of the entered user_id.
    * */
-  public void bloodReport() {
+  public void bloodReport() throws IOException {
     List<BloodTestReports> bloodTestReportsList = bloodTestReportsDAO.bloodTestReport(uid_input);
 
-    System.out.println(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
+    fileWriter = new FileWriter("resources/bloodReport"+uid_input+".txt");
+
+    fileWriter.write(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
             String.format(Constant.STRING_FORMAT,"User_id") + " " +
             String.format(Constant.STRING_FORMAT, "Blood Group") + " " +
             String.format(Constant.STRING_FORMAT, "White Blood Cells") + " " +
@@ -244,7 +250,7 @@ public class Laboratory implements FeatureMenu{
             String.format(Constant.STRING_FORMAT,"Hematocrit"));
 
     for(int i = 0; i < bloodTestReportsList.size(); i++) {
-      System.out.println(String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getUser_id())
+      fileWriter.write(String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getUser_id())
               + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getBlood_group()) + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getWhite_blood_cell_count())
               + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getPlatelet_count()) + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getRed_blood_cell_count())
               + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getHemoglobin()) + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getHematocrit()));
@@ -254,16 +260,17 @@ public class Laboratory implements FeatureMenu{
 
   /* This method prints Vitamin D report of the entered user_id.
    * */
-  public void vitaminDReport() {
+  public void vitaminDReport() throws IOException {
     List<VitaminDTestReports> vitaminDTestReportsList = vitaminDTestReportsDAO.vitaminDReports(uid_input);
 
-    System.out.println(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
+    fileWriter = new FileWriter("resources/VitaminDReport"+uid_input+".txt");
+    fileWriter.write(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
             String.format(Constant.STRING_FORMAT,"User_id") + " " +
             String.format(Constant.STRING_FORMAT, "Hydroxy VitaminD Serum") + " " +
             String.format(Constant.STRING_FORMAT, "Units"));
 
     for(int i = 0 ; i < vitaminDTestReportsList.size(); i++) {
-      System.out.println(String.format(Constant.STRING_FORMAT,vitaminDTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT,vitaminDTestReportsList.get(i).getUser_id())
+      fileWriter.write(String.format(Constant.STRING_FORMAT,vitaminDTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT,vitaminDTestReportsList.get(i).getUser_id())
               + " " + String.format(Constant.STRING_FORMAT,vitaminDTestReportsList.get(i).getHydroxy_VitaminD_serum()) + " " + String.format(Constant.STRING_FORMAT,vitaminDTestReportsList.get(i).getUnits()));
     }
     menu();
@@ -271,10 +278,11 @@ public class Laboratory implements FeatureMenu{
 
   /* This method prints urine report of the entered user_id.
    * */
-  public void urineReports() {
+  public void urineReports() throws IOException {
     List<UrineTestReports> urineTestReportsList = urineTestReportsDAO.urineReports(uid_input);
 
-    System.out.println(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
+    fileWriter = new FileWriter("resources/UrineReport"+uid_input+".txt");
+    fileWriter.write(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
             String.format(Constant.STRING_FORMAT,"User_id") + " " +
             String.format(Constant.STRING_FORMAT, "Colour") + " " +
             String.format(Constant.STRING_FORMAT, "Specific Gravity") + " " +
@@ -291,7 +299,7 @@ public class Laboratory implements FeatureMenu{
             String.format(Constant.STRING_FORMAT,"White blood cells"));
 
     for(int i = 0; i < urineTestReportsList.size(); i++) {
-      System.out.println(String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getUser_id())
+      fileWriter.write(String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getUser_id())
               + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getColor()) + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getSpecific_gravity())
               + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getpH()) + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getBlood())
               + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getGlucose()) + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getUrobilinogen())
@@ -305,16 +313,17 @@ public class Laboratory implements FeatureMenu{
 
   /* This method prints uric-acid report of the entered user_id.
    * */
-  public void uric_acidReports() {
+  public void uric_acidReports() throws IOException {
     List<UricAcidTestReports> uricAcidTestReportsList = uricAcidTestReportsDAO.uricacidReports(uid_input);
 
-    System.out.println(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
+    fileWriter = new FileWriter("resources/UricAcidReport"+uid_input+".txt");
+    fileWriter.write(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
             String.format(Constant.STRING_FORMAT,"User_id") + " " +
             String.format(Constant.STRING_FORMAT, "Serum Uric Acid: %f") + " " +
             String.format(Constant.STRING_FORMAT, "Units"));
 
     for(int i = 0; i < uricAcidTestReportsList.size(); i++) {
-      System.out.println(String.format(Constant.STRING_FORMAT,uricAcidTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT,uricAcidTestReportsList.get(i).getUser_id())
+      fileWriter.write(String.format(Constant.STRING_FORMAT,uricAcidTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT,uricAcidTestReportsList.get(i).getUser_id())
               + " " + String.format(Constant.STRING_FORMAT,uricAcidTestReportsList.get(i).getSerum_uric_acid()) + " " + String.format(uricAcidTestReportsList.get(i).getUnits(),uricAcidTestReportsList.get(i).getUnits()));
     }
     menu();
