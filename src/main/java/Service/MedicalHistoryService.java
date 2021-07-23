@@ -1,15 +1,12 @@
 package Service;
 
+import BL.MedicalHistoryBL;
 import Interface.MedicalHistoryDAO;
 import Model.MedicalHistoryModel;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 
 /*
  *  Name of file: MedicalHistoryService.java
@@ -27,15 +24,41 @@ public class MedicalHistoryService implements MedicalHistoryDAO {
 
   @Override
   public Boolean view_medical_history() {
-
-    return true;
+    if (con != null) {
+      try {
+        String SQL = "SELECT * FROM medical_history where user_id = " +UserSession.userId;
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(SQL);
+        if (rs != null) {
+          System.out.println("*************************************");
+          System.out.println(String.format("%10s", "document_id") + "|" +
+                  String.format("%10s", "document_name") + "|" +
+                  String.format("%10s", "filename"));
+          while (rs.next()) {
+            System.out.println(String.format("%14s", rs.getString("document_id")) + "|" +
+                    String.format("%16s", rs.getString("document_name")) + "|" +
+                    String.format("%16s", rs.getString("filename")));
+          }
+          System.out.println("*************************************\n");
+        }
+        return true;
+      } catch (SQLException throwables) {
+        throwables.printStackTrace();
+      }finally  {
+        try  {
+          con.close();
+        }  catch  (SQLException throwables)  {
+          throwables.printStackTrace();
+        }
+      }
+    }
+    return false;
   }
 
   @Override
   public Boolean upload_medical_history(String path, String document_name) {
-//    String[] get_filename = path.split("\\\\");
-//    String filename = get_filename[get_filename.length-1];
-    File file = new File("D:\\CSCI 5308(Advance Software Development Conecpts)\\Project\\Medical1.txt");
+
+    File file = new File(path);
     String filename = file.getName();
     try {
       medicalHistoryModel = new MedicalHistoryModel(UserSession.userId, document_name, filename);
@@ -47,7 +70,8 @@ public class MedicalHistoryService implements MedicalHistoryDAO {
       ps.setString(2,medicalHistoryModel.getDocument_name());
       ps.setString(3, medicalHistoryModel.getFilename());
       ps.executeUpdate();
-      if (file_write(file)){
+      MedicalHistoryBL medicalHistoryBL = new MedicalHistoryBL();
+      if (medicalHistoryBL.file_write(file)){
         return true;
       }else {
         return false;
@@ -66,21 +90,85 @@ public class MedicalHistoryService implements MedicalHistoryDAO {
 
   @Override
   public Boolean download_medical_history() {
+    view_medical_history();
     return true;
   }
 
-  public Boolean file_write(File file){
-    String new_path = "resources\\Uploads\\"+UserSession.userId+file.getName();
-    try {
-      File new_file = new File(new_path);
-      if (!new_file.exists()){
-        Files.copy(file.toPath(), new_file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+  public Boolean validateDocumentId(Integer document_id){
+
+    MedicalHistoryBL medicalHistoryBL = new MedicalHistoryBL();
+    ArrayList<ArrayList<String>> document_id_and_filename = new ArrayList<>();
+    ArrayList<String> document_ids = new ArrayList<>();
+    if (con != null) {
+      try {
+        String SQL = "SELECT * FROM medical_history";
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(SQL);
+        if (rs != null) {
+          while (rs.next()) {
+            document_ids.add(String.valueOf(rs.getInt("document_id")));
+            document_ids.add(rs.getString("filename"));
+            document_id_and_filename.add(document_ids);
+          }
+        }
+      } catch (SQLException throwables) {
+        throwables.printStackTrace();
+      }finally  {
+        try  {
+          con.close();
+        }  catch  (SQLException throwables)  {
+          throwables.printStackTrace();
+        }
       }
-      return true;
-    }catch (IOException io){
-      io.printStackTrace();
     }
+    for (int i = 0; i < document_id_and_filename.size(); i++) {
+      if (document_id_and_filename.get(i).contains(document_id.toString())){
+        medicalHistoryBL.print_document(document_id_and_filename.get(i).get(1));
+        return true;
+      }
+    }
+    System.out.println("Please enter a valid Document Id");
     return false;
   }
+
+  public Boolean validateDocumentIdForDownload(Integer document_id){
+
+    MedicalHistoryBL medicalHistoryBL = new MedicalHistoryBL();
+    ArrayList<ArrayList<String>> document_id_and_filename = new ArrayList<>();
+    ArrayList<String> document_ids = new ArrayList<>();
+    if (con != null) {
+      try {
+        String SQL = "SELECT * FROM medical_history";
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(SQL);
+        if (rs != null) {
+          while (rs.next()) {
+            document_ids.add(String.valueOf(rs.getInt("document_id")));
+            document_ids.add(rs.getString("filename"));
+            document_id_and_filename.add(document_ids);
+          }
+        }
+      } catch (SQLException throwables) {
+        throwables.printStackTrace();
+      }finally  {
+        try  {
+          con.close();
+        }  catch  (SQLException throwables)  {
+          throwables.printStackTrace();
+        }
+      }
+    }
+    for (int i = 0; i < document_id_and_filename.size(); i++) {
+      if (document_id_and_filename.get(i).contains(document_id.toString())){
+        if (medicalHistoryBL.file_download(document_id_and_filename.get(i).get(1))){
+          return true;
+        }
+        return false;
+      }
+    }
+    System.out.println("Please enter a valid Document Id");
+    return false;
+  }
+
 
 }

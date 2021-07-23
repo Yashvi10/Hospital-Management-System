@@ -1,5 +1,6 @@
 package View;
 
+import BL.MedicalHistoryBL;
 import Interface.FeatureMenu;
 import Service.MedicalHistoryService;
 
@@ -58,13 +59,18 @@ public class MedicalHistoryMenu implements FeatureMenu {
   private void download_medical_history() {
 
     MedicalHistoryService medicalHistoryService = new MedicalHistoryService();
-    if (medicalHistoryService.download_medical_history()){
-      System.out.println("Downloaded successfully!");
-      menu();
-    }else {
+    medicalHistoryService.download_medical_history();
+    System.out.println("Please enter document_id which you want to download:");
+    Scanner scanner = new Scanner(System.in);
+    Integer document_id = scanner.nextInt();
+    MedicalHistoryBL medicalHistoryBL = new MedicalHistoryBL();
+    if (!medicalHistoryBL.view_medical_history(document_id)){
       System.out.println("There was an error while downloading the file. Please try again!");
-      menu();
+    }else{
+      medicalHistoryService.validateDocumentIdForDownload(document_id);
+      System.out.println("Downloaded successfully!");
     }
+    menu();
 
   }
 
@@ -72,6 +78,13 @@ public class MedicalHistoryMenu implements FeatureMenu {
 
     MedicalHistoryService medicalHistoryService = new MedicalHistoryService();
     medicalHistoryService.view_medical_history();
+    System.out.println("Please enter document_id which you want to view:");
+    Scanner scanner = new Scanner(System.in);
+    Integer document_id = scanner.nextInt();
+    MedicalHistoryBL medicalHistoryBL = new MedicalHistoryBL();
+    if (!medicalHistoryBL.view_medical_history(document_id)){
+      System.out.println("Something was wrong!");
+    }
     menu();
 
   }

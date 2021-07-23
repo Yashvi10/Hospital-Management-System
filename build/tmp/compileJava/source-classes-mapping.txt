@@ -48,8 +48,8 @@ Service/RegisterTestService.java
  Service.RegisterTestService
 Service/ManageProfile.java
  Service.ManageProfile
-Service/UserManagement.java
- Service.UserManagement
+Model/MedicalHistoryModel.java
+ Model.MedicalHistoryModel
 Service/BloodDonorService.java
  Service.BloodDonorService
 Model/DoctorRating.java
@@ -168,11 +168,13 @@ Interface/AppointmentDAO.java
  Interface.AppointmentDAO
 View/RatingMenu.java
  View.RatingMenu
-Model/MedicalHistoryModel.java
- Model.MedicalHistoryModel
+Service/UserManagement.java
+ Service.UserManagement
 View/FeatureFactory.java
  View.FeatureFactory
 Service/MedicalHistoryService.java
  Service.MedicalHistoryService
+BL/MedicalHistoryBL.java
+ BL.MedicalHistoryBL
 View/MedicalHistoryMenu.java
  View.MedicalHistoryMenu

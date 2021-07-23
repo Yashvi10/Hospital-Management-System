@@ -1,3 +1,4 @@
+import BL.MedicalHistoryBL;
 import Service.MedicalHistoryService;
 import Service.UserSession;
 import org.junit.jupiter.api.Test;
@@ -18,10 +19,20 @@ public class MedicalHistoryTest {
   @Test
   void upload_medical_history() {
     File file_to_upload = new File("Dummy files\\Medical1.txt");
-    MedicalHistoryService medicalHistoryService = new MedicalHistoryService();
-    medicalHistoryService.file_write(file_to_upload);
+    MedicalHistoryBL medicalHistoryBL = new MedicalHistoryBL();
+    medicalHistoryBL.file_write(file_to_upload);
     File uploaded_file = new File("resources\\Uploads\\"+UserSession.userId+file_to_upload.getName());
     assertEquals(true,uploaded_file.exists(),"file uploading fails!");
+  }
+
+  @Test
+  void download_medical_history() {
+    File file_to_download = new File("Dummy files\\Medical1.txt");
+    MedicalHistoryBL medicalHistoryBL = new MedicalHistoryBL();
+    System.out.println(file_to_download.getName());
+    medicalHistoryBL.file_download(file_to_download.getName());
+    File downloaded_file = new File("resources\\Downloads\\"+UserSession.userId+file_to_download.getName());
+    assertEquals(true,downloaded_file.exists(),"file uploading fails!");
   }
 
 }

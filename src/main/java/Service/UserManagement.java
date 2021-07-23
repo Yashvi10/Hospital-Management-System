@@ -218,11 +218,11 @@ public class UserManagement extends ManageProfile implements IRegistration {
         Connection con = connection.Connect();
         try{
             statement = con.createStatement();
-            resultSet = statement.executeQuery("Select userId,username,password from loginTable where trim(username) ='"
+            resultSet = statement.executeQuery("Select userid,username,password from loginTable where trim(username) ='"
                     + user.getEmail().trim() + "'  and trim(password)='"+user.getPswd()+"'; ");
             while (resultSet.next()) {
                 qUser = resultSet.getString("username");
-                UserSession.userId = resultSet.getInt("userId");
+                UserSession.userId = resultSet.getInt("userid");
             }
 
             if(!qUser.equals( "")  )
