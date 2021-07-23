@@ -1,6 +1,14 @@
 package Service;
 
 import Interface.CovidBadDAO;
+import Model.Vaccine;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
  *  Name of file: CovidBedService.java
@@ -11,8 +19,55 @@ import Interface.CovidBadDAO;
  * */
 public class CovidBedService implements CovidBadDAO {
 
+  CustomConnection customConnection = new CustomConnection();
+
   @Override
   public Integer getTotalBeds(Integer bedType) {
-    return null;
+
+    Connection conn = customConnection.Connect();
+
+    Integer availableBeds = 0;
+
+    String dbBed = null;
+
+    if(bedType == null && bedType == 0)
+      return null;
+
+    if(bedType == 1)
+      dbBed = "g";
+    else if(bedType == 2)
+      dbBed = "g";
+    else if(bedType == 3)
+      dbBed = "v";
+    else
+      return null;
+
+    if (conn != null) {
+      String fetchQuery = "select * from covid_beds where bed_type=\""+dbBed+"\" and bed_availability=0";
+      Statement queryStatement = null;
+      try {
+        queryStatement = conn.createStatement();
+        ResultSet resultSet = queryStatement.executeQuery(fetchQuery);
+
+        while (resultSet.next()) {
+          availableBeds++;
+        }
+      } catch (SQLException exception) {
+        exception.printStackTrace();
+        return null;
+      } finally {
+        if (conn != null) {
+          try {
+            conn.close();
+          } catch (SQLException e) {
+          }
+        }
+      }
+    }
+
+    if(availableBeds == 0)
+      return null;
+    else
+      return availableBeds;
   }
 }
