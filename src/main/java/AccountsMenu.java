@@ -137,9 +137,9 @@ public class AccountsMenu extends ManageAccountService implements FeatureMenu, I
     System.out.println("Enter Receiver Name: ");
     String payName=scan.nextLine() ;
     String date;
-    boolean checkResult=false;
+    boolean checkResult;
     do {
-      System.out.println("Enter Payment Date: ");
+      System.out.println("Enter Payment Date (dd/MM/yyyy): ");
       date = scan.nextLine();
       checkResult=validateDate(date);
       if (!checkResult){
