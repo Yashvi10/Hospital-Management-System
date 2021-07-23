@@ -11,13 +11,15 @@ public class HelpDeskRequestInformation {
 
   private String description;
 
-  private String priority_type;
+  private Integer status;
 
-  private String userId;
+  private Integer userId;
 
-  public HelpDeskRequestInformation(String description, String priority_type, String userId) {
+  public HelpDeskRequestInformation () {}
+
+  public HelpDeskRequestInformation(String description, Integer status, Integer userId) {
     this.description = description;
-    this.priority_type = priority_type;
+    this.status = status;
     this.userId = userId;
   }
 
@@ -29,19 +31,18 @@ public class HelpDeskRequestInformation {
     this.description = description;
   }
 
-  public String getPriority_type() {
-    return priority_type;
+  public Integer getStatus() {
+    return status;
   }
 
-  public void setPriority_type(String priority_type) {
-    this.priority_type = priority_type;
+  public void setStatus(Integer status) {
+    this.status = status;
   }
-
-  public String getUserId() {
+  public Integer getUserId() {
     return userId;
   }
 
-  public void setUserId(String userId) {
+  public void setUserId(Integer userId) {
     this.userId = userId;
   }
 }
