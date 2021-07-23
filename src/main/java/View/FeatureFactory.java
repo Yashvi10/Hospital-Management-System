@@ -30,6 +30,8 @@ public class FeatureFactory {
             return new RatingMenu(new UserIdVerifiedService(), new RatingService(), new DoctorRatingService(), new Dashboard());
         } else if (menuType.equalsIgnoreCase(Constant.APPOINTMENT_MENU)) {
             return new Appointments();
+        } else if (menuType.equalsIgnoreCase(Constant.MEDICAL_HISTORY_MENU)) {
+            return new MedicalHistoryMenu();
         }
 
         return null;

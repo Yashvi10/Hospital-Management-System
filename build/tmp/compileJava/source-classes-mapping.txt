@@ -1,3 +1,5 @@
+Interface/MedicalHistoryDAO.java
+ Interface.MedicalHistoryDAO
 Interface/UserIdVerifiedDAO.java
  Interface.UserIdVerifiedDAO
 View/Billing.java
@@ -14,6 +16,8 @@ Interface/OfferDAO.java
  Interface.OfferDAO
 Interface/IDashboard.java
  Interface.IDashboard
+View/FeatureFactory.java
+ View.FeatureFactory
 Model/VitaminDTestReports.java
  Model.VitaminDTestReports
 Model/GenerateLabReports.java
@@ -50,8 +54,8 @@ Service/RatingService.java
  Service.RatingService
 Model/DoctorRating.java
  Model.DoctorRating
-Service/BloodRequesterService.java
- Service.BloodRequesterService
+Service/AppointmentService.java
+ Service.AppointmentService
 Interface/OrderDAO.java
  Interface.OrderDAO
 View/UserManagementPage.java
@@ -62,8 +66,8 @@ Model/BloodTestReports.java
  Model.BloodTestReports
 Service/UserIdVerifiedService.java
  Service.UserIdVerifiedService
-View/FeatureFactory.java
- View.FeatureFactory
+View/Appointments.java
+ View.Appointments
 Model/Offers.java
  Model.Offers
 View/Constant.java
@@ -146,8 +150,12 @@ Interface/BloodDonorDAO.java
  Interface.BloodDonorDAO
 View/BillingMenuPage.java
  View.BillingMenuPage
+Service/BloodRequesterService.java
+ Service.BloodRequesterService
 Starter.java
  Starter
+Model/MedicalHistoryModel.java
+ Model.MedicalHistoryModel
 Service/CustomConnection.java
  Service.CustomConnection
 Interface/DoctorRatingDAO.java
@@ -164,7 +172,7 @@ Model/RegisterTest.java
  Model.RegisterTest
 Service/BloodDonorService.java
  Service.BloodDonorService
-Service/AppointmentService.java
- Service.AppointmentService
-View/Appointments.java
- View.Appointments
+Service/MedicalHistoryService.java
+ Service.MedicalHistoryService
+View/MedicalHistoryMenu.java
+ View.MedicalHistoryMenu
