@@ -68,4 +68,15 @@ public class HelpDeskPageTest {
     HelpDeskPage helpDeskPage = new HelpDeskPage();
     assertEquals(false, helpDeskPage.validateDescription(description));
   }
+
+  /*
+   * Tests the logic of registering request input validation
+   *
+   * The method returns false as the value is provided null.
+   */
+  @Test
+  void validateAge_false_zero() {
+    HelpDeskRequestRegisterBL helpDeskRequestRegisterBL = new HelpDeskRequestRegisterBL(new HelpDeskRegisterService());
+    assertEquals(false, helpDeskRequestRegisterBL.getRequestInformation(null));
+  }
 }
