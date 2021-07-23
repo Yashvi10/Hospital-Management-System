@@ -8,6 +8,7 @@ import Service.CustomConnection;
 import Service.DatabaseService;
 import Service.ManageAccountService;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -46,7 +47,7 @@ public class AccountsMenu extends ManageAccountService implements FeatureMenu, I
 
       System.out.println("******Accounts Menu******");
       do {
-        System.out.println("Press 1: Income\nPress 2: Expense\nPress 0: Exit");
+        System.out.println("Press 1: Income\nPress 2: Expense\nPress 0: Home Menu");
         accType = sc.nextInt();
         switch (accType) {
           case 1:
@@ -73,6 +74,12 @@ public class AccountsMenu extends ManageAccountService implements FeatureMenu, I
             while (menuOption != 0);
 
           case 0:
+            Dashboard dashboard = new Dashboard();
+            try {
+              dashboard.HomeMenu();
+            } catch (IOException e) {
+              e.printStackTrace();
+            }
           default:
             break;
         }

@@ -56,7 +56,7 @@ public class Laboratory implements FeatureMenu{
 
     System.out.println("===============================");
     System.out.println("Press 1 to register for test\nPress 2 for Listing all Tests\nPress 3 for Generating your test reports\n" +
-            "Press 4 to exit");
+            "Press 4 for home menu");
 
     Scanner input = new Scanner(System.in);
     String choice = input.nextLine();
@@ -183,8 +183,8 @@ public class Laboratory implements FeatureMenu{
         break;
 
       case "4" :
-        System.out.println("Exited");
-
+        Dashboard dashboard = new Dashboard();
+        dashboard.HomeMenu();
         break;
 
       default :

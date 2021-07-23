@@ -50,8 +50,8 @@ BL/HelpDeskRequestRegisterBL.java
  BL.HelpDeskRequestRegisterBL
 View/Constant.java
  View.Constant
-Interface/AppointmentDAO.java
- Interface.AppointmentDAO
+BL/ListOfCampsBL.java
+ BL.ListOfCampsBL
 Interface/BillingOrderDAO.java
  Interface.BillingOrderDAO
 Interface/RegisterTestDAO.java
@@ -146,8 +146,8 @@ View/BillingMenu.java
  View.BillingMenu
 Model/Doctors.java
  Model.Doctors
-View/HelpDeskPage.java
- View.HelpDeskPage
+BL/SearchCampsBL.java
+ BL.SearchCampsBL
 Service/ManageAccountService.java
  Service.ManageAccountService
 Interface/UricAcidTestReportsDAO.java
@@ -166,8 +166,8 @@ BL/VaccineBL.java
  BL.VaccineBL
 Service/UserIdVerifiedService.java
  Service.UserIdVerifiedService
-View/Appointments.java
- View.Appointments
+View/HelpDeskPage.java
+ View.HelpDeskPage
 Service/ListOfCampsService.java
  Service.ListOfCampsService
 Model/UrineTestReports.java
@@ -178,12 +178,12 @@ Service/OfferService.java
  Service.OfferService
 Interface/IPharmacyBL.java
  Interface.IPharmacyBL
-Model/RegisterTest.java
- Model.RegisterTest
+View/NearbyCamps.java
+ View.NearbyCamps
 Interface/HelpDeskFaqDAO.java
  Interface.HelpDeskFaqDAO
-View/AccountsMenu.java
- View.AccountsMenu
+Interface/AppointmentDAO.java
+ Interface.AppointmentDAO
 View/Colors.java
  View.Colors
 Service/OrderService.java
@@ -212,8 +212,8 @@ Interface/HelpDeskFaqBLInterface.java
  Interface.HelpDeskFaqBLInterface
 Model/VaccineUserInformation.java
  Model.VaccineUserInformation
-View/BloodBank.java
- View.BloodBank
+Model/RegisterTest.java
+ Model.RegisterTest
 Interface/BloodRequesterDAO.java
  Interface.BloodRequesterDAO
 Model/BloodInventory.java
@@ -226,8 +226,8 @@ Service/BillingService.java
  Service.BillingService
 Model/Order.java
  Model.Order
-View/Laboratory.java
- View.Laboratory
+View/Appointments.java
+ View.Appointments
 View/CustomPDF.java
  View.CustomPDF
 Model/User.java
@@ -246,11 +246,11 @@ Interface/VaccineDAO.java
  Interface.VaccineDAO
 Service/VaccineService.java
  Service.VaccineService
-BL/ListOfCampsBL.java
- BL.ListOfCampsBL
-View/NearbyCamps.java
- View.NearbyCamps
-BL/SearchCampsBL.java
- BL.SearchCampsBL
+View/Laboratory.java
+ View.Laboratory
+View/BloodBank.java
+ View.BloodBank
 View/FeatureFactory.java
  View.FeatureFactory
+View/AccountsMenu.java
+ View.AccountsMenu

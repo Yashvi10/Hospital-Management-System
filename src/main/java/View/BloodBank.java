@@ -8,6 +8,7 @@ import Service.BloodDonorService;
 import Service.BloodRequesterService;
 import Service.BloodService;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
@@ -289,7 +290,7 @@ public class BloodBank implements FeatureMenu {
         BloodBank b = new BloodBank();
 
         System.out.println("Press 1 for Blood Request\nPress 2 for Blood Donate\nPress 3 for List all available items\n" +
-                "Press 4 for List of requesters\nPress 5 for List of donors\nPress 6 for exit");
+                "Press 4 for List of requesters\nPress 5 for List of donors\nPress 6 for Home Menu");
 
         input = new Scanner(System.in);
         String choice = input.next();
@@ -359,8 +360,12 @@ public class BloodBank implements FeatureMenu {
 
                 break;
             case "6" :
-                System.out.println("Exited");
-
+                Dashboard dashboard = new Dashboard();
+                try {
+                    dashboard.HomeMenu();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 break;
             default :
                 System.out.println("Your input is not valid. Check for valid input!");
