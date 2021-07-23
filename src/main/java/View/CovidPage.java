@@ -1,5 +1,14 @@
 package View;
 
+import Interface.CovidBedBLInterface;
+import Interface.FeatureMenu;
+import Interface.IDashboard;
+import Service.UserSession;
+
+import java.io.IOException;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 /*
  *  Name of file: CovidPage.java
  *  Author:  Kushang Mistry
@@ -7,7 +16,103 @@ package View;
  *  Description: The class calls methods based on user's choice
  *               Sub-menu (Covid menu) iterates itself until user selects
  * */
-public class CovidPage {
+public class CovidPage implements FeatureMenu {
 
+  private CovidBedBLInterface covidBedBLInterface;
 
+  private IDashboard dashboard;
+
+  public  CovidPage(CovidBedBLInterface covidBedBLInterface,
+                    IDashboard dashboard) {
+    this.covidBedBLInterface = covidBedBLInterface;
+    this.dashboard = dashboard;
+  }
+
+  @Override
+  public void menu() throws IOException {
+
+    System.out.println("\n==========================");
+    System.out.println("Select options from below");
+    System.out.println("==========================");
+
+    System.out.println("1 = View Available Beds");
+    System.out.println("2 = Request for a Bed");
+    System.out.println("\nPress 0 (Zero) to for Main-Menu");
+    System.out.println("\nEnter your choice: ");
+
+    // Takes input from the user about their preference
+    Scanner scanner = new Scanner(System.in);
+    int userChoice = 0;
+
+    try {
+      userChoice = scanner.nextInt();
+    } catch (InputMismatchException e) {
+      System.out.println("WARNING: Please select from the given numbers only");
+      menu();
+    }
+
+    // Loop iterates until user enters number 0 (Zero)
+    while (userChoice != 0) {
+      switch (userChoice) {
+        case 1:
+          System.out.println("\n==========================");
+          System.out.println("Select options from below");
+          System.out.println("==========================");
+
+          System.out.println("1 = View Availability of General Beds");
+          System.out.println("2 = View Availability of Oxygen Supply Beds");
+          System.out.println("3 = View Availability of Ventilator Attached Beds");
+          System.out.println("\nEnter your choice: ");
+
+          // Takes input from the user about their preference
+          Scanner scanner1 = new Scanner(System.in);
+          int userChoiceSubMenu = 0;
+
+          try {
+            userChoice = scanner.nextInt();
+          } catch (InputMismatchException e) {
+            System.out.println("WARNING: Please select from the given numbers only");
+            menu();
+          }
+
+          if(userChoice != 0) {
+            Integer count = covidBedBLInterface.getBedCount(userChoice);
+            if(count == null) {
+              System.out.println("We are sorry to inform you currently beds are not available in this category");
+            } else {
+              if (userChoice == 1) {
+                System.out.println("There are "+count+" General beds available.");
+              }
+              else if (userChoice == 2) {
+                System.out.println("There are "+count+" Oxygen beds available.");
+              }
+              else if (userChoice == 3) {
+                System.out.println("There are "+count+" Vaccine beds available.");
+              }
+            }
+          }
+          break;
+
+        default:
+          System.out.println("Invalid Input, Please select right option");
+          break;
+      }
+      System.out.println("\n\n==========================");
+      System.out.println("Select options from below");
+      System.out.println("==========================");
+
+      System.out.println("1 = View Available Vaccines");
+      System.out.println("2 = Request for a Bed");
+      System.out.println("\nPress 0 (Zero) to for Main-Menu");
+      System.out.println("\nEnter your choice: ");
+
+      try {
+        userChoice = scanner.nextInt();
+      } catch (InputMismatchException e) {
+        System.out.println("WARNING: Please select from the given numbers only");
+        menu();
+      }
+    }
+    dashboard.HomeMenu();
+  }
 }

@@ -10,5 +10,5 @@ import Model.HelpDeskRequestInformation;
  * */
 public interface CovidBedBLInterface {
 
-  Boolean getBedCount(Integer userChoice);
+  Integer getBedCount(Integer userChoice);
 }
