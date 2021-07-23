@@ -6,6 +6,13 @@ import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/*
+ *  Name of file: AppointmentsTest.java
+ *  Author:  Sanket Ushangbhai Mehta
+ *  Purpose: This class is for testing appointments feature
+ *  Description: This class contains test cases required to make sure that appointments works fine
+ * */
+
 public class AppointmentsTest {
 
   @Test

@@ -1,5 +1,5 @@
-Interface/MedicalHistoryDAO.java
- Interface.MedicalHistoryDAO
+Service/ListOfTestsService.java
+ Service.ListOfTestsService
 Interface/UserIdVerifiedDAO.java
  Interface.UserIdVerifiedDAO
 View/Billing.java
@@ -16,8 +16,8 @@ Interface/OfferDAO.java
  Interface.OfferDAO
 Interface/IDashboard.java
  Interface.IDashboard
-View/FeatureFactory.java
- View.FeatureFactory
+Service/CustomConnection.java
+ Service.CustomConnection
 Model/VitaminDTestReports.java
  Model.VitaminDTestReports
 Model/GenerateLabReports.java
@@ -50,12 +50,12 @@ Service/ManageProfile.java
  Service.ManageProfile
 Service/UserManagement.java
  Service.UserManagement
-Service/RatingService.java
- Service.RatingService
+Service/BloodDonorService.java
+ Service.BloodDonorService
 Model/DoctorRating.java
  Model.DoctorRating
-Service/AppointmentService.java
- Service.AppointmentService
+Model/RegisterTest.java
+ Model.RegisterTest
 Interface/OrderDAO.java
  Interface.OrderDAO
 View/UserManagementPage.java
@@ -116,8 +116,8 @@ Service/PharmacyService.java
  Service.PharmacyService
 Interface/BillingOrderItemDAO.java
  Interface.BillingOrderItemDAO
-Model/AppointmentModel.java
- Model.AppointmentModel
+Interface/DoctorRatingDAO.java
+ Interface.DoctorRatingDAO
 BL/PharmacyBL.java
  BL.PharmacyBL
 View/BloodBank.java
@@ -154,25 +154,25 @@ Service/BloodRequesterService.java
  Service.BloodRequesterService
 Starter.java
  Starter
-Model/MedicalHistoryModel.java
- Model.MedicalHistoryModel
-Service/CustomConnection.java
- Service.CustomConnection
-Interface/DoctorRatingDAO.java
- Interface.DoctorRatingDAO
-View/RatingMenu.java
- View.RatingMenu
 Interface/IRegistration.java
  Interface.IRegistration
+Model/AppointmentModel.java
+ Model.AppointmentModel
+Interface/MedicalHistoryDAO.java
+ Interface.MedicalHistoryDAO
+Service/RatingService.java
+ Service.RatingService
+Service/AppointmentService.java
+ Service.AppointmentService
 Interface/AppointmentDAO.java
  Interface.AppointmentDAO
-Service/ListOfTestsService.java
- Service.ListOfTestsService
-Model/RegisterTest.java
- Model.RegisterTest
-Service/BloodDonorService.java
- Service.BloodDonorService
 Service/MedicalHistoryService.java
  Service.MedicalHistoryService
+Model/MedicalHistoryModel.java
+ Model.MedicalHistoryModel
+View/FeatureFactory.java
+ View.FeatureFactory
 View/MedicalHistoryMenu.java
  View.MedicalHistoryMenu
+View/RatingMenu.java
+ View.RatingMenu

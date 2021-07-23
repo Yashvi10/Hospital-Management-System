@@ -1,9 +1,13 @@
 package Model;
 
 /*
- *  Name of file: AppointmentModel.java
- *  Author:  Sanket
+ *  Name of file: Appointments.java
+ *  Author:  Sanket Ushangbhai Mehta
+ *  Purpose: This is the model class for database tables mapping
+ *  Description: This class is used for mapping variables to interact with database tables
+ *  and to easily get and set these variables
  * */
+
 public class AppointmentModel {
 
     private Integer appointment_id;

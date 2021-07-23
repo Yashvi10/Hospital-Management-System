@@ -1,5 +1,13 @@
 package Model;
 
+/*
+ *  Name of file: MedicalHistoryModel.java
+ *  Author:  Sanket Ushangbhai Mehta
+ *  Purpose: This is the model class for database tables mapping
+ *  Description: This class is used for mapping variables to interact with database tables
+ *  and to easily get and set these variables
+ * */
+
 public class MedicalHistoryModel {
 
   private Integer document_id;

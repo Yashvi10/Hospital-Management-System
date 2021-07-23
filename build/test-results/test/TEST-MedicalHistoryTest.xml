@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MedicalHistoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-23T13:24:11" hostname="LAPTOP-ORKNTPIH" time="1.419">
+  <properties/>
+  <testcase name="upload_medical_history()" classname="MedicalHistoryTest" time="1.419"/>
+  <system-out><![CDATA[0
+true
+true
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

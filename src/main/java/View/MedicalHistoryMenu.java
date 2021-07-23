@@ -5,6 +5,14 @@ import Service.MedicalHistoryService;
 
 import java.util.Scanner;
 
+/*
+ *  Name of file: MedicalHistoryMenu.java
+ *  Author:  Sanket Ushangbhai Mehta
+ *  Purpose: This class shows the main menu for navigating through services offered by medical history feature
+ *  Description: This class contains menu to navigate through the services such as view, upload and download medical history
+ *  and call the services respectively
+ * */
+
 public class MedicalHistoryMenu implements FeatureMenu {
 
   @Override

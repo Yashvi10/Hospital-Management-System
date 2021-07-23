@@ -4,9 +4,13 @@ import java.sql.SQLException;
 import java.text.ParseException;
 
 /*
-* Name: AppointmentDAO.java
-* Author: Sanket
-* */
+ *  Name of file: AppointmentsDAO.java
+ *  Author:  Sanket Ushangbhai Mehta
+ *  Purpose: This is an interface for appointment module
+ *  Description: This class shows the behaviour of appointment module and the respective classes
+ *  can implement it
+ * */
+
 public interface AppointmentDAO {
 
   Boolean book_appointment();

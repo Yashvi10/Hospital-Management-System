@@ -8,11 +8,11 @@ PharmacyPageTest.java
  PharmacyPageTest
 ManageProfileTest.java
  ManageProfileTest
-AppointmentsTest.java
- AppointmentsTest
 userManagementTest.java
  userManagementTest
 RatingMenuTest.java
  RatingMenuTest
+AppointmentsTest.java
+ AppointmentsTest
 MedicalHistoryTest.java
  MedicalHistoryTest

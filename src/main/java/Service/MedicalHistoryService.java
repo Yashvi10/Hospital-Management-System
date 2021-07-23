@@ -11,6 +11,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/*
+ *  Name of file: MedicalHistoryService.java
+ *  Author:  Sanket Ushangbhai Mehta
+ *  Purpose: This class is for services offered by medical history feature
+ *  Description: This class contains logic and handling of medical records where users can upload view and download
+ * their medical records
+ * */
 
 public class MedicalHistoryService implements MedicalHistoryDAO {
 
@@ -20,6 +27,7 @@ public class MedicalHistoryService implements MedicalHistoryDAO {
 
   @Override
   public Boolean view_medical_history() {
+
     return true;
   }
 
@@ -39,8 +47,11 @@ public class MedicalHistoryService implements MedicalHistoryDAO {
       ps.setString(2,medicalHistoryModel.getDocument_name());
       ps.setString(3, medicalHistoryModel.getFilename());
       ps.executeUpdate();
-      file_write(file, filename);
-      return true;
+      if (file_write(file, filename)){
+        return true;
+      }else {
+        return false;
+      }
     } catch (SQLException e) {
       e.printStackTrace();
     }finally  {
@@ -58,15 +69,16 @@ public class MedicalHistoryService implements MedicalHistoryDAO {
     return true;
   }
 
-  public void file_write(File file, String filename){
+  public Boolean file_write(File file, String filename){
     String new_path = "resources\\Uploads\\"+UserSession.userId+filename;
     try {
       File new_file = new File(new_path);
       Files.copy(file.toPath(), new_file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+      return true;
     }catch (IOException io){
       io.printStackTrace();
     }
-
+    return false;
   }
 
 }
