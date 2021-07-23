@@ -10,6 +10,7 @@ import Model.Order;
 import Model.OrderItem;
 import Service.OrderService;
 import Service.PharmacyService;
+import Service.UserSession;
 
 import java.io.IOException;
 import java.util.Map;
@@ -66,14 +67,11 @@ public class BillingPage {
 
         calculateDiscount(o_id);
 
-        System.out.println("Enter User id:");
-        String user_id = scanner.nextLine();
-
         OrderService orderService = new OrderService();
 
-        if(orderService.isUserFound(Integer.parseInt(user_id))) {
+        if(orderService.isUserFound(UserSession.userId)) {
 
-            orderDAO.addOrder(new Order(Integer.parseInt(user_id)));
+            orderDAO.addOrder(new Order(UserSession.userId));
             Integer order_id = orderLastIdDAO.getLastOrderId();
 
             for  (Map.Entry me: PharmacyBL.cart.entrySet())  {
