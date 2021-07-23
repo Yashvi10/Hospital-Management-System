@@ -48,4 +48,24 @@ public class HelpDeskPageTest {
     HelpDeskPage helpDeskPage = new HelpDeskPage();
     assertEquals(false, helpDeskPage.validateDescription(""));
   }
+
+  /*
+   * Tests the logic of description input validation
+   *
+   * The method returns false as maximum description character count is allowed 500 characters.
+   * The given string has 525 characters which is invalid.
+   */
+  @Test
+  void  checkValidateDescription_longDescription_false() {
+    String description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit." +
+            "Quisque sed risus sit amet mauris laoreet tincidunt in in neque. Vivamus vitae lorem magna." +
+            "Donec lacinia euismod nisi, non fermentum nisl aliquet in." +
+            "Vivamus ornare lacus eu augue fermentum ullamcorper. Suspendisse potenti." +
+            "Sed in faucibus diam. Mauris in imperdiet ligula. Nulla a consequat risus, viverra rutrum ante." +
+            "Phasellus tincidunt imperdiet dictum. Pellentesque eu ex egestas, scelerisque turpis at," +
+            "ultricies ligula. Vivamus mollis euismod est nec viverra.";
+
+    HelpDeskPage helpDeskPage = new HelpDeskPage();
+    assertEquals(false, helpDeskPage.validateDescription(description));
+  }
 }
