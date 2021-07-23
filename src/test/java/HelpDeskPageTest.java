@@ -26,4 +26,15 @@ public class HelpDeskPageTest {
     HelpDeskPage helpDeskPage = new HelpDeskPage();
     assertEquals(true, helpDeskPage.validateDescription("When will I get vaccine?"));
   }
+
+  /*
+   * Tests the logic of description input validation
+   *
+   * The method returns false as description is null.
+   */
+  @Test
+  void  checkValidateDescription_null_false() {
+    HelpDeskPage helpDeskPage = new HelpDeskPage();
+    assertEquals(false, helpDeskPage.validateDescription(null));
+  }
 }
