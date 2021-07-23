@@ -1,5 +1,5 @@
-View/HelpDeskPage.java
- View.HelpDeskPage
+View/VaccinePage.java
+ View.VaccinePage
 View/Billing.java
  View.Billing
 Interface/OfferValidDAO.java
@@ -110,8 +110,8 @@ Model/ListOfCamps.java
  Model.ListOfCamps
 Service/ListOfTestsService.java
  Service.ListOfTestsService
-Interface/AppointmentDAO.java
- Interface.AppointmentDAO
+Service/HelpDeskRegisterService.java
+ Service.HelpDeskRegisterService
 Service/BloodDonorService.java
  Service.BloodDonorService
 Service/BloodRequesterService.java
@@ -124,6 +124,8 @@ Interface/UserIdVerifiedDAO.java
  Interface.UserIdVerifiedDAO
 Model/UricAcidTestReports.java
  Model.UricAcidTestReports
+Interface/IPrint.java
+ Interface.IPrint
 Interface/OfferDAO.java
  Interface.OfferDAO
 Model/GenerateLabReports.java
@@ -132,12 +134,14 @@ Interface/BloodDAO.java
  Interface.BloodDAO
 Model/RegisterTest.java
  Model.RegisterTest
-Service/HelpDeskRegisterService.java
- Service.HelpDeskRegisterService
+View/BillingPage.java
+ View.BillingPage
 View/BillingMenu.java
  View.BillingMenu
 Model/Doctors.java
  Model.Doctors
+Service/ManageAccountService.java
+ Service.ManageAccountService
 Interface/UricAcidTestReportsDAO.java
  Interface.UricAcidTestReportsDAO
 Service/UserManagement.java
@@ -146,8 +150,8 @@ Interface/VaccineBLInterface.java
  Interface.VaccineBLInterface
 Service/AppointmentService.java
  Service.AppointmentService
-View/UserManagementPage.java
- View.UserManagementPage
+View/HelpDeskPage.java
+ View.HelpDeskPage
 Model/BloodTestReports.java
  Model.BloodTestReports
 BL/VaccineBL.java
@@ -170,6 +174,8 @@ Interface/IPharmacyBL.java
  Interface.IPharmacyBL
 Interface/HelpDeskFaqDAO.java
  Interface.HelpDeskFaqDAO
+View/AccountsMenu.java
+ View.AccountsMenu
 View/Colors.java
  View.Colors
 Service/OrderService.java
@@ -182,6 +188,8 @@ Interface/PharmacyUpdateStockDAO.java
  Interface.PharmacyUpdateStockDAO
 Interface/RatingDAO.java
  Interface.RatingDAO
+Model/Accounts.java
+ Model.Accounts
 Model/OrderItem.java
  Model.OrderItem
 Service/PharmacyService.java
@@ -190,6 +198,8 @@ Service/HelpDeskFaqService.java
  Service.HelpDeskFaqService
 Interface/BillingOrderItemDAO.java
  Interface.BillingOrderItemDAO
+Interface/IDateValidation.java
+ Interface.IDateValidation
 Interface/HelpDeskFaqBLInterface.java
  Interface.HelpDeskFaqBLInterface
 Model/VaccineUserInformation.java
@@ -220,17 +230,19 @@ Model/BloodRequester.java
  Model.BloodRequester
 Starter.java
  Starter
+Interface/IAccount.java
+ Interface.IAccount
 Interface/DoctorRatingDAO.java
  Interface.DoctorRatingDAO
 Interface/VaccineDAO.java
  Interface.VaccineDAO
 Service/VaccineService.java
  Service.VaccineService
-View/BillingPage.java
- View.BillingPage
+Interface/AppointmentDAO.java
+ Interface.AppointmentDAO
 View/Dashboard.java
  View.Dashboard
-View/VaccinePage.java
- View.VaccinePage
+View/UserManagementPage.java
+ View.UserManagementPage
 View/FeatureFactory.java
  View.FeatureFactory

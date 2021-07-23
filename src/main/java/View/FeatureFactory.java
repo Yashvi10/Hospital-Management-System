@@ -2,6 +2,7 @@ package View;
 
 import BL.*;
 import Interface.FeatureMenu;
+import Model.Accounts;
 import Service.*;
 
 /*
@@ -53,6 +54,8 @@ public class FeatureFactory {
             return new HelpDeskPage(new HelpDeskFaqBL(new HelpDeskFaqService()),
                     new HelpDeskRequestRegisterBL(new HelpDeskRegisterService()),
                     new Dashboard());
+        } else if (menuType.equalsIgnoreCase(Constant.ACCOUNT_MENU)) {
+            return new AccountsMenu();
         }
 
         return null;
