@@ -3,6 +3,7 @@ package View;
 import Interface.FeatureMenu;
 import Service.AppointmentService;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.Scanner;
@@ -23,7 +24,7 @@ public class Appointments implements FeatureMenu {
     System.out.println("Press b to Book an appointment\n" +
             "Press c to Cancel an existing appointment\n" +
             "Press r to Reschedule an existing appointment\n" +
-            "Press v to View your appointments");
+            "Press v to View your appointments\nPress h for home menu");
     System.out.println("*************************************");
 
     Scanner scanner = new Scanner(System.in);
@@ -61,7 +62,14 @@ public class Appointments implements FeatureMenu {
       } catch (ParseException e) {
         e.printStackTrace();
       }
-    }else {
+    } else if (inputFromUser.equals("h") || inputFromUser.equals("H")){
+      Dashboard dashboard = new Dashboard();
+      try {
+        dashboard.HomeMenu();
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    } else {
       invalid();
     }
   }

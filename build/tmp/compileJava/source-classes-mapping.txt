@@ -50,8 +50,13 @@ BL/HelpDeskRequestRegisterBL.java
  BL.HelpDeskRequestRegisterBL
 View/Constant.java
  View.Constant
+<<<<<<< HEAD
 View/HelpDeskPage.java
  View.HelpDeskPage
+=======
+BL/ListOfCampsBL.java
+ BL.ListOfCampsBL
+>>>>>>> origin/develop
 Interface/BillingOrderDAO.java
  Interface.BillingOrderDAO
 Interface/RegisterTestDAO.java
@@ -170,8 +175,8 @@ BL/VaccineBL.java
  BL.VaccineBL
 Service/UserIdVerifiedService.java
  Service.UserIdVerifiedService
-View/Appointments.java
- View.Appointments
+View/HelpDeskPage.java
+ View.HelpDeskPage
 Service/ListOfCampsService.java
  Service.ListOfCampsService
 Model/UrineTestReports.java
@@ -186,8 +191,8 @@ View/NearbyCamps.java
  View.NearbyCamps
 Interface/HelpDeskFaqDAO.java
  Interface.HelpDeskFaqDAO
-View/AccountsMenu.java
- View.AccountsMenu
+Interface/AppointmentDAO.java
+ Interface.AppointmentDAO
 View/Colors.java
  View.Colors
 Service/OrderService.java
@@ -216,8 +221,8 @@ Interface/HelpDeskFaqBLInterface.java
  Interface.HelpDeskFaqBLInterface
 Model/VaccineUserInformation.java
  Model.VaccineUserInformation
-View/BloodBank.java
- View.BloodBank
+Model/RegisterTest.java
+ Model.RegisterTest
 Interface/BloodRequesterDAO.java
  Interface.BloodRequesterDAO
 Model/BloodInventory.java
@@ -230,8 +235,13 @@ Service/BillingService.java
  Service.BillingService
 Model/Order.java
  Model.Order
+<<<<<<< HEAD
 Service/VaccineService.java
  Service.VaccineService
+=======
+View/Appointments.java
+ View.Appointments
+>>>>>>> origin/develop
 View/CustomPDF.java
  View.CustomPDF
 Model/User.java
@@ -244,6 +254,7 @@ Starter.java
  Starter
 Interface/IAccount.java
  Interface.IAccount
+<<<<<<< HEAD
 View/Laboratory.java
  View.Laboratory
 BL/ListOfReportsBL.java
@@ -270,3 +281,19 @@ BL/UrineReportBL.java
  BL.UrineReportBL
 Service/UricAcidTestReportsService.java
  Service.UricAcidTestReportsService
+=======
+Interface/DoctorRatingDAO.java
+ Interface.DoctorRatingDAO
+Interface/VaccineDAO.java
+ Interface.VaccineDAO
+Service/VaccineService.java
+ Service.VaccineService
+View/Laboratory.java
+ View.Laboratory
+View/BloodBank.java
+ View.BloodBank
+View/FeatureFactory.java
+ View.FeatureFactory
+View/AccountsMenu.java
+ View.AccountsMenu
+>>>>>>> origin/develop

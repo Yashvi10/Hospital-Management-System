@@ -1,20 +1,20 @@
+RatingMenuTest.java
+ RatingMenuTest
 HelpDeskPageTest.java
  HelpDeskPageTest
-BillingPageTest.java
- BillingPageTest
-AppointmentsTest.java
- AppointmentsTest
 BillingTest.java
  BillingTest
 BloodBankTest.java
  BloodBankTest
 PharmacyPageTest.java
  PharmacyPageTest
+AppointmentsTest.java
+ AppointmentsTest
 userManagementTest.java
  userManagementTest
-RatingMenuTest.java
- RatingMenuTest
 VaccinePageTest.java
  VaccinePageTest
 AccountsMenuTest.java
  AccountsMenuTest
+BillingPageTest.java
+ BillingPageTest
