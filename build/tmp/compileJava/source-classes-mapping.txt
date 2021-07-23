@@ -6,8 +6,8 @@ Interface/OfferValidDAO.java
  Interface.OfferValidDAO
 Model/Pharmacy.java
  Model.Pharmacy
-Interface/ListOfReportsBLDAO.java
- Interface.ListOfReportsBLDAO
+Service/VitaminDTestReportsService.java
+ Service.VitaminDTestReportsService
 BL/HelpDeskFaqBL.java
  BL.HelpDeskFaqBL
 Service/AddCampsService.java
@@ -24,8 +24,8 @@ Interface/OrderLastIdDAO.java
  Interface.OrderLastIdDAO
 Service/UserSession.java
  Service.UserSession
-Interface/VaccineDAO.java
- Interface.VaccineDAO
+Interface/UrineTestReportsDAO.java
+ Interface.UrineTestReportsDAO
 Interface/AddCampsDAO.java
  Interface.AddCampsDAO
 Service/RegisterTestService.java
@@ -50,21 +50,16 @@ BL/HelpDeskRequestRegisterBL.java
  BL.HelpDeskRequestRegisterBL
 View/Constant.java
  View.Constant
-<<<<<<< HEAD
-View/HelpDeskPage.java
- View.HelpDeskPage
-=======
 BL/ListOfCampsBL.java
  BL.ListOfCampsBL
->>>>>>> origin/develop
 Interface/BillingOrderDAO.java
  Interface.BillingOrderDAO
 Interface/RegisterTestDAO.java
  Interface.RegisterTestDAO
-BL/ListOfCampsBL.java
- BL.ListOfCampsBL
-Interface/DoctorRatingDAO.java
- Interface.DoctorRatingDAO
+Interface/BloodTestReportsDAO.java
+ Interface.BloodTestReportsDAO
+Service/UricAcidTestReportsService.java
+ Service.UricAcidTestReportsService
 Interface/SearchCampsBLDAO.java
  Interface.SearchCampsBLDAO
 Model/AddCamps.java
@@ -77,8 +72,8 @@ Interface/PharmacyDAO.java
  Interface.PharmacyDAO
 Service/VaccineRegistration.java
  Service.VaccineRegistration
-Interface/VitaminDTestReportsDAO.java
- Interface.VitaminDTestReportsDAO
+Service/UrineTestReportsService.java
+ Service.UrineTestReportsService
 Service/SearchCampsService.java
  Service.SearchCampsService
 View/PharmacyMenu.java
@@ -93,14 +88,18 @@ Model/AppointmentModel.java
  Model.AppointmentModel
 BL/PharmacyBL.java
  BL.PharmacyBL
+BL/ListOfReportsBL.java
+ BL.ListOfReportsBL
 Model/ListOfTests.java
  Model.ListOfTests
 Interface/ListOfCampsDAO.java
  Interface.ListOfCampsDAO
+Interface/ListOfReportsBLDAO.java
+ Interface.ListOfReportsBLDAO
 Interface/FeatureMenu.java
  Interface.FeatureMenu
-Interface/BloodTestReportsDAO.java
- Interface.BloodTestReportsDAO
+Service/BloodTestReportsService.java
+ Service.BloodTestReportsService
 Interface/ListOfTestsDAO.java
  Interface.ListOfTestsDAO
 Service/DatabaseService.java
@@ -131,6 +130,8 @@ Service/BloodDonorService.java
  Service.BloodDonorService
 Service/BloodRequesterService.java
  Service.BloodRequesterService
+BL/VitaminDReportBL.java
+ BL.VitaminDReportBL
 Model/HelpDeskRequestInformation.java
  Model.HelpDeskRequestInformation
 BL/VaccineRegisterBL.java
@@ -147,10 +148,10 @@ Model/GenerateLabReports.java
  Model.GenerateLabReports
 Interface/BloodDAO.java
  Interface.BloodDAO
-Model/RegisterTest.java
- Model.RegisterTest
-Interface/AppointmentDAO.java
- Interface.AppointmentDAO
+View/Dashboard.java
+ View.Dashboard
+View/BillingPage.java
+ View.BillingPage
 View/BillingMenu.java
  View.BillingMenu
 Model/Doctors.java
@@ -159,8 +160,10 @@ BL/SearchCampsBL.java
  BL.SearchCampsBL
 Service/ManageAccountService.java
  Service.ManageAccountService
-Service/VitaminDTestReportsService.java
- Service.VitaminDTestReportsService
+Interface/UricAcidTestReportsDAO.java
+ Interface.UricAcidTestReportsDAO
+BL/UrineReportBL.java
+ BL.UrineReportBL
 Service/UserManagement.java
  Service.UserManagement
 Interface/VaccineBLInterface.java
@@ -169,14 +172,14 @@ Service/AppointmentService.java
  Service.AppointmentService
 View/UserManagementPage.java
  View.UserManagementPage
-Model/BloodTestReports.java
- Model.BloodTestReports
 BL/VaccineBL.java
  BL.VaccineBL
+Model/BloodTestReports.java
+ Model.BloodTestReports
 Service/UserIdVerifiedService.java
  Service.UserIdVerifiedService
-View/HelpDeskPage.java
- View.HelpDeskPage
+View/Appointments.java
+ View.Appointments
 Service/ListOfCampsService.java
  Service.ListOfCampsService
 Model/UrineTestReports.java
@@ -191,20 +194,22 @@ View/NearbyCamps.java
  View.NearbyCamps
 Interface/HelpDeskFaqDAO.java
  Interface.HelpDeskFaqDAO
-Interface/AppointmentDAO.java
- Interface.AppointmentDAO
+View/AccountsMenu.java
+ View.AccountsMenu
 View/Colors.java
  View.Colors
 Service/OrderService.java
  Service.OrderService
 Interface/HelpDeskRegisterRequest.java
  Interface.HelpDeskRegisterRequest
-Service/BloodTestReportsService.java
- Service.BloodTestReportsService
 Interface/PharmacyUpdateStockDAO.java
  Interface.PharmacyUpdateStockDAO
+Interface/VitaminDTestReportsDAO.java
+ Interface.VitaminDTestReportsDAO
 Interface/RatingDAO.java
  Interface.RatingDAO
+BL/UricAcidReportBL.java
+ BL.UricAcidReportBL
 Model/Accounts.java
  Model.Accounts
 Model/OrderItem.java
@@ -221,8 +226,8 @@ Interface/HelpDeskFaqBLInterface.java
  Interface.HelpDeskFaqBLInterface
 Model/VaccineUserInformation.java
  Model.VaccineUserInformation
-Model/RegisterTest.java
- Model.RegisterTest
+View/BloodBank.java
+ View.BloodBank
 Interface/BloodRequesterDAO.java
  Interface.BloodRequesterDAO
 Model/BloodInventory.java
@@ -235,13 +240,8 @@ Service/BillingService.java
  Service.BillingService
 Model/Order.java
  Model.Order
-<<<<<<< HEAD
-Service/VaccineService.java
- Service.VaccineService
-=======
-View/Appointments.java
- View.Appointments
->>>>>>> origin/develop
+View/Laboratory.java
+ View.Laboratory
 View/CustomPDF.java
  View.CustomPDF
 Model/User.java
@@ -254,46 +254,19 @@ Starter.java
  Starter
 Interface/IAccount.java
  Interface.IAccount
-<<<<<<< HEAD
-View/Laboratory.java
- View.Laboratory
-BL/ListOfReportsBL.java
- BL.ListOfReportsBL
-BL/BloodReportBL.java
- BL.BloodReportBL
-View/Dashboard.java
- View.Dashboard
-View/BillingPage.java
- View.BillingPage
-BL/UricAcidReportBL.java
- BL.UricAcidReportBL
-Interface/UrineTestReportsDAO.java
- Interface.UrineTestReportsDAO
-Service/UrineTestReportsService.java
- Service.UrineTestReportsService
-Interface/UricAcidTestReportsDAO.java
- Interface.UricAcidTestReportsDAO
-View/FeatureFactory.java
- View.FeatureFactory
-BL/VitaminDReportBL.java
- BL.VitaminDReportBL
-BL/UrineReportBL.java
- BL.UrineReportBL
-Service/UricAcidTestReportsService.java
- Service.UricAcidTestReportsService
-=======
 Interface/DoctorRatingDAO.java
  Interface.DoctorRatingDAO
 Interface/VaccineDAO.java
  Interface.VaccineDAO
 Service/VaccineService.java
  Service.VaccineService
-View/Laboratory.java
- View.Laboratory
-View/BloodBank.java
- View.BloodBank
+BL/BloodReportBL.java
+ BL.BloodReportBL
+Interface/AppointmentDAO.java
+ Interface.AppointmentDAO
+Model/RegisterTest.java
+ Model.RegisterTest
+View/HelpDeskPage.java
+ View.HelpDeskPage
 View/FeatureFactory.java
  View.FeatureFactory
-View/AccountsMenu.java
- View.AccountsMenu
->>>>>>> origin/develop
