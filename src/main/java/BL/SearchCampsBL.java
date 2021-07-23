@@ -5,9 +5,13 @@ import Interface.SearchCampsDAO;
 import Model.SearchCamps;
 import View.Constant;
 import View.NearbyCamps;
-
 import java.util.List;
 
+/*
+ *  Name of file: SearchCampsBL.java
+ *  Author:  Yashvi Lad
+ *  Purpose & Description: This class hold the business logic for searching camps based on location
+ * */
 public class SearchCampsBL implements SearchCampsBLDAO {
 
   NearbyCamps nearbyCamps = new NearbyCamps();

@@ -16,13 +16,15 @@ import java.util.Scanner;
  * */
 public class Laboratory implements FeatureMenu{
 
-  private ListOfTestsDAO listOfTestsDAO;
+  private ListOfTestsBLDAO listOfTestsBLDAO;
 
   private static Integer uid_input;
 
   private RegisterTestDAO registerTestDAO;
 
   private GenerateLabReportsDAO generateLabReportsDAO;
+
+  private ListOfReportsBLDAO listOfReportsBLDAO;
 
   private BloodTestReportsDAO bloodTestReportsDAO;
 
@@ -36,17 +38,18 @@ public class Laboratory implements FeatureMenu{
 
   public Laboratory(){};
 
-  public Laboratory(ListOfTestsDAO listOfTestsDAO, RegisterTestDAO registerTestDAO,
-                    GenerateLabReportsDAO generateLabReportsDAO, BloodTestReportsDAO bloodTestReportsDAO,
+  public Laboratory(ListOfTestsBLDAO listOfTestsBLDAO, RegisterTestDAO registerTestDAO,
+                    ListOfReportsBLDAO listOfReportsBLDAO,BloodTestReportsDAO bloodTestReportsDAO,
                     VitaminDTestReportsDAO vitaminDTestReportsDAO, UricAcidTestReportsDAO uricAcidTestReportsDAO,
                     UrineTestReportsDAO urineTestReportsDAO){
-    this.listOfTestsDAO = listOfTestsDAO;
+    this.listOfTestsBLDAO = listOfTestsBLDAO;
     this.registerTestDAO = registerTestDAO;
-    this.generateLabReportsDAO = generateLabReportsDAO;
+//    this.generateLabReportsDAO = generateLabReportsDAO;
     this.bloodTestReportsDAO = bloodTestReportsDAO;
     this.vitaminDTestReportsDAO = vitaminDTestReportsDAO;
     this.uricAcidTestReportsDAO = uricAcidTestReportsDAO;
     this.urineTestReportsDAO = urineTestReportsDAO;
+    this.listOfReportsBLDAO = listOfReportsBLDAO;
   }
 
   /* This method offers laboratory menu to users
@@ -73,7 +76,7 @@ public class Laboratory implements FeatureMenu{
       case "1" :
         System.out.println("============Test Registration============");
         System.out.println("**List of available tests**");
-        listOfTests();
+        listOfTestsBLDAO.getTests();
         System.out.println("\n"+"Press 1 for Vitamin D test\nPress 2 for Complete Blood Count test\nPress 3 for uric-acid test\n" +
                 "Press 4 for urine test\nPress 5 to exit");
 
@@ -124,7 +127,7 @@ public class Laboratory implements FeatureMenu{
 
       case "2" :
         System.out.println("============List of all tests============");
-        listOfTests();
+        listOfTestsBLDAO.getTests();
         menu();
         break;
 
@@ -138,7 +141,7 @@ public class Laboratory implements FeatureMenu{
         } else {
           uid_input = user_id.nextInt();
         }
-        listOfReports();
+        listOfReportsBLDAO.getReport(uid_input);
 
         System.out.println("\n"+"Press 1 for test_id 1\nPress 2 for test_id 2\nPress 3 for test_id 3\n" +
                 "Press 4 for test_id 4\nPress 5 to exit");
@@ -158,22 +161,22 @@ public class Laboratory implements FeatureMenu{
         switch (report_input) {
           case "1" :
             System.out.println("report of Vitamin D test");
-            vitaminDReport();
+            vitaminDTestReportsDAO.vitaminDReports(uid_input);
             menu();
             break;
           case "2" :
             System.out.println("report of CBC test");
-            bloodReport();
+            bloodTestReportsDAO.bloodTestReport(uid_input);
             menu();
             break;
           case "3" :
             System.out.println("report of uric-acid test");
-            uric_acidReports();
+            uricAcidTestReportsDAO.uricacidReports(uid_input);
             menu();
             break;
           case "4" :
             System.out.println("report of urine test");
-            urineReports();
+            urineTestReportsDAO.urineReports(uid_input);
             menu();
             break;
           case "5" :
@@ -194,150 +197,137 @@ public class Laboratory implements FeatureMenu{
     }
   }
 
-  /* This method returns list of all tests from lab_tests
-   */
-  public void listOfTests() {
-    List<ListOfTests> listOfTestsList = listOfTestsDAO.getListOfTests();
+//  /* This method returns list of all reports one specified user_id have.
+//   * */
+//  public void listOfReports() {
+//
+//    List<GenerateLabReports> generateLabReportsList = generateLabReportsDAO.generateReports(uid_input);
+//
+//    System.out.println(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
+//            String.format(Constant.STRING_FORMAT,"User_id") + " " +
+//            String.format(Constant.STRING_FORMAT, "Firstname") + " " +
+//            String.format(Constant.STRING_FORMAT, "Lastname") + " " +
+//            String.format(Constant.STRING_FORMAT,"Test Name") + " " +
+//            String.format(Constant.STRING_FORMAT, "Contact") + " " +
+//            String.format(Constant.STRING_FORMAT, "Email")+ " " +
+//            String.format(Constant.STRING_FORMAT,"Gender")+ " " +
+//            String.format(Constant.STRING_FORMAT,"Date of test") + " " +
+//            String.format(Constant.STRING_FORMAT,"Report Generation Date") + " " +
+//            String.format(Constant.STRING_FORMAT,"Time of test") + " " +
+//            String.format(Constant.STRING_FORMAT, "Report Generation Time"));
+//
+//    for(int i = 0; i < generateLabReportsList.size(); i++) {
+//      System.out.println(String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getTest_id()) + " "+ String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getUser_id())
+//              +" " + String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getFirstname())+" "+String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getLastname())
+//              +" " +String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getTest_name())+" "+String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getContact())+" "
+//              + String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getEmail())+String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getGender()) + " "
+//              + String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getDate_of_test())+" "+String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getReport_generation_date())
+//              + " " + String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getTime_of_test() + " " +
+//              String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getReport_generation_time())));
+//    }
+//  }
 
-    System.out.println(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
-            String.format(Constant.STRING_FORMAT, "Test Name"));
+//  /* This method prints blood test report of the entered user_id.
+//   * */
+//  public void bloodReport() throws IOException {
+//    List<BloodTestReports> bloodTestReportsList = bloodTestReportsDAO.bloodTestReport(uid_input);
+//
+//    fileWriter = new FileWriter("resources/bloodReport"+uid_input+".txt");
+//
+//    fileWriter.write(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
+//            String.format(Constant.STRING_FORMAT,"User_id") + " " +
+//            String.format(Constant.STRING_FORMAT, "Blood Group") + " " +
+//            String.format(Constant.STRING_FORMAT, "White Blood Cells") + " " +
+//            String.format(Constant.STRING_FORMAT,"Platelet Count") + " " +
+//            String.format(Constant.STRING_FORMAT, "Blood Cell Count") + " " +
+//            String.format(Constant.STRING_FORMAT, "Hemoglobin")+ " " +
+//            String.format(Constant.STRING_FORMAT,"Hematocrit") + "\n");
+//
+//    for(int i = 0; i < bloodTestReportsList.size(); i++) {
+//      fileWriter.write(String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getUser_id())
+//              + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getBlood_group()) + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getWhite_blood_cell_count())
+//              + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getPlatelet_count()) + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getRed_blood_cell_count())
+//              + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getHemoglobin()) + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getHematocrit()));
+//    }
+//    System.out.println("Report stored in a text file.");
+//    fileWriter.close();
+//    menu();
+//  }
 
-    for(int i =0;i<listOfTestsList.size();i++) {
-      System.out.println(String.format(Constant.STRING_FORMAT, listOfTestsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT, listOfTestsList.get(i).getTest_name()));
-    }
-  }
+//  /* This method prints Vitamin D report of the entered user_id.
+//   * */
+//  public void vitaminDReport() throws IOException {
+//    List<VitaminDTestReports> vitaminDTestReportsList = vitaminDTestReportsDAO.vitaminDReports(uid_input);
+//
+//    fileWriter = new FileWriter("resources/VitaminDReport"+uid_input+".txt");
+//    fileWriter.write(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
+//            String.format(Constant.STRING_FORMAT,"User_id") + " " +
+//            String.format(Constant.STRING_FORMAT, "Hydroxy VitaminD Serum") + " " +
+//            String.format(Constant.STRING_FORMAT, "Units") + "\n");
+//
+//    for(int i = 0 ; i < vitaminDTestReportsList.size(); i++) {
+//      fileWriter.write(String.format(Constant.STRING_FORMAT,vitaminDTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT,vitaminDTestReportsList.get(i).getUser_id())
+//              + " " + String.format(Constant.STRING_FORMAT,vitaminDTestReportsList.get(i).getHydroxy_VitaminD_serum()) + " " + String.format(Constant.STRING_FORMAT,vitaminDTestReportsList.get(i).getUnits()));
+//    }
+//    System.out.println("Report stored in a text file.");
+//    fileWriter.close();
+//    menu();
+//  }
 
-  /* This method returns list of all reports one specified user_id have.
-   * */
-  public void listOfReports() {
+//  /* This method prints urine report of the entered user_id.
+//   * */
+//  public void urineReports() throws IOException {
+//    List<UrineTestReports> urineTestReportsList = urineTestReportsDAO.urineReports(uid_input);
+//
+//    fileWriter = new FileWriter("resources/UrineReport"+uid_input+".txt");
+//    fileWriter.write(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
+//            String.format(Constant.STRING_FORMAT,"User_id") + " " +
+//            String.format(Constant.STRING_FORMAT, "Colour") + " " +
+//            String.format(Constant.STRING_FORMAT, "Specific Gravity") + " " +
+//            String.format(Constant.STRING_FORMAT,"pH") + " " +
+//            String.format(Constant.STRING_FORMAT, "Blood") + " " +
+//            String.format(Constant.STRING_FORMAT, "Glucose")+ " " +
+//            String.format(Constant.STRING_FORMAT,"Urobilinogen")+ " " +
+//            String.format(Constant.STRING_FORMAT,"Protein") + " " +
+//            String.format(Constant.STRING_FORMAT,"Red blood cells") + " " +
+//            String.format(Constant.STRING_FORMAT,"Pus Cells") + " " +
+//            String.format(Constant.STRING_FORMAT,"Crystals") + " " +
+//            String.format(Constant.STRING_FORMAT,"Casts") + " " +
+//            String.format(Constant.STRING_FORMAT,"Turbidity") + " " +
+//            String.format(Constant.STRING_FORMAT,"White blood cells") + "\n");
+//
+//    for(int i = 0; i < urineTestReportsList.size(); i++) {
+//      fileWriter.write(String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getUser_id())
+//              + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getColor()) + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getSpecific_gravity())
+//              + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getpH()) + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getBlood())
+//              + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getGlucose()) + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getUrobilinogen())
+//              + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getProtein()) + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getRbc())
+//              + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getPus_cells()) + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getCrystals())
+//              + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getCasts()) + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getTurbidity())
+//              + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getWbc()));
+//    }
+//    System.out.println("Report stored in a text file.");
+//    fileWriter.close();
+//    menu();
+//  }
 
-    List<GenerateLabReports> generateLabReportsList = generateLabReportsDAO.generateReports(uid_input);
-
-    System.out.println(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
-            String.format(Constant.STRING_FORMAT,"User_id") + " " +
-            String.format(Constant.STRING_FORMAT, "Firstname") + " " +
-            String.format(Constant.STRING_FORMAT, "Lastname") + " " +
-            String.format(Constant.STRING_FORMAT,"Test Name") + " " +
-            String.format(Constant.STRING_FORMAT, "Contact") + " " +
-            String.format(Constant.STRING_FORMAT, "Email")+ " " +
-            String.format(Constant.STRING_FORMAT,"Gender")+ " " +
-            String.format(Constant.STRING_FORMAT,"Date of test") + " " +
-            String.format(Constant.STRING_FORMAT,"Report Generation Date") + " " +
-            String.format(Constant.STRING_FORMAT,"Time of test") + " " +
-            String.format(Constant.STRING_FORMAT, "Report Generation Time"));
-
-    for(int i = 0; i < generateLabReportsList.size(); i++) {
-      System.out.println(String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getTest_id()) + " "+ String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getUser_id())
-              +" " + String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getFirstname())+" "+String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getLastname())
-              +" " +String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getTest_name())+" "+String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getContact())+" "
-              + String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getEmail())+String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getGender()) + " "
-              + String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getDate_of_test())+" "+String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getReport_generation_date())
-              + " " + String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getTime_of_test() + " " +
-              String.format(Constant.STRING_FORMAT,generateLabReportsList.get(i).getReport_generation_time())));
-    }
-  }
-
-  /* This method prints blood test report of the entered user_id.
-   * */
-  public void bloodReport() throws IOException {
-    List<BloodTestReports> bloodTestReportsList = bloodTestReportsDAO.bloodTestReport(uid_input);
-
-    fileWriter = new FileWriter("resources/bloodReport"+uid_input+".txt");
-
-    fileWriter.write(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
-            String.format(Constant.STRING_FORMAT,"User_id") + " " +
-            String.format(Constant.STRING_FORMAT, "Blood Group") + " " +
-            String.format(Constant.STRING_FORMAT, "White Blood Cells") + " " +
-            String.format(Constant.STRING_FORMAT,"Platelet Count") + " " +
-            String.format(Constant.STRING_FORMAT, "Blood Cell Count") + " " +
-            String.format(Constant.STRING_FORMAT, "Hemoglobin")+ " " +
-            String.format(Constant.STRING_FORMAT,"Hematocrit") + "\n");
-
-    for(int i = 0; i < bloodTestReportsList.size(); i++) {
-      fileWriter.write(String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getUser_id())
-              + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getBlood_group()) + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getWhite_blood_cell_count())
-              + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getPlatelet_count()) + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getRed_blood_cell_count())
-              + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getHemoglobin()) + " " + String.format(Constant.STRING_FORMAT,bloodTestReportsList.get(i).getHematocrit()));
-    }
-    System.out.println("Report stored in a text file.");
-    fileWriter.close();
-    menu();
-  }
-
-  /* This method prints Vitamin D report of the entered user_id.
-   * */
-  public void vitaminDReport() throws IOException {
-    List<VitaminDTestReports> vitaminDTestReportsList = vitaminDTestReportsDAO.vitaminDReports(uid_input);
-
-    fileWriter = new FileWriter("resources/VitaminDReport"+uid_input+".txt");
-    fileWriter.write(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
-            String.format(Constant.STRING_FORMAT,"User_id") + " " +
-            String.format(Constant.STRING_FORMAT, "Hydroxy VitaminD Serum") + " " +
-            String.format(Constant.STRING_FORMAT, "Units") + "\n");
-
-    for(int i = 0 ; i < vitaminDTestReportsList.size(); i++) {
-      fileWriter.write(String.format(Constant.STRING_FORMAT,vitaminDTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT,vitaminDTestReportsList.get(i).getUser_id())
-              + " " + String.format(Constant.STRING_FORMAT,vitaminDTestReportsList.get(i).getHydroxy_VitaminD_serum()) + " " + String.format(Constant.STRING_FORMAT,vitaminDTestReportsList.get(i).getUnits()));
-    }
-    System.out.println("Report stored in a text file.");
-    fileWriter.close();
-    menu();
-  }
-
-  /* This method prints urine report of the entered user_id.
-   * */
-  public void urineReports() throws IOException {
-    List<UrineTestReports> urineTestReportsList = urineTestReportsDAO.urineReports(uid_input);
-
-    fileWriter = new FileWriter("resources/UrineReport"+uid_input+".txt");
-    fileWriter.write(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
-            String.format(Constant.STRING_FORMAT,"User_id") + " " +
-            String.format(Constant.STRING_FORMAT, "Colour") + " " +
-            String.format(Constant.STRING_FORMAT, "Specific Gravity") + " " +
-            String.format(Constant.STRING_FORMAT,"pH") + " " +
-            String.format(Constant.STRING_FORMAT, "Blood") + " " +
-            String.format(Constant.STRING_FORMAT, "Glucose")+ " " +
-            String.format(Constant.STRING_FORMAT,"Urobilinogen")+ " " +
-            String.format(Constant.STRING_FORMAT,"Protein") + " " +
-            String.format(Constant.STRING_FORMAT,"Red blood cells") + " " +
-            String.format(Constant.STRING_FORMAT,"Pus Cells") + " " +
-            String.format(Constant.STRING_FORMAT,"Crystals") + " " +
-            String.format(Constant.STRING_FORMAT,"Casts") + " " +
-            String.format(Constant.STRING_FORMAT,"Turbidity") + " " +
-            String.format(Constant.STRING_FORMAT,"White blood cells") + "\n");
-
-    for(int i = 0; i < urineTestReportsList.size(); i++) {
-      fileWriter.write(String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getUser_id())
-              + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getColor()) + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getSpecific_gravity())
-              + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getpH()) + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getBlood())
-              + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getGlucose()) + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getUrobilinogen())
-              + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getProtein()) + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getRbc())
-              + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getPus_cells()) + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getCrystals())
-              + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getCasts()) + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getTurbidity())
-              + " " + String.format(Constant.STRING_FORMAT,urineTestReportsList.get(i).getWbc()));
-    }
-    System.out.println("Report stored in a text file.");
-    fileWriter.close();
-    menu();
-  }
-
-  /* This method prints uric-acid report of the entered user_id.
-   * */
-  public void uric_acidReports() throws IOException {
-    List<UricAcidTestReports> uricAcidTestReportsList = uricAcidTestReportsDAO.uricacidReports(uid_input);
-
-    fileWriter = new FileWriter("resources/UricAcidReport"+uid_input+".txt");
-    fileWriter.write(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
-            String.format(Constant.STRING_FORMAT,"User_id") + " " +
-            String.format(Constant.STRING_FORMAT, "Serum Uric Acid: %f") + " " +
-            String.format(Constant.STRING_FORMAT, "Units") + "\n");
-
-    for(int i = 0; i < uricAcidTestReportsList.size(); i++) {
-      fileWriter.write(String.format(Constant.STRING_FORMAT,uricAcidTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT,uricAcidTestReportsList.get(i).getUser_id())
-              + " " + String.format(Constant.STRING_FORMAT,uricAcidTestReportsList.get(i).getSerum_uric_acid()) + " " + String.format(uricAcidTestReportsList.get(i).getUnits(),uricAcidTestReportsList.get(i).getUnits()));
-    }
-    System.out.println("Report stored in a text file.");
-    fileWriter.close();
-    menu();
-  }
+//  /* This method prints uric-acid report of the entered user_id.
+//   * */
+//  public void uric_acidReports() throws IOException {
+//    List<UricAcidTestReports> uricAcidTestReportsList = uricAcidTestReportsDAO.uricacidReports(uid_input);
+//
+//    fileWriter = new FileWriter("resources/UricAcidReport"+uid_input+".txt");
+//    fileWriter.write(String.format(Constant.STRING_FORMAT,"Test_id") + " " +
+//            String.format(Constant.STRING_FORMAT,"User_id") + " " +
+//            String.format(Constant.STRING_FORMAT, "Serum Uric Acid: %f") + " " +
+//            String.format(Constant.STRING_FORMAT, "Units") + "\n");
+//
+//    for(int i = 0; i < uricAcidTestReportsList.size(); i++) {
+//      fileWriter.write(String.format(Constant.STRING_FORMAT,uricAcidTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT,uricAcidTestReportsList.get(i).getUser_id())
+//              + " " + String.format(Constant.STRING_FORMAT,uricAcidTestReportsList.get(i).getSerum_uric_acid()) + " " + String.format(uricAcidTestReportsList.get(i).getUnits(),uricAcidTestReportsList.get(i).getUnits()));
+//    }
+//    System.out.println("Report stored in a text file.");
+//    fileWriter.close();
+//    menu();
+//  }
 }

@@ -2,8 +2,6 @@ package View;
 
 import BL.*;
 import Interface.FeatureMenu;
-import Interface.ListOfCampsBLDAO;
-import Model.Accounts;
 import Service.*;
 
 /*
@@ -29,13 +27,13 @@ public class FeatureFactory {
         } else if (menuType.equalsIgnoreCase(Constant.BLOODBANK_MENU)) {
             return new BloodBank();
         } else if (menuType.equalsIgnoreCase(Constant.LABORATORY_MENU)) {
-            return new Laboratory(new ListOfTestsService(),
+            return new Laboratory(new ListOfTestsBL(new ListOfTestsService()),
                     new RegisterTestService(),
-                    new GenerateLabReportsService(),
-                    new BloodTestReportsService(),
-                    new VitaminDTestReportsService(),
-                    new UricAcidTestReportsService(),
-                    new UrineTestReportsService());
+                    new ListOfReportsBL(new GenerateLabReportsService()),
+                    new BloodReportBL(new BloodTestReportsService()),
+                    new VitaminDReportBL(new VitaminDTestReportsService()),
+                    new UricAcidReportBL(new UricAcidTestReportsService()),
+                    new UrineReportBL(new UrineTestReportsService()));
         } else if (menuType.equalsIgnoreCase(Constant.FEEDBACK_MENU)) {
             return new RatingMenu(new UserIdVerifiedService(),
                     new RatingService(),

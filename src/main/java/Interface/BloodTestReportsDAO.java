@@ -2,6 +2,7 @@ package Interface;
 
 import Model.BloodTestReports;
 
+import java.io.IOException;
 import java.util.List;
 
 /*
@@ -10,5 +11,5 @@ import java.util.List;
 * */
 public interface BloodTestReportsDAO {
 
-  List<BloodTestReports> bloodTestReport(Integer user_id);
+  List<BloodTestReports> bloodTestReport(Integer user_id) throws IOException;
 }

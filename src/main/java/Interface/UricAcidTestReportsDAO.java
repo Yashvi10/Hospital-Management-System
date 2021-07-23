@@ -2,6 +2,7 @@ package Interface;
 
 import Model.UricAcidTestReports;
 
+import java.io.IOException;
 import java.util.List;
 /*
  * File Name: UricAcidTestReportsDAO.java
@@ -9,5 +10,5 @@ import java.util.List;
  * */
 public interface UricAcidTestReportsDAO {
 
-  List<UricAcidTestReports> uricacidReports(Integer user_id);
+  List<UricAcidTestReports> uricacidReports(Integer user_id) throws IOException;
 }
