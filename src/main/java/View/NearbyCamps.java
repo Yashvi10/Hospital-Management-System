@@ -1,9 +1,7 @@
 package View;
 
-import Interface.AddCampsDAO;
-import Interface.FeatureMenu;
-import Interface.ListOfCampsDAO;
-import Interface.SearchCampsDAO;
+import BL.ListOfCampsBL;
+import Interface.*;
 import Model.ListOfCamps;
 import Model.SearchCamps;
 
@@ -23,17 +21,17 @@ public class NearbyCamps implements FeatureMenu {
 
   private AddCampsDAO addCampsDAO;
 
-  private SearchCampsDAO searchCampsDAO;
+  private SearchCampsBLDAO searchCampsBLDAO;
 
-  private ListOfCampsDAO listOfCampsDAO;
+  private ListOfCampsBLDAO listOfCampsBLDAO;
 
   public NearbyCamps() {
   }
 
-  public NearbyCamps(AddCampsDAO addCampsDAO, SearchCampsDAO searchCampsDAO, ListOfCampsDAO listOfCampsDAO) {
+  public NearbyCamps(AddCampsDAO addCampsDAO, SearchCampsBLDAO searchCampsBLDAO, ListOfCampsBLDAO listOfCampsBLDAO) {
     this.addCampsDAO = addCampsDAO;
-    this.searchCampsDAO = searchCampsDAO;
-    this.listOfCampsDAO = listOfCampsDAO;
+    this.searchCampsBLDAO = searchCampsBLDAO;
+    this.listOfCampsBLDAO = listOfCampsBLDAO;
   }
 
   @Override
@@ -79,11 +77,11 @@ public class NearbyCamps implements FeatureMenu {
           System.out.println("Input cannot be empty!");
           return;
         }
-        searchCamps();
+        searchCampsBLDAO.getCamps(camp_location);
         break;
       case "3":
         System.out.println("==========List of all camps==========");
-        listOfCamps();
+        listOfCampsBLDAO.getCampsData();
         break;
       case "4":
         System.out.println("Exited");
@@ -93,29 +91,4 @@ public class NearbyCamps implements FeatureMenu {
     }
   }
 
-  /* This method returns list of camps based on the provided location by user
-   */
-  public void searchCamps() {
-    List<SearchCamps> searchCampsList = searchCampsDAO.searchCamp(camp_location);
-
-    System.out.println(String.format(Constant.STRING_FORMAT, "Camp_Type") + " " + String.format(Constant.STRING_FORMAT, "Camp_Description") + " " + String.format(Constant.STRING_FORMAT, "Camp_Location") + " " + String.format(Constant.STRING_FORMAT, "CampAddedBy") + "\n");
-
-    for (int i = 0; i < searchCampsList.size(); i++) {
-      System.out.println(String.format(Constant.STRING_FORMAT, searchCampsList.get(i).getCamp_type().replace('-', ' ')) + " " + String.format(Constant.STRING_FORMAT, searchCampsList.get(i).getCamp_description().replace('-', ' ')) + " " + String.format(Constant.STRING_FORMAT, searchCampsList.get(i).getCamp_location()) + " " + String.format(Constant.STRING_FORMAT, searchCampsList.get(i).getCamp_addedBy().replace('-', ' ')));
-    }
-    menu();
-  }
-
-  /* This method returns list of all available camps
-   */
-  public void listOfCamps() {
-    List<ListOfCamps> listOfCampsList = listOfCampsDAO.allCamps();
-
-    System.out.println(String.format(Constant.STRING_FORMAT, "Camp_Type") + " " + String.format(Constant.STRING_FORMAT, "Camp_Description") + " " + String.format(Constant.STRING_FORMAT, "Camp_Location") + " " + String.format(Constant.STRING_FORMAT, "CampAddedBy") + "\n");
-
-    for (int i = 0; i < listOfCampsList.size(); i++) {
-      System.out.println(String.format(Constant.STRING_FORMAT, listOfCampsList.get(i).getCamp_type()) + " " + String.format(Constant.STRING_FORMAT, listOfCampsList.get(i).getCamp_description()) + " " + String.format(Constant.STRING_FORMAT, listOfCampsList.get(i).getCamp_location()) + " " + String.format(Constant.STRING_FORMAT, listOfCampsList.get(i).getCamp_addedBy()));
-    }
-    menu();
-  }
 }

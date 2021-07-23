@@ -2,6 +2,7 @@ package View;
 
 import BL.*;
 import Interface.FeatureMenu;
+import Interface.ListOfCampsBLDAO;
 import Model.Accounts;
 import Service.*;
 
@@ -48,8 +49,8 @@ public class FeatureFactory {
                     new Dashboard());
         } else if (menuType.equalsIgnoreCase(Constant.CAMP_MENU)) {
             return new NearbyCamps(new AddCampsService(),
-                    new SearchCampsService(),
-                    new ListOfCampsService());
+                    new SearchCampsBL(new SearchCampsService()),
+                    new ListOfCampsBL(new ListOfCampsService()));
         } else if (menuType.equalsIgnoreCase(Constant.HELPDESK_MENU)) {
             return new HelpDeskPage(new HelpDeskFaqBL(new HelpDeskFaqService()),
                     new HelpDeskRequestRegisterBL(new HelpDeskRegisterService()),
