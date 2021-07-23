@@ -17,10 +17,10 @@ public class MedicalHistoryTest {
 
   @Test
   void upload_medical_history() {
-    File file_to_upload = new File("D:\\CSCI 5308(Advance Software Development Conecpts)\\Project\\Medical1.txt");
+    File file_to_upload = new File("Dummy files\\Medical1.txt");
     MedicalHistoryService medicalHistoryService = new MedicalHistoryService();
     medicalHistoryService.file_write(file_to_upload);
-    File uploaded_file = new File("C:\\Users\\Sanket2\\IdeaProjects\\MedicalHistory\\group8\\resources\\Uploads\\"+UserSession.userId+file_to_upload.getName());
+    File uploaded_file = new File("resources\\Uploads\\"+UserSession.userId+file_to_upload.getName());
     assertEquals(true,uploaded_file.exists(),"file uploading fails!");
   }
 
