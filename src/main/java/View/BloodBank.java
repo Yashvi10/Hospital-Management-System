@@ -360,6 +360,8 @@ public class BloodBank implements FeatureMenu {
                 break;
             case "6" :
                 System.out.println("Exited");
+
+                break;
             default :
                 System.out.println("Your input is not valid. Check for valid input!");
 

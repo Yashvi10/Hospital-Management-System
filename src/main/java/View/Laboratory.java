@@ -184,7 +184,6 @@ public class Laboratory implements FeatureMenu {
 
       case "4":
         System.out.println("Exited");
-
         break;
 
       default:
@@ -225,7 +224,7 @@ public class Laboratory implements FeatureMenu {
     List<BloodTestReports> bloodTestReportsList = bloodTestReportsDAO.bloodTestReport(uid_input);
 
     fileWriter = new FileWriter("resources/bloodReport"+uid_input+".txt");
-    fileWriter.write(String.format(Constant.STRING_FORMAT, "Test_id") + " " + String.format(Constant.STRING_FORMAT, "User_id") + " " + String.format(Constant.STRING_FORMAT, "Blood Group") + " " + String.format(Constant.STRING_FORMAT, "White Blood Cells") + " " + String.format(Constant.STRING_FORMAT, "Platelet Count") + " " + String.format(Constant.STRING_FORMAT, "Blood Cell Count") + " " + String.format(Constant.STRING_FORMAT, "Hemoglobin") + " " + String.format(Constant.STRING_FORMAT, "Hematocrit"));
+    fileWriter.write(String.format(Constant.STRING_FORMAT, "Test_id") + " " + String.format(Constant.STRING_FORMAT, "User_id") + " " + String.format(Constant.STRING_FORMAT, "Blood Group") + " " + String.format(Constant.STRING_FORMAT, "White Blood Cells") + " " + String.format(Constant.STRING_FORMAT, "Platelet Count") + " " + String.format(Constant.STRING_FORMAT, "Blood Cell Count") + " " + String.format(Constant.STRING_FORMAT, "Hemoglobin") + " " + String.format(Constant.STRING_FORMAT, "Hematocrit")+ "\n");
 
     for (int i = 0; i < bloodTestReportsList.size(); i++) {
       fileWriter.write(String.format(Constant.STRING_FORMAT, bloodTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT, bloodTestReportsList.get(i).getUser_id()) + " " + String.format(Constant.STRING_FORMAT, bloodTestReportsList.get(i).getBlood_group()) + " " + String.format(Constant.STRING_FORMAT, bloodTestReportsList.get(i).getWhite_blood_cell_count()) + " " + String.format(Constant.STRING_FORMAT, bloodTestReportsList.get(i).getPlatelet_count()) + " " + String.format(Constant.STRING_FORMAT, bloodTestReportsList.get(i).getRed_blood_cell_count()) + " " + String.format(Constant.STRING_FORMAT, bloodTestReportsList.get(i).getHemoglobin()) + " " + String.format(Constant.STRING_FORMAT, bloodTestReportsList.get(i).getHematocrit()));
@@ -240,7 +239,7 @@ public class Laboratory implements FeatureMenu {
     List<VitaminDTestReports> vitaminDTestReportsList = vitaminDTestReportsDAO.vitaminDReports(uid_input);
 
     fileWriter = new FileWriter("resources/VitaminDReport"+uid_input+".txt");
-    fileWriter.write(String.format(Constant.STRING_FORMAT, "Test_id") + " " + String.format(Constant.STRING_FORMAT, "User_id") + " " + String.format(Constant.STRING_FORMAT, "Hydroxy VitaminD Serum") + " " + String.format(Constant.STRING_FORMAT, "Units"));
+    fileWriter.write(String.format(Constant.STRING_FORMAT, "Test_id") + " " + String.format(Constant.STRING_FORMAT, "User_id") + " " + String.format(Constant.STRING_FORMAT, "Hydroxy VitaminD Serum") + " " + String.format(Constant.STRING_FORMAT, "Units") + "\n");
 
     for (int i = 0; i < vitaminDTestReportsList.size(); i++) {
       fileWriter.write(String.format(Constant.STRING_FORMAT, vitaminDTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT, vitaminDTestReportsList.get(i).getUser_id()) + " " + String.format(Constant.STRING_FORMAT, vitaminDTestReportsList.get(i).getHydroxy_VitaminD_serum()) + " " + String.format(Constant.STRING_FORMAT, vitaminDTestReportsList.get(i).getUnits()));
@@ -255,7 +254,7 @@ public class Laboratory implements FeatureMenu {
     List<UrineTestReports> urineTestReportsList = urineTestReportsDAO.urineReports(uid_input);
 
     fileWriter = new FileWriter("resources/UrineReport"+uid_input+".txt");
-    fileWriter.write(String.format(Constant.STRING_FORMAT, "Test_id") + " " + String.format(Constant.STRING_FORMAT, "User_id") + " " + String.format(Constant.STRING_FORMAT, "Colour") + " " + String.format(Constant.STRING_FORMAT, "Specific Gravity") + " " + String.format(Constant.STRING_FORMAT, "pH") + " " + String.format(Constant.STRING_FORMAT, "Blood") + " " + String.format(Constant.STRING_FORMAT, "Glucose") + " " + String.format(Constant.STRING_FORMAT, "Urobilinogen") + " " + String.format(Constant.STRING_FORMAT, "Protein") + " " + String.format(Constant.STRING_FORMAT, "Red blood cells") + " " + String.format(Constant.STRING_FORMAT, "Pus Cells") + " " + String.format(Constant.STRING_FORMAT, "Crystals") + " " + String.format(Constant.STRING_FORMAT, "Casts") + " " + String.format(Constant.STRING_FORMAT, "Turbidity") + " " + String.format(Constant.STRING_FORMAT, "White blood cells"));
+    fileWriter.write(String.format(Constant.STRING_FORMAT, "Test_id") + " " + String.format(Constant.STRING_FORMAT, "User_id") + " " + String.format(Constant.STRING_FORMAT, "Colour") + " " + String.format(Constant.STRING_FORMAT, "Specific Gravity") + " " + String.format(Constant.STRING_FORMAT, "pH") + " " + String.format(Constant.STRING_FORMAT, "Blood") + " " + String.format(Constant.STRING_FORMAT, "Glucose") + " " + String.format(Constant.STRING_FORMAT, "Urobilinogen") + " " + String.format(Constant.STRING_FORMAT, "Protein") + " " + String.format(Constant.STRING_FORMAT, "Red blood cells") + " " + String.format(Constant.STRING_FORMAT, "Pus Cells") + " " + String.format(Constant.STRING_FORMAT, "Crystals") + " " + String.format(Constant.STRING_FORMAT, "Casts") + " " + String.format(Constant.STRING_FORMAT, "Turbidity") + " " + String.format(Constant.STRING_FORMAT, "White blood cells") + "\n");
 
     for (int i = 0; i < urineTestReportsList.size(); i++) {
       fileWriter.write(String.format(Constant.STRING_FORMAT, urineTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT, urineTestReportsList.get(i).getUser_id()) + " " + String.format(Constant.STRING_FORMAT, urineTestReportsList.get(i).getColor()) + " " + String.format(Constant.STRING_FORMAT, urineTestReportsList.get(i).getSpecific_gravity()) + " " + String.format(Constant.STRING_FORMAT, urineTestReportsList.get(i).getpH()) + " " + String.format(Constant.STRING_FORMAT, urineTestReportsList.get(i).getBlood()) + " " + String.format(Constant.STRING_FORMAT, urineTestReportsList.get(i).getGlucose()) + " " + String.format(Constant.STRING_FORMAT, urineTestReportsList.get(i).getUrobilinogen()) + " " + String.format(Constant.STRING_FORMAT, urineTestReportsList.get(i).getProtein()) + " " + String.format(Constant.STRING_FORMAT, urineTestReportsList.get(i).getRbc()) + " " + String.format(Constant.STRING_FORMAT, urineTestReportsList.get(i).getPus_cells()) + " " + String.format(Constant.STRING_FORMAT, urineTestReportsList.get(i).getCrystals()) + " " + String.format(Constant.STRING_FORMAT, urineTestReportsList.get(i).getCasts()) + " " + String.format(Constant.STRING_FORMAT, urineTestReportsList.get(i).getTurbidity()) + " " + String.format(Constant.STRING_FORMAT, urineTestReportsList.get(i).getWbc()));
@@ -270,10 +269,10 @@ public class Laboratory implements FeatureMenu {
     List<UricAcidTestReports> uricAcidTestReportsList = uricAcidTestReportsDAO.uricacidReports(uid_input);
 
     fileWriter = new FileWriter("resources/UricAcidReport"+uid_input+".txt");
-    System.out.println(String.format(Constant.STRING_FORMAT, "Test_id") + " " + String.format(Constant.STRING_FORMAT, "User_id") + " " + String.format(Constant.STRING_FORMAT, "Serum Uric Acid: %f") + " " + String.format(Constant.STRING_FORMAT, "Units"));
+    fileWriter.write(String.format(Constant.STRING_FORMAT, "Test_id") + " " + String.format(Constant.STRING_FORMAT, "User_id") + " " + String.format(Constant.STRING_FORMAT, "Serum Uric Acid:") + " " + String.format(Constant.STRING_FORMAT, "Units") + "\n");
 
     for (int i = 0; i < uricAcidTestReportsList.size(); i++) {
-      System.out.println(String.format(Constant.STRING_FORMAT, uricAcidTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT, uricAcidTestReportsList.get(i).getUser_id()) + " " + String.format(Constant.STRING_FORMAT, uricAcidTestReportsList.get(i).getSerum_uric_acid()) + " " + String.format(uricAcidTestReportsList.get(i).getUnits(), uricAcidTestReportsList.get(i).getUnits()));
+      fileWriter.write(String.format(Constant.STRING_FORMAT, uricAcidTestReportsList.get(i).getTest_id()) + " " + String.format(Constant.STRING_FORMAT, uricAcidTestReportsList.get(i).getUser_id()) + " " + String.format(Constant.STRING_FORMAT, uricAcidTestReportsList.get(i).getSerum_uric_acid()) + " " + String.format(uricAcidTestReportsList.get(i).getUnits(), uricAcidTestReportsList.get(i).getUnits()));
     }
     fileWriter.close();
     menu();

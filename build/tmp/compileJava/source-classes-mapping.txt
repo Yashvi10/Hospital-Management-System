@@ -130,8 +130,8 @@ Model/AppointmentModel.java
  Model.AppointmentModel
 BL/PharmacyBL.java
  BL.PharmacyBL
-View/BloodBank.java
- View.BloodBank
+Service/BloodDonorService.java
+ Service.BloodDonorService
 Model/ListOfTests.java
  Model.ListOfTests
 Interface/BloodRequesterDAO.java
@@ -182,9 +182,9 @@ Service/ListOfTestsService.java
  Service.ListOfTestsService
 Model/RegisterTest.java
  Model.RegisterTest
-Service/BloodDonorService.java
- Service.BloodDonorService
 View/Laboratory.java
  View.Laboratory
+View/BloodBank.java
+ View.BloodBank
 View/FeatureFactory.java
  View.FeatureFactory
