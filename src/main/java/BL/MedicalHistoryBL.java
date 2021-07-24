@@ -9,6 +9,14 @@ import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.Scanner;
 
+/*
+ *  Name of file: MedicalHistoryBL.java
+ *  Author:  Sanket Ushangbhai Mehta
+ *  Purpose: This class is for business logic been covered in medical history feature
+ *  Description: This class contains logic and handling of medical records where users can upload view and download
+ * their medical records
+ * */
+
 public class MedicalHistoryBL {
 
 

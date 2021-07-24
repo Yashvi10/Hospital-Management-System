@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *  Name of file: MedicalHistoryService.java
  *  Author:  Sanket Ushangbhai Mehta
  *  Purpose: This class is for services offered by medical history feature
- *  Description: This class contains logic and handling of medical records where users can upload view and download
+ *  Description: This class contains handling of medical records where users can upload view and download
  * their medical records
  * */
 
