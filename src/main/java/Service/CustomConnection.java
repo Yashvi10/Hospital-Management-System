@@ -32,9 +32,9 @@ public class CustomConnection {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con= DriverManager.getConnection(
-                    getProperty("DB_STRING_DEVINT"),
-                    getProperty("DB_USERNAME_DEVINT"),
-                    getProperty("DB_PASSWORD_DEVINT"));
+                    getProperty("GCP_STRING_PROD"),     // GCP_STRING_PROD
+                    getProperty("GCP_USERNAME_PROD"),   // GCP_USERNAME_PROD
+                    getProperty("GCP_PASSWORD_PROD"));  // GCP_PASSWORD_PROD
 
             if(con != null) {
                 return con;
