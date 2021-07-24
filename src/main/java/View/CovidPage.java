@@ -93,6 +93,45 @@ public class CovidPage implements FeatureMenu {
           }
           break;
 
+        case 2 :
+          System.out.println("\n==========================");
+          System.out.println("Select options from below");
+          System.out.println("==========================");
+
+          System.out.println("1 = Register a General Bed");
+          System.out.println("2 = Register an Oxygen Supply Bed");
+          System.out.println("3 = Register a Ventilator Attached Bed");
+          System.out.println("\nEnter your choice: ");
+
+          // Takes input from the user about their preference
+          Scanner scannerRegister = new Scanner(System.in);
+          int userChoiceRegister = 0;
+
+          try {
+            userChoiceRegister = scanner.nextInt();
+          } catch (InputMismatchException e) {
+            System.out.println("WARNING: Please select from the given numbers only");
+            menu();
+          }
+
+          if(userChoiceRegister != 0) {
+            Integer bedNumber = covidBedBLInterface.registerBed(userChoiceRegister);
+            if(bedNumber == null) {
+              System.out.println("We are sorry to inform you currently beds are not available in this category - Bed not registered");
+            } else {
+              if (userChoiceRegister == 1) {
+                System.out.println("You have successfully registered, note the number G-"+bedNumber);
+              }
+              else if (userChoiceRegister == 2) {
+                System.out.println("You have successfully registered, note the number O-"+bedNumber);
+              }
+              else if (userChoiceRegister == 3) {
+                System.out.println("You have successfully registered, note the number V-"+bedNumber);
+              }
+            }
+          }
+          break;
+
         default:
           System.out.println("Invalid Input, Please select right option");
           break;
@@ -101,7 +140,7 @@ public class CovidPage implements FeatureMenu {
       System.out.println("Select options from below");
       System.out.println("==========================");
 
-      System.out.println("1 = View Available Vaccines");
+      System.out.println("1 = View Available Beds");
       System.out.println("2 = Request for a Bed");
       System.out.println("\nPress 0 (Zero) to for Main-Menu");
       System.out.println("\nEnter your choice: ");
