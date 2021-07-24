@@ -1,12 +1,15 @@
 package View;
 
 import Interface.CovidBedBLInterface;
+import Interface.CovidPlasmaBLInterface;
 import Interface.FeatureMenu;
 import Interface.IDashboard;
+import Model.CovidPlasmaInformation;
 import Service.UserSession;
 
 import java.io.IOException;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 /*
@@ -20,11 +23,15 @@ public class CovidPage implements FeatureMenu {
 
   private CovidBedBLInterface covidBedBLInterface;
 
+  private CovidPlasmaBLInterface covidPlasmaBLInterface;
+
   private IDashboard dashboard;
 
   public  CovidPage(CovidBedBLInterface covidBedBLInterface,
+                    CovidPlasmaBLInterface covidPlasmaBLInterface,
                     IDashboard dashboard) {
     this.covidBedBLInterface = covidBedBLInterface;
+    this.covidPlasmaBLInterface = covidPlasmaBLInterface;
     this.dashboard = dashboard;
   }
 
@@ -37,6 +44,7 @@ public class CovidPage implements FeatureMenu {
 
     System.out.println("1 = View Available Beds");
     System.out.println("2 = Request for a Bed");
+    System.out.println("3 = Explore availability of plasma");
     System.out.println("\nPress 0 (Zero) to for Main-Menu");
     System.out.println("\nEnter your choice: ");
 
@@ -132,6 +140,28 @@ public class CovidPage implements FeatureMenu {
           }
           break;
 
+        case 3 :
+          System.out.println("\n==========================");
+          System.out.println("Here is information about plasma");
+          System.out.println("==========================");
+
+          List<CovidPlasmaInformation> covidPlasmaInformation = covidPlasmaBLInterface.getPlasmaList();
+
+          if(covidPlasmaInformation == null || covidPlasmaInformation.size() == 0) {
+            System.out.println("Currently no information available about plasma - try later.");
+            break;
+          } else {
+            System.out.println("\n--------------------------");
+            System.out.println("Number\tBlood Group\tAvailability");
+            System.out.println("--------------------------");
+            for (int i = 0; i < covidPlasmaInformation.size(); i++) {
+              System.out.println(covidPlasmaInformation.get(i).getPlasmaId()+"\t\t"+covidPlasmaInformation.get(i).getBloodType()+
+                      "\t\t"+covidPlasmaInformation.get(i).getPlasmaAvailability());
+            }
+            System.out.println("--------------------------");
+          }
+          break;
+
         default:
           System.out.println("Invalid Input, Please select right option");
           break;
@@ -142,6 +172,7 @@ public class CovidPage implements FeatureMenu {
 
       System.out.println("1 = View Available Beds");
       System.out.println("2 = Request for a Bed");
+      System.out.println("3 = Explore availability of plasma");
       System.out.println("\nPress 0 (Zero) to for Main-Menu");
       System.out.println("\nEnter your choice: ");
 

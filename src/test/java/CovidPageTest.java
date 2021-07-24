@@ -1,11 +1,8 @@
 import BL.CovidBedBL;
-import BL.HelpDeskRequestRegisterBL;
 import Service.CovidBedService;
-import Service.HelpDeskRegisterService;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /*
  *  Name of file: CovidPageTest.java
