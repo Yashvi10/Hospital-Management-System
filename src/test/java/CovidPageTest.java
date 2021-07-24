@@ -48,4 +48,15 @@ public class CovidPageTest {
     CovidBedService covidBedService = new CovidBedService();
     assertEquals(true,covidBedService.validateBedtype(0) == null);
   }
+
+  /*
+   * Tests the type of bed (General/Oxygen/Ventilator)
+   * In scope numbers are (1/2/3)
+   * The method returns true as number 0 is out of scope negative number and methods returns null.
+   */
+  @Test
+  void validateBedType_negative_true() {
+    CovidBedService covidBedService = new CovidBedService();
+    assertEquals(true,covidBedService.validateBedtype(-5) == null);
+  }
 }
