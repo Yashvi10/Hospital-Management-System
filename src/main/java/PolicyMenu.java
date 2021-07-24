@@ -17,6 +17,7 @@ import java.util.Scanner;
 public class PolicyMenu extends PolicyService implements FeatureMenu  , IPrint {
 
   String eligiblePlan;
+  PolicyService service=new PolicyService();
 
   public PolicyMenu(){
   }
@@ -30,11 +31,11 @@ public class PolicyMenu extends PolicyService implements FeatureMenu  , IPrint {
     switch(policyNo){
       case 1:
         System.out.println("******INSURANCE POLICY******\nSingle Plan");
-        printRecord(viewSinglePolicy());
+        printRecord(service.viewSinglePolicy());
         System.out.println("\nFamily Plan");
-        printRecord(viewFamilyPolicy());
+        printRecord(service.viewFamilyPolicy());
         System.out.println("\nAged Plan");
-        printRecord(viewAgedPolicy());
+        printRecord(service.viewAgedPolicy());
         break;
       case 2:
         System.out.println("******BUY POLICY******" );
@@ -123,7 +124,7 @@ public class PolicyMenu extends PolicyService implements FeatureMenu  , IPrint {
 
     System.out.println("Enter Patient ID:");
     info.add(sc.nextLine()) ;
-    return buyPolicy(info);
+    return service.buyPolicy(info);
   }
 
   public boolean claimPolicy( )   {
@@ -148,7 +149,7 @@ public class PolicyMenu extends PolicyService implements FeatureMenu  , IPrint {
     info.add(sc.nextLine()) ;
     System.out.println("Enter Bill Amount");
     info.add( sc.nextLine())  ;
-    return  policyClaim(info) ;
+    return  service.policyClaim(info) ;
   }
 }
 

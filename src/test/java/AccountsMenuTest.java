@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AccountsMenuTest {
   Accounts account = new Accounts(" ", 0.00, " ", 0);
-  AccountsMenu menu = new AccountsMenu(account);
+  AccountsMenu menu = new AccountsMenu( );
 
   @Test
   public void validateDateTest_True(){

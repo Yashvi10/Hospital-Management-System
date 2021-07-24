@@ -26,12 +26,12 @@ Interface/OrderLastIdDAO.java
  Interface.OrderLastIdDAO
 Dashboard.java
  Dashboard
-Interface/IRegistration.java
- Interface.IRegistration
 Colors.java
  Colors
-BillingMenu.java
- BillingMenu
+Service/BloodDonorService.java
+ Service.BloodDonorService
+Service/PolicyLogic.java
+ Service.PolicyLogic
 FeatureFactory.java
  FeatureFactory
 Interface/OrderDAO.java
@@ -64,8 +64,8 @@ Interface/BillingOrderItemDAO.java
  Interface.BillingOrderItemDAO
 Interface/IDateValidation.java
  Interface.IDateValidation
-Service/ManageProfile.java
- Service.ManageProfile
+Service/ManageAccountService.java
+ Service.ManageAccountService
 BloodBank.java
  BloodBank
 Interface/BloodRequesterDAO.java
@@ -76,41 +76,39 @@ Interface/FeatureMenu.java
  Interface.FeatureMenu
 Service/BillingService.java
  Service.BillingService
-Service/ManageAccountService.java
- Service.ManageAccountService
-Model/Order.java
- Model.Order
-Service/BloodRequesterService.java
- Service.BloodRequesterService
 Billing.java
  Billing
+Model/Order.java
+ Model.Order
+BillingMenu.java
+ BillingMenu
+AccountsMenu.java
+ AccountsMenu
 Model/User.java
  Model.User
 Model/BloodRequester.java
  Model.BloodRequester
 Interface/BloodDonorDAO.java
  Interface.BloodDonorDAO
-AccountsMenu.java
- AccountsMenu
+Interface/IRegistration.java
+ Interface.IRegistration
 Interface/IAccount.java
  Interface.IAccount
-Service/BloodDonorService.java
- Service.BloodDonorService
+Service/BloodRequesterService.java
+ Service.BloodRequesterService
 Service/CustomConnection.java
  Service.CustomConnection
 Service/UserManagement.java
  Service.UserManagement
-Service/DatabaseService.java
- Service.DatabaseService
 Main.java
  Main
 Starter.java
  Starter
 UserManagementPage.java
  UserManagementPage
+Service/ManageProfile.java
+ Service.ManageProfile
 PolicyMenu.java
  PolicyMenu
-Service/PolicyLogic.java
- Service.PolicyLogic
 Service/PolicyService.java
  Service.PolicyService

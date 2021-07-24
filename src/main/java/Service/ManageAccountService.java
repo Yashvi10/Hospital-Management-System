@@ -18,18 +18,17 @@ import java.util.List;
 public class ManageAccountService  implements IAccount {
 
   ResultSet resultSet = null;
-  DatabaseService dbService;
   PreparedStatement insertAccounts;
   List<List<String>> dbRecord;
   boolean response = false;
   Connection conn;
+  Statement statement;
 
   public ManageAccountService() {
   }
 
-  public ManageAccountService(DatabaseService dbService) {
-    this.dbService = dbService;
-    this.conn=dbService.conn;
+  public ManageAccountService(CustomConnection conn) {
+    this.conn= conn.Connect();
   }
 
   @Override
@@ -38,7 +37,8 @@ public class ManageAccountService  implements IAccount {
     dbRecord = new ArrayList<>();
     try {
       String query="select order_id, name,qty, final_bill from order_items;" ;
-      resultSet=  dbService.executeQuery(query);
+      statement=conn.createStatement();
+      resultSet=  statement.executeQuery(query);
       while (resultSet.next()) {
         dbRow = new ArrayList<>();
         dbRow.add(String.valueOf(resultSet.getInt("order_id")));
@@ -60,6 +60,14 @@ public class ManageAccountService  implements IAccount {
         }
         resultSet = null;
       }
+      if (conn != null) {
+        try {
+          conn.close();
+        } catch (SQLException sqlEx) {
+          sqlEx.getMessage();
+        }
+        conn = null;
+      }
     }
 
     return dbRecord;
@@ -71,7 +79,8 @@ public class ManageAccountService  implements IAccount {
     dbRecord = new ArrayList<>();
     try {
       String query="select   accId , account_date, category ,  pay_name,  amount  from  ExpenseAccounts " ;
-      resultSet=  dbService.executeQuery(query);
+      statement=conn.createStatement();
+      resultSet=  statement.executeQuery(query);
       while (resultSet.next()) {
         dbRow = new ArrayList<>();
         dbRow.add(String.valueOf(resultSet.getInt("accId")));
@@ -93,6 +102,14 @@ public class ManageAccountService  implements IAccount {
           sqlEx.getMessage();
         }
         resultSet = null;
+      }
+      if (conn != null) {
+        try {
+          conn.close();
+        } catch (SQLException sqlEx) {
+          sqlEx.getMessage();
+        }
+        conn = null;
       }
 
     }
@@ -118,7 +135,7 @@ public class ManageAccountService  implements IAccount {
               accounts.getDate()+"' and category='"+expenseType+"' and pay_name='"+accounts.getPayName()+
               "' and amount= "+accounts.getAmount()+" );";
 
-      insertAccounts =  dbService.conn.prepareStatement(queryUserTable);
+      insertAccounts =  conn.prepareStatement(queryUserTable);
       insertAccounts.setString(1, accounts.getDate() );
       insertAccounts.setString(2, expenseType);
       insertAccounts.setString(3, accounts.getPayName());
@@ -128,6 +145,16 @@ public class ManageAccountService  implements IAccount {
     }
     catch (SQLException   e) {
       System.out.println(  e.getMessage());
+    }
+    finally{
+      if (conn != null) {
+        try {
+          conn.close();
+        } catch (SQLException sqlEx) {
+          sqlEx.getMessage();
+        }
+        conn = null;
+      }
     }
 
     return response;

@@ -1,8 +1,6 @@
 package Service;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
 
 /*
@@ -18,9 +16,12 @@ public class PolicyService extends PolicyLogic{
   ResultSet resultSet;
   PreparedStatement insertAccounts;
   CustomConnection db=new CustomConnection();
-  DatabaseService dbService =new DatabaseService(db.Connect());
+  Statement statement;
+  Connection conn;
 
-  public PolicyService( ){}
+  public PolicyService( ){
+    this.conn=db.Connect();
+  }
 
   public List<List<String>> viewSinglePolicy(){
     return singlePolicy();
@@ -45,14 +46,15 @@ public class PolicyService extends PolicyLogic{
     try {
       int patientId = 0;
       String query = " select patientId from patientTable where patientId=" + info.get(2);
-      resultSet = dbService.executeQuery(query);
+      statement=conn.createStatement();
+      resultSet = statement.executeQuery(query);
       while (resultSet.next()) {
         patientId = resultSet.getInt("patientId");
       }
       if (patientId > 0) {
         String queryUserTable = " insert into policyTable( patientID,policyPlan,premium,rate) " +
                 "values(?,?,?,?);";
-        insertAccounts = dbService.conn.prepareStatement(queryUserTable);
+        insertAccounts = conn.prepareStatement(queryUserTable);
         insertAccounts.setInt(1, patientId);
         insertAccounts.setString(2, info.get(1));
         insertAccounts.setDouble(3, premium);
@@ -66,12 +68,6 @@ public class PolicyService extends PolicyLogic{
       e.getMessage();
     }
     finally {
-      try{
-        dbService.closeDB();
-      }
-      catch (SQLException e){
-        e.getMessage();
-      }
       if (resultSet != null) {
         try {
           resultSet.close();
@@ -81,15 +77,7 @@ public class PolicyService extends PolicyLogic{
         }
         resultSet = null;
       }
-      if (db.con != null) {
-        try {
-          db.con.close();
-        }
-        catch (SQLException sqlEx) {
-          sqlEx.getMessage();
-        }
-        db.con = null;
-      }
+
     }
     return response;
   }
@@ -103,7 +91,8 @@ public class PolicyService extends PolicyLogic{
     try {
       String query = " select policyNo, patientID, premium,rate from policyTable where patientId="
               + Integer.valueOf(info.get(1))+" and policyNo="+Integer.valueOf(info.get(2))+";";
-      resultSet = dbService.executeQuery(query);
+      statement=conn.createStatement();
+      resultSet = statement.executeQuery(query);
       while (resultSet.next()) {
         policyNo = resultSet.getInt("policyNo");
         patientId = resultSet.getInt("patientId");
@@ -116,7 +105,7 @@ public class PolicyService extends PolicyLogic{
                 "select ?,?, ?, ?,?   from dual  where not exists (select * from policyClaim where patientID='" +
                 patientId + "' and policyNo='" + policyNo+
                 "' and claimDate= " + info.get(0) + " and ActualBill=" + info.get(3) + " );";
-        insertAccounts = dbService.conn.prepareStatement(queryUserTable);
+        insertAccounts = conn.prepareStatement(queryUserTable);
         insertAccounts.setInt(1, policyNo);
         insertAccounts.setInt(2, patientId);
         insertAccounts.setString(3, info.get(0));
@@ -130,12 +119,6 @@ public class PolicyService extends PolicyLogic{
       e.getMessage();
     }
     finally {
-      try{
-        dbService.closeDB();
-      }
-      catch (SQLException e){
-        e.getMessage();
-      }
       if (resultSet != null) {
         try {
           resultSet.close();
@@ -145,14 +128,14 @@ public class PolicyService extends PolicyLogic{
         }
         resultSet = null;
       }
-      if (db.con != null) {
+      if (conn != null) {
         try {
-          db.con.close();
+          conn.close();
         }
         catch (SQLException sqlEx) {
           sqlEx.getMessage();
         }
-        db.con = null;
+        conn = null;
       }
     }
 
