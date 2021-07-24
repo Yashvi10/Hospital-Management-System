@@ -4,10 +4,7 @@ import Model.User;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 /*
  *  Name of file: ManageProfile.java
@@ -20,31 +17,29 @@ import java.sql.SQLException;
 public class ManageProfile {
 
     Connection conn;
-
     ResultSet resultSet;
-
-    DatabaseService dbService;
-
+    Statement statement;
     int checkRecord=0;
 
     public ManageProfile(){}
 
-    public ManageProfile(DatabaseService dbService) {
-        this.dbService= dbService;
+    public ManageProfile(Connection conn) {
+        this.conn= conn;
     }
 
-    public int loadRecord(String email) {
+    public int loadRecord(String email ) {
         int userid=0;
         try {
             String query=" Select * from loginTable where username='" + email.trim() + "';";
-            resultSet=  dbService.executeQuery(query);
+            statement=conn.createStatement();
+            resultSet=  statement.executeQuery(query);
             System.out.println("");
             while (resultSet.next()) {
                 userid = resultSet.getInt("userid");
             }
-            dbService.closeDB();
+
         }
-        catch (SQLException | ClassNotFoundException e) {
+        catch (SQLException   e) {
             e.getMessage();
         }
         finally {
@@ -66,7 +61,7 @@ public class ManageProfile {
         boolean response=false;
         try {
 
-            checkRecord=loadRecord(user.getEmail());
+            checkRecord=loadRecord(user.getEmail() );
             if( checkRecord>0) {
                 String queryUserTable = "update patientTable set firstName=?,LastName=?,address=?,phone=? where userid=? ";
                 PreparedStatement updateStmt = conn.prepareStatement(queryUserTable);
@@ -100,7 +95,7 @@ public class ManageProfile {
     public boolean resetPassword(User user){
         boolean response=false;
         try {
-            checkRecord=loadRecord(user.getEmail());
+            checkRecord=loadRecord(user.getEmail() );
             if (checkRecord > 0) {
                 if (user.getPswd().equals(user.getconfirmPswd())) {
                     String queryUserTable = "update loginTable set  password=?  where userid=? ";

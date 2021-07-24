@@ -36,8 +36,8 @@ Interface/AddCampsDAO.java
  Interface.AddCampsDAO
 Service/RegisterTestService.java
  Service.RegisterTestService
-Service/ManageProfile.java
- Service.ManageProfile
+Service/VaccineService.java
+ Service.VaccineService
 Interface/ListOfCampsBLDAO.java
  Interface.ListOfCampsBLDAO
 Service/RatingService.java
@@ -174,22 +174,22 @@ Model/Doctors.java
  Model.Doctors
 BL/SearchCampsBL.java
  BL.SearchCampsBL
-Service/ManageAccountService.java
- Service.ManageAccountService
+Interface/AppointmentDAO.java
+ Interface.AppointmentDAO
 Interface/UricAcidTestReportsDAO.java
  Interface.UricAcidTestReportsDAO
 BL/UrineReportBL.java
  BL.UrineReportBL
 BL/CovidPlasmaBL.java
  BL.CovidPlasmaBL
-Service/UserManagement.java
- Service.UserManagement
+View/CovidPage.java
+ View.CovidPage
 Interface/VaccineBLInterface.java
  Interface.VaccineBLInterface
 Service/AppointmentService.java
  Service.AppointmentService
-View/UserManagementPage.java
- View.UserManagementPage
+View/HelpDeskPage.java
+ View.HelpDeskPage
 BL/VaccineBL.java
  BL.VaccineBL
 Model/BloodTestReports.java
@@ -212,8 +212,8 @@ View/NearbyCamps.java
  View.NearbyCamps
 Interface/HelpDeskFaqDAO.java
  Interface.HelpDeskFaqDAO
-View/AccountsMenu.java
- View.AccountsMenu
+BL/BloodReportBL.java
+ BL.BloodReportBL
 View/Colors.java
  View.Colors
 Service/OrderService.java
@@ -274,8 +274,8 @@ Model/SearchCamps.java
  Model.SearchCamps
 Service/MedicalHistoryService.java
  Service.MedicalHistoryService
-Starter.java
- Starter
+Model/RegisterTest.java
+ Model.RegisterTest
 Interface/IAccount.java
  Interface.IAccount
 Model/MedicalHistoryModel.java
@@ -286,17 +286,17 @@ Interface/DoctorRatingDAO.java
  Interface.DoctorRatingDAO
 Interface/VaccineDAO.java
  Interface.VaccineDAO
-Service/VaccineService.java
- Service.VaccineService
-BL/BloodReportBL.java
- BL.BloodReportBL
-View/CovidPage.java
- View.CovidPage
-Interface/AppointmentDAO.java
- Interface.AppointmentDAO
-Model/RegisterTest.java
- Model.RegisterTest
-View/HelpDeskPage.java
- View.HelpDeskPage
+Service/UserManagement.java
+ Service.UserManagement
+View/UserManagementPage.java
+ View.UserManagementPage
+Starter.java
+ Starter
+Service/ManageAccountService.java
+ Service.ManageAccountService
 View/FeatureFactory.java
  View.FeatureFactory
+View/AccountsMenu.java
+ View.AccountsMenu
+Service/ManageProfile.java
+ Service.ManageProfile

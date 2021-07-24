@@ -4,19 +4,19 @@ HelpDeskPageTest.java
  HelpDeskPageTest
 BillingTest.java
  BillingTest
-BloodBankTest.java
- BloodBankTest
+BillingPageTest.java
+ BillingPageTest
 PharmacyPageTest.java
  PharmacyPageTest
 AppointmentsTest.java
  AppointmentsTest
-userManagementTest.java
- userManagementTest
-CovidPageTest.java
- CovidPageTest
-VaccinePageTest.java
- VaccinePageTest
 AccountsMenuTest.java
  AccountsMenuTest
-BillingPageTest.java
- BillingPageTest
+CovidPageTest.java
+ CovidPageTest
+BloodBankTest.java
+ BloodBankTest
+userManagementTest.java
+ userManagementTest
+VaccinePageTest.java
+ VaccinePageTest
