@@ -46,4 +46,5 @@ public class Constant  {
     public static final String CAMP_MENU = "CAMP";
     public static final String HELPDESK_MENU = "HELPDESK";
     public static final String ACCOUNT_MENU = "ACCOUNT";
+    public static final String COVID_MENU = "COVID";
 }
