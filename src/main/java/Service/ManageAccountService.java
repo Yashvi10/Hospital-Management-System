@@ -48,7 +48,7 @@ public class ManageAccountService  implements IAccount {
         dbRecord.add(dbRow);
       }
     }
-    catch (SQLException | ClassNotFoundException e) {
+    catch (SQLException  e) {
       e.getMessage();
     }
     finally {
@@ -82,7 +82,7 @@ public class ManageAccountService  implements IAccount {
         dbRecord.add(dbRow);
       }
     }
-    catch (SQLException | ClassNotFoundException e) {
+    catch (SQLException  e) {
       e.getMessage();
     }
     finally {

@@ -41,7 +41,7 @@ public class ManageProfile {
       }
       dbService.closeDB();
     }
-    catch (SQLException | ClassNotFoundException e) {
+    catch (SQLException   e) {
       e.getMessage();
     }
     finally {

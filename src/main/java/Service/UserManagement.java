@@ -169,7 +169,7 @@ public class UserManagement extends ManageProfile implements IRegistration {
       }
       dbService.closeDB();
     }
-    catch (SQLException | ClassNotFoundException e) {
+    catch (SQLException  e) {
       System.out.println("SQLException: " + e.getMessage());
     }
     finally {
@@ -217,7 +217,7 @@ public class UserManagement extends ManageProfile implements IRegistration {
       }
       dbService.closeDB();
     }
-    catch (SQLException | ClassNotFoundException e) {
+    catch (SQLException   e) {
       e.getMessage();
     }
 
