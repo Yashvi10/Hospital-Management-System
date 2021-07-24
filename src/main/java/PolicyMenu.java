@@ -1,11 +1,18 @@
 import Interface.FeatureMenu;
 import Interface.IPrint;
 import Service.PolicyService;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
+
+/*
+ *  Name of file: PolicyMenu.java
+ *  Author:  Abimbola Babalola
+ *  Purpose: This is the load page for the InsurancePolicy feature
+ *  Description: This class is the wrapper for the service methods in the PolicyMenu.java service
+ *
+ */
 
 public class PolicyMenu extends PolicyService implements FeatureMenu  , IPrint {
 

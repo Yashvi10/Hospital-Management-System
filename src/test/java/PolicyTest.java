@@ -23,14 +23,13 @@ public class PolicyTest {
       expected.add(list);
     }
     assertEquals(expected,logic.singlePolicy());
-
   }
 
- /* @Test
-  public void validateDateTest_True(){
-    String plan ="30/09/2019";
-    assertEquals(logic.coverageRate(dateFormat ));
-    dateFormat ="6/9/2019";
-    assertTrue(menu.validateDate(dateFormat ));
-  }*/
+  @Test
+  public void getPremiumTest(){
+    List<List<String>> expected= new ArrayList<>();
+    List<String> list;
+    assertEquals(982.00,logic.getPremium("2","SILVER"));
+
+  }
 }

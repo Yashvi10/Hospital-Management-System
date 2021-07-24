@@ -6,9 +6,9 @@ PharmacyPageTest.java
  PharmacyPageTest
 BillingPageTest.java
  BillingPageTest
-PolicyTest.java
- PolicyTest
-userManagementTest.java
- userManagementTest
 AccountsMenuTest.java
  AccountsMenuTest
+userManagementTest.java
+ userManagementTest
+PolicyTest.java
+ PolicyTest
