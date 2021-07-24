@@ -21,7 +21,7 @@ public class MedicalHistoryTest {
     File file_to_upload = new File("Dummy files\\Medical1.txt");
     MedicalHistoryBL medicalHistoryBL = new MedicalHistoryBL();
     medicalHistoryBL.file_write(file_to_upload);
-    File uploaded_file = new File("resources\\Uploads\\"+UserSession.userId+file_to_upload.getName());
+    File uploaded_file = new File("resources\\Uploads\\"+0+file_to_upload.getName());
     assertEquals(true,uploaded_file.exists(),"file uploading fails!");
   }
 
@@ -30,7 +30,7 @@ public class MedicalHistoryTest {
     File file_to_download = new File("Dummy files\\Medical1.txt");
     MedicalHistoryBL medicalHistoryBL = new MedicalHistoryBL();
     medicalHistoryBL.file_download(file_to_download.getName());
-    File downloaded_file = new File("resources\\Downloads\\"+UserSession.userId+file_to_download.getName());
+    File downloaded_file = new File("resources\\Downloads\\"+0+file_to_download.getName());
     assertEquals(true,downloaded_file.exists(),"file uploading fails!");
   }
 
