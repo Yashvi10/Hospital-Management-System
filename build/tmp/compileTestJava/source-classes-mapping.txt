@@ -1,5 +1,5 @@
-BillingPageTest.java
- BillingPageTest
+RatingMenuTest.java
+ RatingMenuTest
 BillingTest.java
  BillingTest
 BloodBankTest.java
@@ -8,11 +8,11 @@ PharmacyPageTest.java
  PharmacyPageTest
 ManageProfileTest.java
  ManageProfileTest
-userManagementTest.java
- userManagementTest
-RatingMenuTest.java
- RatingMenuTest
 AppointmentsTest.java
  AppointmentsTest
+userManagementTest.java
+ userManagementTest
 MedicalHistoryTest.java
  MedicalHistoryTest
+BillingPageTest.java
+ BillingPageTest

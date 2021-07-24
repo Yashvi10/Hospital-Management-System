@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="MedicalHistoryTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-07-24T08:27:54" hostname="LAPTOP-ORKNTPIH" time="0.02">
+<testsuite name="MedicalHistoryTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-07-24T15:06:50" hostname="LAPTOP-ORKNTPIH" time="0.021">
   <properties/>
-  <testcase name="upload_medical_history()" classname="MedicalHistoryTest" time="0.017"/>
-  <testcase name="download_medical_history()" classname="MedicalHistoryTest" time="0.003"/>
-  <system-out><![CDATA[Medical1.txt
-]]></system-out>
+  <testcase name="upload_medical_history()" classname="MedicalHistoryTest" time="0.018"/>
+  <testcase name="download_medical_history()" classname="MedicalHistoryTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

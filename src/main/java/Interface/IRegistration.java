@@ -3,8 +3,7 @@ package Interface;
 import Model.User;
 
 public interface IRegistration {
-    String registerPatient(User user );
-    String registerStaff(String role,User user);
-    int loadRecord(User user );
+    boolean registerPatient(User user );
+    boolean registerStaff(String role,User user);
     Integer getLastUserId();
 }

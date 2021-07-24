@@ -20,10 +20,11 @@ public class MedicalHistoryService implements MedicalHistoryDAO {
 
   MedicalHistoryModel medicalHistoryModel;
   CustomConnection cc = new CustomConnection();
-  Connection con = cc.Connect();
+
 
   @Override
   public Boolean view_medical_history() {
+    Connection con = cc.Connect();
     if (con != null) {
       try {
         String SQL = "SELECT * FROM medical_history where user_id = " +UserSession.userId;
@@ -40,11 +41,12 @@ public class MedicalHistoryService implements MedicalHistoryDAO {
                     String.format("%16s", rs.getString("filename")));
           }
           System.out.println("*************************************\n");
-        }
-        if (rs.getRow()<1){
+        } else {
+
           System.out.println("You don't have any medical records!");
           return false;
         }
+
         return true;
       } catch (SQLException | NullPointerException throwables) {
         throwables.printStackTrace();
@@ -61,7 +63,7 @@ public class MedicalHistoryService implements MedicalHistoryDAO {
 
   @Override
   public Boolean upload_medical_history(String path, String document_name) {
-
+    Connection con = cc.Connect();
     File file = new File(path);
     String filename = file.getName();
     try {
@@ -98,7 +100,7 @@ public class MedicalHistoryService implements MedicalHistoryDAO {
   }
 
   public Boolean validateDocumentId(Integer document_id){
-
+    Connection con = cc.Connect();
     MedicalHistoryBL medicalHistoryBL = new MedicalHistoryBL();
     ArrayList<ArrayList<String>> document_id_and_filename = new ArrayList<>();
     ArrayList<String> document_ids = new ArrayList<>();
@@ -135,7 +137,7 @@ public class MedicalHistoryService implements MedicalHistoryDAO {
   }
 
   public Boolean validateDocumentIdForDownload(Integer document_id){
-
+    Connection con = cc.Connect();
     MedicalHistoryBL medicalHistoryBL = new MedicalHistoryBL();
     ArrayList<ArrayList<String>> document_id_and_filename = new ArrayList<>();
     ArrayList<String> document_ids = new ArrayList<>();
