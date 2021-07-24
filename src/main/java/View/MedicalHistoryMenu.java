@@ -16,6 +16,11 @@ import java.util.Scanner;
 
 public class MedicalHistoryMenu implements FeatureMenu {
 
+  public static void main(String[] args) {
+    MedicalHistoryMenu medicalHistoryMenu = new MedicalHistoryMenu();
+    medicalHistoryMenu.menu();
+  }
+
   @Override
   public void menu() {
     System.out.println("*************************************");
@@ -59,16 +64,17 @@ public class MedicalHistoryMenu implements FeatureMenu {
   private void download_medical_history() {
 
     MedicalHistoryService medicalHistoryService = new MedicalHistoryService();
-    medicalHistoryService.download_medical_history();
-    System.out.println("Please enter document_id which you want to download:");
-    Scanner scanner = new Scanner(System.in);
-    Integer document_id = scanner.nextInt();
-    MedicalHistoryBL medicalHistoryBL = new MedicalHistoryBL();
-    if (!medicalHistoryBL.view_medical_history(document_id)){
-      System.out.println("There was an error while downloading the file. Please try again!");
-    }else{
-      medicalHistoryService.validateDocumentIdForDownload(document_id);
-      System.out.println("Downloaded successfully!");
+    if (medicalHistoryService.download_medical_history()) {
+      System.out.println("Please enter document_id which you want to download:");
+      Scanner scanner = new Scanner(System.in);
+      Integer document_id = scanner.nextInt();
+      MedicalHistoryBL medicalHistoryBL = new MedicalHistoryBL();
+      if (!medicalHistoryBL.view_medical_history(document_id)) {
+        System.out.println("There was an error while downloading the file. Please try again!");
+      } else {
+        medicalHistoryService.validateDocumentIdForDownload(document_id);
+        System.out.println("Downloaded successfully!");
+      }
     }
     menu();
 
@@ -77,13 +83,14 @@ public class MedicalHistoryMenu implements FeatureMenu {
   private void view_medical_history() {
 
     MedicalHistoryService medicalHistoryService = new MedicalHistoryService();
-    medicalHistoryService.view_medical_history();
-    System.out.println("Please enter document_id which you want to view:");
-    Scanner scanner = new Scanner(System.in);
-    Integer document_id = scanner.nextInt();
-    MedicalHistoryBL medicalHistoryBL = new MedicalHistoryBL();
-    if (!medicalHistoryBL.view_medical_history(document_id)){
-      System.out.println("Something was wrong!");
+    if (medicalHistoryService.view_medical_history()){
+      System.out.println("Please enter document_id which you want to view:");
+      Scanner scanner = new Scanner(System.in);
+      Integer document_id = scanner.nextInt();
+      MedicalHistoryBL medicalHistoryBL = new MedicalHistoryBL();
+      if (!medicalHistoryBL.view_medical_history(document_id)){
+        System.out.println("Something was wrong!");
+      }
     }
     menu();
 

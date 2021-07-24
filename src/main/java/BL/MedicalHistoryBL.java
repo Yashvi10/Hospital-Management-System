@@ -18,8 +18,8 @@ public class MedicalHistoryBL {
       File new_file = new File(new_path);
       if (!new_file.exists()){
         Files.copy(file.toPath(), new_file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        return true;
       }
-      return true;
     }catch (IOException io){
       io.printStackTrace();
     }

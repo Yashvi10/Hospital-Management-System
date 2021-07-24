@@ -41,10 +41,14 @@ public class MedicalHistoryService implements MedicalHistoryDAO {
           }
           System.out.println("*************************************\n");
         }
+        if (rs.getRow()<1){
+          System.out.println("You don't have any medical records!");
+          return false;
+        }
         return true;
-      } catch (SQLException throwables) {
+      } catch (SQLException | NullPointerException throwables) {
         throwables.printStackTrace();
-      }finally  {
+      } finally{
         try  {
           con.close();
         }  catch  (SQLException throwables)  {
@@ -78,6 +82,7 @@ public class MedicalHistoryService implements MedicalHistoryDAO {
       }
     } catch (SQLException e) {
       e.printStackTrace();
+      return false;
     }finally  {
       try  {
         con.close();
@@ -85,13 +90,11 @@ public class MedicalHistoryService implements MedicalHistoryDAO {
         throwables.printStackTrace();
       }
     }
-    return true;
   }
 
   @Override
   public Boolean download_medical_history() {
-    view_medical_history();
-    return true;
+    return view_medical_history();
   }
 
   public Boolean validateDocumentId(Integer document_id){
