@@ -31,6 +31,7 @@ public class Dashboard implements IDashboard {
         System.out.println("Press 9 for HelpDesk");
         System.out.println("Press 10 for accounts");
         System.out.println("Press 11 for Covid Section");
+        System.out.println("Press 12 for medical history");
 
         String userInput = scanner.nextLine();
 
@@ -69,7 +70,10 @@ public class Dashboard implements IDashboard {
         } else if (userInput.equals("11")) {
             FeatureMenu featureMenu = featureFactory.getMenu(Constant.COVID_MENU);
             featureMenu.menu();
-        } else {
+        } else if (userInput.equals("12")) {
+            FeatureMenu featureMenu = featureFactory.getMenu(Constant.MEDICAL_HISTORY_MENU);
+            featureMenu.menu();
+        }  else {
             System.out.println("Please select correct option");
         }
 

@@ -1,3 +1,5 @@
+userManagementTest.java
+ userManagementTest
 RatingMenuTest.java
  RatingMenuTest
 HelpDeskPageTest.java
@@ -10,8 +12,6 @@ PharmacyPageTest.java
  PharmacyPageTest
 AppointmentsTest.java
  AppointmentsTest
-userManagementTest.java
- userManagementTest
 CovidPageTest.java
  CovidPageTest
 VaccinePageTest.java

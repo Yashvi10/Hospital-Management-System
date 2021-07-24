@@ -59,6 +59,8 @@ public class FeatureFactory {
             return new CovidPage(new CovidBedBL(new CovidBedService()),
                     new CovidPlasmaBL(new CovidPlasmaService()),
                     new Dashboard());
+        } else if (menuType.equalsIgnoreCase(Constant.MEDICAL_HISTORY_MENU)) {
+            return new MedicalHistoryMenu();
         }
 
         return null;
