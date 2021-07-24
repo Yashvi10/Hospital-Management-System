@@ -58,6 +58,7 @@ public class FeatureFactory {
         }
         else if (menuType.equalsIgnoreCase(Constant.COVID_MENU)) {
             return new CovidPage(new CovidBedBL(new CovidBedService()),
+                    new CovidPlasmaBL(new CovidPlasmaService()),
                     new Dashboard());
         }
 
