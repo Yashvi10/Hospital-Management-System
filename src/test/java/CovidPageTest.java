@@ -37,4 +37,15 @@ public class CovidPageTest {
     CovidBedService covidBedService = new CovidBedService();
     assertEquals(true,covidBedService.validateBedtype(1).equals("g"));
   }
+
+  /*
+   * Tests the type of bed (General/Oxygen/Ventilator)
+   *
+   * The method returns true as number 0 is boundary condition and methods returns null.
+   */
+  @Test
+  void validateBedType_zero_true() {
+    CovidBedService covidBedService = new CovidBedService();
+    assertEquals(true,covidBedService.validateBedtype(0) == null);
+  }
 }
