@@ -1,6 +1,6 @@
 package BL;
 
-import Interface.CovidBadDAO;
+import Interface.CovidBedDAO;
 import Interface.CovidBedBLInterface;
 
 /*
@@ -12,10 +12,10 @@ import Interface.CovidBedBLInterface;
  * */
 public class CovidBedBL implements CovidBedBLInterface {
 
-  private CovidBadDAO covidBadDAO;
+  private CovidBedDAO covidBedDAO;
 
-  public CovidBedBL(CovidBadDAO covidBadDAO) {
-    this.covidBadDAO = covidBadDAO;
+  public CovidBedBL(CovidBedDAO covidBedDAO) {
+    this.covidBedDAO = covidBedDAO;
   }
 
   /*
@@ -27,6 +27,18 @@ public class CovidBedBL implements CovidBedBLInterface {
     if(userChoice == null && userChoice == 0)
       return null;
     else
-      return covidBadDAO.getTotalBeds(userChoice);
+      return covidBedDAO.getTotalBeds(userChoice);
+  }
+
+  /*
+   * This method retrieves information from DB layer methods about availability of beds
+   */
+  @Override
+  public Integer registerBed(Integer userChoice) {
+
+    if(userChoice == null && userChoice == 0)
+      return null;
+    else
+      return covidBedDAO.registerBed(userChoice);
   }
 }
