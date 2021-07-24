@@ -4,9 +4,11 @@ BloodBankTest.java
  BloodBankTest
 PharmacyPageTest.java
  PharmacyPageTest
-userManagementTest.java
- userManagementTest
 BillingPageTest.java
  BillingPageTest
+PolicyTest.java
+ PolicyTest
+userManagementTest.java
+ userManagementTest
 AccountsMenuTest.java
  AccountsMenuTest

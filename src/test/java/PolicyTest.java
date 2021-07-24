@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class PolicyTest {
 
   PolicyLogic logic=new PolicyLogic();
@@ -12,15 +14,15 @@ public class PolicyTest {
 
   @Test
   public void singlePolicyTest(){
-    List<List<String>> expected=new ArrayList<List<String>>();
-    List<String> list=new ArrayList<String>( ) ;
+    List<List<String>> expected= new ArrayList<>();
+    List<String> list;
     for(int i=0; i<policyPlan.length;i++){
       list=new ArrayList<>();
       list.add(policyPlan[i]);
       list.add(singlePlan[i]);
       expected.add(list);
     }
-      //assertTrue(expected,logic.singlePolicy())
+    assertEquals(expected,logic.singlePolicy());
 
   }
 
