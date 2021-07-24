@@ -68,8 +68,8 @@ deploy_master:
     - echo "CI_COMMIT_REF_NAME"
     - echo "CI_COMMIT_REF_NAME"
     - zip -r ${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHORT_SHA}.zip . -i /build/libs/*
-    - scp -r -o StrictHostKeyChecking=no ${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHORT_SHA}.zip "${DEPLOY_PRODUCTION_USER}@${DEPLOY_HOST}:${DEPLOY_DIR}/${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHORT_SHA}.zip"
-    - scp -r -o StrictHostKeyChecking=no config.properties "${DEPLOY_PRODUCTION_USER}@${DEPLOY_HOST}:${DEPLOY_DIR}/config.properties"
+    - scp -r -o StrictHostKeyChecking=no ${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHORT_SHA}.zip "${DEPLOY_PROD_USER}@${DEPLOY_HOST}:${DEPLOY_DIR}/${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHORT_SHA}.zip"
+    - scp -r -o StrictHostKeyChecking=no config.properties "${DEPLOY_PROD_USER}@${DEPLOY_HOST}:${DEPLOY_DIR}/config.properties"
   only:
     - master
     
