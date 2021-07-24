@@ -26,4 +26,15 @@ public class CovidPageTest {
     CovidBedBL covidBedBL = new CovidBedBL(new CovidBedService());
     assertEquals(true, covidBedBL.getBedCount(3) > 0);
   }
+
+  /*
+   * Tests the type of bed (General/Oxygen/Ventilator)
+   *
+   * The method returns true as number 1 resembles to g (General Bed).
+   */
+  @Test
+  void validateBedType_general_true() {
+    CovidBedService covidBedService = new CovidBedService();
+    assertEquals(true,covidBedService.validateBedtype(1).equals("g"));
+  }
 }
