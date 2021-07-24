@@ -6,7 +6,9 @@ package Interface;
  *  Purpose: An Interface having method to get bed count and set data to database
  *  Description: The Interface is responsible for DB operations related to Covid Section
  * */
-public interface CovidBadDAO {
+public interface CovidBedDAO {
 
   Integer getTotalBeds(Integer bedType);
+
+  Integer registerBed(Integer bedType);
 }
