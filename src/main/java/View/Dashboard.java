@@ -30,6 +30,8 @@ public class Dashboard implements IDashboard {
         System.out.println("Press 8 for Near by Camps");
         System.out.println("Press 9 for HelpDesk");
         System.out.println("Press 10 for accounts");
+        System.out.println("Press 11 for Covid Section");
+
         String userInput = scanner.nextLine();
 
         FeatureFactory featureFactory = new FeatureFactory();
@@ -63,6 +65,9 @@ public class Dashboard implements IDashboard {
             featureMenu.menu();
         } else if (userInput.equals("10")) {
             FeatureMenu featureMenu = featureFactory.getMenu(Constant.ACCOUNT_MENU);
+            featureMenu.menu();
+        } else if (userInput.equals("11")) {
+            FeatureMenu featureMenu = featureFactory.getMenu(Constant.COVID_MENU);
             featureMenu.menu();
         } else {
             System.out.println("Please select correct option");

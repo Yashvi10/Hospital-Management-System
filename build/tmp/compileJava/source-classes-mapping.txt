@@ -1,25 +1,29 @@
 View/VaccinePage.java
  View.VaccinePage
+Interface/CovidBedBLInterface.java
+ Interface.CovidBedBLInterface
 View/Billing.java
  View.Billing
+Interface/CovidBedDAO.java
+ Interface.CovidBedDAO
 Interface/OfferValidDAO.java
  Interface.OfferValidDAO
 Model/Pharmacy.java
  Model.Pharmacy
-BL/BloodReportBL.java
- BL.BloodReportBL
+View/CovidPage.java
+ View.CovidPage
 BL/HelpDeskFaqBL.java
  BL.HelpDeskFaqBL
-Interface/BloodRequesterDAO.java
- Interface.BloodRequesterDAO
+Model/BloodInventory.java
+ Model.BloodInventory
 Interface/IDashboard.java
  Interface.IDashboard
 Model/VitaminDTestReports.java
  Model.VitaminDTestReports
 Model/BloodDonor.java
  Model.BloodDonor
-Starter.java
- Starter
+Interface/IAccount.java
+ Interface.IAccount
 Interface/OrderLastIdDAO.java
  Interface.OrderLastIdDAO
 Service/UserSession.java
@@ -28,14 +32,14 @@ Interface/UrineTestReportsDAO.java
  Interface.UrineTestReportsDAO
 Interface/AddCampsDAO.java
  Interface.AddCampsDAO
-Model/BloodRequester.java
- Model.BloodRequester
+Model/SearchCamps.java
+ Model.SearchCamps
 Service/ManageProfile.java
  Service.ManageProfile
 Interface/ListOfCampsBLDAO.java
  Interface.ListOfCampsBLDAO
-View/CustomPDF.java
- View.CustomPDF
+Model/User.java
+ Model.User
 Model/DoctorRating.java
  Model.DoctorRating
 Interface/OrderDAO.java
@@ -50,22 +54,26 @@ BL/HelpDeskRequestRegisterBL.java
  BL.HelpDeskRequestRegisterBL
 View/Constant.java
  View.Constant
+Interface/VaccineRegistrationBLInterface.java
+ Interface.VaccineRegistrationBLInterface
 BL/ListOfCampsBL.java
  BL.ListOfCampsBL
+Model/CovidPlasmaInformation.java
+ Model.CovidPlasmaInformation
 Interface/BillingOrderDAO.java
  Interface.BillingOrderDAO
 Interface/RegisterTestDAO.java
  Interface.RegisterTestDAO
 Interface/BloodTestReportsDAO.java
  Interface.BloodTestReportsDAO
-Interface/IAccount.java
- Interface.IAccount
+Interface/BillingOrderItemDAO.java
+ Interface.BillingOrderItemDAO
 Interface/SearchCampsBLDAO.java
  Interface.SearchCampsBLDAO
 Model/AddCamps.java
  Model.AddCamps
-Interface/DoctorRatingDAO.java
- Interface.DoctorRatingDAO
+Interface/CovidPlasmaBLInterface.java
+ Interface.CovidPlasmaBLInterface
 Interface/GenerateLabReportsDAO.java
  Interface.GenerateLabReportsDAO
 Interface/PharmacyDAO.java
@@ -98,8 +106,8 @@ Interface/ListOfReportsBLDAO.java
  Interface.ListOfReportsBLDAO
 Interface/FeatureMenu.java
  Interface.FeatureMenu
-Model/SearchCamps.java
- Model.SearchCamps
+Starter.java
+ Starter
 Interface/ListOfTestsDAO.java
  Interface.ListOfTestsDAO
 Service/DatabaseService.java
@@ -110,26 +118,28 @@ Interface/BloodDonorDAO.java
  Interface.BloodDonorDAO
 View/BillingMenuPage.java
  View.BillingMenuPage
-Interface/HelpDeskRequestRegisterBLInterface.java
- Interface.HelpDeskRequestRegisterBLInterface
+Model/BloodRequester.java
+ Model.BloodRequester
 Model/HelpDeskFaq.java
  Model.HelpDeskFaq
 View/RatingMenu.java
  View.RatingMenu
+BL/CovidBedBL.java
+ BL.CovidBedBL
 Interface/IRegistration.java
  Interface.IRegistration
 Model/ListOfCamps.java
  Model.ListOfCamps
-View/BloodBank.java
- View.BloodBank
+Interface/BloodRequesterDAO.java
+ Interface.BloodRequesterDAO
 BL/ListOfTestsBL.java
  BL.ListOfTestsBL
+View/BloodBank.java
+ View.BloodBank
 Model/VaccineUserInformation.java
  Model.VaccineUserInformation
 Interface/HelpDeskFaqBLInterface.java
  Interface.HelpDeskFaqBLInterface
-Interface/IDateValidation.java
- Interface.IDateValidation
 BL/VitaminDReportBL.java
  BL.VitaminDReportBL
 Model/HelpDeskRequestInformation.java
@@ -164,38 +174,40 @@ Interface/UricAcidTestReportsDAO.java
  Interface.UricAcidTestReportsDAO
 BL/UrineReportBL.java
  BL.UrineReportBL
+BL/CovidPlasmaBL.java
+ BL.CovidPlasmaBL
 Service/UserManagement.java
  Service.UserManagement
 Interface/VaccineBLInterface.java
  Interface.VaccineBLInterface
+View/CustomPDF.java
+ View.CustomPDF
 View/Laboratory.java
  View.Laboratory
-Model/Order.java
- Model.Order
 BL/VaccineBL.java
  BL.VaccineBL
 Model/BloodTestReports.java
  Model.BloodTestReports
-Model/User.java
- Model.User
+Model/Order.java
+ Model.Order
 View/Appointments.java
  View.Appointments
-Interface/VaccineRegistrationBLInterface.java
- Interface.VaccineRegistrationBLInterface
+Interface/HelpDeskRequestRegisterBLInterface.java
+ Interface.HelpDeskRequestRegisterBLInterface
 Model/UrineTestReports.java
  Model.UrineTestReports
 Model/CartItem.java
  Model.CartItem
-Model/BloodInventory.java
- Model.BloodInventory
+Interface/CovidPlasmaDAO.java
+ Interface.CovidPlasmaDAO
 Interface/IPharmacyBL.java
  Interface.IPharmacyBL
 View/NearbyCamps.java
  View.NearbyCamps
 Interface/HelpDeskFaqDAO.java
  Interface.HelpDeskFaqDAO
-Interface/BillingOrderItemDAO.java
- Interface.BillingOrderItemDAO
+Interface/IDateValidation.java
+ Interface.IDateValidation
 View/Colors.java
  View.Colors
 View/FeatureFactory.java
@@ -212,8 +224,12 @@ BL/UricAcidReportBL.java
  BL.UricAcidReportBL
 Model/Accounts.java
  Model.Accounts
+BL/BloodReportBL.java
+ BL.BloodReportBL
 Model/OrderItem.java
  Model.OrderItem
+Interface/DoctorRatingDAO.java
+ Interface.DoctorRatingDAO
 Service/OrderService.java
  Service.OrderService
 Service/VaccineRegistration.java
@@ -224,6 +240,8 @@ Service/SearchCampsService.java
  Service.SearchCampsService
 Service/VitaminDTestReportsService.java
  Service.VitaminDTestReportsService
+Service/CovidPlasmaService.java
+ Service.CovidPlasmaService
 Service/AddCampsService.java
  Service.AddCampsService
 Service/DoctorRatingService.java
@@ -252,6 +270,8 @@ Service/CustomConnection.java
  Service.CustomConnection
 Service/ListOfCampsService.java
  Service.ListOfCampsService
+Service/CovidBedService.java
+ Service.CovidBedService
 Service/OfferService.java
  Service.OfferService
 Service/VaccineService.java

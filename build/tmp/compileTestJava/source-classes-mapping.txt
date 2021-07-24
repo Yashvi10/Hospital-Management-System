@@ -12,6 +12,8 @@ AppointmentsTest.java
  AppointmentsTest
 userManagementTest.java
  userManagementTest
+CovidPageTest.java
+ CovidPageTest
 VaccinePageTest.java
  VaccinePageTest
 AccountsMenuTest.java
