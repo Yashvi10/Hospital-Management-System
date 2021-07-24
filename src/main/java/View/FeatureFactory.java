@@ -55,11 +55,12 @@ public class FeatureFactory {
                     new Dashboard());
         } else if (menuType.equalsIgnoreCase(Constant.ACCOUNT_MENU)) {
             return new AccountsMenu();
-        }
-        else if (menuType.equalsIgnoreCase(Constant.COVID_MENU)) {
+        } else if (menuType.equalsIgnoreCase(Constant.COVID_MENU)) {
             return new CovidPage(new CovidBedBL(new CovidBedService()),
                     new CovidPlasmaBL(new CovidPlasmaService()),
                     new Dashboard());
+        } else if (menuType.equalsIgnoreCase(Constant.MEDICAL_HISTORY_MENU)) {
+            return new MedicalHistoryMenu();
         }
 
         return null;
