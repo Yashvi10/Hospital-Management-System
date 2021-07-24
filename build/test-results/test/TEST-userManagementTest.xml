@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="userManagementTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-07-24T17:17:42" hostname="DESKTOP-IC8LASV" time="0.002">
+<testsuite name="userManagementTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-07-24T18:18:36" hostname="DESKTOP-IC8LASV" time="0.003">
   <properties/>
-  <testcase name="validateEmailTest_False()" classname="userManagementTest" time="0.0"/>
-  <testcase name="validateEmailTest_True()" classname="userManagementTest" time="0.001"/>
-  <testcase name="checkCredentialsTest_mismatchEmail()" classname="userManagementTest" time="0.0"/>
+  <testcase name="validateEmailTest_False()" classname="userManagementTest" time="0.001"/>
+  <testcase name="validateEmailTest_True()" classname="userManagementTest" time="0.0"/>
+  <testcase name="checkCredentialsTest_mismatchEmail()" classname="userManagementTest" time="0.001"/>
   <testcase name="checkCredentialsTest_True()" classname="userManagementTest" time="0.0"/>
   <testcase name="checkCredentialsTest_mismatchPassword()" classname="userManagementTest" time="0.0"/>
-  <testcase name="encryptPassword_Test()" classname="userManagementTest" time="0.0"/>
+  <testcase name="encryptPassword_Test()" classname="userManagementTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

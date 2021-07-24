@@ -1,3 +1,5 @@
+Interface/MedicalHistoryDAO.java
+ Interface.MedicalHistoryDAO
 View/VaccinePage.java
  View.VaccinePage
 Interface/CovidBedBLInterface.java
@@ -142,6 +144,8 @@ Service/BloodRequesterService.java
  Service.BloodRequesterService
 BL/VitaminDReportBL.java
  BL.VitaminDReportBL
+BL/MedicalHistoryBL.java
+ BL.MedicalHistoryBL
 Model/HelpDeskRequestInformation.java
  Model.HelpDeskRequestInformation
 BL/VaccineRegisterBL.java
@@ -154,6 +158,8 @@ Interface/IPrint.java
  Interface.IPrint
 Interface/OfferDAO.java
  Interface.OfferDAO
+View/HelpDeskPage.java
+ View.HelpDeskPage
 Model/GenerateLabReports.java
  Model.GenerateLabReports
 Interface/BloodDAO.java
@@ -266,10 +272,14 @@ Model/BloodRequester.java
  Model.BloodRequester
 Model/SearchCamps.java
  Model.SearchCamps
+Service/MedicalHistoryService.java
+ Service.MedicalHistoryService
 Starter.java
  Starter
 Interface/IAccount.java
  Interface.IAccount
+Model/MedicalHistoryModel.java
+ Model.MedicalHistoryModel
 Interface/CovidPlasmaBLInterface.java
  Interface.CovidPlasmaBLInterface
 Interface/DoctorRatingDAO.java
@@ -286,7 +296,7 @@ Interface/AppointmentDAO.java
  Interface.AppointmentDAO
 Model/RegisterTest.java
  Model.RegisterTest
-View/HelpDeskPage.java
- View.HelpDeskPage
 View/FeatureFactory.java
  View.FeatureFactory
+View/MedicalHistoryMenu.java
+ View.MedicalHistoryMenu
