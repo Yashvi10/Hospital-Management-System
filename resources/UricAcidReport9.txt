@@ -1,0 +1,2 @@
+|   Test_id| |   User_id| |Serum Uric Acid: %f| |     Units|
+|         3| |         9| |       4.5| mg/dL
