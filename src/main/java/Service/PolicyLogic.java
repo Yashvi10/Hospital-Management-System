@@ -1,13 +1,21 @@
 package Service;
 
 import Interface.IDateValidation;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+/*
+ *  Name of file: PolicyLogic.java
+ *  Author:  Abimbola Babalola
+ *  Purpose: This is the business logic layer for the feature
+ *  Description: This class implements the workings of the feature. it handles the recommendation of
+ *        policies, calculation of premium and claim rates
+ *
+ */
 
 public class PolicyLogic  implements IDateValidation {
 

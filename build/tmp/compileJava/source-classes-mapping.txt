@@ -90,8 +90,8 @@ Model/BloodRequester.java
  Model.BloodRequester
 Interface/BloodDonorDAO.java
  Interface.BloodDonorDAO
-Starter.java
- Starter
+AccountsMenu.java
+ AccountsMenu
 Interface/IAccount.java
  Interface.IAccount
 Service/BloodDonorService.java
@@ -102,15 +102,15 @@ Service/UserManagement.java
  Service.UserManagement
 Service/DatabaseService.java
  Service.DatabaseService
-AccountsMenu.java
- AccountsMenu
-UserManagementPage.java
- UserManagementPage
-Service/PolicyLogic.java
- Service.PolicyLogic
 Main.java
  Main
+Starter.java
+ Starter
+UserManagementPage.java
+ UserManagementPage
 PolicyMenu.java
  PolicyMenu
+Service/PolicyLogic.java
+ Service.PolicyLogic
 Service/PolicyService.java
  Service.PolicyService

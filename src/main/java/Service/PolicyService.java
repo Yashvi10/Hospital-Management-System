@@ -5,6 +5,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+/*
+ *  Name of file: PolicyService.java
+ *  Author:  Abimbola Babalola
+ *  Purpose: This is the data persistence layer for the feature
+ *  Description: This class handles the interaction with the database
+ *
+ */
+
 public class PolicyService extends PolicyLogic{
 
   ResultSet resultSet;
