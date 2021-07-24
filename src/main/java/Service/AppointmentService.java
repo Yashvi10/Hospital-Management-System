@@ -87,7 +87,7 @@ public class AppointmentService implements AppointmentDAO {
     Connection con = cc.Connect();
     if (con != null) {
       try {
-        String SQL = "SELECT * FROM appointment where user_id = " +UserSession.userId +"and appointment_status = 'confirmed'";
+        String SQL = "SELECT * FROM appointment where user_id = " +UserSession.userId +" and appointment_status = 'confirmed'";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(SQL);
         if (rs != null) {
