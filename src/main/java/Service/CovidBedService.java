@@ -36,7 +36,7 @@ public class CovidBedService implements CovidBadDAO {
     if(bedType == 1)
       dbBed = "g";
     else if(bedType == 2)
-      dbBed = "g";
+      dbBed = "o";
     else if(bedType == 3)
       dbBed = "v";
     else
@@ -50,6 +50,9 @@ public class CovidBedService implements CovidBadDAO {
         ResultSet resultSet = queryStatement.executeQuery(fetchQuery);
 
         while (resultSet.next()) {
+          Integer bedId = resultSet.getInt(1);
+          String type = resultSet.getString(2);
+          Integer availability = resultSet.getInt(3);
           availableBeds++;
         }
       } catch (SQLException exception) {
