@@ -217,7 +217,7 @@ public class UserManagement extends ManageProfile implements IRegistration {
     public Integer getLastUserId() {
         Integer result = 0;
         try {
-            String query="SELECT Max(userid) FROM CSCI5308_8_DEVINT.loginTable;";
+            String query="SELECT Max(userid) FROM loginTable;";
             resultSet=  dbService.executeQuery(query);
             while (resultSet.next()) {
                 result = resultSet.getInt("max(userid)");

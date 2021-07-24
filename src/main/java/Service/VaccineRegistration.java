@@ -158,7 +158,7 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
     Date changeDate = date;
 
     if(conn != null) {
-      String SQL = "update CSCI5308_8_DEVINT.vaccine_available_slots SET available_slots=available_slots - 1 where dose_date = '" + changeDate + "';";
+      String SQL = "update vaccine_available_slots SET available_slots=available_slots - 1 where dose_date = '" + changeDate + "';";
       Statement statement = null;
       try {
         statement = conn.createStatement();
@@ -230,7 +230,7 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
     Integer vaccineIdToFetch = vaccineId;
 
     if(conn != null) {
-      String SQL = "update CSCI5308_8_DEVINT.vaccine SET available_doses=available_doses - 1 where vaccine_id = '" + vaccineIdToFetch + "';";
+      String SQL = "update vaccine SET available_doses=available_doses - 1 where vaccine_id = '" + vaccineIdToFetch + "';";
       Statement statement = null;
       try {
         statement = conn.createStatement();

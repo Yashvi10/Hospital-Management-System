@@ -62,7 +62,7 @@ public class BloodRequesterService implements BloodRequesterDAO {
         Boolean result = false;
 
         if(conn != null) {
-            String SQL = "update CSCI5308_8_DEVINT.blood_inventory SET No_of_bottles=No_of_bottles-" +bottleQuantity + " where blood_group = '" + blood_group + "';";
+            String SQL = "update blood_inventory SET No_of_bottles=No_of_bottles-" +bottleQuantity + " where blood_group = '" + blood_group + "';";
             Statement statement = null;
             try {
                 statement = conn.createStatement();
@@ -90,7 +90,7 @@ public class BloodRequesterService implements BloodRequesterDAO {
         Connection conn = customConnection.Connect();
 
         if(conn != null) {
-            String SQL = "select No_of_bottles from  CSCI5308_8_DEVINT.blood_inventory where blood_group = '" +blood_group +"';";
+            String SQL = "select No_of_bottles from blood_inventory where blood_group = '" +blood_group +"';";
             Statement statement = null;
             try {
                 statement = conn.createStatement();
