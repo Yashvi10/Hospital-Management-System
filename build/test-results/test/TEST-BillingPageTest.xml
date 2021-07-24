@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BillingPageTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-07-24T08:24:09" hostname="LAPTOP-ORKNTPIH" time="3.107">
-  <properties/>
-  <testcase name="calculateDiscount_right()" classname="BillingPageTest" time="1.319"/>
-  <testcase name="calculateDiscount_notfound()" classname="BillingPageTest" time="0.885"/>
-  <testcase name="getAllOffer()" classname="BillingPageTest" time="0.901"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

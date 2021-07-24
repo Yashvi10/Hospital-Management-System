@@ -29,7 +29,6 @@ public class MedicalHistoryTest {
   void download_medical_history() {
     File file_to_download = new File("Dummy files\\Medical1.txt");
     MedicalHistoryBL medicalHistoryBL = new MedicalHistoryBL();
-    System.out.println(file_to_download.getName());
     medicalHistoryBL.file_download(file_to_download.getName());
     File downloaded_file = new File("resources\\Downloads\\"+UserSession.userId+file_to_download.getName());
     assertEquals(true,downloaded_file.exists(),"file uploading fails!");
