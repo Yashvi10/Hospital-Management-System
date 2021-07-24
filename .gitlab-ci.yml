@@ -59,7 +59,7 @@ deploy_master:
   before_script:
     - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
     - eval $(ssh-agent -s)
-    - echo "$DEPLOY_SSH_KEY" | tr -d '\r' | ssh-add -
+    - echo "$DEPLOY_PROD_SSH_KEY" | tr -d '\r' | ssh-add -
   script:
     - echo "dbURL=$DATABASE_PROD_URL" > config.properties
     - echo "dbUserName=$DATABASE_PROD_USERNAME" >> config.properties
