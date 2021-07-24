@@ -1,7 +1,11 @@
 View/VaccinePage.java
  View.VaccinePage
+Interface/CovidBedBLInterface.java
+ Interface.CovidBedBLInterface
 View/Billing.java
  View.Billing
+Interface/CovidBedDAO.java
+ Interface.CovidBedDAO
 Interface/OfferValidDAO.java
  Interface.OfferValidDAO
 Model/Pharmacy.java
@@ -50,8 +54,12 @@ BL/HelpDeskRequestRegisterBL.java
  BL.HelpDeskRequestRegisterBL
 View/Constant.java
  View.Constant
+Service/CovidBedService.java
+ Service.CovidBedService
 BL/ListOfCampsBL.java
  BL.ListOfCampsBL
+Model/CovidPlasmaInformation.java
+ Model.CovidPlasmaInformation
 Interface/BillingOrderDAO.java
  Interface.BillingOrderDAO
 Interface/RegisterTestDAO.java
@@ -116,6 +124,8 @@ Model/HelpDeskFaq.java
  Model.HelpDeskFaq
 View/RatingMenu.java
  View.RatingMenu
+BL/CovidBedBL.java
+ BL.CovidBedBL
 Interface/IRegistration.java
  Interface.IRegistration
 Model/ListOfCamps.java
@@ -164,6 +174,8 @@ Interface/UricAcidTestReportsDAO.java
  Interface.UricAcidTestReportsDAO
 BL/UrineReportBL.java
  BL.UrineReportBL
+BL/CovidPlasmaBL.java
+ BL.CovidPlasmaBL
 Service/UserManagement.java
  Service.UserManagement
 Interface/VaccineBLInterface.java
@@ -212,6 +224,8 @@ BL/UricAcidReportBL.java
  BL.UricAcidReportBL
 Model/Accounts.java
  Model.Accounts
+Service/CovidPlasmaService.java
+ Service.CovidPlasmaService
 Model/OrderItem.java
  Model.OrderItem
 Service/PharmacyService.java
@@ -232,6 +246,8 @@ Interface/BloodRequesterDAO.java
  Interface.BloodRequesterDAO
 Model/BloodInventory.java
  Model.BloodInventory
+Interface/CovidPlasmaDAO.java
+ Interface.CovidPlasmaDAO
 Interface/VaccineRegistrationBLInterface.java
  Interface.VaccineRegistrationBLInterface
 Interface/HelpDeskRequestRegisterBLInterface.java
@@ -254,6 +270,8 @@ Starter.java
  Starter
 Interface/IAccount.java
  Interface.IAccount
+Interface/CovidPlasmaBLInterface.java
+ Interface.CovidPlasmaBLInterface
 Interface/DoctorRatingDAO.java
  Interface.DoctorRatingDAO
 Interface/VaccineDAO.java
@@ -262,6 +280,8 @@ Service/VaccineService.java
  Service.VaccineService
 BL/BloodReportBL.java
  BL.BloodReportBL
+View/CovidPage.java
+ View.CovidPage
 Interface/AppointmentDAO.java
  Interface.AppointmentDAO
 Model/RegisterTest.java

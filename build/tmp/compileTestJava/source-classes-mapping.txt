@@ -12,9 +12,11 @@ AppointmentsTest.java
  AppointmentsTest
 userManagementTest.java
  userManagementTest
-VaccinePageTest.java
- VaccinePageTest
-AccountsMenuTest.java
- AccountsMenuTest
+CovidPageTest.java
+ CovidPageTest
 BillingPageTest.java
  BillingPageTest
+AccountsMenuTest.java
+ AccountsMenuTest
+VaccinePageTest.java
+ VaccinePageTest

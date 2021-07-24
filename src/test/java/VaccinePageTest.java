@@ -52,19 +52,6 @@ public class VaccinePageTest {
     assertEquals(1, vaccineRegisterBL.checkUserRegistration(8));
   }
 
-
-  /*
-   * Tests the logic if person got two doses they should not allow to register
-   * or to get another dose
-   *
-   * The methods tests user who got both doses should get return value 2 here
-   */
-  @Test
-  void checkSecondDoseCompleted() {
-    VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
-    assertEquals(2, vaccineRegisterBL.checkUserRegistration(7));
-  }
-
   /*
    * Tests the logic of emailId validation
    *
