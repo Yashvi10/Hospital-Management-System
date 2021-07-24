@@ -158,8 +158,8 @@ Interface/IPrint.java
  Interface.IPrint
 Interface/OfferDAO.java
  Interface.OfferDAO
-View/HelpDeskPage.java
- View.HelpDeskPage
+View/MedicalHistoryMenu.java
+ View.MedicalHistoryMenu
 Model/GenerateLabReports.java
  Model.GenerateLabReports
 Interface/BloodDAO.java
@@ -296,7 +296,7 @@ Interface/AppointmentDAO.java
  Interface.AppointmentDAO
 Model/RegisterTest.java
  Model.RegisterTest
+View/HelpDeskPage.java
+ View.HelpDeskPage
 View/FeatureFactory.java
  View.FeatureFactory
-View/MedicalHistoryMenu.java
- View.MedicalHistoryMenu

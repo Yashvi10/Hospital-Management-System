@@ -1,11 +1,11 @@
-VaccinePageTest.java
- VaccinePageTest
+RatingMenuTest.java
+ RatingMenuTest
 HelpDeskPageTest.java
  HelpDeskPageTest
 BillingTest.java
  BillingTest
-BillingPageTest.java
- BillingPageTest
+BloodBankTest.java
+ BloodBankTest
 PharmacyPageTest.java
  PharmacyPageTest
 AppointmentsTest.java
@@ -14,9 +14,9 @@ userManagementTest.java
  userManagementTest
 CovidPageTest.java
  CovidPageTest
-RatingMenuTest.java
- RatingMenuTest
-BloodBankTest.java
- BloodBankTest
+BillingPageTest.java
+ BillingPageTest
 AccountsMenuTest.java
  AccountsMenuTest
+VaccinePageTest.java
+ VaccinePageTest

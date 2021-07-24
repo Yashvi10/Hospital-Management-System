@@ -31,19 +31,6 @@ public class VaccinePageTest {
 
 
   /*
-   * This method tests weather user is already registered for the vaccination or not
-   * This tests the logic, if user is already registered
-   *
-   * then the method returns 0 if which confirms user is not registered for vaccination
-   */
-  @Test
-  void checkUnregisteredUser() {
-    VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
-    assertEquals(0, vaccineRegisterBL.checkUserRegistration(9));
-  }
-
-
-  /*
    * The methods tests user who got first dose should get return value 1 here
    */
   @Test

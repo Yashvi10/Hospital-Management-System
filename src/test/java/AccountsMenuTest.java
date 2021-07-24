@@ -5,10 +5,16 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class AccountsMenuTest {
+/*
+ *  Name of file: AccountsMenuTest.java
+ *  Author:  Abimbola Babalola
+ *  Purpose: Testing
+ *  Description: This class tests the format of date used in the Accounts table
+ */
 
+public class AccountsMenuTest {
   Accounts account = new Accounts(" ", 0.00, " ", 0);
-  AccountsMenu menu = new AccountsMenu(account);
+  AccountsMenu menu = new AccountsMenu( );
 
   @Test
   public void validateDateTest_True(){
@@ -23,4 +29,5 @@ public class AccountsMenuTest {
     String dateFormat ="06/30/2019";
     assertFalse(menu.validateDate(dateFormat ));
   }
+
 }
