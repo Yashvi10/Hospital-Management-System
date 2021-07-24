@@ -169,7 +169,7 @@ public class CovidBedService implements CovidBedDAO {
       return null;
 
     if (conn != null) {
-      String SQL = "update CSCI5308_8_DEVINT.covid_beds SET bed_availability=1 where bed_id = '" + bedId + "';";
+      String SQL = "update covid_beds SET bed_availability=1 where bed_id = '" + bedId + "';";
       Statement statement = null;
       try {
         statement = conn.createStatement();
