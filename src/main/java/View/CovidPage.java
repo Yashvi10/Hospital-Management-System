@@ -182,6 +182,6 @@ public class CovidPage implements FeatureMenu {
         menu();
       }
     }
-    dashboard.HomeMenu();
+    dashboard.homeMenu();
   }
 }

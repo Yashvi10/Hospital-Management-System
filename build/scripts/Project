@@ -80,7 +80,7 @@ case "`uname`" in
     ;;
 esac
 
-CLASSPATH=$APP_HOME/lib/Project-1.0-SNAPSHOT.jar:$APP_HOME/lib/mysql-connector-java-8.0.25.jar:$APP_HOME/lib/itextpdf-5.5.13.2.jar:$APP_HOME/lib/protobuf-java-3.11.4.jar
+CLASSPATH=$APP_HOME/lib/Project-1.0-SNAPSHOT.jar:$APP_HOME/lib/mysql-connector-java-8.0.25.jar:$APP_HOME/lib/itextpdf-5.5.13.2.jar:$APP_HOME/lib/mockito-all-2.0.2-beta.jar:$APP_HOME/lib/protobuf-java-3.11.4.jar
 
 
 # Determine the Java command to use to start the JVM.

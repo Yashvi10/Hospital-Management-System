@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="AccountsMenuTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-07-24T18:33:28" hostname="DESKTOP-IC8LASV" time="0.755">
+<testsuite name="AccountsMenuTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-07-26T17:39:53" hostname="DESKTOP-IC8LASV" time="0.093">
   <properties/>
-  <testcase name="validateDateTest_True()" classname="AccountsMenuTest" time="0.023"/>
-  <testcase name="validateDateTest_False()" classname="AccountsMenuTest" time="0.001"/>
+  <testcase name="validateDateTest_True()" classname="AccountsMenuTest" time="0.037"/>
+  <testcase name="validateDateTest_False()" classname="AccountsMenuTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

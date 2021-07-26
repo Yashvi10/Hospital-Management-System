@@ -362,7 +362,7 @@ public class BloodBank implements FeatureMenu {
             case "6" :
                 Dashboard dashboard = new Dashboard();
                 try {
-                    dashboard.HomeMenu();
+                    dashboard.homeMenu();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

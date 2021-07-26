@@ -4,7 +4,15 @@ import View.PharmacyMenu;
 import Model.Pharmacy;
 import Service.OfferService;
 import Service.PharmacyService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -17,6 +25,30 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PharmacyPageTest {
 
     PharmacyBL pharmacyBL = new PharmacyBL(new PharmacyService());
+
+    @Mock
+    PharmacyService pharmacyService;
+
+    @BeforeEach
+    void setup() throws Exception {
+        MockitoAnnotations.initMocks(this);
+    }
+
+    @Test
+    final void getAllMedicines() {
+        List<Pharmacy> pharmacyList = new ArrayList<Pharmacy>();
+        Pharmacy pharmacy = new Pharmacy();
+        pharmacy.setP_id(1);
+        pharmacy.setPrice(10.0);
+        pharmacy.setStock(23);
+        pharmacy.setProduct_name("Test product");
+        pharmacy.setExpiry_date("26/07/2021");
+        pharmacyList.add(pharmacy);
+
+        Mockito.when(pharmacyService.getAllMedicines()).thenReturn(pharmacyList);
+        assertEquals(pharmacyList, pharmacyService.getAllMedicines());
+    }
+
     @Test
     void isItemInList_true()  {
 

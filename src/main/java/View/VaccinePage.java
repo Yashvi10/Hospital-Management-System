@@ -177,6 +177,6 @@ public class VaccinePage implements FeatureMenu {
         menu();
       }
     }
-    dashboard.HomeMenu();
+    dashboard.homeMenu();
   }
 }

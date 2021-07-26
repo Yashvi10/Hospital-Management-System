@@ -122,7 +122,7 @@ public class HelpDeskPage implements FeatureMenu {
         menu();
       }
     }
-    dashboard.HomeMenu();
+    dashboard.homeMenu();
   }
 
   private String getDescription() {

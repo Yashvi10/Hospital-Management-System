@@ -37,7 +37,7 @@ public class BillingPage {
         this.offerValidDAO = offerValidDAO;
     }
 
-    public void CheckOut() throws IOException {
+    public void checkOut() throws IOException {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Press (s for cash): ");

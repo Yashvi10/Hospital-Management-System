@@ -59,7 +59,7 @@ public class UserManagementPage {
         if (result) {
             System.out.println("Login");
             Dashboard dashboard = new Dashboard();
-            dashboard.HomeMenu();
+            dashboard.homeMenu();
         } else {
             System.out.println("Login Failed");
         }

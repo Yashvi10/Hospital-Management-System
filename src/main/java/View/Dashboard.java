@@ -18,7 +18,7 @@ public class Dashboard implements IDashboard {
     Scanner scanner = new Scanner(System.in);
 
     @Override
-    public void HomeMenu() throws IOException {
+    public void homeMenu() throws IOException {
         System.out.println("===============================");
         System.out.println("Press 1 for Pharmacy");
         System.out.println("Press 2 for Billing");

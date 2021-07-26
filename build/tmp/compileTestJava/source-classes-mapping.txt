@@ -1,17 +1,19 @@
-userManagementTest.java
- userManagementTest
 RatingMenuTest.java
  RatingMenuTest
 HelpDeskPageTest.java
  HelpDeskPageTest
 BillingTest.java
  BillingTest
+OfferTest.java
+ OfferTest
 BloodBankTest.java
  BloodBankTest
 PharmacyPageTest.java
  PharmacyPageTest
 AppointmentsTest.java
  AppointmentsTest
+userManagementTest.java
+ userManagementTest
 CovidPageTest.java
  CovidPageTest
 VaccinePageTest.java
