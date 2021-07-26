@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="AppointmentsTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-07-26T17:39:54" hostname="DESKTOP-IC8LASV" time="0.046">
+<testsuite name="AppointmentsTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-07-26T21:11:54" hostname="DESKTOP-IC8LASV" time="0.041">
   <properties/>
-  <testcase name="validateDateWIthDateAfterCurrentDate()" classname="AppointmentsTest" time="0.02"/>
-  <testcase name="validateDateWIthDateAfter3Months()" classname="AppointmentsTest" time="0.005"/>
-  <testcase name="validateDateWIthDateBeforeCurrentDate()" classname="AppointmentsTest" time="0.002"/>
-  <testcase name="validateTime()" classname="AppointmentsTest" time="0.013"/>
+  <testcase name="validateDateWIthDateAfterCurrentDate()" classname="AppointmentsTest" time="0.025"/>
+  <testcase name="validateDateWIthDateAfter3Months()" classname="AppointmentsTest" time="0.003"/>
+  <testcase name="validateDateWIthDateBeforeCurrentDate()" classname="AppointmentsTest" time="0.001"/>
+  <testcase name="validateTime()" classname="AppointmentsTest" time="0.008"/>
   <testcase name="validateDateWIthInvalidDate()" classname="AppointmentsTest" time="0.003"/>
   <system-out><![CDATA[You can only enter dates within 3 months of period!
 Please select a valid date!

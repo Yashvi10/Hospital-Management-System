@@ -15,50 +15,74 @@ import java.sql.*;
 public class UserManagement extends ManageProfile implements IRegistration {
 
     Statement statement ;
-
     ResultSet resultSet ;
-
-    Connection conn ;
-
+    Connection con ;
     PreparedStatement insertUserTable;
-
     int checkRecord=0 ;
-
-    DatabaseService dbService;
-
     boolean check=false;
 
-    public UserManagement(DatabaseService dbService ){
-        this.dbService= dbService;
+    public UserManagement(){}
+
+    public int loadRecord( String email ) {
+        int userid=0;
+        try {
+            String query=" Select * from loginTable where username='" + email.trim() + "';";
+            statement=con.createStatement();
+            resultSet=  statement.executeQuery(query);
+            System.out.println( );
+            while (resultSet.next()) {
+                userid = resultSet.getInt("userid");
+            }
+        }
+        catch (SQLException   e) {
+            e.getMessage();
+        }
+        finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException sqlEx) {
+                    sqlEx.getMessage();
+                }
+
+                resultSet = null;
+            }
+        }
+
+        return userid;
     }
 
-    public boolean registerLogin(User user,String role){
-
+    public boolean registerLogin(CustomConnection db,User user,String role){
         try {
-            checkRecord=loadRecord(user.getEmail());
+            con=db.Connect();
+            checkRecord=  loadRecord( user.getEmail() );
+
             if( checkRecord==0) {
-                if(validateEmail(user.getEmail())) {
+                check = ((checkCredentials(user.getEmail(), user.getconfirmEmail(),
+                        user.getPswd(), user.getconfirmPswd())));
+                if (check) {
                     String queryUserTable = " insert into loginTable( username,password,designation ) values( ?,? ,?)";
-                    insertUserTable = dbService.conn.prepareStatement(queryUserTable);
+                    insertUserTable = con.prepareStatement(queryUserTable);
                     insertUserTable.setString(1, user.getEmail());
-                    insertUserTable.setString(2, user.getPswd());
+                    insertUserTable.setString(2, encryptPassword(user.getPswd()));
                     insertUserTable.setString(3, role);
                     insertUserTable.executeUpdate();
-                    check = true;
+
+
                 }
             }
-            dbService.closeDB();
+
         }
         catch (SQLException e) {
-            System.out.println("SQLException: " + e.getMessage());
+            System.out.println( e.getMessage());
         }
         finally {
             if (resultSet != null) {
                 try {
                     resultSet.close();
                 }
-                catch (SQLException sqlEx)
-                { }
+                catch (SQLException e)
+                { e.getMessage();}
                 resultSet = null;
             }
 
@@ -66,16 +90,16 @@ public class UserManagement extends ManageProfile implements IRegistration {
                 try {
                     statement.close();
                 }
-                catch (SQLException sqlEx) { }
+                catch (SQLException e) { e.getMessage();}
                 statement = null;
             }
 
-            if (dbService.conn != null) {
+            if (con != null) {
                 try {
-                    dbService.conn.close();
+                    con.close();
                 }
-                catch (SQLException sqlEx) { }
-                dbService.conn = null;
+                catch (SQLException e) { e.getMessage();}
+                con = null;
             }
         }
 
@@ -83,38 +107,38 @@ public class UserManagement extends ManageProfile implements IRegistration {
     }
 
     @Override
-    public boolean registerPatient(User user ) {
+    public boolean registerPatient(CustomConnection db, User user ) {
         resultSet = null;
         try {
-            checkRecord=loadRecord(user.getEmail());
-            if ( checkRecord>=0) {
-                if (checkCredentials(user.getEmail(),user.getconfirmEmail( ) ,user.getPswd(),user.getconfirmPswd( )) ) {
-                    String queryUserTable = " insert into patientTable(firstName, LastName, address, phone , loginId) " +
-                            "values( ?,?,?,?,? )";
-                    insertUserTable = dbService.conn.prepareStatement(queryUserTable);
-                    insertUserTable.setString(1, user.getfirstName() );
-                    insertUserTable.setString(2, user.getlastName() );
-                    insertUserTable.setString(3, user.getaddress() );
-                    insertUserTable.setString(4, user.getphone() );
-                    insertUserTable.setInt(5, checkRecord);
-                    insertUserTable.executeUpdate();
-                    check=true;
-                }
+            con=db.Connect();
+            checkRecord= loadRecord( user.getEmail() );
+            if(( checkRecord>=0)&&(( user.getEmail().equals(user.getconfirmEmail( ) ))
+                    &&(user.getPswd().equals(user.getconfirmPswd( ) )))){
+                String queryUserTable = " insert into patientTable(firstName, LastName, address, phone , loginId) " +
+                        "values( ?,?,?,?,? )";
+                insertUserTable = con.prepareStatement(queryUserTable);
+                insertUserTable.setString(1, user.getfirstName() );
+                insertUserTable.setString(2, user.getlastName() );
+                insertUserTable.setString(3, user.getaddress() );
+                insertUserTable.setString(4, user.getphone() );
+                insertUserTable.setInt(5, checkRecord);
+                insertUserTable.executeUpdate();
+                check=true;
             }
-            dbService.closeDB();
+
         }
         catch (SQLException e) {
-            System.out.println("SQLException: " + e.getMessage());
+            System.out.println( e.getMessage());
         }
         finally {
-            if (conn != null) {
+            if (con != null) {
                 try {
-                    conn.close();
+                    con.close();
                 }
                 catch (SQLException sqlEx) {
                     sqlEx.getMessage();
                 }
-                conn = null;
+                con = null;
             }
         }
 
@@ -122,14 +146,15 @@ public class UserManagement extends ManageProfile implements IRegistration {
     }
 
     @Override
-    public boolean registerStaff(String role,User user ) {
+    public boolean registerStaff(CustomConnection db,String role,User user ) {
         try {
-            checkRecord=loadRecord(user.getEmail());
+            con=db.Connect();
+            checkRecord=loadRecord( user.getEmail() );
             if(( checkRecord>=0)&&(( user.getEmail().equals(user.getconfirmEmail( ) ))
                     &&(user.getPswd().equals(user.getconfirmPswd( ) )))){
                 String queryUserTable = " insert into hospitalStaff(firstName, LastName, address, phone, designation,loginID) " +
                         " values( ?,?,?,?,? ,?)";
-                insertUserTable = dbService.conn.prepareStatement(queryUserTable);
+                insertUserTable = con.prepareStatement(queryUserTable);
                 insertUserTable.setString(1, user.getfirstName() );
                 insertUserTable.setString(2, user.getlastName() );
                 insertUserTable.setString(3, user.getaddress() );
@@ -139,45 +164,41 @@ public class UserManagement extends ManageProfile implements IRegistration {
                 insertUserTable.executeUpdate();
                 check=true;
             }
-            dbService.closeDB();
+
         }
         catch (SQLException e) {
-            System.out.println("SQLException: " + e.getMessage());
+            System.out.println( e.getMessage());
         }
         finally {
-            if (conn != null) {
+            if (con != null) {
                 try {
-                    conn.close();
+                    con.close();
                 }
                 catch (SQLException sqlEx) {
                     sqlEx.getMessage();
                 }
-                conn = null;
+                con = null;
             }
         }
 
         return check;
     }
 
-    public boolean loginUser( String username, String password){
-        boolean boolResponse=false;
+    public String loginUser( CustomConnection db,String username, String password){
+        con=db.Connect();
         String qUser="";
         try{
-            String query="Select userid,username,password from loginTable where trim(username) ='"
-                    + username.trim() + "'  and trim(password)='"+password.trim()+"'; ";
-            resultSet=  dbService.executeQuery(query);
+            String query="Select  userid,designation from loginTable where trim(username) ='"
+                    + username.trim() + "'  and trim(password)='"+encryptPassword(password.trim())+"'; ";
+            statement=con.createStatement();
+            resultSet=  statement.executeQuery(query);
             while (resultSet.next()){
-                qUser=resultSet.getString("username");
+                qUser=resultSet.getString("designation");
                 UserSession.userId = resultSet.getInt("userid");
             }
-
-            if(!qUser.equals( "")  ) {
-                boolResponse=true;
-            }
-            dbService.closeDB();
         }
-        catch (SQLException | ClassNotFoundException e) {
-            System.out.println("SQLException: " + e.getMessage());
+        catch (SQLException  e) {
+            System.out.println( e.getMessage());
         }
         finally {
             if (resultSet != null) {
@@ -200,6 +221,42 @@ public class UserManagement extends ManageProfile implements IRegistration {
                 statement = null;
             }
 
+            if (con != null) {
+                try {
+                    con.close();
+                }
+                catch (SQLException sqlEx) {
+                    sqlEx.getMessage();
+                }
+                con = null;
+            }
+        }
+
+        return qUser;
+    }
+
+    public boolean updateProfile(CustomConnection db,User user){
+        boolean response=false;
+        try {
+
+            con=db.Connect();
+            checkRecord=loadRecord( user.getEmail() );
+            if( checkRecord>0) {
+                String queryUserTable = "update patientTable set firstName=?,LastName=?,address=?,phone=? where userid=? ";
+                PreparedStatement updateStmt = conn.prepareStatement(queryUserTable);
+                updateStmt.setString(1, user.getfirstName());
+                updateStmt.setString(2, user.getlastName());
+                updateStmt.setString(3, user.getaddress());
+                updateStmt.setString(4, user.getphone());
+                updateStmt.setInt(5, checkRecord);
+                updateStmt.executeUpdate();
+                response = true;
+            }
+        }
+        catch (SQLException e) {
+            System.out.println("SQLException: " + e.getMessage());
+        }
+        finally {
             if (conn != null) {
                 try {
                     conn.close();
@@ -211,23 +268,42 @@ public class UserManagement extends ManageProfile implements IRegistration {
             }
         }
 
-        return boolResponse;
+        return response;
     }
 
-    public Integer getLastUserId() {
-        Integer result = 0;
+    public boolean resetPassword(CustomConnection db,User user){
+        boolean response=false;
         try {
-            String query="SELECT Max(userid) FROM loginTable;";
-            resultSet=  dbService.executeQuery(query);
-            while (resultSet.next()) {
-                result = resultSet.getInt("max(userid)");
+            con=db.Connect();
+            checkRecord=loadRecord( user.getEmail() );
+            if (checkRecord > 0) {
+                if (user.getPswd().equals(user.getconfirmPswd())) {
+                    String queryUserTable = "update loginTable set  password=?  where userid=? ";
+                    PreparedStatement updateStmt = conn.prepareStatement(queryUserTable);
+                    updateStmt.setString(1, user.getPswd());
+                    updateStmt.setInt(2, checkRecord);
+                    updateStmt.executeUpdate();
+                    response = true;
+                }
+
             }
-            dbService.closeDB();
         }
-        catch (SQLException | ClassNotFoundException e) {
-            e.getMessage();
+        catch (SQLException e) {
+            System.out.println("SQLException: " + e.getMessage());
+        }
+        finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                }
+                catch (SQLException sqlEx) {
+                    sqlEx.getMessage();
+                }
+                conn = null;
+            }
         }
 
-        return result;
+        return response;
     }
+
 }

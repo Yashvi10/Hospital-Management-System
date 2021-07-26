@@ -5,11 +5,7 @@ import Interface.IDateValidation;
 import Interface.IPrint;
 import Model.Accounts;
 import Service.CustomConnection;
-import Service.DatabaseService;
 import Service.ManageAccountService;
-
-import java.io.IOException;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -24,82 +20,53 @@ import java.util.Scanner;
  *               output to the userIt implements the single responsibility principle by extending the
  *               ManageAccountService class.
  * */
+
 public class AccountsMenu extends ManageAccountService implements FeatureMenu, IPrint, IDateValidation {
 
-
   Scanner sc = new Scanner(System.in);
-  Accounts account;
-
+  Accounts account=new Accounts("",0.00,"",0);
   CustomConnection conn = new CustomConnection();
-  DatabaseService databaseService = new DatabaseService(conn.Connect());
-  ManageAccountService manageAccountService = new ManageAccountService(databaseService);
-
-  public AccountsMenu(){}
-  public AccountsMenu(Accounts account ){
-    this.account=account;
-  }
 
   @Override
   public void menu( ) {
-    try {
-      int menuOption;
-      int accType;
 
-      System.out.println("******Accounts Menu******");
-      do {
-        System.out.println("Press 1: Income\nPress 2: Expense\nPress 0: Home Menu");
-        accType = sc.nextInt();
-        switch (accType) {
-          case 1:
-            printRecord(manageAccountService.getIncome());
-            System.out.println();
-            break;
-          case 2:
-            do {
-              System.out.println("***********************");
-              System.out.println("Press 1: View Expenses\nPress 2: Add Expenses \nPress 0: Exit");
-              menuOption = sc.nextInt();
-              switch (menuOption) {
-                case 1:
-                  printRecord(manageAccountService.getExpenses());
-                  break;
-                case 2:
-                  printOutput(manageAccountService.addExpense(userInput()));
-                  break;
-                case 0:
-                default:
-                  break;
-              }
+    int menuOption;
+    int accType;
+
+    System.out.println("******Accounts Menu******");
+    do {
+      System.out.println("Press 1: Income\nPress 2: Expense\nPress 0: Exit");
+      accType = sc.nextInt();
+      switch (accType) {
+        case 1:
+          printRecord(getIncome(conn));
+          System.out.println();
+          break;
+        case 2:
+          do {
+            System.out.println("***********************");
+            System.out.println("Press 1: View Expenses\nPress 2: Add Expenses \nPress 0: Exit");
+            menuOption = sc.nextInt();
+            switch (menuOption) {
+              case 1:
+                printRecord(getExpenses(conn));
+                break;
+              case 2:
+                printOutput(addExpense(conn,userInput()));
+                break;
+              case 0:
+              default:
+                break;
             }
-            while (menuOption != 0);
+          }
+          while (menuOption != 0);
 
-          case 0:
-            Dashboard dashboard = new Dashboard();
-            try {
-              dashboard.homeMenu();
-            } catch (IOException e) {
-              e.printStackTrace();
-            }
-          default:
-            break;
-        }
-
-      } while (accType != 0);
-
-      databaseService.closeDB();
-    }
-    catch(SQLException e){
-      e.getMessage();
-    }
-    finally {
-      try {
-        databaseService.closeDB();
-      }
-      catch (SQLException sqlEx) {
-        sqlEx.getMessage();
+        case 0:
+        default:
+          break;
       }
 
-    }
+    } while (accType != 0);
 
   }
 
@@ -118,7 +85,7 @@ public class AccountsMenu extends ManageAccountService implements FeatureMenu, I
   public void printRecord(List<List<String>> rows) {
     for(List<String> record: rows){
       for(String col: record){
-        System.out.print(col+" ");
+        System.out.print(col+" || ");
       }
       System.out.println( );
     }
@@ -156,7 +123,7 @@ public class AccountsMenu extends ManageAccountService implements FeatureMenu, I
         System.out.println("Invalid Date")  ;
       }
     }
-    while(checkResult=false);
+    while(!checkResult );
 
     int expenseType;
     do{

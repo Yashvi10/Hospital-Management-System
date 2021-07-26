@@ -5,7 +5,7 @@ import Interface.FeatureMenu;
 import Service.*;
 
 /*
- *  Name of file: BL.FeatureFactory.java
+ *  Name of file: FeatureFactory.java
  *  Author:  Nadish Maredia
  *  Purpose: This class is responsible for creating different objects
  *  Description: It will take menu type as parameter and based on that it will return object
@@ -61,6 +61,8 @@ public class FeatureFactory {
                     new Dashboard());
         } else if (menuType.equalsIgnoreCase(Constant.MEDICAL_HISTORY_MENU)) {
             return new MedicalHistoryMenu();
+        } else if (menuType.equalsIgnoreCase(Constant.POLICY_MENU)) {
+            return new PolicyMenu();
         }
 
         return null;
