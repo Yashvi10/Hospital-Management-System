@@ -188,12 +188,13 @@ public class UserManagement extends ManageProfile implements IRegistration {
         con=db.Connect();
         String qUser="";
         try{
-            String query="Select  designation from loginTable where trim(username) ='"
+            String query="Select  userid,designation from loginTable where trim(username) ='"
                     + username.trim() + "'  and trim(password)='"+encryptPassword(password.trim())+"'; ";
             statement=con.createStatement();
             resultSet=  statement.executeQuery(query);
             while (resultSet.next()){
                 qUser=resultSet.getString("designation");
+                UserSession.userId = resultSet.getInt("userid");
             }
         }
         catch (SQLException  e) {
