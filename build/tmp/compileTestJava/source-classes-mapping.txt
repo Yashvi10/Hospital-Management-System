@@ -2,8 +2,8 @@ BloodBankTest.java
  BloodBankTest
 AccountsMenuTest.java
  AccountsMenuTest
-BillingTest.java
- BillingTest
+PharmacyPageTest.java
+ PharmacyPageTest
 OfferTest.java
  OfferTest
 VaccinePageTest.java
@@ -18,7 +18,7 @@ CovidPageTest.java
  CovidPageTest
 RatingMenuTest.java
  RatingMenuTest
-PharmacyPageTest.java
- PharmacyPageTest
 BillingPageTest.java
  BillingPageTest
+BillingTest.java
+ BillingTest
