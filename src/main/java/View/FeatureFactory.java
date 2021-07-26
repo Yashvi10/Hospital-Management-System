@@ -61,6 +61,8 @@ public class FeatureFactory {
                     new Dashboard());
         } else if (menuType.equalsIgnoreCase(Constant.MEDICAL_HISTORY_MENU)) {
             return new MedicalHistoryMenu();
+        } else if (menuType.equalsIgnoreCase(Constant.POLICY_MENU)) {
+            return new PolicyMenu();
         }
 
         return null;

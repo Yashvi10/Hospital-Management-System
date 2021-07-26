@@ -1,7 +1,7 @@
 Interface/MedicalHistoryDAO.java
  Interface.MedicalHistoryDAO
-Interface/DoctorRatingDAO.java
- Interface.DoctorRatingDAO
+View/VaccinePage.java
+ View.VaccinePage
 Interface/CovidBedBLInterface.java
  Interface.CovidBedBLInterface
 View/Billing.java
@@ -18,8 +18,8 @@ BL/HelpDeskFaqBL.java
  BL.HelpDeskFaqBL
 Service/AddCampsService.java
  Service.AddCampsService
-Interface/IAccount.java
- Interface.IAccount
+Interface/IDashboard.java
+ Interface.IDashboard
 Model/VitaminDTestReports.java
  Model.VitaminDTestReports
 Model/BloodDonor.java
@@ -86,8 +86,8 @@ Service/UrineTestReportsService.java
  Service.UrineTestReportsService
 Service/SearchCampsService.java
  Service.SearchCampsService
-Interface/CovidPlasmaBLInterface.java
- Interface.CovidPlasmaBLInterface
+View/PharmacyMenu.java
+ View.PharmacyMenu
 Service/DoctorRatingService.java
  Service.DoctorRatingService
 Interface/VaccineRegisterUserDAO.java
@@ -124,8 +124,8 @@ Service/CustomConnection.java
  Service.CustomConnection
 Model/HelpDeskFaq.java
  Model.HelpDeskFaq
-Service/VaccineService.java
- Service.VaccineService
+View/RatingMenu.java
+ View.RatingMenu
 BL/CovidBedBL.java
  BL.CovidBedBL
 Interface/IRegistration.java
@@ -164,16 +164,18 @@ Model/GenerateLabReports.java
  Model.GenerateLabReports
 Interface/BloodDAO.java
  Interface.BloodDAO
-Model/RegisterTest.java
- Model.RegisterTest
-View/RatingMenu.java
- View.RatingMenu
-BL/BloodReportBL.java
- BL.BloodReportBL
+View/Dashboard.java
+ View.Dashboard
+View/BillingPage.java
+ View.BillingPage
+View/BillingMenu.java
+ View.BillingMenu
 Model/Doctors.java
  Model.Doctors
 BL/SearchCampsBL.java
  BL.SearchCampsBL
+View/PolicyMenu.java
+ View.PolicyMenu
 Service/ManageAccountService.java
  Service.ManageAccountService
 Interface/UricAcidTestReportsDAO.java
@@ -188,16 +190,16 @@ Interface/VaccineBLInterface.java
  Interface.VaccineBLInterface
 Service/AppointmentService.java
  Service.AppointmentService
-Interface/AppointmentDAO.java
- Interface.AppointmentDAO
+View/UserManagementPage.java
+ View.UserManagementPage
 BL/VaccineBL.java
  BL.VaccineBL
 Model/BloodTestReports.java
  Model.BloodTestReports
 Service/UserIdVerifiedService.java
  Service.UserIdVerifiedService
-Model/MedicalHistoryModel.java
- Model.MedicalHistoryModel
+View/Appointments.java
+ View.Appointments
 Service/ListOfCampsService.java
  Service.ListOfCampsService
 Model/UrineTestReports.java
@@ -246,8 +248,8 @@ Interface/HelpDeskFaqBLInterface.java
  Interface.HelpDeskFaqBLInterface
 Model/VaccineUserInformation.java
  Model.VaccineUserInformation
-Interface/VaccineDAO.java
- Interface.VaccineDAO
+View/BloodBank.java
+ View.BloodBank
 Interface/BloodRequesterDAO.java
  Interface.BloodRequesterDAO
 Model/BloodInventory.java
@@ -262,6 +264,8 @@ Service/BillingService.java
  Service.BillingService
 Model/Order.java
  Model.Order
+Service/PolicyService.java
+ Service.PolicyService
 View/Laboratory.java
  View.Laboratory
 View/CustomPDF.java
@@ -272,31 +276,35 @@ Model/BloodRequester.java
  Model.BloodRequester
 Model/SearchCamps.java
  Model.SearchCamps
+Interface/IValidateEmail.java
+ Interface.IValidateEmail
 Service/MedicalHistoryService.java
  Service.MedicalHistoryService
-View/VaccinePage.java
- View.VaccinePage
-View/BloodBank.java
- View.BloodBank
-View/Dashboard.java
- View.Dashboard
-View/CovidPage.java
- View.CovidPage
-View/UserManagementPage.java
- View.UserManagementPage
-View/BillingMenu.java
- View.BillingMenu
 Starter.java
  Starter
+Interface/IAccount.java
+ Interface.IAccount
+Model/MedicalHistoryModel.java
+ Model.MedicalHistoryModel
+Interface/CovidPlasmaBLInterface.java
+ Interface.CovidPlasmaBLInterface
+Interface/DoctorRatingDAO.java
+ Interface.DoctorRatingDAO
+Interface/VaccineDAO.java
+ Interface.VaccineDAO
+Service/VaccineService.java
+ Service.VaccineService
+BL/BloodReportBL.java
+ BL.BloodReportBL
+View/CovidPage.java
+ View.CovidPage
+Interface/AppointmentDAO.java
+ Interface.AppointmentDAO
+Model/RegisterTest.java
+ Model.RegisterTest
 View/HelpDeskPage.java
  View.HelpDeskPage
-Interface/IDashboard.java
- Interface.IDashboard
-View/Appointments.java
- View.Appointments
-View/BillingPage.java
- View.BillingPage
 View/FeatureFactory.java
  View.FeatureFactory
-View/PharmacyMenu.java
- View.PharmacyMenu
+Service/PolicyLogic.java
+ Service.PolicyLogic

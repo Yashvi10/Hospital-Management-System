@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CovidPageTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-07-26T20:42:41" hostname="DESKTOP-IC8LASV" time="0.214">
+  <properties/>
+  <testcase name="validateBedType_zero_true()" classname="CovidPageTest" time="0.002"/>
+  <testcase name="checkBedAvailability()" classname="CovidPageTest" time="0.209"/>
+  <testcase name="validateBedType_general_true()" classname="CovidPageTest" time="0.0"/>
+  <testcase name="validateBedType_outOfBoundary_true()" classname="CovidPageTest" time="0.0"/>
+  <testcase name="validateBedType_negative_true()" classname="CovidPageTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
