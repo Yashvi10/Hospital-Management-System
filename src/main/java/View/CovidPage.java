@@ -5,7 +5,6 @@ import Interface.CovidPlasmaBLInterface;
 import Interface.FeatureMenu;
 import Interface.IDashboard;
 import Model.CovidPlasmaInformation;
-import Service.UserSession;
 
 import java.io.IOException;
 import java.util.InputMismatchException;
@@ -183,6 +182,6 @@ public class CovidPage implements FeatureMenu {
         menu();
       }
     }
-    dashboard.HomeMenu();
+    dashboard.homeMenu();
   }
 }

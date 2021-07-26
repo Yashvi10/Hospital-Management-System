@@ -65,7 +65,7 @@ public class Appointments implements FeatureMenu {
     } else if (inputFromUser.equals("h") || inputFromUser.equals("H")){
       Dashboard dashboard = new Dashboard();
       try {
-        dashboard.HomeMenu();
+        dashboard.homeMenu();
       } catch (IOException e) {
         e.printStackTrace();
       }

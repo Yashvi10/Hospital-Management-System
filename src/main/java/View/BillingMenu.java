@@ -143,7 +143,7 @@ public class BillingMenu implements FeatureMenu {
         if  (userInput.equals(Constant.SMALL_s) || userInput.equals(Constant.CAPITAL_S))  {
             createPDF(data, orderId, tt_bill, ff_bill, (tt_bill - ff_bill));
         }  else  {
-            dashboard.HomeMenu();
+            dashboard.homeMenu();
         }
 
         System.out.println();
@@ -167,7 +167,7 @@ public class BillingMenu implements FeatureMenu {
         CustomPDF pdf = new CustomPDF();
         pdf.generateBill(FinalData);
 
-        dashboard.HomeMenu();
+        dashboard.homeMenu();
 
     }
 

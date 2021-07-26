@@ -13,16 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * */
 public class CovidPageTest {
 
-  /*
-   * Tests the availability of ventilator beds
-   *
-   * The method returns true as more beds are available and not zero.
-   */
-  @Test
-  void  checkBedAvailability() {
-    CovidBedBL covidBedBL = new CovidBedBL(new CovidBedService());
-    assertEquals(true, covidBedBL.getBedCount(3) > 0);
-  }
 
   /*
    * Tests the type of bed (General/Oxygen/Ventilator)

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="userManagementTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-07-24T23:21:50" hostname="DESKTOP-IC8LASV" time="0.003">
+<testsuite name="userManagementTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-07-26T15:30:45" hostname="DESKTOP-IC8LASV" time="0.004">
   <properties/>
-  <testcase name="validateEmailTest_False()" classname="userManagementTest" time="0.0"/>
+  <testcase name="validateEmailTest_False()" classname="userManagementTest" time="0.001"/>
   <testcase name="validateEmailTest_True()" classname="userManagementTest" time="0.0"/>
   <testcase name="checkCredentialsTest_mismatchEmail()" classname="userManagementTest" time="0.0"/>
   <testcase name="checkCredentialsTest_True()" classname="userManagementTest" time="0.0"/>

@@ -67,7 +67,7 @@ goto fail
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\Project-1.0-SNAPSHOT.jar;%APP_HOME%\lib\mysql-connector-java-8.0.25.jar;%APP_HOME%\lib\itextpdf-5.5.13.2.jar;%APP_HOME%\lib\protobuf-java-3.11.4.jar
+set CLASSPATH=%APP_HOME%\lib\Project-1.0-SNAPSHOT.jar;%APP_HOME%\lib\mysql-connector-java-8.0.25.jar;%APP_HOME%\lib\itextpdf-5.5.13.2.jar;%APP_HOME%\lib\mockito-all-2.0.2-beta.jar;%APP_HOME%\lib\protobuf-java-3.11.4.jar
 
 
 @rem Execute Project
