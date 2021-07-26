@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /*
- *  Name of file: BL.Dashboard.java
+ *  Name of file: Dashboard.java
  *  Author:  Nadish Maredia
  *  Purpose: This class is used for showing different feature menus
  *  Description: This class is using Factory Pattern so passing name of object
@@ -32,6 +32,7 @@ public class Dashboard implements IDashboard {
         System.out.println("Press 10 for Accounts");
         System.out.println("Press 11 for Covid Section");
         System.out.println("Press 12 for medical history");
+        System.out.println("Press 13 for Policy Menu");
         String userInput = scanner.nextLine();
 
         FeatureFactory featureFactory = new FeatureFactory();
@@ -72,7 +73,10 @@ public class Dashboard implements IDashboard {
         } else if (userInput.equals("12")) {
             FeatureMenu featureMenu = featureFactory.getMenu(Constant.MEDICAL_HISTORY_MENU);
             featureMenu.menu();
-        } else {
+        } else if (userInput.equals("13")) {
+            FeatureMenu featureMenu = featureFactory.getMenu(Constant.POLICY_MENU);
+            featureMenu.menu();
+        }  else {
             System.out.println("Please select correct option");
         }
 

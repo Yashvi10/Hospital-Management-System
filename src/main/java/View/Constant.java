@@ -1,7 +1,7 @@
 package View;
 
 /*
- *  Name of file: BL.Constant.java
+ *  Name of file: Constant.java
  *  Author:  Nadish Maredia
  *  Purpose: This class hold all the constants used in the project
  *  Description: This class is responsible for storing all the constants
@@ -48,4 +48,5 @@ public class Constant  {
     public static final String ACCOUNT_MENU = "ACCOUNT";
     public static final String COVID_MENU = "COVID";
     public static final String MEDICAL_HISTORY_MENU = "MEDICAL_HISTORY";
+    public static final String POLICY_MENU = "POLICY";
 }

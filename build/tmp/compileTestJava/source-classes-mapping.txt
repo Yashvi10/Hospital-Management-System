@@ -6,19 +6,19 @@ BillingPageTest.java
  BillingPageTest
 OfferTest.java
  OfferTest
-BloodBankTest.java
- BloodBankTest
+VaccinePageTest.java
+ VaccinePageTest
 BillingTest.java
  BillingTest
 AppointmentsTest.java
  AppointmentsTest
-userManagementTest.java
- userManagementTest
-RatingMenuTest.java
- RatingMenuTest
-VaccinePageTest.java
- VaccinePageTest
-AccountsMenuTest.java
- AccountsMenuTest
 CovidPageTest.java
  CovidPageTest
+RatingMenuTest.java
+ RatingMenuTest
+BloodBankTest.java
+ BloodBankTest
+PolicyTest.java
+ PolicyTest
+userManagementTest.java
+ userManagementTest

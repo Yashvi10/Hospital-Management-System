@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="PolicyTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-07-26T20:53:31" hostname="DESKTOP-IC8LASV" time="0.002">
+  <properties/>
+  <testcase name="getPremiumTest()" classname="PolicyTest" time="0.0"/>
+  <testcase name="singlePolicyTest()" classname="PolicyTest" time="0.0"/>
+  <testcase name="getPolicyTest()" classname="PolicyTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
