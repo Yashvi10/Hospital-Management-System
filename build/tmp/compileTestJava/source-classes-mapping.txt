@@ -16,9 +16,9 @@ userManagementTest.java
  userManagementTest
 CovidPageTest.java
  CovidPageTest
-RatingMenuTest.java
- RatingMenuTest
 BillingPageTest.java
  BillingPageTest
 BillingTest.java
  BillingTest
+RatingMenuTest.java
+ RatingMenuTest
