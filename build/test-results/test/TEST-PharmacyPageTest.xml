@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="PharmacyPageTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-26T14:43:35" hostname="DESKTOP-IC8LASV" time="0.18">
-  <properties/>
-  <testcase name="getAllMedicines()" classname="PharmacyPageTest" time="0.18"/>
-  <system-out><![CDATA[Test product
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

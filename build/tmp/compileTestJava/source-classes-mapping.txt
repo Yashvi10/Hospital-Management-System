@@ -18,7 +18,7 @@ CovidPageTest.java
  CovidPageTest
 RatingMenuTest.java
  RatingMenuTest
-BillingPageTest.java
- BillingPageTest
 PharmacyPageTest.java
  PharmacyPageTest
+BillingPageTest.java
+ BillingPageTest
