@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CovidPageTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-07-24T23:10:30" hostname="DESKTOP-IC8LASV" time="0.729">
+<testsuite name="CovidPageTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-07-26T14:25:12" hostname="DESKTOP-IC8LASV" time="0.164">
   <properties/>
-  <testcase name="validateBedType_zero_true()" classname="CovidPageTest" time="0.001"/>
-  <testcase name="checkBedAvailability()" classname="CovidPageTest" time="0.727"/>
-  <testcase name="validateBedType_general_true()" classname="CovidPageTest" time="0.0"/>
+  <testcase name="validateBedType_zero_true()" classname="CovidPageTest" time="0.012"/>
+  <testcase name="checkBedAvailability()" classname="CovidPageTest" time="0.149"/>
+  <testcase name="validateBedType_general_true()" classname="CovidPageTest" time="0.001"/>
   <testcase name="validateBedType_outOfBoundary_true()" classname="CovidPageTest" time="0.0"/>
   <testcase name="validateBedType_negative_true()" classname="CovidPageTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>

@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
 Main-Class: Starter
-Class-Path: mysql-connector-java-8.0.25.jar itextpdf-5.5.13.2.jar protob
- uf-java-3.11.4.jar
+Class-Path: mysql-connector-java-8.0.25.jar itextpdf-5.5.13.2.jar mockit
+ o-all-2.0.2-beta.jar protobuf-java-3.11.4.jar
 

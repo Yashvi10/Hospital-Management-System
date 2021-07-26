@@ -10,7 +10,6 @@ import Service.OrderService;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -56,7 +55,7 @@ public class PharmacyMenu implements FeatureMenu {
         if  (inputFromUser.equals(Constant.SMALL_l) || inputFromUser.equals(Constant.CAPITAL_L))  {
             getAllMedicines();
         }  else if  (inputFromUser.equals(Constant.SMALL_e) || inputFromUser.equals(Constant.CAPITAL_E))  {
-            dashboard.HomeMenu();
+            dashboard.homeMenu();
         }  else  {
             NotFound();
         }
@@ -185,7 +184,7 @@ public class PharmacyMenu implements FeatureMenu {
 
         if  (PharmacyBL.cart.size() > 0) {
             BillingPage billingPage = new BillingPage(new OrderService(), new OrderService(), new OfferService());
-            billingPage.CheckOut();
+            billingPage.checkOut();
         }  else  {
             System.out.println(Colors.C_RED  +  "You can't checkout, your cart is empty"  +  Colors.C_RESET);
             menu();

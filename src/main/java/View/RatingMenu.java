@@ -68,7 +68,7 @@ public class RatingMenu implements FeatureMenu {
             if(inputFromUser.equals(Constant.SMALL_y) || inputFromUser.equals(Constant.CAPITAL_Y)) {
                 verifyUserMenu();
             } else if (inputFromUser.equals(Constant.SMALL_n) || inputFromUser.equals(Constant.CAPITAL_N)) {
-                dashboard.HomeMenu();
+                dashboard.homeMenu();
             }  else {
                 System.out.println(Colors.C_RED +" Please select correct option " +Colors.C_RESET);
                 menu();
@@ -76,7 +76,7 @@ public class RatingMenu implements FeatureMenu {
         } else if(userInput.equals("2")) {
             doctorRatingMenu();
         } else if (userInput.equals("3")) {
-            dashboard.HomeMenu();
+            dashboard.homeMenu();
         } else {
             System.out.println(Colors.C_RED +" Please select correct option" +Colors.C_RESET);
             menu();
@@ -220,7 +220,7 @@ public class RatingMenu implements FeatureMenu {
                         if(userInput.equals("S") || userInput.equals("s")) {
                             addRating();
                         } else if (userInput.equals("C") || userInput.equals("c")) {
-                            dashboard.HomeMenu();
+                            dashboard.homeMenu();
                         } else {
                             System.out.println(Colors.C_RED +" Please select correct option" +Colors.C_RESET);
                             menu();
@@ -275,11 +275,11 @@ public class RatingMenu implements FeatureMenu {
 
                 if(ratingDAO.addFeedback(feedback)) {
                     System.out.println("Thank your for you feedback!!");
-                    dashboard.HomeMenu();
+                    dashboard.homeMenu();
                 } else {
                     System.out.println(Colors.C_RED +"Sorry! There was some issue sending your feedback. Please try later"
                             +Colors.C_RESET);
-                    dashboard.HomeMenu();
+                    dashboard.homeMenu();
                 }
             } else {
                 System.out.println(Colors.C_RED +" You have already send feedback for this appointment " +Colors.C_RESET);

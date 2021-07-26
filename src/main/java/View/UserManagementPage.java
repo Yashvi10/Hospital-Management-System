@@ -58,7 +58,7 @@ public class UserManagementPage {
             System.out.println("Login");
             Dashboard dashboard = new Dashboard();
             try {
-                dashboard.HomeMenu();
+                dashboard.homeMenu();
             } catch (IOException e) {
                 e.printStackTrace();
             }
