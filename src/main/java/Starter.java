@@ -1,7 +1,6 @@
 public class Starter {
-
     public static void main(String[] args) {
-        UserManagementPage userManagementPage = new UserManagementPage();
-        userManagementPage.MainMenu();
+      PolicyMenu userManagementPage = new PolicyMenu();
+        userManagementPage.menu();
     }
 }

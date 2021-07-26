@@ -24,26 +24,70 @@ public class PolicyService extends PolicyLogic{
   }
 
   public List<List<String>> viewSinglePolicy(){
-    return singlePolicy();
+    List<List<String>> policy=singlePolicy();
+    policy.remove(3);
+    return policy;
   }
 
   public List<List<String>> viewFamilyPolicy(){
-    return familyPolicy();
+    List<List<String>> policy=familyPolicy();
+    policy.remove(3);
+    return policy;
   }
 
   public List<List<String>> viewAgedPolicy(){
-    return agedPolicy();
+    List<List<String>> policy=agedPolicy();
+    policy.remove(3);
+    return policy;
   }
 
   public List<List<String>> validPolicy(int age, String status){
     return getPolicy(age, status);
   }
 
-  public boolean buyPolicy(  List<String> info  ) {
+  public int getPolicyNo( CustomConnection db, List<String> info ) {
+    int response=0;
+    try{
+      if(buyPolicy(db,info)) {
+        conn = db.Connect();
+        String query = " select policyNo from policyTable where patientId=" + Integer.valueOf(info.get(2));
+        statement = conn.createStatement();
+        resultSet = statement.executeQuery(query);
+        while (resultSet.next()) {
+          response = resultSet.getInt("policyNo");
+        }
+      }
+    }
+    catch(SQLException e){
+    e.getMessage();
+  }
+    finally {
+      if (resultSet != null) {
+        try {
+          resultSet.close();
+        } catch (SQLException sqlEx) {
+          sqlEx.getMessage();
+        }
+        resultSet = null;
+      }
+      if (conn != null) {
+        try {
+          conn.close();
+        } catch (SQLException sqlEx) {
+          sqlEx.getMessage();
+        }
+        conn = null;
+      }
+    }
+    return response;
+  }
+
+  public boolean buyPolicy( CustomConnection db, List<String> info  ) {
     boolean response = false;
     double premium=getPremium(info.get(0),info.get(1));
     double cover=policyRate(info.get(1));
     try {
+      conn=db.Connect();
       int patientId = 0;
       String query = " select patientId from patientTable where patientId=" + info.get(2);
       statement=conn.createStatement();
@@ -77,18 +121,27 @@ public class PolicyService extends PolicyLogic{
         }
         resultSet = null;
       }
-
+      if (conn != null) {
+        try {
+          conn.close();
+        }
+        catch (SQLException sqlEx) {
+          sqlEx.getMessage();
+        }
+        conn = null;
+      }
     }
     return response;
   }
 
-  public boolean policyClaim(  List<String> info )  {
+  public boolean policyClaim(CustomConnection db,  List<String> info )  {
     boolean response = false;
       int patientId = 0;
       int policyNo=0;
       double premium=0.00;
       double rate=0.00;
     try {
+      conn=db.Connect();
       String query = " select policyNo, patientID, premium,rate from policyTable where patientId="
               + Integer.valueOf(info.get(1))+" and policyNo="+Integer.valueOf(info.get(2))+";";
       statement=conn.createStatement();

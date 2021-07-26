@@ -1,5 +1,6 @@
 import Interface.FeatureMenu;
 import Interface.IPrint;
+import Service.CustomConnection;
 import Service.PolicyService;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.Scanner;
 public class PolicyMenu extends PolicyService implements FeatureMenu  , IPrint {
 
   String eligiblePlan;
-  PolicyService service=new PolicyService();
+  CustomConnection db= new CustomConnection();
 
   public PolicyMenu(){
   }
@@ -26,28 +27,30 @@ public class PolicyMenu extends PolicyService implements FeatureMenu  , IPrint {
   public void menu( ){
     Scanner sc = new Scanner(System.in);
     System.out.println("******Policy Menu******");
-    System.out.println("Press 1 to View Policy\nPress 2 to Apply\nPress 3 for Claim\nPress 0 to Exit");
-    int policyNo = sc.nextInt();
-    switch(policyNo){
-      case 1:
-        System.out.println("******INSURANCE POLICY******\nSingle Plan");
-        printRecord(service.viewSinglePolicy());
-        System.out.println("\nFamily Plan");
-        printRecord(service.viewFamilyPolicy());
-        System.out.println("\nAged Plan");
-        printRecord(service.viewAgedPolicy());
-        break;
-      case 2:
-        System.out.println("******BUY POLICY******" );
-        findPolicy();
-        printOutput(applyPolicy( ));
-        break;
-      case 3:
-         printOutput(claimPolicy( ));
-        break;
-      default:
-        break;
-    }
+    int policyNo ;
+    String choice;
+    do {
+      System.out.println("Press 1 to View Policy\nPress 2 to Apply\nPress 3 for Claim\nPress 0 to Exit");
+      policyNo = sc.nextInt();
+      switch (policyNo) {
+        case 1:
+          System.out.println("******INSURANCE POLICY******\nSingle Plan");
+          viewAllPolicy();
+          break;
+        case 2:
+          System.out.println("******BUY POLICY******");
+          findPolicy();
+          System.out.println("Your policy Number is: "+applyPolicy());
+          break;
+        case 3:
+          printOutput(claimPolicy());
+          break;
+        default:
+          break;
+      }
+    }while((policyNo!=1)&&(policyNo!=2)&&(policyNo!=3));
+
+    menu( );
   }
 
   @Override
@@ -69,6 +72,15 @@ public class PolicyMenu extends PolicyService implements FeatureMenu  , IPrint {
       System.out.println("Failed.");
     }
 
+  }
+
+  public void viewAllPolicy(){
+    printRecord(viewSinglePolicy() );
+    System.out.println("\nFamily Plan");
+    printRecord(viewFamilyPolicy());
+    System.out.println("\nAged Plan");
+    printRecord(viewAgedPolicy());
+    menu( );
   }
 
   public void findPolicy() {
@@ -100,7 +112,7 @@ public class PolicyMenu extends PolicyService implements FeatureMenu  , IPrint {
 
   }
 
-  public boolean applyPolicy( ){
+  public int applyPolicy( ){
     List<String> info = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
     System.out.println( );
@@ -123,8 +135,10 @@ public class PolicyMenu extends PolicyService implements FeatureMenu  , IPrint {
     &&(!plan.toUpperCase(Locale.ROOT).trim().equals("S"))&&(!plan.toUpperCase(Locale.ROOT).trim().equals("G")));
 
     System.out.println("Enter Patient ID:");
-    info.add(sc.nextLine()) ;
-    return service.buyPolicy(info);
+    Scanner scan=new Scanner(System.in);
+    int id=scan.nextInt();
+    info.add(String.valueOf(id)) ;
+    return getPolicyNo(db,info);
   }
 
   public boolean claimPolicy( )   {
@@ -149,7 +163,7 @@ public class PolicyMenu extends PolicyService implements FeatureMenu  , IPrint {
     info.add(sc.nextLine()) ;
     System.out.println("Enter Bill Amount");
     info.add( sc.nextLine())  ;
-    return  service.policyClaim(info) ;
+    return  policyClaim(db,info) ;
   }
 }
 

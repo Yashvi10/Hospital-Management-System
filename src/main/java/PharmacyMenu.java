@@ -7,7 +7,6 @@ import Model.Pharmacy;
 import Service.OfferService;
 import Service.OrderService;
 
-import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;

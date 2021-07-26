@@ -4,7 +4,6 @@ import Interface.IPrint;
 import Model.Accounts;
 import Service.CustomConnection;
 import Service.ManageAccountService;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -24,13 +23,7 @@ public class AccountsMenu extends ManageAccountService implements FeatureMenu, I
 
   Scanner sc = new Scanner(System.in);
   Accounts account=new Accounts("",0.00,"",0);
-
   CustomConnection conn = new CustomConnection();
-  ManageAccountService manageAccountService ;
-
-  public AccountsMenu( ){
-
-  }
 
   @Override
   public void menu( ) {
@@ -44,8 +37,7 @@ public class AccountsMenu extends ManageAccountService implements FeatureMenu, I
       accType = sc.nextInt();
       switch (accType) {
         case 1:
-          manageAccountService = new ManageAccountService(conn);
-          printRecord(manageAccountService.getIncome());
+          printRecord(getIncome(conn));
           System.out.println();
           break;
         case 2:
@@ -55,12 +47,10 @@ public class AccountsMenu extends ManageAccountService implements FeatureMenu, I
             menuOption = sc.nextInt();
             switch (menuOption) {
               case 1:
-                manageAccountService = new ManageAccountService(conn);
-                printRecord(manageAccountService.getExpenses());
+                printRecord(getExpenses(conn));
                 break;
               case 2:
-                manageAccountService = new ManageAccountService(conn);
-                printOutput(manageAccountService.addExpense(userInput()));
+                printOutput(addExpense(conn,userInput()));
                 break;
               case 0:
               default:
@@ -131,7 +121,7 @@ public class AccountsMenu extends ManageAccountService implements FeatureMenu, I
         System.out.println("Invalid Date")  ;
       }
     }
-    while(checkResult=false);
+    while(!checkResult );
 
     int expenseType;
     do{

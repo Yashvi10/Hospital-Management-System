@@ -1,6 +1,7 @@
 package Interface;
 
 import Model.User;
+import Service.CustomConnection;
 /*
  *  Name of file: BillingOrderDAO.java
  *  Author:  Abimbola Babalola
@@ -10,7 +11,6 @@ import Model.User;
  * */
 
 public interface IRegistration {
-  boolean registerPatient(User user );
-  boolean registerStaff(String role,User user);
-  Integer getLastUserId();
+  boolean registerPatient(CustomConnection db , User user );
+  boolean registerStaff(CustomConnection db,String role,User user);
 }

@@ -12,6 +12,8 @@ Interface/IPrint.java
  Interface.IPrint
 Interface/OfferDAO.java
  Interface.OfferDAO
+Interface/IDashboard.java
+ Interface.IDashboard
 Constant.java
  Constant
 BillingPage.java
@@ -26,12 +28,12 @@ Interface/OrderLastIdDAO.java
  Interface.OrderLastIdDAO
 Dashboard.java
  Dashboard
-Colors.java
- Colors
-Service/BloodDonorService.java
- Service.BloodDonorService
-Service/PolicyLogic.java
- Service.PolicyLogic
+Service/ManageAccountService.java
+ Service.ManageAccountService
+Service/ManageProfile.java
+ Service.ManageProfile
+Service/UserManagement.java
+ Service.UserManagement
 FeatureFactory.java
  FeatureFactory
 Interface/OrderDAO.java
@@ -64,8 +66,6 @@ Interface/BillingOrderItemDAO.java
  Interface.BillingOrderItemDAO
 Interface/IDateValidation.java
  Interface.IDateValidation
-Service/ManageAccountService.java
- Service.ManageAccountService
 BloodBank.java
  BloodBank
 Interface/BloodRequesterDAO.java
@@ -76,39 +76,41 @@ Interface/FeatureMenu.java
  Interface.FeatureMenu
 Service/BillingService.java
  Service.BillingService
-Billing.java
- Billing
+Service/BloodRequesterService.java
+ Service.BloodRequesterService
 Model/Order.java
  Model.Order
-BillingMenu.java
- BillingMenu
-AccountsMenu.java
- AccountsMenu
+Service/BloodDonorService.java
+ Service.BloodDonorService
 Model/User.java
  Model.User
 Model/BloodRequester.java
  Model.BloodRequester
 Interface/BloodDonorDAO.java
  Interface.BloodDonorDAO
-Interface/IRegistration.java
- Interface.IRegistration
+Interface/IValidateEmail.java
+ Interface.IValidateEmail
+Service/PolicyLogic.java
+ Service.PolicyLogic
 Interface/IAccount.java
  Interface.IAccount
-Service/BloodRequesterService.java
- Service.BloodRequesterService
-Service/CustomConnection.java
- Service.CustomConnection
-Service/UserManagement.java
- Service.UserManagement
-Main.java
- Main
-Starter.java
- Starter
 UserManagementPage.java
  UserManagementPage
-Service/ManageProfile.java
- Service.ManageProfile
-PolicyMenu.java
- PolicyMenu
+Service/CustomConnection.java
+ Service.CustomConnection
+BillingMenu.java
+ BillingMenu
+Billing.java
+ Billing
+Colors.java
+ Colors
+Interface/IRegistration.java
+ Interface.IRegistration
+AccountsMenu.java
+ AccountsMenu
 Service/PolicyService.java
  Service.PolicyService
+Starter.java
+ Starter
+PolicyMenu.java
+ PolicyMenu

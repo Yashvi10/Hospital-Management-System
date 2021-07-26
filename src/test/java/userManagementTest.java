@@ -13,15 +13,16 @@ import static org.junit.jupiter.api.Assertions.*;
 public class userManagementTest {
 
   ManageProfile profile=new ManageProfile();
+  UserManagementPage user=new UserManagementPage();
 
   @Test
   public void validateEmailTest_True(){
-    assertTrue(profile.validateEmail("ronnie@dal.ca"))  ;
+    assertTrue(user.validateEmail("ronnie@dal.ca"))  ;
   }
 
   @Test
   public void validateEmailTest_False(){
-    assertFalse(profile.validateEmail("abimbola@dal@ca.com"))  ;
+    assertFalse(user.validateEmail("abimbola@dal@ca.com"))  ;
   }
 
   @Test

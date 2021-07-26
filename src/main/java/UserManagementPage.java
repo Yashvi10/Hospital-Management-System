@@ -1,3 +1,4 @@
+import Interface.IValidateEmail;
 import Model.User;
 import Service.CustomConnection;
 import Service.UserManagement;
@@ -12,129 +13,160 @@ import java.util.Scanner;
  *
  */
 
-public class UserManagementPage {
+public class UserManagementPage extends UserManagement implements IValidateEmail {
 
   CustomConnection db = new CustomConnection();
-
-  UserManagement user = new UserManagement(db);
   Scanner scanner = new Scanner(System.in);
+  String role  ;
+  String firstName ;
+  String lastName  ;
+  String email ;
+  String confirmEmail  ;
+  String password ;
+  String confirmPassword  ;
+  String address ;
+  String phone  ;
 
   public void MainMenu() {
-    System.out.println("================Hospital Management System===============");
-    System.out.println("Press 1 to login\nPress 2 to register as staff\nPress 3 to register as patient");
 
+    System.out.println("Press 1 to register as staff\nPress 2 to register as patient\nPress 3 to login" +
+            "\nPress 4 to Update Registration Details");
     String userInput = scanner.nextLine();
-
     if(userInput.equals("1")){
-      Login();
-    }
-    else if(userInput.equals("2")){
       registerAsStaff();
     }
-    else if(userInput.equals("3")){
+    else if(userInput.equals("2")){
       registerAsPatient();
+    }
+    else if(userInput.equals("3")){
+      Login();
+    }
+    else if(userInput.equals("4")){
+      recordUpdate();
     }
     else{
       System.out.println("Please select correct option");
+      MainMenu();
     }
-
   }
 
-  public void Login() {
+  public boolean Login() {
+    boolean loginStatus=false;
     System.out.println("Enter email: ");
     String email = scanner.nextLine();
-
     System.out.println("Enter password: ");
     String password = scanner.nextLine();
+    String result = "";
+    if (validateEmail(email)) {
+      result = loginUser(db, email, password);
 
-    User myUser = new User("", "", "", "", email, "", password, "");
-
-    Boolean result = user.loginUser(email, password);
-
-    if (result) {
-      System.out.println("Login");
-      Dashboard dashboard = new Dashboard();
-      dashboard.HomeMenu();
-    } else {
-      System.out.println("Login Failed");
+      if (result.trim().equals("Staff")) {
+        Dashboard dashboard = new Dashboard();
+        dashboard.HomeMenu();
+      } else if (result.trim().equals("Patient")) {
+        Dashboard dashboard = new Dashboard();
+        dashboard.HomeMenu();
+      } else {
+        System.out.println("Login Failed");
+        MainMenu();
+      }
+      loginStatus=true;
     }
+    else{
+      System.out.println("Email is incorrect");
+      MainMenu();
+    }
+    return loginStatus;
+  }
+
+  public void getUserInput() {
+    System.out.println("Enter firstname: ");
+    firstName = scanner.nextLine();
+    System.out.println("Enter lastname: ");
+    lastName = scanner.nextLine();
+    System.out.println("Enter email: ");
+    email = scanner.nextLine();
+    System.out.println("Confirm email: ");
+    confirmEmail = scanner.nextLine();
+    System.out.println("Enter password: ");
+    password = scanner.nextLine();
+    System.out.println("Confirm Password: ");
+    confirmPassword = scanner.nextLine();
+    System.out.println("Enter address: ");
+    address = scanner.nextLine();
+    System.out.println("Enter phone: ");
+    phone = scanner.nextLine();
   }
 
   public void registerAsStaff() {
-
     System.out.println("Enter your role(doctor, nurse): ");
-    String role = scanner.nextLine();
-    System.out.println("Enter firstname: ");
-    String firstName = scanner.nextLine();
-    System.out.println("Enter lastname: ");
-    String lastName = scanner.nextLine();
-    System.out.println("Enter email: ");
-    String email = scanner.nextLine();
-    System.out.println("Enter confirm email: ");
-    String confirmEmail = scanner.nextLine();
-    System.out.println("Enter password: ");
-    String password = scanner.nextLine();
-    System.out.println("Enter confirmPassword: ");
-    String confirmPassword = scanner.nextLine();
-    System.out.println("Enter address: ");
-    String address = scanner.nextLine();
-    System.out.println("Enter phone: ");
-    String phone = scanner.nextLine();
-
-    User myUser = new User(firstName, lastName, address, phone, email, confirmEmail, password, confirmPassword);
-
-    boolean result = user.registerLogin(myUser, "Staff");
-
-    if (result) {
-      user = new UserManagement(db);
-      myUser.setUserid(user.getLastUserId());
-      result = user.registerStaff(role, myUser);
-      if (result) {
-        System.out.println("User Added");
+    role = scanner.nextLine();
+    if((role.toLowerCase().trim().equals("doctor"))||(role.toLowerCase().trim().equals("nurse"))) {
+      getUserInput();
+      User myUser = new User(firstName, lastName, address, phone, email, confirmEmail, password, confirmPassword);
+      boolean result = false;
+      if (validateEmail(myUser.getEmail())) {
+        if (registerLogin(db, myUser, "Staff")) {
+          result = registerStaff(db, role, myUser);
+          if (result) {
+            System.out.println("Staff Registered");
+          }
+        } else if (!(result)) {
+          System.out.println("Registration failed");
+        }
+      } else {
+        System.out.println("Email is incorrect");
       }
-
-    } else {
-      System.out.println(false);
+      MainMenu();
     }
+    else{
+      System.out.println("Please Role as 'doctor' or 'nurse'");
+      registerAsStaff();
+    }
+
+  }
+
+  @Override
+  public boolean validateEmail(String email){
+    String regex= "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+    return email.matches(regex);
   }
 
   public void registerAsPatient() {
-
-    System.out.println("Enter firstname: ");
-    String firstName = scanner.nextLine();
-
-    System.out.println("Enter lastname: ");
-    String lastName = scanner.nextLine();
-
-    System.out.println("Enter email: ");
-    String email = scanner.nextLine();
-
-    System.out.println("Enter confirm email: ");
-    String confirmEmail = scanner.nextLine();
-
-    System.out.println("Enter password: ");
-    String password = scanner.nextLine();
-
-    System.out.println("Enter confirmPassword: ");
-    String confirmPassword = scanner.nextLine();
-
-    System.out.println("Enter address: ");
-    String address = scanner.nextLine();
-
-    System.out.println("Enter phone: ");
-    String phone = scanner.nextLine();
-
+    getUserInput();
     User myUser = new User(firstName, lastName, address, phone, email, confirmEmail, password, confirmPassword);
-
-    boolean result = user.registerLogin(myUser, "Patient");
-
-    if (result) {
-      user = new UserManagement(db);
-      myUser.setUserid(user.getLastUserId());
-      result = user.registerPatient(myUser);
-      if (result) {
-        System.out.println("User Added");
+    if(validateEmail(myUser.getEmail())) {
+      boolean result = false;
+      if (validateEmail(myUser.getEmail())) {
+        if (registerLogin(db, myUser, "Staff")) {
+          result = registerPatient(db, myUser);
+          if (result) {
+            System.out.println("Patient Registered");
+          }
+        } else if (!(result)) {
+          System.out.println("Registration failed");
+        }
       }
     }
+    else {
+      System.out.println("Email is incorrect");
+    }
+    MainMenu();
+  }
+
+  public void recordUpdate(){
+    if(Login()){
+      getUserInput();
+      User myUser = new User(firstName, lastName, address, phone, email, confirmEmail, password, confirmPassword);
+      boolean result = updateProfile(  db,  myUser);
+      if(result){
+        System.out.println("Record Updated");
+      }
+      else {
+        System.out.println("Update failed");
+      }
+      MainMenu();
+    }
+
   }
 }

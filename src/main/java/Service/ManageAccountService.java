@@ -27,15 +27,16 @@ public class ManageAccountService  implements IAccount {
   public ManageAccountService() {
   }
 
-  public ManageAccountService(CustomConnection conn) {
-    this.conn= conn.Connect();
-  }
+  //public ManageAccountService(CustomConnection conn) {
+    //this.conn= conn.Connect();
+  //}
 
   @Override
-  public List<List<String>> getIncome( ) {
+  public List<List<String>> getIncome( CustomConnection con  ) {
     List<String> dbRow;
     dbRecord = new ArrayList<>();
     try {
+      conn=con.Connect();
       String query="select order_id, name,qty, final_bill from order_items;" ;
       statement=conn.createStatement();
       resultSet=  statement.executeQuery(query);
@@ -73,11 +74,12 @@ public class ManageAccountService  implements IAccount {
     return dbRecord;
   }
 
-  @Override
-  public List<List<String>> getExpenses( ) {
+  //@Override
+  public List<List<String>> getExpenses(CustomConnection con ) {
     List<String> dbRow;
     dbRecord = new ArrayList<>();
     try {
+      conn=con.Connect();
       String query="select   accId , account_date, category ,  pay_name,  amount  from  ExpenseAccounts " ;
       statement=conn.createStatement();
       resultSet=  statement.executeQuery(query);
@@ -118,8 +120,9 @@ public class ManageAccountService  implements IAccount {
   }
 
   @Override
-  public boolean addExpense(Accounts accounts ) {
+  public boolean addExpense(CustomConnection con ,Accounts accounts ) {
     try {
+      conn=con.Connect();
       String expenseType ;
       if(accounts.getExpenseType()==1){
         expenseType="Maintenance";
