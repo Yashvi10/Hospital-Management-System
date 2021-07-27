@@ -34,12 +34,9 @@ public class Laboratory implements FeatureMenu {
 
   private UrineTestReportsDAO urineTestReportsDAO;
 
-  FileWriter fileWriter;
+  Dashboard dashboard = new Dashboard();
 
-  public Laboratory() {
-  }
-
-  ;
+  public Laboratory() {};
 
   public Laboratory(ListOfTestsBLDAO listOfTestsBLDAO, RegisterTestDAO registerTestDAO, ListOfReportsBLDAO listOfReportsBLDAO, BloodTestReportsDAO bloodTestReportsDAO, VitaminDTestReportsDAO vitaminDTestReportsDAO, UricAcidTestReportsDAO uricAcidTestReportsDAO, UrineTestReportsDAO urineTestReportsDAO) {
     this.listOfTestsBLDAO = listOfTestsBLDAO;
@@ -178,13 +175,14 @@ public class Laboratory implements FeatureMenu {
             break;
           case "5":
             System.out.println("Exited");
+            menu();
             break;
         }
         break;
 
       case "4":
         System.out.println("Exited");
-
+        dashboard.homeMenu();
         break;
 
       default:

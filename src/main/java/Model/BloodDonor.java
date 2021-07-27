@@ -31,6 +31,8 @@ public class BloodDonor {
         this.donation_id = donation_id;
     }
 
+    public BloodDonor() {}
+
     public BloodDonor(String firstname, String middlename, String lastname,
                       String blood_group, String contact, String date) {
         this.firstname = firstname;

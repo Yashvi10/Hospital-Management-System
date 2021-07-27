@@ -5,8 +5,9 @@ import Model.UricAcidTestReports;
 import java.io.IOException;
 import java.util.List;
 /*
- * File Name: UricAcidTestReportsDAO.java
- * Author: Yashvi Lad
+ *  Name of file: UricAcidTestReportsDAO.java
+ *  Author:  Yashvi Lad
+ *  Purpose: Consists of method to get reports of uric acid test
  * */
 public interface UricAcidTestReportsDAO {
 

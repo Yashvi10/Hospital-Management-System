@@ -33,9 +33,9 @@ public class AddCampsService implements AddCampsDAO {
 
     input = new Scanner(System.in);
     System.out.println("Enter camp type: ");
-    camp_type = input.next();
+    camp_type = input.nextLine();
 
-    if (camp_type.matches("^[0-9]")) {
+    if (camp_type.matches("[^a-zA-Z]+")) {
       System.out.println("Your input is not valid");
       return false;
     }
@@ -47,9 +47,9 @@ public class AddCampsService implements AddCampsDAO {
 
     input = new Scanner(System.in);
     System.out.println("Enter camp description: ");
-    camp_description = input.next();
+    camp_description = input.nextLine();
 
-    if (camp_description.matches("^[0-9]")) {
+    if (camp_description.matches("[^a-zA-Z-]+")) {
       System.out.println("Your input is not valid");
       return false;
     }
@@ -61,9 +61,9 @@ public class AddCampsService implements AddCampsDAO {
 
     input = new Scanner(System.in);
     System.out.println("Enter camp location: ");
-    camp_location = input.next();
+    camp_location = input.nextLine();
 
-    if (camp_location.matches("^[0-9]")) {
+    if (camp_location.matches("[^a-zA-Z]+")) {
       System.out.println("Your input is not valid");
       return false;
     }
@@ -75,9 +75,9 @@ public class AddCampsService implements AddCampsDAO {
 
     input = new Scanner(System.in);
     System.out.println("Enter your fullname: ");
-    added_by = input.next();
+    added_by = input.nextLine();
 
-    if (added_by.matches("^[0-9]")) {
+    if (added_by.matches("[^a-zA-Z]+")) {
       System.out.println("Your input is not valid");
       return false;
     }

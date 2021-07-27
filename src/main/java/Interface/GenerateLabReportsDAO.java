@@ -4,8 +4,9 @@ import Model.GenerateLabReports;
 
 import java.util.List;
 /*
- * File Name: GenerateLabReportsDAO.java
- * Author: Yashvi Lad
+ *  Name of file: GenerateLabReportsDAO.java
+ *  Author:  Yashvi Lad
+ *  Purpose: Separate the business logic methods of Laboratory feature for report generation
  * */
 public interface GenerateLabReportsDAO {
 

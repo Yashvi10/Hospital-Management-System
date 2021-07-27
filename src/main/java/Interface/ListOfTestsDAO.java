@@ -4,10 +4,10 @@ import Model.ListOfTests;
 
 import java.util.List;
 /*
- * File Name: ListOfTestsDAO.java
- * Author: Yashvi Lad
- * */
-public interface ListOfTestsDAO {
+ *  Name of file: ListOfTestsDAO.java
+ *  Author:  Yashvi Lad
+ *  Purpose: Methos to list all tests
+ * */public interface ListOfTestsDAO {
 
   List<ListOfTests> getListOfTests();
 }

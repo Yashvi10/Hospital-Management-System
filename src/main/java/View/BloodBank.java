@@ -1,6 +1,6 @@
 package View;
 
-import Interface.FeatureMenu;
+import Interface.*;
 import Model.BloodDonor;
 import Model.BloodInventory;
 import Model.BloodRequester;
@@ -33,99 +33,141 @@ public class BloodBank implements FeatureMenu {
     static String date = null;
     static Scanner input;
 
+    private BloodServiceBLDAO bloodServiceBLDAO;
+
+    private BloodRequesterBLDAO bloodRequesterBLDAO;
+
+    private BloodDonorBLDAO bloodDonorBLDAO;
+
+    public BloodBank() {}
+
+    public BloodBank(BloodServiceBLDAO bloodServiceBLDAO, BloodRequesterBLDAO bloodRequesterBLDAO,
+                     BloodDonorBLDAO bloodDonorBLDAO) {
+        this.bloodServiceBLDAO = bloodServiceBLDAO;
+        this.bloodRequesterBLDAO = bloodRequesterBLDAO;
+        this.bloodDonorBLDAO = bloodDonorBLDAO;
+    }
+
+    /*
+     *  This method takes user input of firstname
+     * */
     public String firstname(){
         String firstname = null;
         input = new Scanner(System.in);
         System.out.println("Enter your firstname: ");
-        firstname = input.next();
+        firstname = input.nextLine();
 
-        if(firstname.matches("^[0-9]")){
+        if(firstname.matches("[^a-zA-Z]+")){
             System.out.println("Your input is not valid");
-            return null;
+            menu();
         }
 
         if(firstname == null || firstname.isEmpty()){
             System.out.println("Input cannot be empty!");
-            return null;
+            menu();
         }
         return firstname;
     }
 
+    /*
+     *  This method takes user input of middlename
+     * */
     public String middlename(){
         input = new Scanner(System.in);
         System.out.println("Enter your middlename: ");
-        middlename = input.next();
+        middlename = input.nextLine();
 
-        if(middlename.matches("^[0-9]")){
+        if(middlename.matches("[^a-zA-Z]+")){
             System.out.println("Your input is not valid");
-            return null;
+            menu();
         }
 
         if(middlename == null || middlename.isEmpty()){
             System.out.println("Input cannot be empty!");
-            return null;
+            menu();
         }
         return middlename;
     }
 
-    public static String lastname(){
+    /*
+     *  This method takes user input of lastname
+     * */
+    public String lastname(){
         input = new Scanner(System.in);
         System.out.println("Enter your lastname: ");
-        lastname = input.next();
+        lastname = input.nextLine();
 
-        if(lastname.matches("^[0-9]")){
+        if(lastname.matches("[^a-zA-Z]+")){
             System.out.println("Your input is not valid");
-            return null;
+            menu();
         }
 
         if(lastname == null || lastname.isEmpty()){
             System.out.println("Input cannot be empty!");
-            return null;
+            menu();
         }
         return lastname;
     }
 
+    /*
+     *  This method takes user input of blood group
+     * */
     public String blood_group(){
         input = new Scanner(System.in);
         System.out.println("Enter blood group: ");
-        blood_group = input.next();
+        blood_group = input.nextLine();
 
-        if(blood_group.matches("^[0-9]")){
+        if(blood_group.matches("[^a-zA-Z+-]+")){
             System.out.println("Your input is not valid");
-            return null;
+            menu();
         }
 
         if(blood_group == null || blood_group.isEmpty()){
             System.out.println("Input cannot be empty!");
-            return null;
+            menu();
         }
         return blood_group;
     }
 
+    /*
+     *  This method takes user input of contact
+     * */
     public String contact(){
+
         input = new Scanner(System.in);
         System.out.println("Enter your contact details: ");
-        contact = input.next();
+        contact = input.nextLine();
 
         if(contact == null || contact.isEmpty()){
             System.out.println("Input cannot be empty!");
-            return null;
+            menu();
         }
 
-        if(contact.length() > 10){
-            System.out.println("Contact number cannot be more than 10 digits!");
-            return null;
+        if(contact.matches("[^0-9]+")) {
+            System.out.println("Invalid Input");
+            menu();
+        }
+
+        if(contact.length() > 10 || contact.length() < 10){
+            System.out.println("Contact number can be only 10 digits!");
+            menu();
         }
         return contact;
     }
 
+    /*
+     *  This method takes user input of date
+     * */
     public String Date(){
         input = new Scanner(System.in);
         System.out.println("Enter date in format YYYY-MM-DD: ");
-        date = input.next();
+        date = input.nextLine();
         return date;
     }
 
+    /*
+     *  This method takes user input of required blood bottles
+     * */
     public Integer Bloodbottles(){
         input = new Scanner(System.in);
         System.out.println("Enter required bottles of blood: ");
@@ -133,51 +175,14 @@ public class BloodBank implements FeatureMenu {
 
         if(blood_bottles == 0){
             System.out.println("Input cannot be empty!");
-            return 0;
+            menu();
         }
         return blood_bottles;
     }
 
-    public void listOfItems() {
-
-        BloodService bloodService = new BloodService();
-        List<BloodInventory> bloodInventoryList = bloodService.getAllBloodGroup();
-
-        for(int i =0;i<bloodInventoryList.size();i++) {
-            System.out.println(bloodInventoryList.get(i).getBlood_group() + " " + bloodInventoryList.get(i).getNumber_of_bottles());
-        }
-
-        menu();
-    }
-
-    public void listOfRequesters() {
-
-        BloodRequesterService bloodRequesterService = new BloodRequesterService();
-        List<BloodRequester> bloodRequesterList = bloodRequesterService.getAllRequesters();
-
-        for(int i =0;i<bloodRequesterList.size();i++) {
-            System.out.println(bloodRequesterList.get(i).getFirstname() + " " + bloodRequesterList.get(i).getMiddlename()
-                    + " " + bloodRequesterList.get(i).getLastname() + " " + bloodRequesterList.get(i).getBlood_group()
-                    + " " + bloodRequesterList.get(i).getContact() + " " + bloodRequesterList.get(i).getDate());
-        }
-
-        menu();
-    }
-
-    public void listOfDonors() {
-
-        BloodDonorService bloodDonorService = new BloodDonorService();
-        List<BloodDonor> bloodDonorList = bloodDonorService.getAllDonors();
-
-        for(int i =0;i<bloodDonorList.size();i++) {
-            System.out.println(bloodDonorList.get(i).getFirstname() + " " + bloodDonorList.get(i).getMiddlename()
-                    + " " + bloodDonorList.get(i).getLastname() + " " + bloodDonorList.get(i).getBlood_group()
-                    + " " + bloodDonorList.get(i).getContact() + " " + bloodDonorList.get(i).getDate());
-        }
-
-        menu();
-    }
-
+    /*
+     *  This method takes user input of age
+     * */
     public Integer donationTest_age(){
         input = new Scanner(System.in);
         System.out.println("Enter your age: ");
@@ -185,11 +190,14 @@ public class BloodBank implements FeatureMenu {
 
         if(age == 0){
             System.out.println("Input cannot be empty!");
-            return 0;
+            menu();
         }
         return age;
     }
 
+    /*
+     *  This method takes user input of weight
+     * */
     public Float donationTest_Weight(){
         input = new Scanner(System.in);
         System.out.println("Enter your weight: ");
@@ -197,11 +205,14 @@ public class BloodBank implements FeatureMenu {
 
         if(weight == 0){
             System.out.println("Input cannot be empty!");
-            return 0.0f;
+            menu();
         }
         return weight;
     }
 
+    /*
+     *  This method takes user input of haemoglobin
+     * */
     public Float donationTest_Haemoglobin(){
         input = new Scanner(System.in);
         System.out.println("Enter your haemoglobin: ");
@@ -209,31 +220,37 @@ public class BloodBank implements FeatureMenu {
 
         if(haemoglobin == 0){
             System.out.println("Input cannot be empty!");
-            return 0.0f;
+            menu();
         }
         return haemoglobin;
     }
 
-    public void addToinventory(){
+    /*
+     *  This method adds details of donors and updates blood bottles into database
+     * */
+    public Boolean addToinventory(){
 
         BloodDonor bloodDonor = new BloodDonor(firstname,middlename,lastname,blood_group,contact,date);
         BloodDonorService bloodDonorService = new BloodDonorService();
-        Boolean insert = bloodDonorService.addDonor(bloodDonor);
-        if(insert){
-            System.out.println("Data inserted successfully");
+        Boolean insertData = bloodDonorService.addDonor(bloodDonor);
+        if(insertData){
+            System.out.println("Data inserted successfully!");
         }
 
-        Boolean insert1 = bloodDonorService.updateDonor(blood_group);
-        if(insert1){
-            System.out.println("Bottle Update successfully");
+        Boolean insertBottle = bloodDonorService.updateDonor(blood_group);
+        if(insertBottle){
+            System.out.println("Bottle Update successfully!\n");
         }
 
         menu();
-
+        return insertBottle;
     }
 
-    public int donationTest() throws SQLException {
-        String d = null;
+    /*
+     *  This method consists test logic to check health of blood donors
+     * */
+    public Integer donationTest() throws SQLException {
+        String user_details = null;
         if(age<18 || age>65){
             System.out.println("You are not allowed to donate blood");
         }
@@ -247,18 +264,20 @@ public class BloodBank implements FeatureMenu {
                 }
                 else{
                     System.out.println("You passed test!");
-                    d = "Your age is: " + age + "\n" + "Your weight is: " + weight + "\n" + "Your haemoglobin is: " + haemoglobin;
-                    System.out.println(d);
+                    user_details = "Your age is: " + age + "\n" + "Your weight is: " + weight + "\n" + "Your haemoglobin is: " + haemoglobin;
                 }
             }
         }
-        if(d != null){
+        if(user_details != null){
             addToinventory();
         }
         return 1;
     }
 
-    public void OnRequestUpdateInventory(){
+    /*
+     *  This method adds details of requesters and updates blood bottles based on the request in database
+     * */
+    public Integer OnRequestUpdateInventory(){
 
         BloodRequesterService bloodRequesterService = new BloodRequesterService();
         System.out.println(bloodRequesterService.isBloodAvaiable(blood_group));
@@ -270,20 +289,24 @@ public class BloodBank implements FeatureMenu {
         else{
 
             BloodRequester bloodRequester = new BloodRequester(firstname,middlename,lastname,blood_group,contact,date);
-            Boolean insert = bloodRequesterService.addRequester(bloodRequester);
-            if(insert){
-                System.out.println("Data inserted successfully");
+            Boolean insertData = bloodRequesterService.addRequester(bloodRequester);
+            if(insertData){
+                System.out.println("Data inserted successfully!");
             }
 
-            Boolean insert1 = bloodRequesterService.updateRequester(blood_bottles,blood_group);
-            if(insert1){
-                System.out.println("Bottle Update successfully");
+            Boolean updateBottle = bloodRequesterService.updateRequester(blood_bottles,blood_group);
+            if(updateBottle){
+                System.out.println("Bottle Update successfully!\n");
             }
 
         }
         menu();
+        return counter;
     }
 
+    /*
+     *  This method offers menu to user
+     * */
     @Override
     public void menu() {
 
@@ -342,21 +365,21 @@ public class BloodBank implements FeatureMenu {
             case "3" :
                 System.out.println("You selected listing all items in inventory!");
                 System.out.println("============List of Inventory============");
-                b.listOfItems();
+                bloodServiceBLDAO.listOfItems();
 
                 break;
 
             case "4" :
                 System.out.println("You selected list of details of blood requesters!");
                 System.out.println("============List of Requesters============");
-                b.listOfRequesters();
+                bloodRequesterBLDAO.listOfRequesters();
 
                 break;
 
             case "5" :
                 System.out.println("You selected list of details of blood donors!");
                 System.out.println("============List of Donors============");
-                b.listOfDonors();
+                bloodDonorBLDAO.listOfDonors();
 
                 break;
             case "6" :

@@ -5,6 +5,7 @@ import Interface.*;
 import Model.ListOfCamps;
 import Model.SearchCamps;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -25,6 +26,8 @@ public class NearbyCamps implements FeatureMenu {
 
   private ListOfCampsBLDAO listOfCampsBLDAO;
 
+  Dashboard dashboard = new Dashboard();
+
   public NearbyCamps() {
   }
 
@@ -35,7 +38,7 @@ public class NearbyCamps implements FeatureMenu {
   }
 
   @Override
-  public void menu() {
+  public void menu() throws IOException {
 
     System.out.println("\nPress 1 for Adding camps to list\nPress 2 for Searching camps\nPress 3 for Checking list of all camps\n" + "Press 4 for Exited");
 
@@ -66,17 +69,18 @@ public class NearbyCamps implements FeatureMenu {
         System.out.println("==========Searching camps==========");
         Scanner camp = new Scanner(System.in);
         System.out.println("Enter your location: ");
-        camp_location = camp.next();
-
-        if (camp_location.matches("^[0-9]")) {
-          System.out.println("Your input is not valid");
-          return;
-        }
+        camp_location = camp.nextLine();
 
         if (camp_location == null || camp_location.isEmpty()) {
           System.out.println("Input cannot be empty!");
-          return;
+          menu();
         }
+
+        if (camp_location.matches("[^a-zA-Z]+")) {
+          System.out.println("Your input is not valid");
+          menu();
+        }
+
         searchCampsBLDAO.getCamps(camp_location);
         break;
       case "3":
@@ -85,6 +89,7 @@ public class NearbyCamps implements FeatureMenu {
         break;
       case "4":
         System.out.println("Exited");
+        dashboard.homeMenu();
         break;
       default:
         System.out.println("Invalid!");

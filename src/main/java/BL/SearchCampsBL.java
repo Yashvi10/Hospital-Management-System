@@ -6,6 +6,7 @@ import Model.SearchCamps;
 import View.Constant;
 import View.NearbyCamps;
 
+import java.io.IOException;
 import java.util.List;
 
 /*
@@ -26,7 +27,7 @@ public class SearchCampsBL implements SearchCampsBLDAO {
   /* This method returns list of camps based on the provided location by user
    */
   @Override
-  public List<SearchCamps> getCamps(String camp_location) {
+  public List<SearchCamps> getCamps(String camp_location) throws IOException {
 
     List<SearchCamps> searchCampsList = searchCampsDAO.searchCamp(camp_location);
 

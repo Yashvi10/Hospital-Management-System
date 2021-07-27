@@ -25,7 +25,9 @@ public class FeatureFactory {
         } else if (menuType.equalsIgnoreCase(Constant.BILLING_MENU)) {
             return new BillingMenu(new Dashboard());
         } else if (menuType.equalsIgnoreCase(Constant.BLOODBANK_MENU)) {
-            return new BloodBank();
+            return new BloodBank(new BloodServiceBL(new BloodService()),
+                    new BloodRequesterBL(new BloodRequesterService()),
+                    new BloodDonorBL(new BloodDonorService()));
         } else if (menuType.equalsIgnoreCase(Constant.LABORATORY_MENU)) {
             return new Laboratory(new ListOfTestsBL(new ListOfTestsService()),
                     new RegisterTestService(),

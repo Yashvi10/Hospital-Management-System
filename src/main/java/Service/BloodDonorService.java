@@ -20,6 +20,9 @@ import java.util.List;
 public class BloodDonorService implements BloodDonorDAO {
 
     CustomConnection customConnection = new CustomConnection();
+
+    public BloodDonorService() {}
+
     @Override
     public Boolean addDonor(BloodDonor bloodDonor) {
         Connection conn = customConnection.Connect();

@@ -2,7 +2,9 @@ package Service;
 
 import Interface.RegisterTestDAO;
 import Model.RegisterTest;
+import View.Dashboard;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -31,7 +33,7 @@ public class RegisterTestService implements RegisterTestDAO {
   CustomConnection customConnection = new CustomConnection();
 
   @Override
-  public void registerTest() {
+  public void registerTest() throws IOException {
 
     try {
       input = new Scanner(System.in);
@@ -65,7 +67,7 @@ public class RegisterTestService implements RegisterTestDAO {
     System.out.println("Enter firstname: ");
     String firstname = input.nextLine();
 
-    if (firstname.matches("^[0-9]")) {
+    if (firstname.matches("[^a-zA-Z]+")) {
       System.out.println("Your input is not valid");
       return;
     }
@@ -78,7 +80,7 @@ public class RegisterTestService implements RegisterTestDAO {
     System.out.println("Enter lastname: ");
     String lastname = input.nextLine();
 
-    if (lastname.matches("^[0-9]")) {
+    if (lastname.matches("[^a-zA-Z]+")) {
       System.out.println("Your input is not valid");
       return;
     }
@@ -91,7 +93,7 @@ public class RegisterTestService implements RegisterTestDAO {
     System.out.println("Enter test-name: ");
     String test_name = input.nextLine();
 
-    if (test_name.matches("^[0-9]")) {
+    if (test_name.matches("[^a-zA-Z-]+")) {
       System.out.println("Your input is not valid");
       return;
     }
@@ -137,7 +139,7 @@ public class RegisterTestService implements RegisterTestDAO {
       return;
     }
 
-    if (gender.matches("^[0-9]")) {
+    if (gender.matches("[^a-zA-Z]+")) {
       System.out.println("Your input is not valid");
       return;
     }

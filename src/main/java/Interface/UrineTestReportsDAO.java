@@ -5,8 +5,9 @@ import Model.UrineTestReports;
 import java.io.IOException;
 import java.util.List;
 /*
- * File Name: UrineTestReportsDAO.java
- * Author: Yashvi Lad
+ *  Name of file: UrineTestReportsDAO.java
+ *  Author:  Yashvi Lad
+ *  Purpose: Consists of method to get reports of urine test
  * */
 public interface UrineTestReportsDAO {
 

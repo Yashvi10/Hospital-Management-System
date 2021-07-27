@@ -6,6 +6,7 @@ import Model.ListOfCamps;
 import View.Constant;
 import View.NearbyCamps;
 
+import java.io.IOException;
 import java.util.List;
 
 /*
@@ -27,13 +28,13 @@ public class ListOfCampsBL implements ListOfCampsBLDAO {
    *  This method returns list of all camps
    * */
   @Override
-  public List<ListOfCamps> getCampsData() {
+  public List<ListOfCamps> getCampsData() throws IOException {
     List<ListOfCamps> listOfCampsList = listOfCampsDAO.allCamps();
 
-    System.out.println(String.format(Constant.STRING_FORMAT, "Camp_Type").replace('-', ' ') + " " + String.format(Constant.STRING_FORMAT, "Camp_Description").replace('-', ' ') + " " + String.format(Constant.STRING_FORMAT, "Camp_Location").replace('-', ' ') + " " + String.format(Constant.STRING_FORMAT, "CampAddedBy").replace('-', ' ') + "\n");
+    System.out.println(String.format(Constant.STRING_FORMAT, "Camp_Type") + " " + String.format(Constant.STRING_FORMAT, "Camp_Description") + " " + String.format(Constant.STRING_FORMAT, "Camp_Location") + " " + String.format(Constant.STRING_FORMAT, "CampAddedBy") + "\n");
 
     for (int i = 0; i < listOfCampsList.size(); i++) {
-      System.out.println(String.format(Constant.STRING_FORMAT, listOfCampsList.get(i).getCamp_type()) + " " + String.format(Constant.STRING_FORMAT, listOfCampsList.get(i).getCamp_description()) + " " + String.format(Constant.STRING_FORMAT, listOfCampsList.get(i).getCamp_location()) + " " + String.format(Constant.STRING_FORMAT, listOfCampsList.get(i).getCamp_addedBy()));
+      System.out.println(String.format(Constant.STRING_FORMAT, listOfCampsList.get(i).getCamp_type().replace('-',' ')) + " " + String.format(Constant.STRING_FORMAT, listOfCampsList.get(i).getCamp_description().replace('-',' ')) + " " + String.format(Constant.STRING_FORMAT, listOfCampsList.get(i).getCamp_location().replace('-',' ')) + " " + String.format(Constant.STRING_FORMAT, listOfCampsList.get(i).getCamp_addedBy().replace('-',' ')));
     }
     nearbyCamps.menu();
     return listOfCampsList;
