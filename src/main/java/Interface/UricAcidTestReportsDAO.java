@@ -5,8 +5,10 @@ import Model.UricAcidTestReports;
 import java.io.IOException;
 import java.util.List;
 /*
- * File Name: UricAcidTestReportsDAO.java
- * Author: Yashvi Lad
+ *  Name of file: UricAcidTestReportsDAO.java
+ *  Author:  Yashvi Lad
+ *  Purpose: Separate methods that interacts with database
+ *  Description: This interface is responsible for handling DB operation related to UricAcidTest model
  * */
 public interface UricAcidTestReportsDAO {
 

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BillingTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-07-26T20:42:41" hostname="DESKTOP-IC8LASV" time="0.006">
-  <properties/>
-  <testcase name="getUserItemsOrder()" classname="BillingTest" time="0.004"/>
-  <testcase name="getUserOrder()" classname="BillingTest" time="0.002"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

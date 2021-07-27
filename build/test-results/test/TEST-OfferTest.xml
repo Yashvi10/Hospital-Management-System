@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="OfferTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-07-26T20:42:41" hostname="DESKTOP-IC8LASV" time="0.094">
-  <properties/>
-  <testcase name="isOfferValid()" classname="OfferTest" time="0.046"/>
-  <testcase name="getAllOffer()" classname="OfferTest" time="0.047"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

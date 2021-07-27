@@ -140,8 +140,8 @@ Service/HelpDeskRegisterService.java
  Service.HelpDeskRegisterService
 Service/BloodDonorService.java
  Service.BloodDonorService
-Service/BloodRequesterService.java
- Service.BloodRequesterService
+View/FeatureFactory.java
+ View.FeatureFactory
 BL/VitaminDReportBL.java
  BL.VitaminDReportBL
 BL/MedicalHistoryBL.java
@@ -248,8 +248,8 @@ Interface/HelpDeskFaqBLInterface.java
  Interface.HelpDeskFaqBLInterface
 Model/VaccineUserInformation.java
  Model.VaccineUserInformation
-View/BloodBank.java
- View.BloodBank
+Service/PolicyLogic.java
+ Service.PolicyLogic
 Interface/BloodRequesterDAO.java
  Interface.BloodRequesterDAO
 Model/BloodInventory.java
@@ -304,7 +304,7 @@ Model/RegisterTest.java
  Model.RegisterTest
 View/HelpDeskPage.java
  View.HelpDeskPage
-View/FeatureFactory.java
- View.FeatureFactory
-Service/PolicyLogic.java
- Service.PolicyLogic
+View/BloodBank.java
+ View.BloodBank
+Service/BloodRequesterService.java
+ Service.BloodRequesterService
