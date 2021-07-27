@@ -31,7 +31,7 @@ public class NearbyCampsTest {
   }
 
   @Test
-  void ListOfCamps() {
+  void listOfCamps() {
     //FAKE OBJECT
     List<ListOfCamps> listOfCampsList = new ArrayList<>();
     ListOfCamps listOfCamps1 = new ListOfCamps("dental","checkups","halifax","Doctor");
@@ -43,7 +43,7 @@ public class NearbyCampsTest {
   }
 
   @Test
-  void SearchCamps() {
+  void searchCamps() {
     //FAKE OBJECT
     List<SearchCamps> searchCampsList = new ArrayList<>();
     SearchCamps searchCamps1 = new SearchCamps("dental","checkups","halifax","Doctor");
