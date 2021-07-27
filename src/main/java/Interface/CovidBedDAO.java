@@ -11,4 +11,8 @@ public interface CovidBedDAO {
   Integer getTotalBeds(Integer bedType);
 
   Integer registerBed(Integer bedType);
+
+  Integer getDesiredBed(Integer bedType);
+
+  Boolean changeAvailability (Integer bedId);
 }

@@ -1,7 +1,9 @@
 package BL;
 
+import Interface.VaccineDosesDAO;
 import Interface.VaccineRegisterUserDAO;
 import Interface.VaccineRegistrationBLInterface;
+import Interface.VaccineSlotsDAO;
 import Model.VaccineUserInformation;
 import Service.UserSession;
 
@@ -23,6 +25,8 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
 
   // Instance of Interface
   VaccineRegisterUserDAO vaccineRegisterUserDAO;
+  VaccineSlotsDAO vaccineSlotsDAO;
+  VaccineDosesDAO vaccineDosesDAO;
 
   // Instance of the object from scanner class
   static Scanner userInput;
@@ -40,8 +44,8 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
   public Boolean registerUserVaccine(VaccineUserInformation vaccineUserInformation) {
 
     if (vaccineRegisterUserDAO.registerUserVaccination(vaccineUserInformation)) {
-      vaccineRegisterUserDAO.updateSlotAvailability(vaccineUserInformation.getPreferredDate());
-      vaccineRegisterUserDAO.updateVaccineDoses(vaccineUserInformation.getVaccineId());
+      vaccineSlotsDAO.updateSlotAvailability(vaccineUserInformation.getPreferredDate());
+      vaccineDosesDAO.updateVaccineDoses(vaccineUserInformation.getVaccineId());
       return true;
     } else
       return false;
@@ -313,7 +317,7 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
    */
   public Boolean checkVaccineAvailability (Integer vaccineId) {
 
-    if(vaccineRegisterUserDAO.getTotalVaccineDoses(vaccineId) != null && vaccineRegisterUserDAO.getTotalVaccineDoses(vaccineId) > 0)
+    if(vaccineDosesDAO.getTotalVaccineDoses(vaccineId) != null && vaccineDosesDAO.getTotalVaccineDoses(vaccineId) > 0)
       return true;
     else
       return false;
@@ -417,7 +421,7 @@ public class VaccineRegisterBL implements VaccineRegistrationBLInterface {
    */
   public Boolean checkSlotAvailability(Date date) {
 
-    if(vaccineRegisterUserDAO.getAvailableSlots(date) != null && vaccineRegisterUserDAO.getAvailableSlots(date) > 0)
+    if(vaccineSlotsDAO.getAvailableSlots(date) != null && vaccineSlotsDAO.getAvailableSlots(date) > 0)
       return true;
     else
       return false;

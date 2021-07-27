@@ -1,6 +1,7 @@
 package Service;
 
 import Interface.CovidBedDAO;
+import Interface.CovidBedNonData;
 
 import java.sql.*;
 
@@ -11,7 +12,7 @@ import java.sql.*;
  *  Description: Fetches information from database and gives count of availability of bed.
  *               As well as registers bed as per user's choice and availability.
  * */
-public class CovidBedService implements CovidBedDAO {
+public class CovidBedService implements CovidBedDAO, CovidBedNonData {
 
   // Initialization of the object of custom connection class
   CustomConnection customConnection = new CustomConnection();
@@ -117,6 +118,7 @@ public class CovidBedService implements CovidBedDAO {
    * This methods retrieves information about total available beds based on given bed type
    * returns total beds count
    */
+  @Override
   public String validateBedtype(Integer bedType) {
 
     if(bedType == null && bedType == 0)
@@ -137,6 +139,7 @@ public class CovidBedService implements CovidBedDAO {
    * In specific category, this method traverses the database
    * Returns the bed if bed is available otherwise returns null
    */
+  @Override
   public Integer getDesiredBed(Integer bedType) {
 
     String bed;
@@ -182,6 +185,7 @@ public class CovidBedService implements CovidBedDAO {
    * Hence if user registers for the bed
    * The system automatically considers today's date as a registration date
    */
+  @Override
   public Date getTodaysDate() {
     return  new java.sql.Date(System.currentTimeMillis());
   }
@@ -190,6 +194,7 @@ public class CovidBedService implements CovidBedDAO {
    * This helper method changes bed's availability from open to occupied
    * Returns true if availability is altered
    */
+  @Override
   public Boolean changeAvailability (Integer bedId) {
 
     Connection conn = customConnection.Connect();
