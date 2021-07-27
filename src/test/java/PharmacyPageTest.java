@@ -36,6 +36,7 @@ public class PharmacyPageTest {
 
     @Test
     final void getAllMedicines() {
+        //FAKE OBJECTS
         List<Pharmacy> pharmacyList = new ArrayList<Pharmacy>();
         Pharmacy pharmacy = new Pharmacy();
         pharmacy.setP_id(1);

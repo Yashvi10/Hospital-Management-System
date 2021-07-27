@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 /*
- *  Name of file: BL.PharmacyMenu.java
+ *  Name of file: PharmacyMenu.java
  *  Author:  Nadish Maredia
  *  Purpose & Description: This class implement the FeatureMenu and is responsible for showing
  *                          different menus related to Pharmcy module

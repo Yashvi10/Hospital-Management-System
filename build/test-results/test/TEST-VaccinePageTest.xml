@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="VaccinePageTest" tests="22" skipped="0" failures="0" errors="0" timestamp="2021-07-27T21:29:31" hostname="DESKTOP-IC8LASV" time="0.028">
+  <properties/>
+  <testcase name="updateVaccineDoses()" classname="VaccinePageTest" time="0.006"/>
+  <testcase name="validateMailId_false()" classname="VaccinePageTest" time="0.003"/>
+  <testcase name="updateSlotAvailability()" classname="VaccinePageTest" time="0.001"/>
+  <testcase name="getVaccinationInfo()" classname="VaccinePageTest" time="0.001"/>
+  <testcase name="validateGovernmentId_true()" classname="VaccinePageTest" time="0.001"/>
+  <testcase name="validateAge_false_positive()" classname="VaccinePageTest" time="0.001"/>
+  <testcase name="validateAge_false_negative()" classname="VaccinePageTest" time="0.0"/>
+  <testcase name="validateDateTest_true()" classname="VaccinePageTest" time="0.0"/>
+  <testcase name="getVaccines()" classname="VaccinePageTest" time="0.001"/>
+  <testcase name="validateAge_true()" classname="VaccinePageTest" time="0.0"/>
+  <testcase name="validateGovernmentId_false()" classname="VaccinePageTest" time="0.001"/>
+  <testcase name="validateGender_true()" classname="VaccinePageTest" time="0.0"/>
+  <testcase name="validateAge_false_zero()" classname="VaccinePageTest" time="0.0"/>
+  <testcase name="validateGender_false()" classname="VaccinePageTest" time="0.001"/>
+  <testcase name="registerUserVaccination()" classname="VaccinePageTest" time="0.001"/>
+  <testcase name="validateVaccineId_false()" classname="VaccinePageTest" time="0.002"/>
+  <testcase name="validateVaccineId_true()" classname="VaccinePageTest" time="0.0"/>
+  <testcase name="validateMailId_true()" classname="VaccinePageTest" time="0.0"/>
+  <testcase name="validateDateTest_false()" classname="VaccinePageTest" time="0.001"/>
+  <testcase name="getTotalVaccineDoses()" classname="VaccinePageTest" time="0.0"/>
+  <testcase name="getAvailableSlots()" classname="VaccinePageTest" time="0.001"/>
+  <testcase name="getUserVaccineData()" classname="VaccinePageTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

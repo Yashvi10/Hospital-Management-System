@@ -8,7 +8,7 @@ import Model.OrderItem;
 import java.util.List;
 
 /*
- *  Name of file: BL.Billing.java
+ *  Name of file: Billing.java
  *  Author:  Nadish Maredia
  * */
 public class Billing {

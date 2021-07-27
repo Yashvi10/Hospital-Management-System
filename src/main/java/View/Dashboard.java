@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /*
- *  Name of file: BL.Dashboard.java
+ *  Name of file: Dashboard.java
  *  Author:  Nadish Maredia
  *  Purpose: This class is used for showing different feature menus
  *  Description: This class is using Factory Pattern so passing name of object

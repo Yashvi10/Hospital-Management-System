@@ -1,3 +1,5 @@
+Interface/VaccineSlotsDAO.java
+ Interface.VaccineSlotsDAO
 Interface/MedicalHistoryDAO.java
  Interface.MedicalHistoryDAO
 View/VaccinePage.java
@@ -26,12 +28,16 @@ Model/BloodDonor.java
  Model.BloodDonor
 Service/BloodService.java
  Service.BloodService
+Interface/VaccineDosesDAO.java
+ Interface.VaccineDosesDAO
 Interface/OrderLastIdDAO.java
  Interface.OrderLastIdDAO
 Service/UserSession.java
  Service.UserSession
 Interface/UrineTestReportsDAO.java
  Interface.UrineTestReportsDAO
+Interface/CovidBedNonData.java
+ Interface.CovidBedNonData
 Interface/AddCampsDAO.java
  Interface.AddCampsDAO
 Service/RegisterTestService.java
@@ -140,8 +146,8 @@ Service/HelpDeskRegisterService.java
  Service.HelpDeskRegisterService
 Service/BloodDonorService.java
  Service.BloodDonorService
-View/FeatureFactory.java
- View.FeatureFactory
+Service/BloodRequesterService.java
+ Service.BloodRequesterService
 BL/VitaminDReportBL.java
  BL.VitaminDReportBL
 BL/MedicalHistoryBL.java
@@ -248,8 +254,8 @@ Interface/HelpDeskFaqBLInterface.java
  Interface.HelpDeskFaqBLInterface
 Model/VaccineUserInformation.java
  Model.VaccineUserInformation
-Service/PolicyLogic.java
- Service.PolicyLogic
+View/BloodBank.java
+ View.BloodBank
 Interface/BloodRequesterDAO.java
  Interface.BloodRequesterDAO
 Model/BloodInventory.java
@@ -304,7 +310,7 @@ Model/RegisterTest.java
  Model.RegisterTest
 View/HelpDeskPage.java
  View.HelpDeskPage
-View/BloodBank.java
- View.BloodBank
-Service/BloodRequesterService.java
- Service.BloodRequesterService
+View/FeatureFactory.java
+ View.FeatureFactory
+Service/PolicyLogic.java
+ Service.PolicyLogic

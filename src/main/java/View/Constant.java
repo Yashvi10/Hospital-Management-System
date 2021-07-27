@@ -1,7 +1,7 @@
 package View;
 
 /*
- *  Name of file: BL.Constant.java
+ *  Name of file: Constant.java
  *  Author:  Nadish Maredia
  *  Purpose: This class hold all the constants used in the project
  *  Description: This class is responsible for storing all the constants

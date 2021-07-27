@@ -14,6 +14,13 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/*
+ *  Name of file: RatingMenuTest.java
+ *  Author:  Nadish Maredia
+ *  Purpose: This is the test class for the Rating and feedback feature
+ *  Description: This class tests the functionality of the business logic for the feature
+ *
+ */
 public class RatingMenuTest {
 
     @Mock

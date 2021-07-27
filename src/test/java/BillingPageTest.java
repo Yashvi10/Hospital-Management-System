@@ -37,7 +37,7 @@ public class BillingPageTest {
 
     @Test
     void getAllOffer()  {
-
+        //FAKE OBJECTS
         List<Offers> offersList = offerService.getAllOffer();
         Offers offers = new Offers();
         offers.setOffer_id(1);
