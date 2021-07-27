@@ -82,7 +82,7 @@ public class BloodBankTest {
         PrintStream ps = new PrintStream(b1);
         System.setOut(ps);
 
-        assertEquals(expected, bloodbank.blood_group(),"Not a valid input!");
+        assertEquals(expected, bloodbank.contact(),"Not a valid input!");
     }
 
     @Test

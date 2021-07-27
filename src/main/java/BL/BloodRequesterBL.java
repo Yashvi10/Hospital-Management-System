@@ -4,6 +4,7 @@ import Interface.BloodRequesterBLDAO;
 import Interface.BloodRequesterDAO;
 import Model.BloodRequester;
 import View.BloodBank;
+import View.Constant;
 
 import java.util.List;
 
@@ -27,10 +28,17 @@ public class BloodRequesterBL implements BloodRequesterBLDAO {
 
     List<BloodRequester> bloodRequesterList = bloodRequesterDAO.getAllRequesters();
 
+    System.out.println(String.format(Constant.STRING_FORMAT,"Firstname") + " " +
+            String.format(Constant.STRING_FORMAT,"Middlename") + " " +
+            String.format(Constant.STRING_FORMAT, "Lastname") + " " +
+            String.format(Constant.STRING_FORMAT, "Blood Group") + " " +
+            String.format(Constant.STRING_FORMAT,"Contact") + " " +
+            String.format(Constant.STRING_FORMAT,"Date") + "\n");
+
     for(int i =0;i<bloodRequesterList.size();i++) {
-      System.out.println(bloodRequesterList.get(i).getFirstname() + " " + bloodRequesterList.get(i).getMiddlename()
-              + " " + bloodRequesterList.get(i).getLastname() + " " + bloodRequesterList.get(i).getBlood_group()
-              + " " + bloodRequesterList.get(i).getContact() + " " + bloodRequesterList.get(i).getDate() + "\n");
+      System.out.println(String.format(Constant.STRING_FORMAT,bloodRequesterList.get(i).getFirstname()) + " " + String.format(Constant.STRING_FORMAT,bloodRequesterList.get(i).getMiddlename())
+              + " " + String.format(Constant.STRING_FORMAT,bloodRequesterList.get(i).getLastname()) + " " + String.format(Constant.STRING_FORMAT,bloodRequesterList.get(i).getBlood_group())
+              + " " + String.format(Constant.STRING_FORMAT,bloodRequesterList.get(i).getContact()) + " " + String.format(Constant.STRING_FORMAT,bloodRequesterList.get(i).getDate()) + "\n");
     }
 
     bloodBank.menu();
