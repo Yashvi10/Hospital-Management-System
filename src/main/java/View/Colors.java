@@ -1,7 +1,7 @@
 package View;
 
 /*
- *  Name of file: BL.Colors.java
+ *  Name of file: Colors.java
  *  Author:  Nadish Maredia
  *  Purpose: This class contains different ANSI Escape code
  *  Description: By using different colors we can show errors to user

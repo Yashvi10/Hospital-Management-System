@@ -1,3 +1,5 @@
+Interface/VaccineSlotsDAO.java
+ Interface.VaccineSlotsDAO
 Interface/MedicalHistoryDAO.java
  Interface.MedicalHistoryDAO
 View/VaccinePage.java
@@ -26,12 +28,16 @@ Model/BloodDonor.java
  Model.BloodDonor
 Service/BloodService.java
  Service.BloodService
+Interface/VaccineDosesDAO.java
+ Interface.VaccineDosesDAO
 Interface/OrderLastIdDAO.java
  Interface.OrderLastIdDAO
 Service/UserSession.java
  Service.UserSession
 Interface/UrineTestReportsDAO.java
  Interface.UrineTestReportsDAO
+Interface/CovidBedNonData.java
+ Interface.CovidBedNonData
 Interface/AddCampsDAO.java
  Interface.AddCampsDAO
 Service/RegisterTestService.java

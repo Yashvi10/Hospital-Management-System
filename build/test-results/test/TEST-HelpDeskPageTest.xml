@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="HelpDeskPageTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-07-26T20:53:30" hostname="DESKTOP-IC8LASV" time="0.006">
+<testsuite name="HelpDeskPageTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2021-07-27T21:49:40" hostname="DESKTOP-IC8LASV" time="0.019">
   <properties/>
-  <testcase name="checkValidateDescription_empty_false()" classname="HelpDeskPageTest" time="0.002"/>
-  <testcase name="checkValidateDescription_longDescription_false()" classname="HelpDeskPageTest" time="0.0"/>
-  <testcase name="validateAge_false_zero()" classname="HelpDeskPageTest" time="0.001"/>
+  <testcase name="checkValidateDescription_empty_false()" classname="HelpDeskPageTest" time="0.006"/>
+  <testcase name="checkValidateDescription_longDescription_false()" classname="HelpDeskPageTest" time="0.001"/>
+  <testcase name="getActiveRequestsOfStaffId()" classname="HelpDeskPageTest" time="0.001"/>
+  <testcase name="getRandomStaffId()" classname="HelpDeskPageTest" time="0.001"/>
+  <testcase name="registerHelpDeskRequest()" classname="HelpDeskPageTest" time="0.001"/>
+  <testcase name="validateAge_false_zero()" classname="HelpDeskPageTest" time="0.002"/>
   <testcase name="checkValidateDescription_true()" classname="HelpDeskPageTest" time="0.0"/>
-  <testcase name="checkValidateDescription_null_false()" classname="HelpDeskPageTest" time="0.0"/>
+  <testcase name="checkValidateDescription_null_false()" classname="HelpDeskPageTest" time="0.001"/>
+  <testcase name="getHelpDeskFaq()" classname="HelpDeskPageTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

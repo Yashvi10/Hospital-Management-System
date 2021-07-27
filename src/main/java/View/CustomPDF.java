@@ -10,7 +10,7 @@ import java.io.FileOutputStream;
 import java.util.Random;
 
 /*
- *  Name of file: BL.CustomPDF.java
+ *  Name of file: CustomPDF.java
  *  Author:  Nadish Maredia
  *  Purpose: This class create the pdf file in folder
  *  Description: This class is responsible for saving or download the bill

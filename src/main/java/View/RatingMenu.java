@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /*
- *  Name of file: BL.RatingMenu.java
+ *  Name of file: RatingMenu.java
  *  Author:  Nadish Maredia
  *  Purpose & Description: This class implement the BL.RatingMenu and is responsible for showing
  *                          different menus related to RatingAndFeedback module

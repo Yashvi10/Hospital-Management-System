@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="VaccinePageTest" tests="21" skipped="0" failures="0" errors="0" timestamp="2021-07-26T20:53:31" hostname="DESKTOP-IC8LASV" time="0.504">
+<testsuite name="VaccinePageTest" tests="22" skipped="0" failures="0" errors="0" timestamp="2021-07-27T21:49:39" hostname="DESKTOP-IC8LASV" time="0.134">
   <properties/>
-  <testcase name="checkFistDoseCompleted()" classname="VaccinePageTest" time="0.044"/>
-  <testcase name="checkSlotAvailability_true()" classname="VaccinePageTest" time="0.143"/>
-  <testcase name="validateMailId_false()" classname="VaccinePageTest" time="0.0"/>
-  <testcase name="validateMailTEMP()" classname="VaccinePageTest" time="0.0"/>
-  <testcase name="checkSlotAvailability_false()" classname="VaccinePageTest" time="0.156"/>
-  <testcase name="checkVaccineAvailability_true()" classname="VaccinePageTest" time="0.074"/>
-  <testcase name="checkVaccineAvailability()" classname="VaccinePageTest" time="0.04"/>
+  <testcase name="updateVaccineDoses()" classname="VaccinePageTest" time="0.102"/>
+  <testcase name="validateMailId_false()" classname="VaccinePageTest" time="0.002"/>
+  <testcase name="updateSlotAvailability()" classname="VaccinePageTest" time="0.002"/>
+  <testcase name="getVaccinationInfo()" classname="VaccinePageTest" time="0.004"/>
   <testcase name="validateGovernmentId_true()" classname="VaccinePageTest" time="0.001"/>
   <testcase name="validateAge_false_positive()" classname="VaccinePageTest" time="0.0"/>
-  <testcase name="validateAge_false_negative()" classname="VaccinePageTest" time="0.0"/>
-  <testcase name="validateDateTest_true()" classname="VaccinePageTest" time="0.0"/>
-  <testcase name="validateAge_true()" classname="VaccinePageTest" time="0.0"/>
-  <testcase name="checkVaccineAvailability_false()" classname="VaccinePageTest" time="0.038"/>
-  <testcase name="validateGovernmentId_false()" classname="VaccinePageTest" time="0.0"/>
-  <testcase name="validateGender_true()" classname="VaccinePageTest" time="0.0"/>
-  <testcase name="validateAge_false_zero()" classname="VaccinePageTest" time="0.0"/>
-  <testcase name="validateGender_false()" classname="VaccinePageTest" time="0.0"/>
+  <testcase name="validateAge_false_negative()" classname="VaccinePageTest" time="0.001"/>
+  <testcase name="validateDateTest_true()" classname="VaccinePageTest" time="0.001"/>
+  <testcase name="getVaccines()" classname="VaccinePageTest" time="0.002"/>
+  <testcase name="validateAge_true()" classname="VaccinePageTest" time="0.001"/>
+  <testcase name="validateGovernmentId_false()" classname="VaccinePageTest" time="0.001"/>
+  <testcase name="validateGender_true()" classname="VaccinePageTest" time="0.001"/>
+  <testcase name="validateAge_false_zero()" classname="VaccinePageTest" time="0.002"/>
+  <testcase name="validateGender_false()" classname="VaccinePageTest" time="0.001"/>
+  <testcase name="registerUserVaccination()" classname="VaccinePageTest" time="0.001"/>
   <testcase name="validateVaccineId_false()" classname="VaccinePageTest" time="0.001"/>
-  <testcase name="validateVaccineId_true()" classname="VaccinePageTest" time="0.0"/>
+  <testcase name="validateVaccineId_true()" classname="VaccinePageTest" time="0.001"/>
   <testcase name="validateMailId_true()" classname="VaccinePageTest" time="0.001"/>
-  <testcase name="validateDateTest_false()" classname="VaccinePageTest" time="0.0"/>
+  <testcase name="validateDateTest_false()" classname="VaccinePageTest" time="0.001"/>
+  <testcase name="getTotalVaccineDoses()" classname="VaccinePageTest" time="0.001"/>
+  <testcase name="getAvailableSlots()" classname="VaccinePageTest" time="0.001"/>
+  <testcase name="getUserVaccineData()" classname="VaccinePageTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

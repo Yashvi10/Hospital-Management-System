@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 /*
- *  Name of file: BL.BillingPage.java
+ *  Name of file: BillingPage.java
  *  Author:  Nadish Maredia
  *  Purpose: This class contains different menus like checkout(), paidByCash()
  *  Description: This class basically take input from user and validate them and
