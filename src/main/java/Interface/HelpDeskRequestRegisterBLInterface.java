@@ -5,8 +5,8 @@ import Model.HelpDeskRequestInformation;
 /*
  *  Name of file: HelpDeskRequestRegisterBLInterface.java
  *  Author:  Kushang Mistry
- *  Description: The Interface is responsible for operations related to Help Desk request registration.
  *  Purpose: An Interface having methods of Business Logic to Register request.
+ *  Description: The Interface is responsible for operations related to Help Desk request registration.
  * */
 public interface HelpDeskRequestRegisterBLInterface {
 

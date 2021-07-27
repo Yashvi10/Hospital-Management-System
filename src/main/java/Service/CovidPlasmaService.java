@@ -19,8 +19,13 @@ import java.util.List;
  * */
 public class CovidPlasmaService implements CovidPlasmaDAO {
 
+  // Initialization of the object of custom connection class
   CustomConnection customConnection = new CustomConnection();
 
+  /*
+   * Method actually interacts with the database
+   * This comes under database layer and retrieves information about plasma
+   */
   @Override
   public List<CovidPlasmaInformation> showPlasmaAvailability() {
 
@@ -55,6 +60,7 @@ public class CovidPlasmaService implements CovidPlasmaDAO {
         }
       }
     }
+
     return covidPlasmaInformation;
   }
 }

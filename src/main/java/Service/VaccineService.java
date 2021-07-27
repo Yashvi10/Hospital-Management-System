@@ -18,8 +18,14 @@ import java.util.List;
  * */
 public class VaccineService implements VaccineDAO {
 
+  // Initialization of the object of custom connection class
   CustomConnection customConnection = new CustomConnection();
 
+  /*
+   * This method retrieves information about vaccine
+   * Interact with the database
+   * returns the list of vaccine information
+   */
   @Override
   public List<Vaccine> getVaccines() {
 

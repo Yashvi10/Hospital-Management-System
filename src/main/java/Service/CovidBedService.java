@@ -13,8 +13,13 @@ import java.sql.*;
  * */
 public class CovidBedService implements CovidBedDAO {
 
+  // Initialization of the object of custom connection class
   CustomConnection customConnection = new CustomConnection();
 
+  /*
+   * This methods retrieves information about total available beds based on given bed type
+   * returns total beds count
+   */
   @Override
   public Integer getTotalBeds(Integer bedType) {
 
@@ -27,7 +32,7 @@ public class CovidBedService implements CovidBedDAO {
     if(validateBedtype(bedType) == null)
       return null;
 
-    dbBed = validateBedtype(1);
+    dbBed = validateBedtype(bedType);
 
     if (conn != null) {
       String fetchQuery = "select * from covid_beds where bed_type=\""+dbBed+"\" and bed_availability=0";
@@ -61,6 +66,10 @@ public class CovidBedService implements CovidBedDAO {
       return availableBeds;
   }
 
+  /*
+   * This methods registers the bed based on availability and user choice
+   * returns bed number of specific type
+   */
   @Override
   public Integer registerBed(Integer bedType) {
 
@@ -100,9 +109,14 @@ public class CovidBedService implements CovidBedDAO {
         }
       }
     }
+
     return null;
   }
 
+  /*
+   * This methods retrieves information about total available beds based on given bed type
+   * returns total beds count
+   */
   public String validateBedtype(Integer bedType) {
 
     if(bedType == null && bedType == 0)
@@ -118,6 +132,11 @@ public class CovidBedService implements CovidBedDAO {
       return null;
   }
 
+  /*
+   * This helper method retrieves information about bed which is available
+   * In specific category, this method traverses the database
+   * Returns the bed if bed is available otherwise returns null
+   */
   public Integer getDesiredBed(Integer bedType) {
 
     String bed;
@@ -158,10 +177,19 @@ public class CovidBedService implements CovidBedDAO {
     return bedId;
   }
 
+  /*
+   * This helper method retrieves today's date
+   * Hence if user registers for the bed
+   * The system automatically considers today's date as a registration date
+   */
   public Date getTodaysDate() {
     return  new java.sql.Date(System.currentTimeMillis());
   }
 
+  /*
+   * This helper method changes bed's availability from open to occupied
+   * Returns true if availability is altered
+   */
   public Boolean changeAvailability (Integer bedId) {
 
     Connection conn = customConnection.Connect();
@@ -170,7 +198,7 @@ public class CovidBedService implements CovidBedDAO {
       return null;
 
     if (conn != null) {
-      String SQL = "update CSCI5308_8_DEVINT.covid_beds SET bed_availability=1 where bed_id = '" + bedId + "';";
+      String SQL = "update covid_beds SET bed_availability=1 where bed_id = '" + bedId + "';";
       Statement statement = null;
       try {
         statement = conn.createStatement();

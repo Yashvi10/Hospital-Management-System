@@ -40,7 +40,10 @@ public class HelpDeskPage implements FeatureMenu {
     this.dashboard = dashboard;
   }
 
-  // Method which is responsible to call Help Desk Menu (Sub-menu of the system)
+  /*
+   * Implementation of method given in the interface
+   * The sub-menu Help Desk Menu (Sub-menu of the system) which is presented to the end-user
+   */
   @Override
   public void menu() throws IOException {
 

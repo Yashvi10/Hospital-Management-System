@@ -40,7 +40,10 @@ public class VaccinePage implements FeatureMenu {
     this.dashboard = dashboard;
   }
 
-  // Method which is responsible to call Vaccine Menu (Sub-menu of the system)
+  /*
+   * Implementation of method given in the interface
+   * The sub-menu Vaccine Menu (Sub-menu of the system) which is presented to the end-user
+   */
   @Override
   public void menu() throws IOException {
 
@@ -51,7 +54,7 @@ public class VaccinePage implements FeatureMenu {
     System.out.println("1 = View Available Vaccines");
     System.out.println("2 = Register for Vaccination");
     System.out.println("3 = View Doses Taken");
-    System.out.println("\nPress 0 (Zero) to stop");
+    System.out.println("\nPress 0 (Zero) for main menu");
     System.out.println("\nEnter your choice: ");
 
     // Takes input from the user about their preference
@@ -102,8 +105,13 @@ public class VaccinePage implements FeatureMenu {
             System.out.println("Congratulations! - You have completed the first dose of the vaccination");
             System.out.println("Information! - You will get second dose of same Vaccine");
             System.out.println("Processing for the registration of second dose: ");
-            System.out.println("User Registered for Second dose? " +
-                    vaccineRegistrationBlInterface.registerUserVaccine(vaccineRegistrationBlInterface.getUserDetails(UserSession.userId)));
+
+            if(vaccineRegistrationBlInterface.registerUserVaccine(vaccineRegistrationBlInterface.getUserDetails(UserSession.userId))) {
+              System.out.println("Congratulations! - You have registered for second dose.");
+            } else {
+              System.out.println("Wrong inputs or Date is not available - Getting back to Vaccine menu ...");
+              break;
+            }
           } else if (vaccineRegistrationBlInterface.checkUserRegistration(UserSession.userId) == 2) {
             System.out.println("User already completed two dose and Fully Vaccinated - Congratulations!");
           } else {
@@ -167,7 +175,7 @@ public class VaccinePage implements FeatureMenu {
       System.out.println("1 = View Available Vaccines");
       System.out.println("2 = Register for Vaccination");
       System.out.println("3 = View Doses Taken");
-      System.out.println("\nPress 0 (Zero) to stop");
+      System.out.println("\nPress 0 (Zero) for main menu");
       System.out.println("\nEnter your choice: ");
 
       try {

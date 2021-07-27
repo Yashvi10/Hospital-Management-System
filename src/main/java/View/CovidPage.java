@@ -34,6 +34,10 @@ public class CovidPage implements FeatureMenu {
     this.dashboard = dashboard;
   }
 
+  /*
+   * Implementation of method given in the interface
+   * The sub-menu which is presented to the end-user
+   */
   @Override
   public void menu() throws IOException {
 
@@ -89,11 +93,9 @@ public class CovidPage implements FeatureMenu {
             } else {
               if (userChoice == 1) {
                 System.out.println("There are "+count+" General beds available.");
-              }
-              else if (userChoice == 2) {
+              } else if (userChoice == 2) {
                 System.out.println("There are "+count+" Oxygen beds available.");
-              }
-              else if (userChoice == 3) {
+              } else if (userChoice == 3) {
                 System.out.println("There are "+count+" Vaccine beds available.");
               }
             }
@@ -128,11 +130,9 @@ public class CovidPage implements FeatureMenu {
             } else {
               if (userChoiceRegister == 1) {
                 System.out.println("You have successfully registered, note the number G-"+bedNumber);
-              }
-              else if (userChoiceRegister == 2) {
+              } else if (userChoiceRegister == 2) {
                 System.out.println("You have successfully registered, note the number O-"+bedNumber);
-              }
-              else if (userChoiceRegister == 3) {
+              } else if (userChoiceRegister == 3) {
                 System.out.println("You have successfully registered, note the number V-"+bedNumber);
               }
             }

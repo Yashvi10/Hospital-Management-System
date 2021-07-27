@@ -15,12 +15,19 @@ import java.util.List;
  * */
 public class HelpDeskFaqBL implements HelpDeskFaqBLInterface {
 
+  // Instance of Interface - Data access object to retrieve data and call methods
   private HelpDeskFaqDAO helpDeskFaqDAO;
 
+  // A constructor of the class
   public HelpDeskFaqBL(HelpDeskFaqDAO helpDeskFaqDAO) {
     this.helpDeskFaqDAO = helpDeskFaqDAO;
   }
 
+  /*
+   * An implementation of the declared method in the interface
+   * Returns the list of the model HelpDeskFaq through it's service class
+   */
+  @Override
   public List<HelpDeskFaq> getFaqData() {
 
     List<HelpDeskFaq> helpDeskFaqList = helpDeskFaqDAO.getHelpDeskFaq();   // Fetches and stores all FAQ information

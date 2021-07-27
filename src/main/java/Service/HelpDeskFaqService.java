@@ -18,10 +18,16 @@ import java.util.List;
  * */
 public class HelpDeskFaqService implements HelpDeskFaqDAO {
 
+  // Initialization of the object of custom connection class
+  CustomConnection customConnection = new CustomConnection();
+
+  /*
+   * Method actually interacts with the database
+   * This comes under database layer and retrieves information about Frequently Asked Questions (FAQs)
+   */
   @Override
   public List<HelpDeskFaq> getHelpDeskFaq() {
 
-    CustomConnection customConnection = new CustomConnection();
     Connection conn = customConnection.Connect();
 
     List<HelpDeskFaq> helpDeskFaqs = new ArrayList<HelpDeskFaq>();
@@ -41,6 +47,7 @@ public class HelpDeskFaqService implements HelpDeskFaqDAO {
         }
       } catch (SQLException exception) {
         exception.printStackTrace();
+        return null;
       } finally {
         if (conn != null) {
           try {

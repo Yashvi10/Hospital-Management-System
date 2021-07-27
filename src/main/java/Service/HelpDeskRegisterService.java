@@ -10,15 +10,21 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /*
- *  Name of file: HelpDeskService.java
+ *  Name of file: HelpDeskRegisterService.java
  *  Author:  Kushang Mistry
  *  Purpose: Serves purpose of Help Desk request registration.
  *  Description: This class handles database operations for request registration
  * */
 public class HelpDeskRegisterService implements HelpDeskRegisterRequest {
 
+  // Initialization of the object of custom connection class
   CustomConnection customConnection = new CustomConnection();
 
+  /*
+   * Registers the request from the user and assign to the staff
+   * This method uses other method getValidStaffId() to figure out which staff is available
+   */
+  @Override
   public Boolean registerHelpDeskRequest(HelpDeskRequestInformation helpDeskRequestInformation) {
 
     Connection conn = customConnection.Connect();
@@ -28,14 +34,12 @@ public class HelpDeskRegisterService implements HelpDeskRegisterRequest {
     if(staffId == null)
       return false;
 
-    String description = helpDeskRequestInformation.getDescription();
-
     if (conn != null) {
       String insertQuery = "insert into helpdesk_request(description, status, staff_id, user_id)"
               + " values(\" "+ helpDeskRequestInformation.getDescription() + "\","+ helpDeskRequestInformation.getStatus()
               + "," + staffId + "," + helpDeskRequestInformation.getUserId() +")";
 
-      Statement statement = null;
+      Statement statement;
       try {
         statement = conn.createStatement();
         statement.executeUpdate(insertQuery);
@@ -59,6 +63,12 @@ public class HelpDeskRegisterService implements HelpDeskRegisterRequest {
     return false;
   }
 
+  /*
+   * This method returns integer count of total active requests of particular staff using staff ID
+   * this will helpful to determine and taking decision if requests are > 5
+   * then no new request will be assigned to the staff
+   */
+  @Override
   public Integer getActiveRequestsOfStaffId(Integer staffId) {
 
     Connection conn = customConnection.Connect();
@@ -95,6 +105,10 @@ public class HelpDeskRegisterService implements HelpDeskRegisterRequest {
       return null;
   }
 
+  /*
+   * This method returns random staff id whose responsibility is listed as a helper
+   */
+  @Override
   public Integer getRandomStaffId() {
 
     Connection conn = customConnection.Connect();
@@ -126,6 +140,9 @@ public class HelpDeskRegisterService implements HelpDeskRegisterRequest {
     return randomStaffId;
   }
 
+  /*
+   * This method will find the staff who has total requests less than 5
+   */
   private Integer getValidStaffId() {
 
     Integer randomStaffId = getRandomStaffId();

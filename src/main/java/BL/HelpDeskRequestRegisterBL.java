@@ -15,14 +15,20 @@ import Service.UserSession;
  * */
 public class HelpDeskRequestRegisterBL implements HelpDeskRequestRegisterBLInterface {
 
-
+  // Instance of Interface - Data access object to set the data to database
   HelpDeskRegisterRequest helpDeskRegisterRequest;
 
+  // A constructor of the class
   public HelpDeskRequestRegisterBL(HelpDeskRegisterRequest helpDeskRegisterRequest) {
     this.helpDeskRegisterRequest = helpDeskRegisterRequest;
   }
 
-
+  /*
+   * This method serves as a bridge method for other class and calls the method of the class
+   * using an interface named HelpDeskRegisterRequest
+   * Returns the true if request registered successfully and a helper is assigned to the request
+   * Else if something went wrong then it will return false
+   */
   @Override
   public Boolean registerRequest(HelpDeskRequestInformation helpDeskRequestInformation) {
     if(helpDeskRegisterRequest.registerHelpDeskRequest(helpDeskRequestInformation))
@@ -31,6 +37,12 @@ public class HelpDeskRequestRegisterBL implements HelpDeskRequestRegisterBLInter
       return false;
   }
 
+  /*
+   * This method accepts data sent by the presentation layer class
+   * Calls registerRequest method of this class to register a request
+   * Returns the true if user request get registered
+   * Else if something went wrong then it will return false
+   */
   @Override
   public Boolean getRequestInformation(String description) {
 
@@ -45,8 +57,7 @@ public class HelpDeskRequestRegisterBL implements HelpDeskRequestRegisterBLInter
         return true;
       else
         return false;
-    }
-    else
+    } else
       return false;
   }
 }

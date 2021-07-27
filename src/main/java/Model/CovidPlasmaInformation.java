@@ -4,8 +4,8 @@ package Model;
  *  Name of file: CovidPlasmaInformation.java
  *  Author:  Kushang Mistry
  *  Purpose: Responsible for storing - sending information about plasma
- *  Description: The class is responsible to fetch all details about single FAQ
- *               and store information in it.
+ *  Description: The class is responsible to fetch all details about plasma
+ *               and return information about it.
  * */
 public class CovidPlasmaInformation {
 
