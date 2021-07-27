@@ -1,24 +1,28 @@
-BillingPageTest.java
- BillingPageTest
-HelpDeskPageTest.java
- HelpDeskPageTest
+RatingMenuTest.java
+ RatingMenuTest
 BillingTest.java
  BillingTest
 OfferTest.java
  OfferTest
-VaccinePageTest.java
- VaccinePageTest
+PolicyTest.java
+ PolicyTest
 PharmacyPageTest.java
  PharmacyPageTest
 AppointmentsTest.java
  AppointmentsTest
-CovidPageTest.java
- CovidPageTest
-RatingMenuTest.java
- RatingMenuTest
-BloodBankTest.java
- BloodBankTest
-PolicyTest.java
- PolicyTest
+NearbyCampsTest.java
+ NearbyCampsTest
+HelpDeskPageTest.java
+ HelpDeskPageTest
+LaboratoryTest.java
+ LaboratoryTest
+BillingPageTest.java
+ BillingPageTest
 userManagementTest.java
  userManagementTest
+CovidPageTest.java
+ CovidPageTest
+VaccinePageTest.java
+ VaccinePageTest
+BloodBankTest.java
+ BloodBankTest

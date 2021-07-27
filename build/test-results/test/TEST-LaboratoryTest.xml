@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="LaboratoryTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-07-27T22:02:39" hostname="DESKTOP-IC8LASV" time="0.028">
+  <properties/>
+  <testcase name="listOfTests()" classname="LaboratoryTest" time="0.016"/>
+  <testcase name="urineTestReports()" classname="LaboratoryTest" time="0.002"/>
+  <testcase name="bloodTestReports()" classname="LaboratoryTest" time="0.003"/>
+  <testcase name="uricacidReports()" classname="LaboratoryTest" time="0.002"/>
+  <testcase name="vitaminDTestReports()" classname="LaboratoryTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

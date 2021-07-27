@@ -18,12 +18,4 @@ public interface VaccineRegisterUserDAO {
   List<VaccineUserInformation> getVaccinationInfo(Integer userId);
 
   VaccineUserInformation getUserVaccineData(Integer userId);
-
-  Boolean updateSlotAvailability(Date date);
-
-  Integer getAvailableSlots(Date date);
-
-  Boolean updateVaccineDoses(Integer vaccineId);
-
-  Integer getTotalVaccineDoses(Integer vaccineId);
 }

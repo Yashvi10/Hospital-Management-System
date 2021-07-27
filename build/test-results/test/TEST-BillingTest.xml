@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BillingTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-07-26T21:11:54" hostname="DESKTOP-IC8LASV" time="0.007">
+<testsuite name="BillingTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-07-27T22:02:39" hostname="DESKTOP-IC8LASV" time="0.007">
   <properties/>
   <testcase name="getUserItemsOrder()" classname="BillingTest" time="0.005"/>
   <testcase name="getUserOrder()" classname="BillingTest" time="0.002"/>

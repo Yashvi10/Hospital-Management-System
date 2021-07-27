@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BillingPageTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-07-26T21:11:54" hostname="DESKTOP-IC8LASV" time="0.087">
+<testsuite name="BillingPageTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-07-27T22:02:39" hostname="DESKTOP-IC8LASV" time="0.009">
   <properties/>
-  <testcase name="calculateDiscount_right()" classname="BillingPageTest" time="0.085"/>
+  <testcase name="calculateDiscount_right()" classname="BillingPageTest" time="0.006"/>
   <testcase name="getAllOffer()" classname="BillingPageTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

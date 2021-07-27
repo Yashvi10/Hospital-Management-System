@@ -1,9 +1,16 @@
 import BL.VaccineRegisterBL;
 import Model.Vaccine;
+import Model.VaccineUserInformation;
 import Service.VaccineRegistration;
 import Service.VaccineService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 
+import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,57 +24,143 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * */
 public class VaccinePageTest {
 
-  /*
-   * This method tests availability of data and boundary conditions
-   * If database has no vaccine details this test case will fail
-   *
-   * The test checks weather database has at-least one vaccine detail
-   */
-  @Test
-  void checkVaccineAvailability() {
-    List<Vaccine> vaccineList = new VaccineService().getVaccines();
-    assertEquals(true, vaccineList.size() > 0);
+  @Mock
+  VaccineService vaccineService;
+
+  @Mock
+  VaccineRegistration vaccineRegistration;
+
+  @BeforeEach
+  void setUp() throws Exception {
+    MockitoAnnotations.initMocks(this);
   }
 
-
   /*
-   * This method tests weather user is already registered for the vaccination or not
-   * This tests the logic, if user is already registered
-   *
-   * then the method returns 0 if which confirms user is not registered for vaccination
+   * This method uses Mock object to test the method
+   * getVaccines() method of VaccineService class - returns the list of vaccine class objects
    */
   @Test
-  void checkUnregisteredUser() {
-    VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
-    assertEquals(0, vaccineRegisterBL.checkUserRegistration(9));
+  void getVaccines() {
+
+    List<Vaccine> vaccineList = new ArrayList<>();
+    Vaccine vaccine1 = new Vaccine(1,"Moderna",250);
+    Vaccine vaccine2 = new Vaccine(2,"Covishield",256);
+
+    vaccineList.add(vaccine1);
+    vaccineList.add(vaccine2);
+
+    Mockito.when(vaccineService.getVaccines()).thenReturn(vaccineList);
+
+    assertEquals(vaccineList,vaccineService.getVaccines());
   }
 
-
   /*
-   * The methods tests user who got first dose should get return value 1 here
+   * This method uses Mock object to test the method
+   * registerUserVaccination() method of VaccineRegistration class - returns the true if user registered successfully
    */
   @Test
-  void checkFistDoseCompleted() {
-    VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
-    assertEquals(1, vaccineRegisterBL.checkUserRegistration(8));
+  void registerUserVaccination() {
+
+    VaccineUserInformation vaccineUserInformation = new VaccineUserInformation(1, "kush@dal.ca", 23, "male", "S654987",
+            java.sql.Date.valueOf("2021-07-25"), "morning", 1);
+
+    Mockito.when(vaccineRegistration.registerUserVaccination(vaccineUserInformation)).thenReturn(true);
+    assertEquals(true,vaccineRegistration.registerUserVaccination(vaccineUserInformation));
   }
 
-
   /*
-   * Tests the logic if person got two doses they should not allow to register
-   * or to get another dose
-   *
-   * The methods tests user who got both doses should get return value 2 here
+   * This method uses Mock object to test the method
+   * registerUserVaccination() method of VaccineRegistration class - returns the List of VaccineUserInformation class
    */
   @Test
-  void checkSecondDoseCompleted() {
-    VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
-    assertEquals(2, vaccineRegisterBL.checkUserRegistration(7));
+  void getVaccinationInfo() {
+
+    List<VaccineUserInformation> vaccineUserInformations = new ArrayList<>();
+
+
+    VaccineUserInformation info1 = new VaccineUserInformation(1, "kush@dal.ca", 23, "male", "S654987",
+            java.sql.Date.valueOf("2021-07-25"), "morning", 1);
+
+    VaccineUserInformation info2 = new VaccineUserInformation(2, "nush@dal.ca", 27, "female", "S894987",
+            java.sql.Date.valueOf("2021-08-15"), "evening", 3);
+
+    vaccineUserInformations.add(info1);
+    vaccineUserInformations.add(info2);
+
+    Mockito.when(vaccineRegistration.getVaccinationInfo(Mockito.anyInt())).thenReturn(vaccineUserInformations);
+    assertEquals(vaccineUserInformations,vaccineRegistration.getVaccinationInfo(2));
+  }
+
+  /*
+   * This method uses Mock object to test the method
+   * getUserVaccineData() method of VaccineRegistration class - returns the single VaccineUserInformation object
+   */
+  @Test
+  void getUserVaccineData() {
+
+    VaccineUserInformation info2 = new VaccineUserInformation(2, "nush@dal.ca", 27, "female", "S894987",
+            java.sql.Date.valueOf("2021-08-15"), "evening", 3);
+
+    Mockito.when(vaccineRegistration.getUserVaccineData(Mockito.anyInt())).thenReturn(info2);
+    assertEquals(info2,vaccineRegistration.getUserVaccineData(2));
+  }
+
+  /*
+   * This method uses Mock object to test the method
+   * updateSlotAvailability() method of VaccineRegistration class - returns the true
+   */
+  @Test
+  void updateSlotAvailability() {
+
+    Date date = Date.valueOf("2021-07-25");
+
+    Mockito.when(vaccineRegistration.updateSlotAvailability(date)).thenReturn(true);
+    assertEquals(true, vaccineRegistration.updateSlotAvailability(date));
+  }
+
+  /*
+   * This method uses Mock object to test the method
+   * getAvailableSlots() method of VaccineRegistration class - returns Integer count of the slots
+   */
+  @Test
+  void getAvailableSlots() {
+
+    Date date = Date.valueOf("2021-07-25");
+    Integer count = 250;
+
+    Mockito.when(vaccineRegistration.getAvailableSlots(date)).thenReturn(count);
+    assertEquals(count, vaccineRegistration.getAvailableSlots(date));
+  }
+
+  /*
+   * This method uses Mock object to test the method
+   * updateVaccineDoses() method of VaccineRegistration class - returns true if count is updated
+   */
+  @Test
+  void updateVaccineDoses() {
+
+    Integer vaccineId = 250;
+
+    Mockito.when(vaccineRegistration.updateVaccineDoses(vaccineId)).thenReturn(true);
+    assertEquals(true, vaccineRegistration.updateVaccineDoses(vaccineId));
+  }
+
+  /*
+   * This method uses Mock object to test the method
+   * getTotalVaccineDoses() method of VaccineRegistration class - returns the positive Integer value of total vaccines
+   */
+  @Test
+  void getTotalVaccineDoses() {
+
+    Integer totalVaccines = 3;
+
+    Mockito.when(vaccineRegistration.getTotalVaccineDoses(Mockito.anyInt())).thenReturn(totalVaccines);
+
+    assertEquals(true,vaccineRegistration.getTotalVaccineDoses(2) > 0);
   }
 
   /*
    * Tests the logic of emailId validation
-   *
    * The method returns true as emailId is in accepted format
    */
   @Test
@@ -76,15 +169,8 @@ public class VaccinePageTest {
     assertEquals(true, vaccineRegisterBL.validateEmailId("kush@dal.ca"));
   }
 
-  @Test
-  void validateMailTEMP() {
-    VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
-    assertEquals(true, vaccineRegisterBL.validateEmailId("ronnie@dal.ca"));
-  }
-
   /*
    * Tests the logic of emailId validation
-   *
    * The method returns false as emailId is invalid
    */
   @Test
@@ -106,7 +192,6 @@ public class VaccinePageTest {
 
   /*
    * Tests the logic of age validation
-   *
    * The method returns false as age is invalid
    */
   @Test
@@ -117,7 +202,6 @@ public class VaccinePageTest {
 
   /*
    * Tests the logic of age validation
-   *
    * The method returns false as age is invalid
    */
   @Test
@@ -128,7 +212,6 @@ public class VaccinePageTest {
 
   /*
    * Tests the logic of age validation
-   *
    * The method returns false as age is invalid
    */
   @Test
@@ -139,7 +222,6 @@ public class VaccinePageTest {
 
   /*
    * Tests the logic of gender validation
-   *
    * The method returns true as gender is valid case
    */
   @Test
@@ -150,7 +232,6 @@ public class VaccinePageTest {
 
   /*
    * Tests the logic of gender validation
-   *
    * The method returns false as gender is invalid
    */
   @Test
@@ -161,7 +242,6 @@ public class VaccinePageTest {
 
   /*
    * Tests the logic of governmentId validation
-   *
    * The method returns true as governmentId is valid case
    */
   @Test
@@ -172,7 +252,6 @@ public class VaccinePageTest {
 
   /*
    * Tests the logic of governmentId validation
-   *
    * The method returns true as governmentId is valid case
    */
   @Test
@@ -183,7 +262,6 @@ public class VaccinePageTest {
 
   /*
    * Tests the logic of date validation
-   *
    * The method returns true as date is in accepted format
    */
   @Test
@@ -194,7 +272,6 @@ public class VaccinePageTest {
 
   /*
    * Tests the logic of date validation
-   *
    * The method returns false as date is in invalid format
    */
   @Test
@@ -205,7 +282,6 @@ public class VaccinePageTest {
 
   /*
    * Tests the logic of vaccineId validation
-   *
    * The method returns true as vaccineId is valid
    */
   @Test
@@ -216,56 +292,11 @@ public class VaccinePageTest {
 
   /*
    * Tests the logic of vaccineId validation
-   *
    * The method returns false as vaccineId is invalid
    */
   @Test
   void validateVaccineId_false() {
     VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
     assertEquals(false, vaccineRegisterBL.validateVaccineIdInput("abc"));
-  }
-
-  /*
-   * Tests the logic of vaccineId validation
-   *
-   * The method returns true as vaccineId is valid and vaccine available in database
-   */
-  @Test
-  void checkVaccineAvailability_true() {
-    VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
-    assertEquals(true, vaccineRegisterBL.checkVaccineAvailability(1));
-  }
-
-  /*
-   * Tests the logic of vaccineId validation
-   *
-   * The method returns false as vaccineId is invalid and not available in database
-   */
-  @Test
-  void checkVaccineAvailability_false() {
-    VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
-    assertEquals(false, vaccineRegisterBL.checkVaccineAvailability(25));
-  }
-
-  /*
-   * Tests the slot availability validation
-   *
-   * The method returns true as slots are available on date 18
-   */
-  @Test
-  void checkSlotAvailability_true() {
-    VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
-    assertEquals(true, vaccineRegisterBL.checkSlotAvailability(java.sql.Date.valueOf("2021-07-18")));
-  }
-
-  /*
-   * Tests the slot availability validation
-   *
-   * The method returns false as no slots are available on date 19
-   */
-  @Test
-  void checkSlotAvailability_false() {
-    VaccineRegisterBL vaccineRegisterBL = new VaccineRegisterBL(new VaccineRegistration());
-    assertEquals(false, vaccineRegisterBL.checkSlotAvailability(java.sql.Date.valueOf("2021-07-19")));
   }
 }

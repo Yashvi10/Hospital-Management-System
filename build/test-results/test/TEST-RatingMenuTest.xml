@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="RatingMenuTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-07-26T21:11:55" hostname="DESKTOP-IC8LASV" time="0.014">
+<testsuite name="RatingMenuTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-07-27T22:02:40" hostname="DESKTOP-IC8LASV" time="0.015">
   <properties/>
   <testcase name="addFeedback()" classname="RatingMenuTest" time="0.004"/>
   <testcase name="isRequired_true()" classname="RatingMenuTest" time="0.001"/>
   <testcase name="isNumber_true()" classname="RatingMenuTest" time="0.0"/>
   <testcase name="isValidRating_false()" classname="RatingMenuTest" time="0.001"/>
-  <testcase name="lengthBelow500_false()" classname="RatingMenuTest" time="0.0"/>
+  <testcase name="lengthBelow500_false()" classname="RatingMenuTest" time="0.001"/>
   <testcase name="isNumber_false()" classname="RatingMenuTest" time="0.0"/>
-  <testcase name="lengthBelow500_true()" classname="RatingMenuTest" time="0.001"/>
+  <testcase name="lengthBelow500_true()" classname="RatingMenuTest" time="0.0"/>
   <testcase name="userAppointments()" classname="RatingMenuTest" time="0.002"/>
   <testcase name="isValidRating_true()" classname="RatingMenuTest" time="0.001"/>
-  <testcase name="isRequired_false()" classname="RatingMenuTest" time="0.0"/>
-  <testcase name="feedback_Exists()" classname="RatingMenuTest" time="0.001"/>
+  <testcase name="isRequired_false()" classname="RatingMenuTest" time="0.001"/>
+  <testcase name="feedback_Exists()" classname="RatingMenuTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

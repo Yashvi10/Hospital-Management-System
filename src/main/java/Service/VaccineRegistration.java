@@ -1,6 +1,8 @@
 package Service;
 
+import Interface.VaccineDosesDAO;
 import Interface.VaccineRegisterUserDAO;
+import Interface.VaccineSlotsDAO;
 import Model.VaccineUserInformation;
 
 import java.sql.*;
@@ -13,8 +15,9 @@ import java.util.List;
  *  Purpose: Serves purpose of user registration for vaccine
  *  Description: This class adds user information about vaccination in the database
  * */
-public class VaccineRegistration implements VaccineRegisterUserDAO {
+public class VaccineRegistration implements VaccineRegisterUserDAO, VaccineSlotsDAO, VaccineDosesDAO {
 
+  // Initialization of the object of custom connection class
   CustomConnection customConnection = new CustomConnection();
 
   /*
@@ -26,12 +29,22 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
 
     Connection conn = customConnection.Connect();
 
+    try {
+      vaccineUserInformation.getPreferredDate();
+    } catch (NullPointerException e) {
+      return false;
+    }
+
+    if(vaccineUserInformation.getPreferredDate() == null)
+      return false;
+
     if (conn != null) {
-      String insertQuery = "insert into vaccination_patients(userId, mail_id, age, gender, government_id_number, dose_date, preferred_timing) "
+      String insertQuery = "insert into vaccination_patients(userId, mail_id, age, gender, government_id_number, dose_date, preferred_timing, vaccine_id) "
               + "values(" + vaccineUserInformation.getUserId() + ",'" + vaccineUserInformation.getMailId()
               + "'," + vaccineUserInformation.getAge() + ",'" + vaccineUserInformation.getGender()
               + "','" + vaccineUserInformation.getGovernmentId() + "','" + vaccineUserInformation.getPreferredDate()
-              + "','" + vaccineUserInformation.getPreferredTiming() +"')";
+              + "','" + vaccineUserInformation.getPreferredTiming()
+              + "', " + vaccineUserInformation.getVaccineId()+")";
 
       Statement statement = null;
       try {
@@ -158,7 +171,7 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
     Date changeDate = date;
 
     if(conn != null) {
-      String SQL = "update vaccine_available_slots SET available_slots=available_slots - 1 where dose_date = '" + changeDate + "';";
+      String SQL = "update CSCI5308_8_DEVINT.vaccine_available_slots SET available_slots=available_slots - 1 where dose_date = '" + changeDate + "';";
       Statement statement = null;
       try {
         statement = conn.createStatement();
@@ -230,7 +243,7 @@ public class VaccineRegistration implements VaccineRegisterUserDAO {
     Integer vaccineIdToFetch = vaccineId;
 
     if(conn != null) {
-      String SQL = "update vaccine SET available_doses=available_doses - 1 where vaccine_id = '" + vaccineIdToFetch + "';";
+      String SQL = "update CSCI5308_8_DEVINT.vaccine SET available_doses=available_doses - 1 where vaccine_id = '" + vaccineIdToFetch + "';";
       Statement statement = null;
       try {
         statement = conn.createStatement();

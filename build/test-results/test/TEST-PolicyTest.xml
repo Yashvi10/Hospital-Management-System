@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="PolicyTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-07-26T21:11:55" hostname="DESKTOP-IC8LASV" time="0.001">
+<testsuite name="PolicyTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-07-27T22:02:40" hostname="DESKTOP-IC8LASV" time="0.002">
   <properties/>
   <testcase name="getPremiumTest()" classname="PolicyTest" time="0.001"/>
   <testcase name="singlePolicyTest()" classname="PolicyTest" time="0.0"/>
