@@ -109,7 +109,7 @@ public class BloodBankTest {
     }
 
     @Test
-    void Date() throws ParseException {
+    void date() throws ParseException {
         BloodBank bloodbank = new BloodBank();
         String ip = String.format("2020-01-01");
         ByteArrayInputStream b = new ByteArrayInputStream(ip.getBytes());
@@ -139,7 +139,7 @@ public class BloodBankTest {
     }
 
     @Test
-    void Age(){
+    void age(){
         BloodBank bloodbank = new BloodBank();
         String ip = String.format("1");
         ByteArrayInputStream b = new ByteArrayInputStream(ip.getBytes());
@@ -154,7 +154,7 @@ public class BloodBankTest {
     }
 
     @Test
-    void Weight(){
+    void weight(){
         BloodBank bloodbank = new BloodBank();
         String ip = String.format("46.0");
         ByteArrayInputStream b = new ByteArrayInputStream(ip.getBytes());
@@ -169,7 +169,7 @@ public class BloodBankTest {
     }
 
     @Test
-    void Haemoglobin(){
+    void haemoglobin(){
         BloodBank bloodbank = new BloodBank();
         String ip = String.format("16.5");
         ByteArrayInputStream b = new ByteArrayInputStream(ip.getBytes());
@@ -184,7 +184,7 @@ public class BloodBankTest {
     }
 
     @Test
-    void BloodDonorList() {
+    void bloodDonorList() {
         //FAKE OBJECT
         List<BloodDonor> bloodDonorList = new ArrayList<>();
         BloodDonor bloodDonor1 = new BloodDonor("xyz","jkl","lmn","A+","1234567890","2020-01-01");
@@ -196,7 +196,7 @@ public class BloodBankTest {
     }
 
     @Test
-    void BloodRequesterList() {
+    void bloodRequesterList() {
         //FAKE OBJECT
         List<BloodRequester> bloodRequesterList = new ArrayList<>();
         BloodRequester bloodRequester1 = new BloodRequester("xyz","jkl","lmn","A+","1234567890","2020-01-01");
@@ -208,7 +208,7 @@ public class BloodBankTest {
     }
 
     @Test
-    void BloodInventoryList() {
+    void bloodInventoryList() {
         //FAKE OBJECT
         List<BloodInventory> bloodInventoryList = new ArrayList<>();
         BloodInventory bloodInventory1 = new BloodInventory("A+",20);

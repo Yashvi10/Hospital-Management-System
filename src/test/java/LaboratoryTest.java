@@ -49,7 +49,7 @@ public class LaboratoryTest {
   }
 
   @Test
-  void UrineTestReports() {
+  void urineTestReports() {
     //FAKE OBJECT
     List<UrineTestReports> urineTestReportsList = new ArrayList<>();
     UrineTestReports urineTestReports1 = new UrineTestReports(1,10, "Pale yellow",30.0F, 6.0F,
@@ -78,7 +78,7 @@ public class LaboratoryTest {
   }
 
   @Test
-  void BloodTestReports() {
+  void bloodTestReports() {
     //FAKE OBJECT
     List<BloodTestReports> bloodTestReportsList = new ArrayList<>();
     BloodTestReports bloodTestReports1 = new BloodTestReports(1,10, "B+",25.2F, 12,34.0F,45.9F, 90.0F);
@@ -90,7 +90,7 @@ public class LaboratoryTest {
   }
 
   @Test
-  void ListOfTests() {
+  void listOfTests() {
     //FAKE OBJECT
     List<ListOfTests> listOfTestsList = new ArrayList<>();
     ListOfTests listOfTests1 = new ListOfTests(1,"xyz");
