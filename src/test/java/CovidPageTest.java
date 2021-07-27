@@ -1,6 +1,19 @@
 import BL.CovidBedBL;
+import BL.CovidPlasmaBL;
+import Model.CovidPlasmaInformation;
+import Model.Vaccine;
 import Service.CovidBedService;
+import Service.CovidPlasmaService;
+import Service.VaccineRegistration;
+import Service.VaccineService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -13,15 +26,63 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * */
 public class CovidPageTest {
 
+  @Mock
+  CovidBedService covidBedService;
+
+  @Mock
+  CovidPlasmaService covidPlasmaService;
+
+  @BeforeEach
+  void setUp() throws Exception {
+    MockitoAnnotations.initMocks(this);
+  }
+
   /*
-   * Tests the availability of ventilator beds
-   *
-   * The method returns true as more beds are available and not zero.
+   * This method uses Mock object to test the method
+   * getTotalBeds() method of CovidBedService class - returns available beds based on bed type
    */
   @Test
-  void  checkBedAvailability() {
-    CovidBedBL covidBedBL = new CovidBedBL(new CovidBedService());
-    assertEquals(true, covidBedBL.getBedCount(3) > 0);
+  void getTotalBeds() {
+
+    Mockito.when(covidBedService.getTotalBeds(Mockito.anyInt())).thenReturn(5);
+
+    assertEquals(5,covidBedService.getTotalBeds(3));
+  }
+
+  /*
+   * This method uses Mock object to test the method
+   * registerBed() method of CovidBedService class - returns bed number which registered
+   */
+  @Test
+  void registerBed() {
+
+    Mockito.when(covidBedService.registerBed(Mockito.anyInt())).thenReturn(3);
+
+    assertEquals(3,covidBedService.registerBed(3));
+  }
+
+  /*
+   * This method uses Mock object to test the method
+   * getDesiredBed() method of CovidBedService class - returns bed number which registered
+   */
+  @Test
+  void getDesiredBed() {
+
+    Mockito.when(covidBedService.getDesiredBed(Mockito.anyInt())).thenReturn(4);
+
+    assertEquals(4,covidBedService.getDesiredBed(2));
+  }
+
+  /*
+   * This method uses Mock object to test the method
+   * changeAvailability() method of CovidBedService class - returns true if availability of bed is changed
+   */
+  @Test
+  void changeAvailability() {
+
+    Mockito.when(covidBedService.changeAvailability(Mockito.anyInt())).thenReturn(true);
+
+    assertEquals(true,covidBedService.changeAvailability(2));
   }
 
   /*
@@ -66,5 +127,24 @@ public class CovidPageTest {
   void validateBedType_outOfBoundary_true() {
     CovidBedService covidBedService = new CovidBedService();
     assertEquals(true,covidBedService.validateBedtype(5) == null);
+  }
+
+  /*
+   * This method uses Mock object to test the method
+   * showPlasmaAvailability() method of CovidPlasmaService class - returns the list of CovidPlasmaInformation class objects
+   */
+  @Test
+  void showPlasmaAvailability() {
+
+    List<CovidPlasmaInformation> covidPlasmaInformation = new ArrayList<>();
+    CovidPlasmaInformation info1 = new CovidPlasmaInformation(1,"A+",150);
+    CovidPlasmaInformation info2 = new CovidPlasmaInformation(3,"AB+",7);
+
+    covidPlasmaInformation.add(info1);
+    covidPlasmaInformation.add(info2);
+
+    Mockito.when(covidPlasmaService.showPlasmaAvailability()).thenReturn(covidPlasmaInformation);
+
+    assertEquals(covidPlasmaInformation,covidPlasmaService.showPlasmaAvailability());
   }
 }

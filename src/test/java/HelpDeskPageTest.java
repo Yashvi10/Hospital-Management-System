@@ -1,7 +1,20 @@
 import BL.HelpDeskRequestRegisterBL;
+import Model.HelpDeskFaq;
+import Model.HelpDeskRequestInformation;
+import Model.Vaccine;
+import Service.HelpDeskFaqService;
 import Service.HelpDeskRegisterService;
+import Service.VaccineRegistration;
+import Service.VaccineService;
 import View.HelpDeskPage;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -14,9 +27,77 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * */
 public class HelpDeskPageTest {
 
+  @Mock
+  HelpDeskFaqService helpDeskFaqService;
+
+  @Mock
+  HelpDeskRegisterService helpDeskRegisterService;
+
+  @BeforeEach
+  void setUp() throws Exception {
+    MockitoAnnotations.initMocks(this);
+  }
+
+
+  /*
+   * This method uses Mock object to test the method
+   * getHelpDeskFaq() method of HelpDeskFaqService class - returns the list of HelpDeskFaq class objects
+   */
+  @Test
+  void getHelpDeskFaq() {
+
+    List<HelpDeskFaq> helpDeskFaq = new ArrayList<>();
+    HelpDeskFaq faq1 = new HelpDeskFaq("Emergency contact number of hospital", "Here it is: +91-8794561320");
+    HelpDeskFaq faq2 = new HelpDeskFaq("What are operating hours of Covid section", "It is open 24x7.");
+
+    helpDeskFaq.add(faq1);
+    helpDeskFaq.add(faq2);
+
+    Mockito.when(helpDeskFaqService.getHelpDeskFaq()).thenReturn(helpDeskFaq);
+
+    assertEquals(helpDeskFaq,helpDeskFaqService.getHelpDeskFaq());
+  }
+
+  /*
+   * This method uses Mock object to test the method
+   * registerHelpDeskRequest() method of HelpDeskRegisterService class - returns true if request is registered
+   */
+  @Test
+  void registerHelpDeskRequest() {
+
+    HelpDeskRequestInformation helpDeskRequestInformation = new HelpDeskRequestInformation("When will I get my report", 1, 7);
+
+    Mockito.when(helpDeskRegisterService.registerHelpDeskRequest(helpDeskRequestInformation)).thenReturn(true);
+
+    assertEquals(true,helpDeskRegisterService.registerHelpDeskRequest(helpDeskRequestInformation));
+  }
+
+  /*
+   * This method uses Mock object to test the method
+   * getActiveRequestsOfStaffId() method of HelpDeskRegisterService class - returns total requests active to staff - helper
+   */
+  @Test
+  void getActiveRequestsOfStaffId() {
+
+    Mockito.when(helpDeskRegisterService.getActiveRequestsOfStaffId(Mockito.anyInt())).thenReturn(3);
+
+    assertEquals(3,helpDeskRegisterService.getActiveRequestsOfStaffId(7));
+  }
+
+  /*
+   * This method uses Mock object to test the method
+   * getRandomStaffId() method of HelpDeskRegisterService class - returns staff ID
+   */
+  @Test
+  void getRandomStaffId() {
+
+    Mockito.when(helpDeskRegisterService.getRandomStaffId()).thenReturn(7);
+
+    assertEquals(7,helpDeskRegisterService.getRandomStaffId());
+  }
+
   /*
    * Tests the logic of description input validation
-   *
    * The method returns true as description is valid.
    */
   @Test
@@ -27,7 +108,6 @@ public class HelpDeskPageTest {
 
   /*
    * Tests the logic of description input validation
-   *
    * The method returns false as description is null.
    */
   @Test
@@ -38,7 +118,6 @@ public class HelpDeskPageTest {
 
   /*
    * Tests the logic of description input validation
-   *
    * The method returns false as description is empty.
    */
   @Test
@@ -69,7 +148,6 @@ public class HelpDeskPageTest {
 
   /*
    * Tests the logic of registering request input validation
-   *
    * The method returns false as the value is provided null.
    */
   @Test
